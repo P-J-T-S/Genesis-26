@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import connectDB from './src/database/connect.js';
+import connectDB from './database/connect.js';
 import { app } from './app.js';
 
 connectDB().then(() => {
