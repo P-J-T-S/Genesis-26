@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import { globalErrorHandler } from './utils/globalErrorHandler.js';
+import { globalErrorHandler } from './src/utils/globalErrorHandler.js';
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 
 // Routes
-import authRoutes from './routes/auth.route.js';
+import authRoutes from './src/routes/auth.route.js';
 app.use('/api/v1/auth', authRoutes);
 
 
