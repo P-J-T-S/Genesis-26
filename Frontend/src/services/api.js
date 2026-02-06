@@ -1,38 +1,49 @@
 // Recommendations API
 export const recommendationsAPI = {
-    getRecommendations: (zoneId, limit = 5) => api.get(`/v1/recommendations/${zoneId}`, { params: { limit } }),
-    runRecommendations: (mode = 'normal') => api.post('/v1/recommendations/run', { mode }),
+    getRecommendations: (zoneId, limit = 5) => api.get(`/api/v1/recommendations/${zoneId}`, { params: { limit } }),
+    runRecommendations: (mode = 'normal') => api.post('/api/v1/recommendations/run', { mode }),
 };
 
 // Feed API
 export const feedAPI = {
-    getFeed: (mode) => api.get('/v1/feed', { params: { mode } }),
+    getFeed: (mode) => api.get('/api/v1/feed', { params: { mode } }),
 };
 
 // Signal API
 export const signalAPI = {
-    getSignals: (mode) => api.get('/v1/signal/zones', { params: { mode } }),
+    getSignals: (mode) => api.get('/api/v1/signals/zones', { params: { mode } }),
 };
 
 // Intelligence API (ML Hotspot/Spike Detection)
 export const intelligenceAPI = {
-    runHotspotDetection: () => api.post('/v1/intelligence/hotspots'),
-    runSpikeDetection: () => api.post('/v1/intelligence/spikes'),
-    runAll: () => api.post('/v1/intelligence/run'),
+    runHotspotDetection: () => api.post('/api/v1/intelligence/hotspots'),
+    runSpikeDetection: () => api.post('/api/v1/intelligence/spikes'),
+    runAll: () => api.post('/api/v1/intelligence/run'),
 };
 // Priority API
 export const priorityAPI = {
-    getPriorities: (mode) => api.get('/v1/priority', { params: { mode } }),
+    getPriorities: (mode) => api.get('/api/v1/priority', { params: { mode } }),
 };
 
 // Zones API
 export const zonesAPI = {
-    getWards: (mode) => api.get('/v1/zones', { params: { mode } }),
-    setMode: (mode) => api.post('/v1/zones/mode', { mode }),
+    getWards: async (mode) => {
+        // Use /status endpoint for live data
+        const res = await api.get('/api/v1/zones/status', { params: { mode } });
+        // Return the zones array in the same shape as before
+        return {
+            ...res,
+            data: {
+                ...res.data,
+                data: Array.isArray(res.data?.data?.zones) ? res.data.data.zones : [],
+            },
+        };
+    },
+    setMode: (mode) => api.post('/api/v1/zones/mode', { mode }),
 };
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 // axios instance
 const api = axios.create({
@@ -89,62 +100,61 @@ api.interceptors.response.use(
 
 // Auth API
 export const authAPI = {
-    login: (login_id, password) => api.post('/v1/auth/login', { login_id, password }),
-    signup: (data) => api.post('/v1/auth/signup', data),
-    logout: () => api.post('/v1/auth/logout'),
-    refreshToken: () => api.post('/v1/auth/refresh-token'),
+    login: (login_id, password) => api.post('/api/v1/auth/login', { login_id, password }),
+    signup: (data) => api.post('/api/v1/auth/signup', data),
+    logout: () => api.post('/api/v1/auth/logout'),
+    refreshToken: () => api.post('/api/v1/auth/refresh-token'),
 };
 
 // User API
 export const userAPI = {
-    getCurrentUser: () => api.get('/users/me'),
-    updateProfile: (data) => api.patch('/users/update', data),
-    changePassword: (data) => api.post('/users/change-password', data),
-    getAllTechnicians: () => api.get('/users/technicians'),
-    getAll: (params) => api.get('/users', { params }),
+    getCurrentUser: () => api.get('/api/v1/users/me'),
+    updateProfile: (data) => api.patch('/api/v1/users/update', data),
+    changePassword: (data) => api.post('/api/v1/users/change-password', data),
+    getAllTechnicians: () => api.get('/api/v1/users/technicians'),
+    getAll: (params) => api.get('/api/v1/users', { params }),
 };
 
 // Equipment API
 export const equipmentAPI = {
-    getAll: (params) => api.get('/equipment', { params }),
-    getById: (id) => api.get(`/equipment/${id}`),
-    create: (data) => api.post('/equipment', data),
-    update: (id, data) => api.put(`/equipment/${id}`, data),
-    delete: (id) => api.delete(`/equipment/${id}`),
-    scrap: (id) => api.patch(`/equipment/${id}/scrap`),
-    getRequests: (id) => api.get(`/equipment/${id}/requests`),
+    getAll: (params) => api.get('/api/v1/equipment', { params }),
+    getById: (id) => api.get(`/api/v1/equipment/${id}`),
+    create: (data) => api.post('/api/v1/equipment', data),
+    update: (id, data) => api.put(`/api/v1/equipment/${id}`, data),
+    delete: (id) => api.delete(`/api/v1/equipment/${id}`),
+    scrap: (id) => api.patch(`/api/v1/equipment/${id}/scrap`),
+    getRequests: (id) => api.get(`/api/v1/equipment/${id}/requests`),
 };
 
 // Team API
 export const teamAPI = {
-    getAll: () => api.get('/teams'),
-    getById: (id) => api.get(`/teams/${id}`),
-    create: (data) => api.post('/teams', data),
-    update: (id, data) => api.put(`/teams/${id}`, data),
-    delete: (id) => api.delete(`/teams/${id}`),
+    getAll: () => api.get('/api/v1/teams'),
+    getById: (id) => api.get(`/api/v1/teams/${id}`),
+    create: (data) => api.post('/api/v1/teams', data),
+    update: (id, data) => api.put(`/api/v1/teams/${id}`, data),
+    delete: (id) => api.delete(`/api/v1/teams/${id}`),
     addTechnician: (teamId, technicianId) => 
-        api.post(`/teams/${teamId}/technicians`, { technicianId }),
+        api.post(`/api/v1/teams/${teamId}/technicians`, { technicianId }),
     removeTechnician: (teamId, technicianId) => 
-        api.delete(`/teams/${teamId}/technicians`, { data: { technicianId } }),
+        api.delete(`/api/v1/teams/${teamId}/technicians`, { data: { technicianId } }),
 };
 
 // Request API
 export const requestAPI = {
-    getAll: (params) => api.get('/requests', { params }),
-    getById: (id) => api.get(`/requests/${id}`),
-    create: (data) => api.post('/requests', data),
-    update: (id, data) => api.put(`/requests/${id}`, data),
-    delete: (id) => api.delete(`/requests/${id}`),
+    getAll: (params) => api.get('/api/v1/requests', { params }),
+    getById: (id) => api.get(`/api/v1/requests/${id}`),
+    create: (data) => api.post('/api/v1/requests', data),
+    update: (id, data) => api.put(`/api/v1/requests/${id}`, data),
+    delete: (id) => api.delete(`/api/v1/requests/${id}`),
     updateStatus: (id, status, duration) => 
-        api.patch(`/requests/${id}/status`, { status, duration }),
-    getKanban: () => api.get('/requests/kanban'),
-    getPreventive: (params) => api.get('/requests/preventive', { params }),
+        api.patch(`/api/v1/requests/${id}/status`, { status, duration }),
+    getKanban: () => api.get('/api/v1/requests/kanban'),
+    getPreventive: (params) => api.get('/api/v1/requests/preventive', { params }),
 };
 
 // Waste API (Backend integration)
 export const fetchZonesStatus = async (mode = 'normal') => {
-    // If backend expects mode as query param, else remove
-    const res = await api.get(`/zones/status?mode=${mode}`);
+    const res = await api.get(`/api/v1/zones/status?mode=${mode}`);
     return res.data;
 };
 

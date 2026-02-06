@@ -1,3 +1,4 @@
+import { zonesAPI } from '../services/api';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Map, List, Search, Filter, Download, AlertTriangle, Sparkles } from 'lucide-react';
@@ -122,18 +123,18 @@ const Wards = () => {
   const loadWards = async () => {
     setLoading(true);
     try {
-      // Replace demoAPI.getWards with real backend call when available
-      // Try backend first
       let gotLive = false;
       try {
-        // Example: replace with real API call
-        // const wardsRes = await zonesAPI.getWards(currentMode);
-        // if (wardsRes.data && wardsRes.status === 200 && Array.isArray(wardsRes.data.data)) {
-        //   dispatch(setWards(wardsRes.data.data));
-        //   setIsLive(true);
-        //   gotLive = true;
-        // }
-      } catch (err) {}
+        const wardsRes = await zonesAPI.getWards(currentMode);
+        console.log('LIVE backend wardsRes:', wardsRes);
+        if (wardsRes.data && wardsRes.status === 200 && Array.isArray(wardsRes.data.data) && wardsRes.data.data.length > 0) {
+          dispatch(setWards(wardsRes.data.data));
+          setIsLive(true);
+          gotLive = true;
+        }
+      } catch (err) {
+        console.error('LIVE backend error:', err);
+      }
       if (!gotLive) {
         // fallback to demo
         const wardsRes = await demoAPI.getWards(currentMode);
@@ -342,7 +343,7 @@ const Wards = () => {
       {viewMode === 'map' ? (
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
           <div className="xl:col-span-8">
-            <div className="card p-0 overflow-hidden min-h-[520px]">
+            <div className="card p-0 overflow-hidden min-h-130">
               <WardMap
                 wards={wards}
                 currentMode={currentMode}
