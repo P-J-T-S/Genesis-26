@@ -41,7 +41,7 @@ const Priorities = () => {
     setLoading(true);
     try {
       const [prioritiesRes, wardsRes] = await Promise.all([
-        demoAPI.getPriorities(),
+        demoAPI.getPriorities(currentMode),
         demoAPI.getWards(currentMode)
       ]);
 
@@ -149,10 +149,10 @@ const Priorities = () => {
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-secondary-900 dark:text-secondary-50">
+          <h1 className="text-3xl font-bold text-secondary-900 ">
             Priority Rankings
           </h1>
-          <p className="text-secondary-600 dark:text-secondary-400 mt-1">
+          <p className="text-secondary-600  mt-1">
             Wards ranked by Waste Pressure Index (WPI)
           </p>
         </div>
@@ -170,13 +170,13 @@ const Priorities = () => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="card bg-danger-50 dark:bg-danger-900/20 border-danger-200 dark:border-danger-800">
+        <div className="card bg-danger-50  border-danger-200 ">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-danger-600 dark:text-danger-400 font-medium">
+              <p className="text-sm text-danger-600  font-medium">
                 Critical Priority
               </p>
-              <p className="text-3xl font-bold text-danger-700 dark:text-danger-300 mt-1">
+              <p className="text-3xl font-bold text-danger-700  mt-1">
                 {priorities.filter(p => getWPILevel(p.wpi, currentMode).level === 'critical').length}
               </p>
             </div>
@@ -184,41 +184,41 @@ const Priorities = () => {
           </div>
         </div>
 
-        <div className="card bg-warning-50 dark:bg-warning-900/20 border-warning-200 dark:border-warning-800">
+        <div className="card bg-orange-50 border-orange-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-warning-600 dark:text-warning-400 font-medium">
+              <p className="text-sm text-orange-700 font-medium">
                 High Priority
               </p>
-              <p className="text-3xl font-bold text-warning-700 dark:text-warning-300 mt-1">
+              <p className="text-3xl font-bold text-orange-700 mt-1">
                 {priorities.filter(p => getWPILevel(p.wpi, currentMode).level === 'high').length}
               </p>
             </div>
-            <TrendingUp className="w-8 h-8 text-warning-500" />
+            <TrendingUp className="w-8 h-8 text-orange-500" />
           </div>
         </div>
 
-        <div className="card bg-info-50 dark:bg-info-900/20 border-info-200 dark:border-info-800">
+        <div className="card bg-warning-50 border-warning-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-info-600 dark:text-info-400 font-medium">
+              <p className="text-sm text-warning-700 font-medium">
                 Medium Priority
               </p>
-              <p className="text-3xl font-bold text-info-700 dark:text-info-300 mt-1">
+              <p className="text-3xl font-bold text-warning-700 mt-1">
                 {priorities.filter(p => getWPILevel(p.wpi, currentMode).level === 'medium').length}
               </p>
             </div>
-            <Filter className="w-8 h-8 text-info-500" />
+            <Filter className="w-8 h-8 text-warning-500" />
           </div>
         </div>
 
-        <div className="card bg-success-50 dark:bg-success-900/20 border-success-200 dark:border-success-800">
+        <div className="card bg-success-50 border-success-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-success-600 dark:text-success-400 font-medium">
-                Low Priority
+              <p className="text-sm text-success-600 font-medium">
+                Normal Priority
               </p>
-              <p className="text-3xl font-bold text-success-700 dark:text-success-300 mt-1">
+              <p className="text-3xl font-bold text-success-700 mt-1">
                 {priorities.filter(p => getWPILevel(p.wpi, currentMode).level === 'low').length}
               </p>
             </div>
@@ -232,7 +232,7 @@ const Priorities = () => {
       {/* Filters */}
       <div className="card">
         <div className="flex items-center gap-4">
-          <span className="text-sm font-medium text-secondary-700 dark:text-secondary-300">
+          <span className="text-sm font-medium text-secondary-700  ">
             Filter by level:
           </span>
           <select
@@ -244,7 +244,7 @@ const Priorities = () => {
             <option value="critical">Critical</option>
             <option value="high">High</option>
             <option value="medium">Medium</option>
-            <option value="low">Low</option>
+            <option value="low">Normal</option>
           </select>
           {filterLevel !== 'all' && (
             <button
@@ -261,41 +261,41 @@ const Priorities = () => {
       <div className="card p-0 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-secondary-50 dark:bg-secondary-800 border-b border-secondary-200 dark:border-secondary-700">
+            <thead className="bg-secondary-50 border-b border-secondary-200">
               <tr>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 dark:text-secondary-100">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 ">
                   Rank
                 </th>
                 <th
-                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 dark:text-secondary-100 cursor-pointer hover:bg-secondary-100 dark:hover:bg-secondary-700"
+                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100 dark"
                   onClick={() => handleSort('name')}
                 >
                   Ward {getSortIcon('name')}
                 </th>
                 <th
-                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 dark:text-secondary-100 cursor-pointer hover:bg-secondary-100 dark:hover:bg-secondary-700"
+                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100 dark"
                   onClick={() => handleSort('wpi')}
                 >
                   WPI {getSortIcon('wpi')}
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 dark:text-secondary-100">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 ">
                   Urgency
                 </th>
                 <th
-                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 dark:text-secondary-100 cursor-pointer hover:bg-secondary-100 dark:hover:bg-secondary-700"
+                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100 dark"
                   onClick={() => handleSort('complaints')}
                 >
                   Complaints {getSortIcon('complaints')}
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 dark:text-secondary-100">
+                <th className="px-6 py-4 text-left text-sm font-semibold text-secondary-900 ">
                   Population
                 </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-secondary-900 dark:text-secondary-100">
+                <th className="px-6 py-4 text-center text-sm font-semibold text-secondary-900 ">
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-secondary-200 dark:divide-secondary-700">
+            <tbody className="divide-y divide-secondary-200">
               {sortedPriorities.map((priority, index) => {
                 const ward = getWardDetails(priority.wardId);
                 const wpiLevel = getWPILevel(priority.wpi, currentMode);
@@ -303,11 +303,11 @@ const Priorities = () => {
                 return (
                   <tr
                     key={priority.wardId}
-                    className="hover:bg-secondary-50 dark:hover:bg-secondary-800/50 transition-colors"
+                    className="hover:bg-secondary-50 transition-colors"
                   >
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-secondary-900 dark:text-secondary-100">
+                        <span className="text-2xl font-bold text-secondary-900 ">
                           {index + 1}
                         </span>
                         {index === 0 && <span className="text-xl">🏆</span>}
@@ -317,26 +317,26 @@ const Priorities = () => {
                     </td>
                     <td className="px-6 py-4">
                       <div>
-                        <p className="font-medium text-secondary-900 dark:text-secondary-100">
+                        <p className="font-medium text-secondary-900 ">
                           {priority.wardName}
                         </p>
-                        <p className="text-sm text-secondary-600 dark:text-secondary-400">
+                        <p className="text-sm text-secondary-600 ">
                           {priority.wardId} • {ward?.zone}
                         </p>
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl font-bold text-secondary-900 dark:text-secondary-100">
+                        <span className="text-2xl font-bold text-secondary-900 ">
                           {priority.wpi}
                         </span>
                         <div
-                          className="h-2 w-24 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden"
+                          className="h-2 w-24 bg-secondary-200  rounded-full overflow-hidden"
                         >
                           <div
                             className={`h-full transition-all duration-300 ${wpiLevel.level === 'critical' ? 'bg-danger-500' :
-                                wpiLevel.level === 'high' ? 'bg-warning-500' :
-                                  wpiLevel.level === 'medium' ? 'bg-info-500' :
+                              wpiLevel.level === 'high' ? 'bg-orange-500' :
+                                  wpiLevel.level === 'medium' ? 'bg-warning-500' :
                                     'bg-success-500'
                               }`}
                             style={{ width: `${priority.wpi}%` }}
@@ -350,12 +350,12 @@ const Priorities = () => {
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="text-secondary-900 dark:text-secondary-100 font-medium">
+                      <span className="text-secondary-900  font-medium">
                         {ward?.complaints || 0}
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="text-secondary-600 dark:text-secondary-400">
+                      <span className="text-secondary-600 ">
                         {ward ? formatNumber(ward.population) : 'N/A'}
                       </span>
                     </td>

@@ -57,11 +57,12 @@ export const usePriorities = () => {
   const dispatch = useDispatch();
   const priorities = useSelector(selectPriorities);
   const isLoading = useSelector(selectIsLoading);
+  const currentMode = useSelector(selectCurrentMode);
   
   const fetchPriorities = useCallback(async () => {
     dispatch(setLoading(true));
     try {
-      const response = await demoAPI.getPriorities();
+      const response = await demoAPI.getPriorities(currentMode);
       if (response.success) {
         dispatch(setPriorities(response.data));
       }
@@ -70,7 +71,7 @@ export const usePriorities = () => {
     } finally {
       dispatch(setLoading(false));
     }
-  }, [dispatch]);
+  }, [dispatch, currentMode]);
   
   useEffect(() => {
     fetchPriorities();

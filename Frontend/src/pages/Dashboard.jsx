@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { 
-  AlertTriangle, 
-  TrendingUp, 
-  Building2, 
+import {
+  AlertTriangle,
+  TrendingUp,
+  Building2,
   Activity,
   RefreshCw,
   Clock,
@@ -26,7 +26,7 @@ import StatCard from '../components/waste/StatCard';
 import AlertCard from '../components/waste/AlertCard';
 import ModeToggle from '../components/waste/ModeToggle';
 import QuickActionCard from '../components/waste/QuickActionCard';
-import { formatRelativeTime, getModeConfig } from '../utils/helpers';
+import { formatRelativeTime, getModeConfig, getWPIThresholds } from '../utils/helpers';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -48,10 +48,10 @@ const Dashboard = () => {
   const loadDashboardData = async () => {
     setLoading(true);
     try {
-      const [wardsRes, prioritiesRes, recommendationsRes, alertsRes, statsRes] = 
+      const [wardsRes, prioritiesRes, recommendationsRes, alertsRes, statsRes] =
         await Promise.all([
           demoAPI.getWards(currentMode),
-          demoAPI.getPriorities(),
+          demoAPI.getPriorities(currentMode),
           demoAPI.getRecommendations(currentMode),
           demoAPI.getAlerts(),
           demoAPI.getStats()
@@ -76,10 +76,11 @@ const Dashboard = () => {
   };
 
   // Calculate summary stats
-  const highPriorityWards = wards.filter(w => w.wpi >= 75).length;
+  const { high: highThreshold } = getWPIThresholds(currentMode);
+  const highPriorityWards = wards.filter(w => w.wpi >= highThreshold).length;
   const totalComplaints = wards.reduce((sum, w) => sum + (w.complaints || 0), 0);
-  const avgWPI = wards.length > 0 
-    ? Math.round(wards.reduce((sum, w) => sum + w.wpi, 0) / wards.length) 
+  const avgWPI = wards.length > 0
+    ? Math.round(wards.reduce((sum, w) => sum + w.wpi, 0) / wards.length)
     : 0;
 
   if (loading) {
@@ -104,15 +105,15 @@ const Dashboard = () => {
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-secondary-900 dark:text-secondary-50">
+          <h1 className="text-3xl font-bold text-secondary-900">
             Decision Support Dashboard
           </h1>
-          <p className="text-secondary-600 dark:text-secondary-400 mt-1">
+          <p className="text-secondary-800 mt-1 font-medium">
             Real-time waste management intelligence for BMC operations
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center justify-center gap-3">
           <button
             onClick={handleRefresh}
             disabled={isRefreshing}
@@ -133,12 +134,12 @@ const Dashboard = () => {
             <h3 className={`font-semibold ${modeConfig.textClass}`}>
               {modeConfig.name}
             </h3>
-            <p className={`text-sm ${modeConfig.textClass} opacity-80`}>
+            <p className={`text-sm ${modeConfig.textClass} font-medium`}>
               {modeConfig.description}
             </p>
           </div>
           {lastUpdated && (
-            <div className="flex items-center gap-2 text-sm text-secondary-600 dark:text-secondary-400">
+            <div className="flex items-center gap-2 text-sm text-secondary-800   font-medium">
               <Clock className="w-4 h-4" />
               <span>Updated {formatRelativeTime(lastUpdated)}</span>
             </div>
@@ -188,7 +189,7 @@ const Dashboard = () => {
       {/* Active Alerts */}
       {alerts && alerts.length > 0 && (
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold text-secondary-900 dark:text-secondary-50">
+          <h2 className="text-xl font-semibold text-secondary-900 ">
             Active Alerts
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -201,7 +202,7 @@ const Dashboard = () => {
 
       {/* Quick Actions */}
       <div className="space-y-3">
-        <h2 className="text-xl font-semibold text-secondary-900 dark:text-secondary-50">
+        <h2 className="text-xl font-semibold text-secondary-900 ">
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -238,16 +239,16 @@ const Dashboard = () => {
 
       {/* Recent Activity Summary */}
       <div className="card">
-        <h2 className="text-xl font-semibold text-secondary-900 dark:text-secondary-50 mb-4">
+        <h2 className="text-xl font-semibold text-secondary-900  mb-4">
           Operational Summary
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="space-y-2">
-            <p className="text-sm text-secondary-600 dark:text-secondary-400">
+            <p className="text-sm text-secondary-600 ">
               Collection Efficiency
             </p>
             <div className="flex items-end gap-2">
-              <span className="text-3xl font-bold text-secondary-900 dark:text-secondary-50">
+              <span className="text-3xl font-bold text-secondary-900 ">
                 {stats.collectionEfficiency || 87}%
               </span>
               <span className="text-success-600 text-sm mb-1 flex items-center gap-1">
@@ -255,8 +256,8 @@ const Dashboard = () => {
                 +2%
               </span>
             </div>
-            <div className="w-full bg-secondary-200 dark:bg-secondary-700 rounded-full h-2">
-              <div 
+            <div className="w-full bg-secondary-200  rounded-full h-2">
+              <div
                 className="bg-success-500 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${stats.collectionEfficiency || 87}%` }}
               />
@@ -264,14 +265,14 @@ const Dashboard = () => {
           </div>
 
           <div className="space-y-2">
-            <p className="text-sm text-secondary-600 dark:text-secondary-400">
+            <p className="text-sm text-secondary-600 ">
               Avg Response Time
             </p>
             <div className="flex items-end gap-2">
-              <span className="text-3xl font-bold text-secondary-900 dark:text-secondary-50">
+              <span className="text-3xl font-bold text-secondary-900 ">
                 {stats.avgResponseTime || '2.3'}
               </span>
-              <span className="text-sm text-secondary-600 dark:text-secondary-400 mb-1">
+              <span className="text-sm text-secondary-600  mb-1">
                 hours
               </span>
             </div>
@@ -281,14 +282,14 @@ const Dashboard = () => {
           </div>
 
           <div className="space-y-2">
-            <p className="text-sm text-secondary-600 dark:text-secondary-400">
+            <p className="text-sm text-secondary-600 ">
               Emergency Zones
             </p>
             <div className="flex items-end gap-2">
-              <span className="text-3xl font-bold text-secondary-900 dark:text-secondary-50">
+              <span className="text-3xl font-bold text-secondary-900 ">
                 {stats.emergencyZones || 1}
               </span>
-              <span className="text-sm text-secondary-600 dark:text-secondary-400 mb-1">
+              <span className="text-sm text-secondary-600  mb-1">
                 active
               </span>
             </div>

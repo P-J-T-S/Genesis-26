@@ -45,10 +45,10 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
                 {config.label}
               </span>
             </div>
-            <h3 className="text-lg font-semibold text-secondary-900 dark:text-secondary-50">
+            <h3 className="text-lg font-semibold text-secondary-900 ">
               {recommendation.title}
             </h3>
-            <p className="text-sm text-secondary-700 dark:text-secondary-300 mt-1">
+            <p className="text-sm text-secondary-700   mt-1">
               Ward: <span className="font-medium">{recommendation.wardName}</span> ({recommendation.wardId})
             </p>
           </div>
@@ -61,24 +61,24 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
         </div>
 
         {/* Description */}
-        <p className="text-secondary-700 dark:text-secondary-300">
+        <p className="text-secondary-700  ">
           {recommendation.description}
         </p>
 
         {/* Quick Info */}
         <div className="flex flex-wrap items-center gap-4 text-sm">
-          <div className="flex items-center gap-2 text-secondary-600 dark:text-secondary-400">
+          <div className="flex items-center gap-2 text-secondary-600 ">
             <Clock className="w-4 h-4" />
             <span>{recommendation.timeframe}</span>
           </div>
           {recommendation.resources.vehicles > 0 && (
-            <div className="flex items-center gap-2 text-secondary-600 dark:text-secondary-400">
+            <div className="flex items-center gap-2 text-secondary-600 ">
               <Truck className="w-4 h-4" />
               <span>{recommendation.resources.vehicles} vehicles</span>
             </div>
           )}
           {recommendation.resources.personnel > 0 && (
-            <div className="flex items-center gap-2 text-secondary-600 dark:text-secondary-400">
+            <div className="flex items-center gap-2 text-secondary-600 ">
               <Users className="w-4 h-4" />
               <span>{recommendation.resources.personnel} personnel</span>
             </div>
@@ -87,17 +87,17 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
 
         {/* Expanded Content */}
         {expanded && (
-          <div className="space-y-4 pt-4 border-t border-secondary-200 dark:border-secondary-700 animate-fade-in">
+          <div className="space-y-4 pt-4 border-t border-secondary-200 animate-fade-in">
             {/* Action Items */}
             <div>
-              <h4 className="font-semibold text-secondary-900 dark:text-secondary-50 mb-2">
+              <h4 className="font-semibold text-secondary-900  mb-2">
                 Action Items
               </h4>
               <ul className="space-y-2">
                 {recommendation.actions.map((action, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-success-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-sm text-secondary-700 dark:text-secondary-300">
+                    <span className="text-sm text-secondary-700  ">
                       {action}
                     </span>
                   </li>
@@ -110,15 +110,15 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
               recommendation.resources.personnel > 0 || 
               recommendation.resources.equipment?.length > 0) && (
               <div>
-                <h4 className="font-semibold text-secondary-900 dark:text-secondary-50 mb-2">
+                <h4 className="font-semibold text-secondary-900  mb-2">
                   Resources Required
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {recommendation.resources.vehicles > 0 && (
-                    <div className="bg-secondary-50 dark:bg-secondary-800 rounded-lg p-3">
+                    <div className="bg-secondary-50  rounded-lg p-3">
                       <div className="flex items-center gap-2 mb-1">
                         <Truck className="w-4 h-4 text-primary-600" />
-                        <span className="text-sm font-medium text-secondary-900 dark:text-secondary-100">
+                        <span className="text-sm font-medium text-secondary-900 ">
                           Vehicles
                         </span>
                       </div>
@@ -128,10 +128,10 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
                     </div>
                   )}
                   {recommendation.resources.personnel > 0 && (
-                    <div className="bg-secondary-50 dark:bg-secondary-800 rounded-lg p-3">
+                    <div className="bg-secondary-50  rounded-lg p-3">
                       <div className="flex items-center gap-2 mb-1">
                         <Users className="w-4 h-4 text-primary-600" />
-                        <span className="text-sm font-medium text-secondary-900 dark:text-secondary-100">
+                        <span className="text-sm font-medium text-secondary-900 ">
                           Personnel
                         </span>
                       </div>
@@ -141,13 +141,13 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
                     </div>
                   )}
                   {recommendation.resources.equipment?.length > 0 && (
-                    <div className="bg-secondary-50 dark:bg-secondary-800 rounded-lg p-3">
+                    <div className="bg-secondary-50  rounded-lg p-3">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-medium text-secondary-900 dark:text-secondary-100">
+                        <span className="text-sm font-medium text-secondary-900 ">
                           Equipment
                         </span>
                       </div>
-                      <p className="text-sm text-secondary-600 dark:text-secondary-400">
+                      <p className="text-sm text-secondary-600 ">
                         {recommendation.resources.equipment.join(', ')}
                       </p>
                     </div>
@@ -157,11 +157,11 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
             )}
 
             {/* Expected Impact */}
-            <div className="bg-success-50 dark:bg-success-900/20 border border-success-200 dark:border-success-800 rounded-lg p-4">
-              <h4 className="font-semibold text-success-900 dark:text-success-100 mb-1">
+            <div className="bg-success-50 border border-success-200 rounded-lg p-4">
+              <h4 className="font-semibold text-success-900 mb-1">
                 Expected Impact
               </h4>
-              <p className="text-sm text-success-700 dark:text-success-300">
+              <p className="text-sm text-success-700">
                 {recommendation.estimatedImpact}
               </p>
             </div>
@@ -251,10 +251,10 @@ const Recommendations = () => {
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-secondary-900 dark:text-secondary-50">
+          <h1 className="text-3xl font-bold text-secondary-900 ">
             Action Recommendations
           </h1>
-          <p className="text-secondary-600 dark:text-secondary-400 mt-1">
+          <p className="text-secondary-600  mt-1">
             {filteredRecommendations.length} recommendations generated based on current conditions
           </p>
         </div>
@@ -277,38 +277,38 @@ const Recommendations = () => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="card bg-danger-50 dark:bg-danger-900/20 border-danger-200 dark:border-danger-800">
-          <p className="text-sm text-danger-600 dark:text-danger-400 font-medium mb-1">
+        <div className="card bg-danger-50  border-danger-200 ">
+          <p className="text-sm text-danger-600  font-medium mb-1">
             Critical Actions
           </p>
-          <p className="text-3xl font-bold text-danger-700 dark:text-danger-300">
+          <p className="text-3xl font-bold text-danger-700 ">
             {recommendations.filter(r => r.priority === 'critical').length}
           </p>
         </div>
 
-        <div className="card bg-warning-50 dark:bg-warning-900/20 border-warning-200 dark:border-warning-800">
-          <p className="text-sm text-warning-600 dark:text-warning-400 font-medium mb-1">
+        <div className="card bg-warning-50 border-warning-200">
+          <p className="text-sm text-warning-600 font-medium mb-1">
             High Priority
           </p>
-          <p className="text-3xl font-bold text-warning-700 dark:text-warning-300">
+          <p className="text-3xl font-bold text-warning-700">
             {recommendations.filter(r => r.priority === 'high').length}
           </p>
         </div>
 
-        <div className="card bg-info-50 dark:bg-info-900/20 border-info-200 dark:border-info-800">
-          <p className="text-sm text-info-600 dark:text-info-400 font-medium mb-1">
+        <div className="card bg-info-50 border-info-200">
+          <p className="text-sm text-info-600 font-medium mb-1">
             Preventive
           </p>
-          <p className="text-3xl font-bold text-info-700 dark:text-info-300">
+          <p className="text-3xl font-bold text-info-700">
             {recommendations.filter(r => r.type === 'preventive').length}
           </p>
         </div>
 
-        <div className="card bg-success-50 dark:bg-success-900/20 border-success-200 dark:border-success-800">
-          <p className="text-sm text-success-600 dark:text-success-400 font-medium mb-1">
+        <div className="card bg-success-50 border-success-200">
+          <p className="text-sm text-success-600 font-medium mb-1">
             Routine
           </p>
-          <p className="text-3xl font-bold text-success-700 dark:text-success-300">
+          <p className="text-3xl font-bold text-success-700">
             {recommendations.filter(r => r.type === 'routine').length}
           </p>
         </div>
@@ -319,7 +319,7 @@ const Recommendations = () => {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
           <div className="flex items-center gap-2">
             <Filter className="w-5 h-5 text-secondary-500" />
-            <span className="text-sm font-medium text-secondary-700 dark:text-secondary-300">
+            <span className="text-sm font-medium text-secondary-700  ">
               Filters:
             </span>
           </div>
@@ -376,7 +376,7 @@ const Recommendations = () => {
         ) : (
           <div className="card text-center py-12">
             <Lightbulb className="w-12 h-12 text-secondary-400 mx-auto mb-4" />
-            <p className="text-secondary-600 dark:text-secondary-400 text-lg">
+            <p className="text-secondary-600  text-lg">
               No recommendations found matching your filters.
             </p>
             <button

@@ -1,6 +1,8 @@
 // Demo data for BMC Solid Waste Management Decision Support System
 // This simulates API responses and will be easy to replace with actual backend integration
 
+import { calculateWPIFromSignals, getWPILevel } from '../utils/helpers';
+
 export const ZONES = {
   SOUTH: 'South',
   NORTH: 'North',
@@ -8,13 +10,6 @@ export const ZONES = {
   WEST: 'West',
   CENTRAL: 'Central',
   ISLAND_CITY: 'Island City',
-};
-
-export const PRESSURE_LEVELS = {
-  LOW: 'low',
-  MEDIUM: 'medium',
-  HIGH: 'high',
-  CRITICAL: 'critical',
 };
 
 export const MODES = {
@@ -29,13 +24,18 @@ export const wardsData = [
     id: 'W001',
     name: 'Colaba',
     zone: ZONES.SOUTH,
-    wpi: 78,
-    pressureLevel: PRESSURE_LEVELS.HIGH,
     coordinates: { lat: 18.9067, lng: 72.8147 },
     population: 65000,
     complaints: 12,
     lastCollection: '2 hours ago',
     nextScheduled: '4 hours',
+    signals: {
+      complaintIntensity: 62,
+      eventPresence: 'high',
+      hotspotHistory: 'recurring',
+      weatherAlert: 'low',
+      complaintSpike: true,
+    },
     factors: {
       complaints: 12,
       eventImpact: 'High - Festival gathering',
@@ -51,13 +51,18 @@ export const wardsData = [
     id: 'W002',
     name: 'Bandra West',
     zone: ZONES.WEST,
-    wpi: 85,
-    pressureLevel: PRESSURE_LEVELS.HIGH,
     coordinates: { lat: 19.0596, lng: 72.8295 },
     population: 120000,
     complaints: 18,
     lastCollection: '1 hour ago',
     nextScheduled: '2 hours',
+    signals: {
+      complaintIntensity: 70,
+      eventPresence: 'medium',
+      hotspotHistory: 'seasonal',
+      weatherAlert: 'medium',
+      complaintSpike: false,
+    },
     factors: {
       complaints: 18,
       eventImpact: 'High - Commercial area weekend',
@@ -73,13 +78,18 @@ export const wardsData = [
     id: 'W003',
     name: 'Andheri East',
     zone: ZONES.WEST,
-    wpi: 92,
-    pressureLevel: PRESSURE_LEVELS.CRITICAL,
     coordinates: { lat: 19.1136, lng: 72.8697 },
     population: 180000,
     complaints: 25,
     lastCollection: '30 mins ago',
     nextScheduled: '1 hour',
+    signals: {
+      complaintIntensity: 88,
+      eventPresence: 'critical',
+      hotspotHistory: 'chronic',
+      weatherAlert: 'high',
+      complaintSpike: true,
+    },
     factors: {
       complaints: 25,
       eventImpact: 'Critical - Market day + Construction',
@@ -95,13 +105,18 @@ export const wardsData = [
     id: 'W004',
     name: 'Dadar',
     zone: ZONES.CENTRAL,
-    wpi: 45,
-    pressureLevel: PRESSURE_LEVELS.MEDIUM,
     coordinates: { lat: 19.0178, lng: 72.8478 },
     population: 95000,
     complaints: 5,
     lastCollection: '3 hours ago',
     nextScheduled: '5 hours',
+    signals: {
+      complaintIntensity: 34,
+      eventPresence: 'low',
+      hotspotHistory: 'none',
+      weatherAlert: 'low',
+      complaintSpike: false,
+    },
     factors: {
       complaints: 5,
       eventImpact: 'None',
@@ -117,13 +132,18 @@ export const wardsData = [
     id: 'W005',
     name: 'Kurla',
     zone: ZONES.EAST,
-    wpi: 68,
-    pressureLevel: PRESSURE_LEVELS.MEDIUM,
     coordinates: { lat: 19.0728, lng: 72.8826 },
     population: 145000,
     complaints: 9,
     lastCollection: '2 hours ago',
     nextScheduled: '3 hours',
+    signals: {
+      complaintIntensity: 58,
+      eventPresence: 'medium',
+      hotspotHistory: 'recurring',
+      weatherAlert: 'medium',
+      complaintSpike: true,
+    },
     factors: {
       complaints: 9,
       eventImpact: 'Medium - Local event',
@@ -139,13 +159,18 @@ export const wardsData = [
     id: 'W006',
     name: 'Borivali',
     zone: ZONES.NORTH,
-    wpi: 32,
-    pressureLevel: PRESSURE_LEVELS.LOW,
     coordinates: { lat: 19.2304, lng: 72.8571 },
     population: 110000,
     complaints: 3,
     lastCollection: '4 hours ago',
     nextScheduled: '6 hours',
+    signals: {
+      complaintIntensity: 22,
+      eventPresence: 'none',
+      hotspotHistory: 'none',
+      weatherAlert: 'low',
+      complaintSpike: false,
+    },
     factors: {
       complaints: 3,
       eventImpact: 'None',
@@ -161,13 +186,18 @@ export const wardsData = [
     id: 'W007',
     name: 'Mulund',
     zone: ZONES.NORTH,
-    wpi: 55,
-    pressureLevel: PRESSURE_LEVELS.MEDIUM,
     coordinates: { lat: 19.1726, lng: 72.9565 },
     population: 88000,
     complaints: 7,
     lastCollection: '2 hours ago',
     nextScheduled: '4 hours',
+    signals: {
+      complaintIntensity: 46,
+      eventPresence: 'low',
+      hotspotHistory: 'seasonal',
+      weatherAlert: 'low',
+      complaintSpike: false,
+    },
     factors: {
       complaints: 7,
       eventImpact: 'Low',
@@ -183,13 +213,18 @@ export const wardsData = [
     id: 'W008',
     name: 'Worli',
     zone: ZONES.SOUTH,
-    wpi: 72,
-    pressureLevel: PRESSURE_LEVELS.HIGH,
     coordinates: { lat: 19.0176, lng: 72.8157 },
     population: 75000,
     complaints: 11,
     lastCollection: '1 hour ago',
     nextScheduled: '2 hours',
+    signals: {
+      complaintIntensity: 60,
+      eventPresence: 'medium',
+      hotspotHistory: 'recurring',
+      weatherAlert: 'medium',
+      complaintSpike: false,
+    },
     factors: {
       complaints: 11,
       eventImpact: 'High - Business district',
@@ -204,16 +239,30 @@ export const wardsData = [
 ];
 
 // Priority-sorted wards
-export const prioritiesData = [
-  { rank: 1, wardId: 'W003', wardName: 'Andheri East', wpi: 92, urgency: 'Critical' },
-  { rank: 2, wardId: 'W002', wardName: 'Bandra West', wpi: 85, urgency: 'High' },
-  { rank: 3, wardId: 'W001', wardName: 'Colaba', wpi: 78, urgency: 'High' },
-  { rank: 4, wardId: 'W008', wardName: 'Worli', wpi: 72, urgency: 'High' },
-  { rank: 5, wardId: 'W005', wardName: 'Kurla', wpi: 68, urgency: 'Medium' },
-  { rank: 6, wardId: 'W007', wardName: 'Mulund', wpi: 55, urgency: 'Medium' },
-  { rank: 7, wardId: 'W004', wardName: 'Dadar', wpi: 45, urgency: 'Medium' },
-  { rank: 8, wardId: 'W006', wardName: 'Borivali', wpi: 32, urgency: 'Low' },
-];
+const buildWardsWithWpi = (mode = MODES.NORMAL) =>
+  wardsData.map((ward) => {
+    const { wpi, breakdown } = calculateWPIFromSignals(ward.signals);
+    const level = getWPILevel(wpi, mode);
+    return {
+      ...ward,
+      wpi,
+      wpiBreakdown: breakdown,
+      pressureLevel: level.level,
+    };
+  });
+
+const buildPriorities = (mode = MODES.NORMAL) => {
+  const ranked = buildWardsWithWpi(mode)
+    .sort((a, b) => b.wpi - a.wpi)
+    .map((ward, index) => ({
+      rank: index + 1,
+      wardId: ward.id,
+      wardName: ward.name,
+      wpi: ward.wpi,
+      urgency: getWPILevel(ward.wpi, mode).label,
+    }));
+  return ranked;
+};
 
 // Recommendations based on current mode and ward conditions
 export const recommendationsData = [
@@ -393,7 +442,7 @@ export const demoAPI = {
     await simulateDelay();
     return {
       success: true,
-      data: wardsData,
+      data: buildWardsWithWpi(mode),
       timestamp: new Date().toISOString(),
     };
   },
@@ -401,7 +450,7 @@ export const demoAPI = {
   // Get ward by ID
   getWardById: async (wardId) => {
     await simulateDelay(300);
-    const ward = wardsData.find(w => w.id === wardId);
+    const ward = buildWardsWithWpi().find(w => w.id === wardId);
     return {
       success: !!ward,
       data: ward,
@@ -410,11 +459,11 @@ export const demoAPI = {
   },
   
   // Get priorities
-  getPriorities: async () => {
+  getPriorities: async (mode = MODES.NORMAL) => {
     await simulateDelay();
     return {
       success: true,
-      data: prioritiesData,
+      data: buildPriorities(mode),
       timestamp: new Date().toISOString(),
     };
   },
@@ -455,8 +504,8 @@ export const demoAPI = {
     return {
       success: true,
       data: {
-        wards: wardsData,
-        priorities: prioritiesData,
+        wards: buildWardsWithWpi(mode),
+        priorities: buildPriorities(mode),
         recommendations: recommendationsData,
         alerts: alertsData,
         stats: statsData,

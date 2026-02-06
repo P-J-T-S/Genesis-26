@@ -45,12 +45,10 @@ export function getMuiTheme() {
       primary: {
         main: colors.primary[500],
         light: colors.primary[300],
-        dark: colors.primary[700],
       },
       secondary: {
         main: colors.secondary[500],
         light: colors.secondary[300],
-        dark: colors.secondary[700],
       },
       success: {
         main: colors.success[500],

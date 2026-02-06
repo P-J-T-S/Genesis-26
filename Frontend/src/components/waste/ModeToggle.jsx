@@ -14,7 +14,7 @@ const ModeToggle = () => {
   };
 
   return (
-    <div className="flex items-center gap-2 bg-secondary-100 dark:bg-secondary-800 rounded-lg p-1">
+    <div className="flex items-center gap-2 bg-white rounded-lg p-1 text-md border border-secondary-200">
       {modes.map((mode) => {
         const config = getModeConfig(mode);
         const isActive = currentMode === mode;
@@ -24,10 +24,10 @@ const ModeToggle = () => {
             key={mode}
             onClick={() => handleModeChange(mode)}
             className={`
-              px-4 py-2 rounded-md text-sm font-medium transition-all duration-200
+              px-4 py-2 w-48 rounded-md text-sm font-medium transition-all duration-200
               ${isActive
-                ? `bg-white dark:bg-secondary-700 shadow-sm ${config.textClass}`
-                : 'text-secondary-600 dark:text-secondary-400 hover:text-secondary-900 dark:hover:text-secondary-200'
+                ? `bg-secondary-100 shadow-sm ${config.textClass}`
+                : 'text-black hover:bg-secondary-200'
               }
             `}
           >
