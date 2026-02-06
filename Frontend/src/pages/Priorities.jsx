@@ -64,7 +64,8 @@ const Priorities = () => {
   };
 
   const getWardDetails = (wardId) => {
-    return wards.find(w => w.id === wardId);
+    // Try to find by id or wardId, fallback to priority object itself
+    return wards.find(w => w.id === wardId || w.wardId === wardId) || priorities.find(p => p.wardId === wardId);
   };
 
   const handleViewWard = (wardId) => {
@@ -317,7 +318,7 @@ const Priorities = () => {
                 const wpiLevel = getWPILevel(priority.wpi, currentMode);
                 return (
                   <tr
-                    key={priority.wardId}
+                    key={priority.wardId + '-' + priority.rank}
                     className={`hover:bg-secondary-50 transition-colors ${selectedWard?.id === priority.wardId ? 'bg-primary-50/40' : ''}`}
                   >
                     <td className="py-2 px-3 font-semibold text-secondary-900 ">{priority.rank}</td>
