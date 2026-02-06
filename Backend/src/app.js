@@ -27,7 +27,10 @@ app.use(cookieParser());
 
 // Routes
 import authRoutes from './routes/auth.route.js';
+import zonesRoutes from './routes/zones.route.js';
+
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/zones', zonesRoutes);
 
 
 // error handler
