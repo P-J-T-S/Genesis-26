@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useAuth } from '../contexts/AuthContext';
 import { Map, List, Search, Filter, Download, AlertTriangle, Sparkles } from 'lucide-react';
 import {
   setWards,
@@ -40,6 +41,20 @@ const Wards = () => {
   const [signals, setSignals] = useState([]);
   const [activeSignalId, setActiveSignalId] = useState(null);
   const [highlightedWards, setHighlightedWards] = useState([]);
+
+  // Auth & RBAC
+  const { user, isWardOfficer, isZonalSupervisor, isCityHead } = useAuth();
+
+  // Apply Role-Based Restrictions to Wards List
+  const displayedWards = useMemo(() => {
+    let result = wards;
+    if (isWardOfficer && user?.assignedWard) {
+      result = result.filter(w => w.id === user.assignedWard);
+    } else if (isZonalSupervisor && user?.assignedZone) {
+      result = result.filter(w => w.zone === user.assignedZone);
+    }
+    return result;
+  }, [wards, isWardOfficer, isZonalSupervisor, user]);
 
   useEffect(() => {
     loadWards();
@@ -96,10 +111,29 @@ const Wards = () => {
     filters.pressureLevel !== 'all' ||
     filters.zone !== 'all';
 
+  // Base list of wards accessible to user (ignoring search filters for now)
+  const roleAccessibleWards = useMemo(() => {
+    let result = allWards;
+    if (isWardOfficer && user?.assignedWard) {
+      result = result.filter(w => w.id === user.assignedWard);
+    } else if (isZonalSupervisor && user?.assignedZone) {
+      result = result.filter(w => w.zone === user.assignedZone);
+    }
+    return result;
+  }, [allWards, isWardOfficer, isZonalSupervisor, user]);
+
   const topPriorities = useMemo(() => {
-    const sorted = [...allWards].sort((a, b) => b.wpi - a.wpi);
+    const sorted = [...roleAccessibleWards].sort((a, b) => b.wpi - a.wpi);
     return sorted.slice(0, 5);
-  }, [allWards]);
+  }, [roleAccessibleWards]);
+
+  // Zones needing review (City Head Only)
+  const reviewZones = useMemo(() => {
+    if (!isCityHead) return [];
+    return roleAccessibleWards
+      .filter(w => w.complianceScore === 'Low' || w.pressureLevel === 'critical')
+      .sort((a, b) => (a.complianceScore === 'Low' ? -1 : 1)); // Low compliance first
+  }, [roleAccessibleWards, isCityHead]);
 
   const handleSignalClick = (signal) => {
     if (activeSignalId === signal.id) {
@@ -133,8 +167,8 @@ const Wards = () => {
             Ward Management
           </h1>
           <p className="text-secondary-600  mt-1">
-            {wards.length} wards monitored
-            {hasActiveFilters && ` (filtered from ${allWards.length} total)`}
+            {displayedWards.length} wards monitored
+            {hasActiveFilters && ` (filtered from ${roleAccessibleWards.length} total)`}
           </p>
         </div>
 
@@ -244,7 +278,7 @@ const Wards = () => {
           <div className="xl:col-span-8">
             <div className="lg:col-span-9 h-full relative rounded-xl overflow-hidden border border-secondary-200 shadow-md bg-white">
               <LiveWastePressureMap
-                wardsData={wards}
+                wardsData={displayedWards}
                 currentMode={currentMode}
                 selectedWardId={selectedWard?.id}
                 onWardSelect={handleWardSelect}
@@ -257,6 +291,33 @@ const Wards = () => {
               recommendations={recommendations}
               currentMode={currentMode}
             />
+
+            {/* City Head Review List */}
+            {isCityHead && reviewZones.length > 0 && (
+              <div className="card space-y-3 bg-red-50 border-red-100">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-semibold text-red-900">Zones Needing Review</p>
+                    <p className="text-xs text-red-700">Process or awareness gaps detected</p>
+                  </div>
+                  <AlertTriangle className="w-4 h-4 text-red-600" />
+                </div>
+                <div className="space-y-2">
+                  {reviewZones.map(ward => (
+                    <button
+                      key={ward.id}
+                      className="w-full text-left px-3 py-2 rounded-lg bg-white border border-red-200 hover:shadow-md transition-all"
+                      onClick={() => dispatch(selectWard(ward))}
+                    >
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-red-900">{ward.name}</span>
+                        <span className="text-xs font-bold text-red-600">{ward.complianceScore === 'Low' ? 'Low Compliance' : 'Critical WPI'}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="card space-y-3">
               <div className="flex items-center justify-between">
@@ -361,8 +422,8 @@ const Wards = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {wards.length > 0 ? (
-            wards.map(ward => (
+          {displayedWards.length > 0 ? (
+            displayedWards.map(ward => (
               <WardCard key={ward.id} ward={ward} />
             ))
           ) : (
