@@ -1,4 +1,3 @@
-// Backend/src/services/feed.service.js
 import { Recommendation } from '../models/recommendation.model.js';
 import { Alert } from '../models/alert.model.js';
 import { Event } from '../models/event.model.js';

@@ -11,7 +11,7 @@ import { Recommendation } from '../models/recommendation.model.js';
 import {
   computeZoneWPI,
   computeAllZonesWPI,
-  updateZoneStatus,
+  updateZoneStanpmtus,
   rankZonesByPriority,
 } from '../services/wpi.service.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
