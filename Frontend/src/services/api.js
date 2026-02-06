@@ -2,6 +2,16 @@
 export const recommendationsAPI = {
     getRecommendations: (zoneId, mode) => api.get(`/v1/zones/${zoneId}`, { params: { mode } }),
 };
+
+// Feed API
+export const feedAPI = {
+    getFeed: (mode) => api.get('/v1/feed', { params: { mode } }),
+};
+
+// Signal API
+export const signalAPI = {
+    getSignals: (mode) => api.get('/v1/signal/zones', { params: { mode } }),
+};
 // Priority API
 export const priorityAPI = {
     getPriorities: (mode) => api.get('/v1/priority', { params: { mode } }),

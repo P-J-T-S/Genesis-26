@@ -40,56 +40,61 @@ const Wards = () => {
   const [signals, setSignals] = useState([]);
   const [activeSignalId, setActiveSignalId] = useState(null);
   const [highlightedWards, setHighlightedWards] = useState([]);
-
-  useEffect(() => {
-  loadWards();
-}, [currentMode]);
-
-useEffect(() => {
-  if (selectedWard) {
-    loadRecommendations(selectedWard.id);
-  }
-}, [selectedWard, currentMode]);
-
-const loadRecommendations = async (zoneId) => {
-  try {
-    const res = await recommendationsAPI.getRecommendations(zoneId, currentMode);
-    if (res.data && res.status === 200 && res.data.data && Array.isArray(res.data.data.recommendations)) {
-      dispatch(setRecommendations(res.data.data.recommendations));
-    } else {
-      // fallback to demo
-      const recsRes = await demoAPI.getRecommendations(currentMode);
-      if (recsRes.success) dispatch(setRecommendations(recsRes.data));
-    }
-  } catch (error) {
-    // fallback to demo
-    const recsRes = await demoAPI.getRecommendations(currentMode);
-    if (recsRes.success) dispatch(setRecommendations(recsRes.data));
-  }
-};
-
-
-
-
   useEffect(() => {
     loadWards();
   }, [currentMode]);
 
-const loadWards = async () => {
-  setLoading(true);
-  try {
-    const wardsRes = await demoAPI.getWards(currentMode);
-    if (wardsRes.success) dispatch(setWards(wardsRes.data));
-    // recommendations now handled separately
-    const alertsRes = await demoAPI.getAlerts();
-    if (alertsRes.success) {
-      dispatch(setAlerts(alertsRes.data));
-      setSignals(alertsRes.data);
+  useEffect(() => {
+    if (selectedWard) {
+      loadRecommendations(selectedWard.id);
     }
-  } catch (error) {
-    console.error('Error loading wards:', error);
-  } finally {
-    setLoading(false);
+  }, [selectedWard, currentMode]);
+
+  const loadRecommendations = async (zoneId) => {
+    try {
+      const res = await recommendationsAPI.getRecommendations(zoneId, currentMode);
+      if (res.data && res.status === 200 && res.data.data && Array.isArray(res.data.data.recommendations)) {
+        dispatch(setRecommendations(res.data.data.recommendations));
+      } else {
+        // fallback to demo
+        const recsRes = await demoAPI.getRecommendations(currentMode);
+        if (recsRes.success) dispatch(setRecommendations(recsRes.data));
+      }
+    } catch (error) {
+      // fallback to demo
+      const recsRes = await demoAPI.getRecommendations(currentMode);
+      if (recsRes.success) dispatch(setRecommendations(recsRes.data));
+    }
+  };
+
+  // Signals/feed integration
+  const loadWards = async () => {
+    setLoading(true);
+    try {
+      const wardsRes = await demoAPI.getWards(currentMode);
+      if (wardsRes.success) dispatch(setWards(wardsRes.data));
+      // recommendations now handled separately
+      // Try backend signals first
+      try {
+        const signalsRes = await signalAPI.getSignals(currentMode);
+        if (signalsRes.data && signalsRes.status === 200 && Array.isArray(signalsRes.data.data)) {
+          setSignals(signalsRes.data.data);
+        } else {
+          // fallback to demo
+          const alertsRes = await demoAPI.getAlerts();
+          if (alertsRes.success) setSignals(alertsRes.data);
+        }
+      } catch (err) {
+        // fallback to demo
+        const alertsRes = await demoAPI.getAlerts();
+        if (alertsRes.success) setSignals(alertsRes.data);
+      }
+    } catch (error) {
+      console.error('Error loading wards:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
   }
 };
 
