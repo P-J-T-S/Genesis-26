@@ -23,7 +23,7 @@ import {
   selectLastUpdated,
   selectSelectedWard
 } from '../store/slices/waste/wasteSlice';
-import { demoAPI } from '../data/demoData';
+import { feedAPI, zonesAPI, priorityAPI, recommendationsAPI } from '../services/api';
 import AlertCard from '../components/waste/AlertCard';
 import ModeToggle from '../components/waste/ModeToggle';
 import LiveWastePressureMap from '../components/waste/LiveWastePressureMap';
@@ -51,20 +51,26 @@ const Dashboard = () => {
   const loadDashboardData = async () => {
     setLoading(true);
     try {
-      const [wardsRes, prioritiesRes, recommendationsRes, alertsRes, statsRes] =
-        await Promise.all([
-          demoAPI.getWards(currentMode),
-          demoAPI.getPriorities(currentMode),
-          demoAPI.getRecommendations(currentMode),
-          demoAPI.getAlerts(),
-          demoAPI.getStats()
-        ]);
+      const [wardsRes, prioritiesRes, recommendationsRes, feedRes] = await Promise.all([
+        zonesAPI.getWards(currentMode),
+        priorityAPI.getPriorities(currentMode),
+        recommendationsAPI.getRecommendations('all'), // Replace 'all' with actual zoneId if needed
+        feedAPI.getFeed(currentMode)
+      ]);
 
-      if (wardsRes.success) dispatch(setWards(wardsRes.data));
-      if (prioritiesRes.success) dispatch(setPriorities(prioritiesRes.data));
-      if (recommendationsRes.success) dispatch(setRecommendations(recommendationsRes.data));
-      if (alertsRes.success) dispatch(setAlerts(alertsRes.data));
-      if (statsRes.success) dispatch(setStats(statsRes.data));
+      // Wards
+      if (wardsRes?.data?.data) dispatch(setWards(wardsRes.data.data));
+      // Priorities
+      if (prioritiesRes?.data?.data) dispatch(setPriorities(prioritiesRes.data.data));
+      // Recommendations
+      if (recommendationsRes?.data?.data) dispatch(setRecommendations(recommendationsRes.data.data));
+      // Alerts (from feed)
+      if (feedRes?.data?.feed) {
+        const alerts = feedRes.data.feed.filter(item => item.type === 'alert').map(item => ({ ...item.data, id: item.data._id || item.data.id }));
+        dispatch(setAlerts(alerts));
+      }
+      // Stats (optional, if available from backend)
+      // if (statsRes?.data?.data) dispatch(setStats(statsRes.data.data));
     } catch (error) {
       console.error('Error loading dashboard data:', error);
     } finally {
