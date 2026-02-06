@@ -12,6 +12,13 @@ export const feedAPI = {
 export const signalAPI = {
     getSignals: (mode) => api.get('/v1/signal/zones', { params: { mode } }),
 };
+
+// Intelligence API (ML Hotspot/Spike Detection)
+export const intelligenceAPI = {
+    runHotspotDetection: () => api.post('/v1/intelligence/hotspots'),
+    runSpikeDetection: () => api.post('/v1/intelligence/spikes'),
+    runAll: () => api.post('/v1/intelligence/run'),
+};
 // Priority API
 export const priorityAPI = {
     getPriorities: (mode) => api.get('/v1/priority', { params: { mode } }),

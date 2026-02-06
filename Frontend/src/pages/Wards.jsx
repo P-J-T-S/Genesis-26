@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Map, List, Search, Filter, Download, AlertTriangle, Sparkles } from 'lucide-react';
 import { recommendationsAPI } from '../services/api';
+import socket from '../services/socket';
+import { intelligenceAPI } from '../services/api';
 import {
   setWards,
   setFilter,
@@ -27,6 +29,59 @@ import WardDecisionPanel from '../components/waste/WardDecisionPanel';
 import { exportToCSV, getWPILevel } from '../utils/helpers';
 
 const Wards = () => {
+      // Real-time socket.io integration
+      useEffect(() => {
+        // Listen for real-time ward updates
+        socket.on('zone:update', (zoneData) => {
+          // Update the ward in Redux if present
+          dispatch(setWards((prevWards) => {
+            if (!Array.isArray(prevWards)) return prevWards;
+            return prevWards.map(w => w.id === zoneData.id ? { ...w, ...zoneData } : w);
+          }));
+        });
+        // Listen for real-time signal updates
+        socket.on('signal:update', (signalData) => {
+          setSignals((prev) => {
+            // Replace or add the signal
+            const idx = prev.findIndex(s => s.id === signalData.id);
+            if (idx !== -1) {
+              const updated = [...prev];
+              updated[idx] = { ...updated[idx], ...signalData };
+              return updated;
+            }
+            return [signalData, ...prev];
+          });
+        });
+        // Listen for feed updates (optional)
+        socket.on('feed:update', (feedData) => {
+          // Could trigger a refresh or notification
+        });
+        return () => {
+          socket.off('zone:update');
+          socket.off('signal:update');
+          socket.off('feed:update');
+        };
+      }, [dispatch]);
+    // ML Hotspot/Spike detection: run on load and every 60s
+    useEffect(() => {
+      let intervalId;
+      const runMLDetection = async () => {
+        try {
+          await intelligenceAPI.runAll(); // triggers backend ML
+          // After ML runs, reload wards from backend (replace with real API when available)
+          // For now, just reload demo wards to simulate update
+          const wardsRes = await demoAPI.getWards(currentMode);
+          if (wardsRes.success) dispatch(setWards(wardsRes.data));
+        } catch (err) {
+          // fallback to demo
+          const wardsRes = await demoAPI.getWards(currentMode);
+          if (wardsRes.success) dispatch(setWards(wardsRes.data));
+        }
+      };
+      runMLDetection();
+      intervalId = setInterval(runMLDetection, 60000); // 60s
+      return () => clearInterval(intervalId);
+    }, [currentMode, dispatch]);
   const dispatch = useDispatch();
   const wards = useSelector(selectFilteredWards);
   const allWards = useSelector(selectWards);
@@ -71,6 +126,8 @@ const Wards = () => {
   const loadWards = async () => {
     setLoading(true);
     try {
+      // After ML detection, backend should update wards with live spikes/hotspots
+      // Replace demoAPI.getWards with real backend call when available
       const wardsRes = await demoAPI.getWards(currentMode);
       if (wardsRes.success) dispatch(setWards(wardsRes.data));
       // recommendations now handled separately
