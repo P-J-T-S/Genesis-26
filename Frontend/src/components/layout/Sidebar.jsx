@@ -11,7 +11,7 @@ import {
 
 const Sidebar = ({ isOpen, onClose }) => {
   const navItems = [
-    { path: '/home', icon: Home, label: 'Home' },
+    // { path: '/home', icon: Home, label: 'Home' },
     { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { path: '/wards', icon: Map, label: 'Ward Management' },
     { path: '/priorities', icon: ListOrdered, label: 'Priority Rankings' },

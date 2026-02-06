@@ -7,7 +7,7 @@ import ThemeProvider from './components/theme/ThemeProvider.jsx'
 import Layout from './components/layout/Layout';
 
 // Pages
-import { Landing, Login, Signup, Home, Dashboard, Wards, Priorities, Recommendations } from './pages/index'
+import { Landing, Login, Signup, Dashboard, Wards, Priorities, Recommendations } from './pages/index'
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -68,7 +68,6 @@ function AppRoutes() {
             <Layout />
         }
       >
-        <Route path="home" element={<Home />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="wards" element={<Wards />} />
         <Route path="priorities" element={<Priorities />} />

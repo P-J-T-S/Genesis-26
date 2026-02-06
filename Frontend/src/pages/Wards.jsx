@@ -18,7 +18,8 @@ import {
   selectWards
 } from '../store/slices/waste/wasteSlice';
 import { demoAPI, ZONES } from '../data/demoData';
-import WardMap from '../components/waste/WardMap';
+// import WardMap from '../components/waste/WardMap';
+import LiveWastePressureMap from '../components/waste/LiveWastePressureMap';
 import WardCard from '../components/waste/WardCard';
 import WardDetailModal from '../components/waste/WardDetailModal';
 import ModeToggle from '../components/waste/ModeToggle';
@@ -108,6 +109,10 @@ const Wards = () => {
     }
     setActiveSignalId(signal.id);
     setHighlightedWards(signal.affectedWards || []);
+  };
+
+  const handleWardSelect = (ward) => {
+    dispatch(selectWard(ward));
   };
 
   if (loading) {
@@ -237,12 +242,12 @@ const Wards = () => {
       {viewMode === 'map' ? (
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
           <div className="xl:col-span-8">
-            <div className="card p-0 overflow-hidden min-h-[520px]">
-              <WardMap
-                wards={wards}
+            <div className="lg:col-span-9 h-full relative rounded-xl overflow-hidden border border-secondary-200 shadow-md bg-white">
+              <LiveWastePressureMap
+                wardsData={wards}
                 currentMode={currentMode}
-                highlightedWardIds={highlightedWards}
                 selectedWardId={selectedWard?.id}
+                onWardSelect={handleWardSelect}
               />
             </div>
           </div>
