@@ -1,3 +1,7 @@
+import {
+  generateAndSaveRecommendations,
+  getRecentRecommendations,
+} from '../services/recommendation.service.js';
 import { Zone } from '../models/zone.model.js';
 import { ZoneStatus } from '../models/zone_status.model.js';
 import { ComplaintAgg } from '../models/complaints_agg.model.js';
@@ -16,9 +20,7 @@ import { ApiResponse } from '../utils/apiResponse.js';
 // Global mode variable (in production, store in DB or Redis)
 let globalMode = 'normal';
 
-/**
- * GET /api/zones - All zones with geometry
- */
+
 export const getAllZones = asyncHandler(async (req, res) => {
   const zones = await Zone.find({}).select('zone_id zone_name geojson is_hotspot');
 
@@ -27,9 +29,7 @@ export const getAllZones = asyncHandler(async (req, res) => {
   );
 });
 
-/**
- * GET /api/zones/status - All zones with WPI, color, mode (for map)
- */
+
 export const getZonesStatus = asyncHandler(async (req, res) => {
   const zonesWithWPI = await computeAllZonesWPI(globalMode);
 
@@ -49,10 +49,19 @@ export const getZonesStatus = asyncHandler(async (req, res) => {
     }, 'Zone status retrieved successfully')
   );
 });
+  // Generate fresh recommendations based on current WPI
+  const freshRecommendations = await generateAndSaveRecommendations(
+    id,
+    wpiData.wpi_score,
+    wpiData.signals,
+    globalMode
+  );
 
-/**
- * GET /api/zones/:id - Zone detail with breakdown + recommendations
- */
+  // Also get recent ones from DB
+  const recommendations = freshRecommendations.length > 0 
+    ? freshRecommendations 
+    : await getRecentRecommendations(id, 5);
+
 export const getZoneDetail = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
@@ -131,9 +140,7 @@ export const getZoneDetail = asyncHandler(async (req, res) => {
   );
 });
 
-/**
- * POST /api/zones/mode - Switch global mode
- */
+
 export const switchMode = asyncHandler(async (req, res) => {
   const { mode } = req.body;
 
@@ -163,9 +170,7 @@ export const switchMode = asyncHandler(async (req, res) => {
   );
 });
 
-/**
- * GET /api/dashboard/summary - Top 5 critical zones + stats
- */
+
 export const getDashboardSummary = asyncHandler(async (req, res) => {
   const zonesWithWPI = await computeAllZonesWPI(globalMode);
   const rankedZones = rankZonesByPriority(zonesWithWPI);
