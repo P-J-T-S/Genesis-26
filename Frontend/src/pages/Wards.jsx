@@ -109,9 +109,9 @@ const Wards = () => {
 
   const loadRecommendations = async (zoneId) => {
     try {
-      const res = await recommendationsAPI.getRecommendations(zoneId, currentMode);
-      if (res.data && res.status === 200 && res.data.data && Array.isArray(res.data.data.recommendations)) {
-        dispatch(setRecommendations(res.data.data.recommendations));
+      const res = await recommendationsAPI.getRecommendations(zoneId, 5);
+      if (res.data && res.status === 200 && Array.isArray(res.data.recommendations)) {
+        dispatch(setRecommendations(res.data.recommendations));
       } else {
         // fallback to demo
         const recsRes = await demoAPI.getRecommendations(currentMode);
@@ -170,8 +170,6 @@ const Wards = () => {
       setLoading(false);
     }
   };
-  }
-};
 
   const handleFilterChange = (key, value) => {
     dispatch(setFilter({ key, value }));

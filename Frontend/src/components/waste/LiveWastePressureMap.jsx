@@ -181,93 +181,95 @@ const LiveWastePressureMap = ({ wardsData = [], selectedWardId, currentMode = 'n
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-      {/* LIVE/DEMO badge overlay */}
-      <div style={{ position: 'absolute', top: 12, right: 16, zIndex: 1000 }}>
-        {isLive ? (
-          <span className="px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse shadow border border-green-700">LIVE</span>
-        ) : (
-          <span className="px-2 py-0.5 bg-red-600 text-white rounded text-xs shadow border border-red-700">DEMO</span>
-        )}
-      </div>
-      <MapContainer
-        center={MUMBAI_CENTER}
-        zoom={DEFAULT_ZOOM}
-        style={{ height: '100%', width: '100%' }}
-        scrollWheelZoom
-        zoomControl={true}
-      >
-        {/* Carto Light Tile Layer */}
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> | &copy; <a href="https://carto.com/">CARTO</a>'
-        url="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png"
-        maxZoom={18}
-        minZoom={9}
-      />
-
-        {/* Ward Overlays with Dynamic Styling */}
-        {geoJsonData && (
-          <GeoJSON
-            ref={geoJsonRef}
-            data={geoJsonData}
-            style={styleFeature}
-            onEachFeature={onEachFeature}
-          />
-        )}
-
-        {/* Legend Overlay */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '20px',
-          right: '20px',
-          backgroundColor: '#1f2937',
-          color: '#f3f4f6',
-          padding: '12px 16px',
-          borderRadius: '8px',
-          fontSize: '12px',
-          zIndex: 1000,
-          boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
-          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-        }}
-      >
-        <div style={{ fontWeight: 600, marginBottom: '8px', fontSize: '13px' }}>WPI Scale ({currentMode.toUpperCase()})</div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: '16px', height: '16px', backgroundColor: '#10b981', borderRadius: '2px' }}></div>
-            <span>Normal (Safe)</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: '16px', height: '16px', backgroundColor: '#eab308', borderRadius: '2px' }}></div>
-            <span>Medium (Monitor)</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: '16px', height: '16px', backgroundColor: '#f97316', borderRadius: '2px' }}></div>
-            <span>High (Action)</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div
-              style={{
-                width: '16px',
-                height: '16px',
-                backgroundColor: '#ef4444',
-                borderRadius: '2px',
-                animation: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              }}
-            ></div>
-            <span>Critical (Alert!)</span>
-          </div>
+    <>
+      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+        {/* LIVE/DEMO badge overlay */}
+        <div style={{ position: 'absolute', top: 12, right: 16, zIndex: 1000 }}>
+          {isLive ? (
+            <span className="px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse shadow border border-green-700">LIVE</span>
+          ) : (
+            <span className="px-2 py-0.5 bg-red-600 text-white rounded text-xs shadow border border-red-700">DEMO</span>
+          )}
         </div>
-      </div>
+        <MapContainer
+          center={MUMBAI_CENTER}
+          zoom={DEFAULT_ZOOM}
+          style={{ height: '100%', width: '100%' }}
+          scrollWheelZoom
+          zoomControl={true}
+        >
+          {/* Carto Light Tile Layer */}
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> | &copy; <a href="https://carto.com/">CARTO</a>'
+            url="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png"
+            maxZoom={18}
+            minZoom={9}
+          />
 
-      </MapContainer>
+          {/* Ward Overlays with Dynamic Styling */}
+          {geoJsonData && (
+            <GeoJSON
+              ref={geoJsonRef}
+              data={geoJsonData}
+              style={styleFeature}
+              onEachFeature={onEachFeature}
+            />
+          )}
+
+          {/* Legend Overlay */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '20px',
+              right: '20px',
+              backgroundColor: '#1f2937',
+              color: '#f3f4f6',
+              padding: '12px 16px',
+              borderRadius: '8px',
+              fontSize: '12px',
+              zIndex: 1000,
+              boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            }}
+          >
+            <div style={{ fontWeight: 600, marginBottom: '8px', fontSize: '13px' }}>WPI Scale ({currentMode.toUpperCase()})</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ width: '16px', height: '16px', backgroundColor: '#10b981', borderRadius: '2px' }}></div>
+                <span>Normal (Safe)</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ width: '16px', height: '16px', backgroundColor: '#eab308', borderRadius: '2px' }}></div>
+                <span>Medium (Monitor)</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ width: '16px', height: '16px', backgroundColor: '#f97316', borderRadius: '2px' }}></div>
+                <span>High (Action)</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div
+                  style={{
+                    width: '16px',
+                    height: '16px',
+                    backgroundColor: '#ef4444',
+                    borderRadius: '2px',
+                    animation: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                  }}
+                ></div>
+                <span>Critical (Alert!)</span>
+              </div>
+            </div>
+          </div>
+        </MapContainer>
+      </div>
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 0.7; }
           50% { opacity: 1; }
         }
       `}</style>
-    </MapContainer>
+
+    </>
   );
 };
 

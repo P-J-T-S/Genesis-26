@@ -1,6 +1,7 @@
 // Recommendations API
 export const recommendationsAPI = {
-    getRecommendations: (zoneId, mode) => api.get(`/v1/zones/${zoneId}`, { params: { mode } }),
+    getRecommendations: (zoneId, limit = 5) => api.get(`/v1/recommendations/${zoneId}`, { params: { limit } }),
+    runRecommendations: (mode = 'normal') => api.post('/v1/recommendations/run', { mode }),
 };
 
 // Feed API

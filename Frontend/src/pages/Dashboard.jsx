@@ -172,19 +172,19 @@ const Dashboard = () => {
         <div className="lg:col-span-3 h-full flex flex-col gap-4 overflow-hidden">
 
           {/* 1. Ward Decision Panel */}
-          <div className="flex-shrink-0 max-h-[45%] overflow-y-auto pr-1 scrollbar-thin">
+          <div className="shrink-0 max-h-[45%] overflow-y-auto pr-1 scrollbar-thin">
             {selectedWard ? (
               <WardDecisionPanel
                 ward={selectedWard}
                 currentMode={currentMode}
               />
             ) : (
-              <div className="card bg-info-50 border-info-200 p-6 flex flex-col items-center text-center justify-center h-full border-dashed min-h-[160px]">
+              <div className="card bg-info-50 border-info-200 p-6 flex flex-col items-center text-center justify-center h-full border-dashed min-h-40">
                 <div className="p-3 bg-info-100 rounded-full mb-3 text-info-600">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <h4 className="font-semibold text-info-900">No Zone Selected</h4>
-                <p className="text-sm text-info-700 mt-1 max-w-[200px]">
+                <p className="text-sm text-info-700 mt-1 max-w-50">
                   Click on any zone marker to view details.
                 </p>
               </div>
@@ -221,7 +221,7 @@ const Dashboard = () => {
       {/* Footer: Operational Summary - Fixed Height */}
       <div className="h-20 shrink-0 card bg-secondary-900 text-white border-secondary-800 flex items-center px-6 relative overflow-hidden shadow-lg mt-auto">
         {/* Background decoration */}
-        <div className="absolute right-0 top-0 h-full w-96 bg-gradient-to-l from-white/10 to-transparent pointer-events-none"></div>
+        <div className="absolute right-0 top-0 h-full w-96 bg-linear-to-l from-white/10 to-transparent pointer-events-none"></div>
 
         <div className="flex items-center gap-8 w-full z-10">
           <div className="flex-shrink-0 border-r border-secondary-700 pr-6 mr-2">
