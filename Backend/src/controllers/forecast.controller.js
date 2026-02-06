@@ -15,7 +15,7 @@ export const forecastZone = asyncHandler(async (req, res) => {
   }
 
   // Optional: find zone document (for zone_id)
-  const zoneDoc = await Zone.findOne({ zone_name: ward });
+  const zoneDoc = await Zone.findOne({ zone_name: zone });
   if (!zoneDoc) {
     return res.status(404).json(new ApiResponse(404, null, 'Zone not found'));
   }
