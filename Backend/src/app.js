@@ -35,8 +35,13 @@ import feedRoutes from './routes/feed.route.js';
 import signalRoutes from './routes/signal.route.js';
 import priorityRoutes from './routes/priority.route.js';
 import wpiRoutes from './routes/wpi.routes.js';
+<<<<<<< HEAD
 import recommendationRoutes from './routes/recommendation.route.js';
 import intelligenceRoutes from './routes/intelligence.routes.js';
+=======
+import intelligenceRoutes from './routes/intelligence.routes.js';
+import recommendationRoutes from './routes/recommendation.route.js';
+>>>>>>> initial-frontend
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/zones', zonesRoutes);
@@ -44,8 +49,13 @@ app.use('/api/v1/feed', feedRoutes);
 app.use('/api/v1/signals', signalRoutes);
 app.use('/api/v1/priority', priorityRoutes);
 app.use('/api/v1/wpi', wpiRoutes);
+<<<<<<< HEAD
 app.use('/api/v1/recommendations', recommendationRoutes);
 app.use('/api/v1/intelligence', intelligenceRoutes);
+=======
+app.use('/api/v1', intelligenceRoutes);
+app.use('/api/v1/recommendations', recommendationRoutes);
+>>>>>>> initial-frontend
 
 // error handler
 app.use(globalErrorHandler);

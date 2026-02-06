@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const zoneStatusSchema = new mongoose.Schema(
   {
     zone_id: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Zone",
+      ref: 'Zone',
       required: true,
       unique: true,
       index: true,
@@ -21,8 +21,8 @@ const zoneStatusSchema = new mongoose.Schema(
 
     status_color: {
       type: String,
-      enum: ["green", "yellow", "orange", "red"],
-      default: "green",
+      enum: ['green', 'yellow', 'orange', 'red'],
+      default: 'green',
       index: true,
     },
 
@@ -41,8 +41,8 @@ const zoneStatusSchema = new mongoose.Schema(
 
     mode: {
       type: String,
-      enum: ["normal", "event", "emergency"],
-      default: "normal",
+      enum: ['normal', 'event', 'emergency'],
+      default: 'normal',
       index: true,
     },
 
@@ -52,6 +52,13 @@ const zoneStatusSchema = new mongoose.Schema(
       default: Date.now,
       index: true,
     },
+    signals: {
+      complaint_intensity: Number,
+      event_presence: Number,
+      hotspot_history: Number,
+      weather_alert: Number,
+      spike_flag: Boolean,
+    },
   },
   { timestamps: true }
 );
@@ -60,4 +67,4 @@ const zoneStatusSchema = new mongoose.Schema(
 zoneStatusSchema.index({ status_color: 1, priority_rank: -1 });
 zoneStatusSchema.index({ mode: 1, last_updated: -1 });
 
-export const ZoneStatus = mongoose.model("ZoneStatus", zoneStatusSchema);
+export const ZoneStatus = mongoose.model('ZoneStatus', zoneStatusSchema);

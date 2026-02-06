@@ -3,15 +3,17 @@ import { ComplaintAgg } from '../models/complaints_agg.model.js';
 import { Event } from '../models/event.model.js';
 import { Alert } from '../models/alert.model.js';
 import { ZoneStatus } from '../models/zone_status.model.js';
-import { modeConfig, getColorByWPI, shouldBlink } from '../config/modeConfig.js';
-
+import {
+  modeConfig,
+  getColorByWPI,
+  shouldBlink,
+} from '../config/modeConfig.js';
 
 const normalize = (value, min = 0, max = 100) => {
   if (max === min) return 0;
   const normalized = ((value - min) / (max - min)) * 100;
   return Math.max(0, Math.min(100, normalized));
 };
-
 
 const getComplaintIntensity = async (zoneId) => {
   try {
@@ -30,7 +32,6 @@ const getComplaintIntensity = async (zoneId) => {
   }
 };
 
-
 const getEventPresence = async (zoneId) => {
   try {
     const now = new Date();
@@ -42,11 +43,14 @@ const getEventPresence = async (zoneId) => {
     });
 
     if (activeEvent) return 80; // High signal for active event
-    
+
     // Check upcoming events (next 24 hours)
     const upcomingEvent = await Event.findOne({
       zone_id: zoneId,
-      start_time: { $gt: now, $lte: new Date(now.getTime() + 24 * 60 * 60 * 1000) },
+      start_time: {
+        $gt: now,
+        $lte: new Date(now.getTime() + 24 * 60 * 60 * 1000),
+      },
       active_flag: true,
     });
 
@@ -57,7 +61,6 @@ const getEventPresence = async (zoneId) => {
   }
 };
 
-
 const getHotspotHistory = async (zoneId) => {
   try {
     const zone = await Zone.findById(zoneId);
@@ -67,7 +70,6 @@ const getHotspotHistory = async (zoneId) => {
     return 0;
   }
 };
-
 
 const getWeatherAlertSignal = async (zoneId) => {
   try {
@@ -93,7 +95,6 @@ const getWeatherAlertSignal = async (zoneId) => {
   }
 };
 
-
 const getSpikeFlag = async (zoneId) => {
   try {
     const recent = await ComplaintAgg.findOne({
@@ -109,7 +110,6 @@ const getSpikeFlag = async (zoneId) => {
     return 0;
   }
 };
-
 
 export const computeZoneWPI = async (zoneId, mode = 'normal') => {
   const config = modeConfig[mode] || modeConfig.normal;
@@ -154,7 +154,6 @@ export const computeZoneWPI = async (zoneId, mode = 'normal') => {
   };
 };
 
-
 export const computeAllZonesWPI = async (mode = 'normal') => {
   try {
     const zones = await Zone.find({});
@@ -178,7 +177,6 @@ export const computeAllZonesWPI = async (mode = 'normal') => {
   }
 };
 
-
 export const updateZoneStatus = async (zoneId, wpiData, mode) => {
   try {
     const updated = await ZoneStatus.findOneAndUpdate(
@@ -187,6 +185,7 @@ export const updateZoneStatus = async (zoneId, wpiData, mode) => {
         wpi_score: wpiData.wpi_score,
         status_color: wpiData.status_color,
         blink_flag: wpiData.blink_flag,
+        signals: wpiData.signals,
         mode,
         last_updated: new Date(),
       },
@@ -199,7 +198,6 @@ export const updateZoneStatus = async (zoneId, wpiData, mode) => {
     return null;
   }
 };
-
 
 export const rankZonesByPriority = (zones) => {
   return zones
