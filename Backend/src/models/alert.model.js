@@ -10,6 +10,17 @@ const alertSchema = new mongoose.Schema(
       default: () => new mongoose.Types.ObjectId().toHexString(),
     },
 
+
+    title: {
+      type: String,
+      default: "Alert"
+    },
+
+    description: {
+      type: String,
+      default: ""
+    },
+
     zone_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Zone",

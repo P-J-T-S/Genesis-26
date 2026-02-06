@@ -52,6 +52,13 @@ const eventSchema = new mongoose.Schema(
       },
     },
 
+    waste_factor: {
+      type: Number,
+      default: 1.5,
+      min: 1,
+      max: 3
+    },
+
     active_flag: {
       type: Boolean,
       default: true,
