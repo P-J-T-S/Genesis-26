@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Map, List, Search, Filter, Download, AlertTriangle, Sparkles } from 'lucide-react';
+import { recommendationsAPI } from '../services/api';
 import {
   setWards,
   setFilter,
@@ -41,32 +42,56 @@ const Wards = () => {
   const [highlightedWards, setHighlightedWards] = useState([]);
 
   useEffect(() => {
+  loadWards();
+}, [currentMode]);
+
+useEffect(() => {
+  if (selectedWard) {
+    loadRecommendations(selectedWard.id);
+  }
+}, [selectedWard, currentMode]);
+
+const loadRecommendations = async (zoneId) => {
+  try {
+    const res = await recommendationsAPI.getRecommendations(zoneId, currentMode);
+    if (res.data && res.status === 200 && res.data.data && Array.isArray(res.data.data.recommendations)) {
+      dispatch(setRecommendations(res.data.data.recommendations));
+    } else {
+      // fallback to demo
+      const recsRes = await demoAPI.getRecommendations(currentMode);
+      if (recsRes.success) dispatch(setRecommendations(recsRes.data));
+    }
+  } catch (error) {
+    // fallback to demo
+    const recsRes = await demoAPI.getRecommendations(currentMode);
+    if (recsRes.success) dispatch(setRecommendations(recsRes.data));
+  }
+};
+
+
+
+
+  useEffect(() => {
     loadWards();
   }, [currentMode]);
 
-  const loadWards = async () => {
-    setLoading(true);
-    try {
-      const [wardsRes, recsRes, alertsRes] = await Promise.all([
-        demoAPI.getWards(currentMode),
-        demoAPI.getRecommendations(currentMode),
-        demoAPI.getAlerts(),
-      ]);
-
-      if (wardsRes.success) dispatch(setWards(wardsRes.data));
-      if (recsRes.success) dispatch(setRecommendations(recsRes.data));
-      if (alertsRes.success) {
-        dispatch(setAlerts(alertsRes.data));
-        setSignals(alertsRes.data);
-        setActiveSignalId(null);
-        setHighlightedWards([]);
-      }
-    } catch (error) {
-      console.error('Error loading wards:', error);
-    } finally {
-      setLoading(false);
+const loadWards = async () => {
+  setLoading(true);
+  try {
+    const wardsRes = await demoAPI.getWards(currentMode);
+    if (wardsRes.success) dispatch(setWards(wardsRes.data));
+    // recommendations now handled separately
+    const alertsRes = await demoAPI.getAlerts();
+    if (alertsRes.success) {
+      dispatch(setAlerts(alertsRes.data));
+      setSignals(alertsRes.data);
     }
-  };
+  } catch (error) {
+    console.error('Error loading wards:', error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleFilterChange = (key, value) => {
     dispatch(setFilter({ key, value }));

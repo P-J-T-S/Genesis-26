@@ -1,3 +1,7 @@
+// Recommendations API
+export const recommendationsAPI = {
+    getRecommendations: (zoneId, mode) => api.get(`/v1/zones/${zoneId}`, { params: { mode } }),
+};
 // Priority API
 export const priorityAPI = {
     getPriorities: (mode) => api.get('/v1/priority', { params: { mode } }),
