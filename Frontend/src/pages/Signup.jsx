@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Mail, Lock, AlertCircle } from 'lucide-react';
+import { Mail, Lock, User, AlertCircle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import Logo from '../components/Logo';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 
-const Login = () => {
+const Signup = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { signup } = useAuth();
 
   const [formData, setFormData] = useState({
+    fullName: '',
+    username: '',
     email: '',
     password: '',
+    confirmPassword: '',
+    role: 'USER',
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,15 +30,33 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const result = await login(formData.email, formData.password);
+      const result = await signup({
+        fullName: formData.fullName,
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+        role: formData.role,
+      });
 
       if (result.success) {
         navigate('/dashboard');
       } else {
-        setError(result.error || 'Invalid credentials. Please try again.');
+        setError(result.error || 'Signup failed. Please try again.');
       }
     } catch (err) {
       setError('Something went wrong. Please try again.');
@@ -48,6 +72,13 @@ const Login = () => {
     });
   };
 
+  const roleOptions = [
+    { value: 'USER', label: 'User' },
+    { value: 'TECHNICIAN', label: 'Technician' },
+    { value: 'MANAGER', label: 'Manager' },
+  ];
+
+
   return (
     <div className="min-h-screen flex">
       {/* Left side - Form */}
@@ -55,13 +86,13 @@ const Login = () => {
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
             <h2 className="text-3xl font-display font-bold" style={{ color: 'var(--text)' }}>
-              Welcome back
+              Create account
             </h2>
             <p className="mt-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-              Don't have an account?{' '}
-              <Link to="/signup" style={{ textDecoration: 'none' }}>
+              Already have an account?{' '}
+              <Link to="/login" style={{ textDecoration: 'none' }}>
                 <span className="font-medium" style={{ color: 'var(--primary-500)' }}>
-                  Sign up
+                  Sign in
                 </span>
               </Link>
             </p>
@@ -75,6 +106,40 @@ const Login = () => {
                     {error}
                   </Alert>
                 )}
+
+                <TextField
+                  fullWidth
+                  label="Full Name"
+                  name="fullName"
+                  type="text"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  variant="outlined"
+                  required
+                  slotProps={{
+                    input: {
+                      startAdornment: <User size={20} style={{ marginRight: 8 }} />,
+                    },
+                  }}
+                />
+
+                <TextField
+                  fullWidth
+                  label="Username"
+                  name="username"
+                  type="text"
+                  value={formData.username}
+                  onChange={handleChange}
+                  placeholder="johndoe"
+                  variant="outlined"
+                  required
+                  slotProps={{
+                    input: {
+                      startAdornment: <User size={20} style={{ marginRight: 8 }} />,
+                    },
+                  }}
+                />
 
                 <TextField
                   fullWidth
@@ -93,6 +158,22 @@ const Login = () => {
                   }}
                 />
 
+                <FormControl fullWidth variant="outlined">
+                  <InputLabel>Role</InputLabel>
+                  <Select
+                    label="Role"
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                  >
+                    {roleOptions.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+
                 <TextField
                   fullWidth
                   label="Password"
@@ -110,18 +191,22 @@ const Login = () => {
                   }}
                 />
 
-                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <FormControlLabel
-                    control={<Checkbox id="remember-me" name="remember-me" />}
-                    label="Remember me"
-                  />
-
-                  <Link to="#" style={{ textDecoration: 'none' }}>
-                    <span style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--primary-500)' }}>
-                      Forgot password?
-                    </span>
-                  </Link>
-                </Box>
+                <TextField
+                  fullWidth
+                  label="Confirm Password"
+                  name="confirmPassword"
+                  type="password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="••••••••"
+                  variant="outlined"
+                  required
+                  slotProps={{
+                    input: {
+                      startAdornment: <Lock size={20} style={{ marginRight: 8 }} />,
+                    },
+                  }}
+                />
 
                 <Button
                   type="submit"
@@ -131,13 +216,14 @@ const Login = () => {
                   disabled={loading}
                   sx={{ py: 1.5, mt: 2 }}
                 >
-                  {loading ? 'Signing in...' : 'Sign in'}
+                  {loading ? 'Creating account...' : 'Create account'}
                 </Button>
               </Box>
             </form>
           </div>
         </div>
       </div>
+
 
       {/* Right side - Image/Brand */}
       <div className="hidden lg:block relative w-0 flex-1">
@@ -162,4 +248,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
