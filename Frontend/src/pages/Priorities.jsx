@@ -18,7 +18,7 @@ import {
   selectWards,
   selectSelectedWard
 } from '../store/slices/waste/wasteSlice';
-import { demoAPI } from '../data/demoData';
+import { priorityAPI, zonesAPI } from '../services/api';
 import { getWPILevel, formatNumber, exportToCSV } from '../utils/helpers';
 import WardDetailModal from '../components/waste/WardDetailModal';
 
@@ -41,12 +41,12 @@ const Priorities = () => {
     setLoading(true);
     try {
       const [prioritiesRes, wardsRes] = await Promise.all([
-        demoAPI.getPriorities(currentMode),
-        demoAPI.getWards(currentMode)
+        priorityAPI.getPriorities(currentMode),
+        zonesAPI.getWards(currentMode)
       ]);
 
-      if (prioritiesRes.success) dispatch(setPriorities(prioritiesRes.data));
-      if (wardsRes.success) dispatch(setWards(wardsRes.data));
+      if (prioritiesRes.data && prioritiesRes.status === 200) dispatch(setPriorities(prioritiesRes.data.data));
+      if (wardsRes.data && wardsRes.status === 200) dispatch(setWards(wardsRes.data.data));
     } catch (error) {
       console.error('Error loading priorities:', error);
     } finally {

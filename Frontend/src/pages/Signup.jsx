@@ -17,12 +17,10 @@ const Signup = () => {
   const { signup } = useAuth();
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    username: '',
-    email: '',
+    name: '',
+    login_id: '',
     password: '',
     confirmPassword: '',
-    role: 'USER',
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -36,23 +34,17 @@ const Signup = () => {
       setError('Passwords do not match');
       return;
     }
-
     if (formData.password.length < 6) {
       setError('Password must be at least 6 characters');
       return;
     }
-
     setLoading(true);
-
     try {
       const result = await signup({
-        fullName: formData.fullName,
-        username: formData.username,
-        email: formData.email,
+        name: formData.name,
+        login_id: formData.login_id,
         password: formData.password,
-        role: formData.role,
       });
-
       if (result.success) {
         navigate('/dashboard');
       } else {
@@ -71,13 +63,6 @@ const Signup = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  const roleOptions = [
-    { value: 'USER', label: 'User' },
-    { value: 'TECHNICIAN', label: 'Technician' },
-    { value: 'MANAGER', label: 'Manager' },
-  ];
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-secondary-50 px-4 sm:px-6 lg:px-8">
@@ -102,73 +87,43 @@ const Signup = () => {
               </Alert>
             )}
 
-            <TextField
-              fullWidth
-              label="Full Name"
-              name="fullName"
-              type="text"
-              value={formData.fullName}
-              onChange={handleChange}
-              placeholder="John Doe"
-              variant="outlined"
-              required
-              slotProps={{
-                input: {
-                  startAdornment: <User size={20} className="mr-2 text-secondary-400" />,
-                },
-              }}
-            />
 
-            <TextField
-              fullWidth
-              label="Username"
-              name="username"
-              type="text"
-              value={formData.username}
-              onChange={handleChange}
-              placeholder="johndoe"
-              variant="outlined"
-              required
-              slotProps={{
-                input: {
-                  startAdornment: <User size={20} className="mr-2 text-secondary-400" />,
-                },
-              }}
-            />
 
-            <TextField
-              fullWidth
-              label="Email address"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@company.com"
-              variant="outlined"
-              required
-              slotProps={{
-                input: {
-                  startAdornment: <Mail size={20} className="mr-2 text-secondary-400" />,
-                },
-              }}
-            />
+                <TextField
+                  fullWidth
+                  label="Name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  variant="outlined"
+                  required
+                  slotProps={{
+                  input: {
+                    startAdornment: <User size={20} className="mr-2 text-secondary-400" />,
+                  },
+                  }}
+                />
 
-            <FormControl fullWidth variant="outlined">
-              <InputLabel>Role</InputLabel>
-              <Select
-                label="Role"
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
-              >
-                {roleOptions.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+                <TextField
+                  fullWidth
+                  label="Login ID"
+                  name="login_id"
+                  type="text"
+                  value={formData.login_id}
+                  onChange={handleChange}
+                  placeholder="your_login_id"
+                  variant="outlined"
+                  required
+                  slotProps={{
+                  input: {
+                    startAdornment: <User size={20} className="mr-2 text-secondary-400" />,
+                  },
+                  }}
+                />
 
+                {/* Only name, login_id, password, confirmPassword fields are used as per new requirements */}
             <TextField
               fullWidth
               label="Password"

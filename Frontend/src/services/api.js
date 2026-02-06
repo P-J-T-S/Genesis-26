@@ -1,3 +1,13 @@
+// Priority API
+export const priorityAPI = {
+    getPriorities: (mode) => api.get('/v1/priority', { params: { mode } }),
+};
+
+// Zones API
+export const zonesAPI = {
+    getWards: (mode) => api.get('/v1/zones', { params: { mode } }),
+    setMode: (mode) => api.post('/v1/zones/mode', { mode }),
+};
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
@@ -57,10 +67,10 @@ api.interceptors.response.use(
 
 // Auth API
 export const authAPI = {
-    login: (email, password) => api.post('/auth/login', { email, password }),
-    signup: (data) => api.post('/auth/register', data),
-    logout: () => api.post('/auth/logout'),
-    refreshToken: () => api.post('/auth/refresh-token'),
+    login: (login_id, password) => api.post('/v1/auth/login', { login_id, password }),
+    signup: (data) => api.post('/v1/auth/signup', data),
+    logout: () => api.post('/v1/auth/logout'),
+    refreshToken: () => api.post('/v1/auth/refresh-token'),
 };
 
 // User API
@@ -107,6 +117,13 @@ export const requestAPI = {
         api.patch(`/requests/${id}/status`, { status, duration }),
     getKanban: () => api.get('/requests/kanban'),
     getPreventive: (params) => api.get('/requests/preventive', { params }),
+};
+
+// Waste API (Backend integration)
+export const fetchZonesStatus = async (mode = 'normal') => {
+    // If backend expects mode as query param, else remove
+    const res = await api.get(`/zones/status?mode=${mode}`);
+    return res.data;
 };
 
 export default api;

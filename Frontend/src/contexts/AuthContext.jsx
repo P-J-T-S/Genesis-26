@@ -42,10 +42,12 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
 
-  const login = async (email, password) => {
+  // Accept login_id for officer login
+  const login = async (login_id, password) => {
     try {
-      const response = await authAPI.login(email, password);
-      const { accessToken, user: userData } = response.data.data;
+      const response = await authAPI.login(login_id, password);
+      // Backend returns officer, not user
+      const { accessToken, officer: userData } = response.data.data;
 
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('user', JSON.stringify(userData));
@@ -61,12 +63,12 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (data) => {
     try {
-      // data: { username, email, fullName, password, role }
+      // data: { name, login_id, password }
       const response = await authAPI.signup(data);
       const userData = response.data.data;
 
       // After signup, auto login
-      const loginResult = await login(data.email, data.password);
+      const loginResult = await login(data.login_id, data.password);
       return loginResult;
     } catch (error) {
       const message = error.response?.data?.message || 'Signup failed';

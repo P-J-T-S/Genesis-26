@@ -18,7 +18,7 @@ import {
   selectIsLoading,
   selectLastUpdated,
 } from '../store/slices/wasteSlice';
-import demoAPI from '../data/demoData';
+import { fetchZonesStatus } from '../services/api';
 
 /**
  * Hook to fetch and manage ward data
@@ -32,9 +32,10 @@ export const useWards = () => {
   const fetchWards = useCallback(async () => {
     dispatch(setLoading(true));
     try {
-      const response = await demoAPI.getWards(currentMode);
-      if (response.success) {
-        dispatch(setWards(response.data));
+      const response = await fetchZonesStatus(currentMode);
+      if (response && response.data && response.data.zones) {
+        // If backend field names differ, map here
+        dispatch(setWards(response.data.zones));
       }
     } catch (error) {
       console.error('Error fetching wards:', error);

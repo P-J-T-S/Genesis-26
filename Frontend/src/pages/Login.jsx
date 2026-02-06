@@ -15,7 +15,7 @@ const Login = () => {
   const { login } = useAuth();
 
   const [formData, setFormData] = useState({
-    email: '',
+    login_id: '',
     password: '',
   });
   const [error, setError] = useState('');
@@ -27,7 +27,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const result = await login(formData.email, formData.password);
+      const result = await login(formData.login_id, formData.password);
 
       if (result.success) {
         navigate('/dashboard');
@@ -73,18 +73,18 @@ const Login = () => {
 
             <TextField
               fullWidth
-              label="Email address"
-              name="email"
-              type="email"
-              value={formData.email}
+              label="Login ID"
+              name="login_id"
+              type="text"
+              value={formData.login_id}
               onChange={handleChange}
-              placeholder="you@company.com"
+              placeholder="your_login_id"
               variant="outlined"
               required
               slotProps={{
-                input: {
-                  startAdornment: <Mail size={20} className="mr-2 text-secondary-400" />,
-                },
+              input: {
+                startAdornment: <Mail size={20} className="mr-2 text-secondary-400" />,
+              },
               }}
             />
 
