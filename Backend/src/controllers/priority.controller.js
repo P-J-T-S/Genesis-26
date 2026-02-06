@@ -7,7 +7,8 @@ export const getPriorityZones = asyncHandler(async (req, res) => {
   const limit = parseInt(req.query.limit) || 5;
   const priorityZones = await priorityService.getTopPriorityZones(limit);
 
+  // PATCH: Return priority zones as flat array for frontend compatibility
   return res
     .status(200)
-    .json(new ApiResponse(200, { count: priorityZones.length, priority_zones: priorityZones }, "Priority zones fetched"));
+    .json(new ApiResponse(200, priorityZones, "Priority zones fetched"));
 });

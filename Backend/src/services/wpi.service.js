@@ -189,6 +189,7 @@ export const updateZoneStatus = async (zoneId, wpiData, mode) => {
         blink_flag: wpiData.blink_flag,
         mode,
         last_updated: new Date(),
+        priority_rank: wpiData.priority_rank || 0,
       },
       { upsert: true, new: true }
     );
