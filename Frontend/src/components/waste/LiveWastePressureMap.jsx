@@ -159,7 +159,7 @@ const LiveWastePressureMap = ({
       )}
 
       {/* 2. Marker Layer (Points for all wards) */}
-      {wardsData.map((ward) => (
+      {/* {wardsData.map((ward) => (<>
         <Marker
           key={ward.id}
           position={[ward.coordinates.lat, ward.coordinates.lng]}
@@ -186,7 +186,8 @@ const LiveWastePressureMap = ({
             </div>
           </Popup>
         </Marker>
-      ))}
+      </>
+      ))} */}
     </MapContainer>
   );
 };
