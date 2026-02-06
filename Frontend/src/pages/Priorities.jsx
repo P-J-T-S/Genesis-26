@@ -32,6 +32,7 @@ const Priorities = () => {
   const [sortBy, setSortBy] = useState('wpi'); // wpi, complaints, name
   const [sortOrder, setSortOrder] = useState('desc');
   const [filterLevel, setFilterLevel] = useState('all');
+  const [isLive, setIsLive] = useState(false);
 
   useEffect(() => {
     loadPriorities();
@@ -45,9 +46,17 @@ const Priorities = () => {
         zonesAPI.getWards(currentMode)
       ]);
 
-      if (prioritiesRes.data && prioritiesRes.status === 200) dispatch(setPriorities(prioritiesRes.data.data));
-      if (wardsRes.data && wardsRes.status === 200) dispatch(setWards(wardsRes.data.data));
+      if (prioritiesRes.data && prioritiesRes.status === 200 && Array.isArray(prioritiesRes.data.data)) {
+        dispatch(setPriorities(prioritiesRes.data.data));
+        setIsLive(true);
+      } else {
+        setIsLive(false);
+      }
+      if (wardsRes.data && wardsRes.status === 200 && Array.isArray(wardsRes.data.data)) {
+        dispatch(setWards(wardsRes.data.data));
+      }
     } catch (error) {
+      setIsLive(false);
       console.error('Error loading priorities:', error);
     } finally {
       setLoading(false);
@@ -146,6 +155,13 @@ const Priorities = () => {
 
   return (
     <div className="container-fluid py-6 space-y-6 animate-fade-in">
+      <div className="absolute top-2 right-2 z-20">
+        {isLive ? (
+          <span className="px-3 py-1 bg-green-600 text-white rounded font-semibold text-xs animate-pulse">LIVE</span>
+        ) : (
+          <span className="px-3 py-1 bg-red-600 text-white rounded font-semibold text-xs">DEMO DATA</span>
+        )}
+      </div>
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
