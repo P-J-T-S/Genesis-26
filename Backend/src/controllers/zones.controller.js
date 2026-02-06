@@ -16,6 +16,8 @@ import {
 } from '../services/wpi.service.js';
 import { asyncHandler } from '../utils/asyncHandler.js';
 import { ApiResponse } from '../utils/apiResponse.js';
+import { emitModeChange } from "../socket/socket.js";
+
 
 // Global mode variable (in production, store in DB or Redis)
 let globalMode = 'normal';
@@ -156,6 +158,8 @@ export const switchMode = asyncHandler(async (req, res) => {
   for (const zone of rankedZones) {
     await updateZoneStatus(zone._id, zone, mode);
   }
+
+  emitModeChange(mode, rankedZones);
 
   return res.status(200).json(
     new ApiResponse(200, {
