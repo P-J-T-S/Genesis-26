@@ -1,4 +1,3 @@
-// Backend/src/services/signal.service.js
 import { Zone } from '../models/zone.model.js';
 import { ComplaintAgg } from '../models/complaints_agg.model.js';
 import { Event } from '../models/event.model.js';
@@ -33,7 +32,9 @@ export const injectEvent = async (data) => {
     zone_id: zone._id,
     event_type: data.event_type || 'other',
     start_time: new Date(),
-    end_time: new Date(Date.now() + (data.duration_hours || 6) * 60 * 60 * 1000),
+    end_time: new Date(
+      Date.now() + (data.duration_hours || 6) * 60 * 60 * 1000
+    ),
     active_flag: true,
   });
 
