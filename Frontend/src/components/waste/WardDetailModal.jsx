@@ -70,7 +70,7 @@ const WardDetailModal = () => {
             </div>
             <button
               onClick={handleClose}
-              className="text-secondary-400 hover:text-secondary-600 dark transition-colors"
+              className="text-secondary-400 hover:text-secondary-600 transition-colors"
             >
               <X className="w-6 h-6" />
             </button>

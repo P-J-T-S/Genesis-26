@@ -267,13 +267,13 @@ const Priorities = () => {
                   Rank
                 </th>
                 <th
-                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100 dark"
+                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100"
                   onClick={() => handleSort('name')}
                 >
                   Ward {getSortIcon('name')}
                 </th>
                 <th
-                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100 dark"
+                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100"
                   onClick={() => handleSort('wpi')}
                 >
                   WPI {getSortIcon('wpi')}
@@ -282,7 +282,7 @@ const Priorities = () => {
                   Urgency
                 </th>
                 <th
-                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100 dark"
+                  className="px-6 py-4 text-left text-sm font-semibold text-secondary-900  cursor-pointer hover:bg-secondary-100"
                   onClick={() => handleSort('complaints')}
                 >
                   Complaints {getSortIcon('complaints')}
