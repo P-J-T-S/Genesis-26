@@ -49,18 +49,6 @@ export const getZonesStatus = asyncHandler(async (req, res) => {
     }, 'Zone status retrieved successfully')
   );
 });
-  // Generate fresh recommendations based on current WPI
-  const freshRecommendations = await generateAndSaveRecommendations(
-    id,
-    wpiData.wpi_score,
-    wpiData.signals,
-    globalMode
-  );
-
-  // Also get recent ones from DB
-  const recommendations = freshRecommendations.length > 0 
-    ? freshRecommendations 
-    : await getRecentRecommendations(id, 5);
 
 export const getZoneDetail = asyncHandler(async (req, res) => {
   const { id } = req.params;
@@ -99,10 +87,18 @@ export const getZoneDetail = asyncHandler(async (req, res) => {
     active_flag: true,
   }).sort({ timestamp: -1 }).limit(5);
 
-  // Fetch recommendations
-  const recommendations = await Recommendation.find({
-    zone_id: id,
-  }).sort({ generated_at: -1 }).limit(5);
+  // Generate fresh recommendations based on current WPI
+  const freshRecommendations = await generateAndSaveRecommendations(
+    id,
+    wpiData.wpi_score,
+    wpiData.signals,
+    globalMode
+  );
+
+  // Use fresh recommendations, fallback to DB if none generated
+  const recommendations = freshRecommendations && freshRecommendations.length > 0
+    ? freshRecommendations
+    : await getRecentRecommendations(id, 5);
 
   // Build explainability breakdown
   const breakdown = {
