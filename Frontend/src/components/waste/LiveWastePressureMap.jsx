@@ -26,6 +26,8 @@ const getWPIColor = (wpi, mode = 'normal') => {
 };
 
 const LiveWastePressureMap = ({ wardsData = [], selectedWardId, currentMode = 'normal', onWardSelect }) => {
+    // Accept isLive prop for badge
+    const isLive = typeof wardsData.isLive === 'boolean' ? wardsData.isLive : false;
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [blinkOpacity, setBlinkOpacity] = useState(0.7);
   const geoJsonRef = React.useRef(null);
@@ -179,14 +181,23 @@ const LiveWastePressureMap = ({ wardsData = [], selectedWardId, currentMode = 'n
   };
 
   return (
-    <MapContainer
-      center={MUMBAI_CENTER}
-      zoom={DEFAULT_ZOOM}
-      style={{ height: '100%', width: '100%' }}
-      scrollWheelZoom
-      zoomControl={true}
-    >
-      {/* Carto Light Tile Layer */}
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      {/* LIVE/DEMO badge overlay */}
+      <div style={{ position: 'absolute', top: 12, right: 16, zIndex: 1000 }}>
+        {isLive ? (
+          <span className="px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse shadow border border-green-700">LIVE</span>
+        ) : (
+          <span className="px-2 py-0.5 bg-red-600 text-white rounded text-xs shadow border border-red-700">DEMO</span>
+        )}
+      </div>
+      <MapContainer
+        center={MUMBAI_CENTER}
+        zoom={DEFAULT_ZOOM}
+        style={{ height: '100%', width: '100%' }}
+        scrollWheelZoom
+        zoomControl={true}
+      >
+        {/* Carto Light Tile Layer */}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> | &copy; <a href="https://carto.com/">CARTO</a>'
         url="https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png"
@@ -194,17 +205,17 @@ const LiveWastePressureMap = ({ wardsData = [], selectedWardId, currentMode = 'n
         minZoom={9}
       />
 
-      {/* Ward Overlays with Dynamic Styling */}
-      {geoJsonData && (
-        <GeoJSON
-          ref={geoJsonRef}
-          data={geoJsonData}
-          style={styleFeature}
-          onEachFeature={onEachFeature}
-        />
-      )}
+        {/* Ward Overlays with Dynamic Styling */}
+        {geoJsonData && (
+          <GeoJSON
+            ref={geoJsonRef}
+            data={geoJsonData}
+            style={styleFeature}
+            onEachFeature={onEachFeature}
+          />
+        )}
 
-      {/* Legend Overlay */}
+        {/* Legend Overlay */}
       <div
         style={{
           position: 'absolute',
@@ -249,6 +260,7 @@ const LiveWastePressureMap = ({ wardsData = [], selectedWardId, currentMode = 'n
         </div>
       </div>
 
+      </MapContainer>
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 0.7; }

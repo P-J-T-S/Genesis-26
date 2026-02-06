@@ -29,6 +29,8 @@ import WardDecisionPanel from '../components/waste/WardDecisionPanel';
 import { exportToCSV, getWPILevel } from '../utils/helpers';
 
 const Wards = () => {
+        // Track if data is live or demo
+        const [isLive, setIsLive] = useState(false);
       // Real-time socket.io integration
       useEffect(() => {
         // Listen for real-time ward updates
@@ -126,10 +128,26 @@ const Wards = () => {
   const loadWards = async () => {
     setLoading(true);
     try {
-      // After ML detection, backend should update wards with live spikes/hotspots
       // Replace demoAPI.getWards with real backend call when available
-      const wardsRes = await demoAPI.getWards(currentMode);
-      if (wardsRes.success) dispatch(setWards(wardsRes.data));
+      // Try backend first
+      let gotLive = false;
+      try {
+        // Example: replace with real API call
+        // const wardsRes = await zonesAPI.getWards(currentMode);
+        // if (wardsRes.data && wardsRes.status === 200 && Array.isArray(wardsRes.data.data)) {
+        //   dispatch(setWards(wardsRes.data.data));
+        //   setIsLive(true);
+        //   gotLive = true;
+        // }
+      } catch (err) {}
+      if (!gotLive) {
+        // fallback to demo
+        const wardsRes = await demoAPI.getWards(currentMode);
+        if (wardsRes.success) {
+          dispatch(setWards(wardsRes.data));
+          setIsLive(false);
+        }
+      }
       // recommendations now handled separately
       // Try backend signals first
       try {
@@ -208,6 +226,14 @@ const Wards = () => {
 
   return (
     <div className="container-fluid py-6 space-y-6 animate-fade-in">
+      {/* LIVE/DEMO floating badge */}
+      <div style={{ position: 'fixed', top: 16, right: 24, zIndex: 1000 }}>
+        {isLive ? (
+          <span className="px-3 py-1 bg-green-600 text-white rounded font-semibold text-xs animate-pulse shadow-lg border border-green-700">LIVE</span>
+        ) : (
+          <span className="px-3 py-1 bg-red-600 text-white rounded font-semibold text-xs shadow-lg border border-red-700">DEMO</span>
+        )}
+      </div>
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
@@ -339,6 +365,15 @@ const Wards = () => {
               recommendations={recommendations}
               currentMode={currentMode}
             />
+            {/* Recommendations LIVE/DEMO badge */}
+            <div className="flex items-center gap-2 mb-2">
+              <h2 className="text-lg font-bold">Recommendations</h2>
+              {isLive ? (
+                <span className="px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse ml-2">LIVE</span>
+              ) : (
+                <span className="px-2 py-0.5 bg-red-600 text-white rounded text-xs ml-2">DEMO</span>
+              )}
+            </div>
 
             <div className="card space-y-3">
               <div className="flex items-center justify-between">
@@ -416,6 +451,11 @@ const Wards = () => {
                       <div>
                         <p className="text-sm font-medium text-secondary-900 ">
                           {signal.title}
+                          {isLive ? (
+                            <span className="ml-2 px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse align-middle">LIVE</span>
+                          ) : (
+                            <span className="ml-2 px-2 py-0.5 bg-red-600 text-white rounded text-xs align-middle">DEMO</span>
+                          )}
                         </p>
                         <p className="text-xs text-secondary-600 ">
                           {signal.message}
