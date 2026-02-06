@@ -36,6 +36,7 @@ import signalRoutes from './routes/signal.route.js';
 import priorityRoutes from './routes/priority.route.js';
 import wpiRoutes from './routes/wpi.routes.js';
 import intelligenceRoutes from './routes/intelligence.routes.js';
+import creditRoutes from './routes/credit.route.js';
 import recommendationRoutes from './routes/recommendation.route.js';
 
 app.use('/api/v1/auth', authRoutes);
@@ -45,6 +46,7 @@ app.use('/api/v1/signals', signalRoutes);
 app.use('/api/v1/priority', priorityRoutes);
 app.use('/api/v1/wpi', wpiRoutes);
 app.use('/api/v1', intelligenceRoutes);
+app.use('/api/v1/credit', creditRoutes);
 app.use('/api/v1/recommendations', recommendationRoutes);
 
 // error handler

@@ -25,9 +25,21 @@ let globalMode = 'normal';
 
 export const getAllZones = asyncHandler(async (req, res) => {
   const zones = await Zone.find({}).select('zone_id zone_name geojson is_hotspot');
+  
+  // Optional: Enrich with credit status
+  const enrichedZones = await Promise.all(
+    zones.map(async (zone) => {
+      const credit = await ZoneCreditRanking.findOne({ zone_id: zone._id });
+      return {
+        ...zone.toObject(),
+        zone_status: credit?.zone_status || null,
+        credit_score: credit?.credit_score || null
+      };
+    })
+  );
 
   return res.status(200).json(
-    new ApiResponse(200, zones, 'Zones retrieved successfully')
+    new ApiResponse(200, enrichedZones, 'Zones retrieved successfully')
   );
 });
 
