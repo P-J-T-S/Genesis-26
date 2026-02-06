@@ -3,10 +3,27 @@ import { MapContainer, TileLayer, GeoJSON, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { wardPolygons } from '../../data/mumbaiWardsGeoJSON';
 import { getWPILevel } from '../../utils/helpers';
+import { kml } from '@tmcw/togeojson';
 
 // Mumbai default center & zoom
 const MUMBAI_CENTER = [19.076, 72.8777];
 const DEFAULT_ZOOM = 11;
+
+useEffect(() => {
+  const loadKML = async () => {
+    const res = await fetch('../../assets/wards_info.kml');
+    const text = await res.text();
+
+    const parser = new DOMParser();
+    const kmlDoc = parser.parseFromString(text, 'text/xml');
+
+    const convertedGeoJson = kml(kmlDoc);
+
+    setGeoJsonData(convertedGeoJson);
+  };
+
+  loadKML();
+}, []);
 
 // Mode-aware color logic for WPI based on thresholds
 const getWPIColor = (wpi, mode = 'normal') => {
@@ -24,6 +41,40 @@ const getWPIColor = (wpi, mode = 'normal') => {
   if (wpi <= t.orange) return '#f97316'; // Orange - High Pressure
   return '#ef4444'; // Red - Critical
 };
+
+
+
+useEffect(() => {
+  if (!geoJsonData || !wardsData.length) return;
+
+  const updated = {
+    ...geoJsonData,
+    features: geoJsonData.features.map(feature => {
+      const wardName = feature.properties.name;
+
+      const wardData = wardsData.find(
+        w => w.name === wardName
+      );
+
+      if (!wardData) return feature;
+
+      return {
+        ...feature,
+        properties: {
+          ...feature.properties,
+          ward_id: wardData.id,
+          ward_name: wardData.name,
+          zone: wardData.zone,
+          wpi: wardData.wpi,
+          is_critical: wardData.wpi >= blinkThreshold,
+          is_selected: wardData.id === selectedWardId,
+        },
+      };
+    }),
+  };
+
+  setGeoJsonData(updated);
+}, [wardsData, selectedWardId, blinkThreshold]);
 
 const LiveWastePressureMap = ({ wardsData = [], selectedWardId, currentMode = 'normal', onWardSelect }) => {
   const [geoJsonData, setGeoJsonData] = useState(null);
