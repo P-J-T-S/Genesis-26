@@ -41,7 +41,11 @@ import intelligenceRoutes from './routes/intelligence.routes.js';
 =======
 import intelligenceRoutes from './routes/intelligence.routes.js';
 import recommendationRoutes from './routes/recommendation.route.js';
+<<<<<<< HEAD
 >>>>>>> initial-frontend
+=======
+import forecastRoutes from './routes/forecast.route.js';
+>>>>>>> ml-imp
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/zones', zonesRoutes);
@@ -55,7 +59,11 @@ app.use('/api/v1/intelligence', intelligenceRoutes);
 =======
 app.use('/api/v1', intelligenceRoutes);
 app.use('/api/v1/recommendations', recommendationRoutes);
+<<<<<<< HEAD
 >>>>>>> initial-frontend
+=======
+app.use('/api/v1/forecast', forecastRoutes);
+>>>>>>> ml-imp
 
 // error handler
 app.use(globalErrorHandler);
