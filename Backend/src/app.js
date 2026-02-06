@@ -27,8 +27,18 @@ app.use(cookieParser());
 
 // Routes
 import authRoutes from './routes/auth.route.js';
-app.use('/api/v1/auth', authRoutes);
+import zonesRoutes from './routes/zones.route.js';
 
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/zones', zonesRoutes);
+import feedRoutes from './routes/feed.route.js';
+import signalRoutes from './routes/signal.route.js';
+import priorityRoutes from './routes/priority.route.js';
+
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/feed', feedRoutes);
+app.use('/api/v1/signals', signalRoutes);
+app.use('/api/v1/priority', priorityRoutes);
 
 // error handler
 app.use(globalErrorHandler);
