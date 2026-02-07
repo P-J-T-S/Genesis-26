@@ -7,7 +7,7 @@ import ThemeProvider from './components/theme/ThemeProvider.jsx'
 import Layout from './components/layout/Layout';
 
 // Pages
-import { Landing, Login, Signup, Wards, Priorities, Recommendations } from './pages/index'
+import { Landing, Login, Signup, Wards, Priorities, Recommendations, Forecast } from './pages/index'
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -71,6 +71,7 @@ function AppRoutes() {
         <Route path="wards" element={<Wards />} />
         <Route path="priorities" element={<Priorities />} />
         <Route path="recommendations" element={<Recommendations />} />
+        <Route path="forecast" element={<Forecast />} />
         {/* Redirect unknown protected routes to wards */}
         <Route path="*" element={<Navigate to="/wards" replace />} />
       </Route>

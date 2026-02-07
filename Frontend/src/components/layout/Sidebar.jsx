@@ -16,6 +16,7 @@ const Sidebar = ({ isOpen, onClose }) => {
     { path: '/wards', icon: Map, label: 'Ward Management' },
     { path: '/priorities', icon: ListOrdered, label: 'Priority Rankings' },
     { path: '/recommendations', icon: Lightbulb, label: 'Actions' },
+    { path: '/forecast', icon: LayoutDashboard, label: 'AI Forecast' },
   ];
 
   const NavItem = ({ to, icon: Icon, label }) => (
