@@ -16,6 +16,13 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
     }).slice(0, 2);
   }, [ward, recommendations]);
 
+  const topSignals = useMemo(() => {
+    if (!ward || !Array.isArray(ward.wpiBreakdown)) return [];
+    return [...ward.wpiBreakdown]
+      .sort((a, b) => (b.contribution || 0) - (a.contribution || 0))
+      .slice(0, 3);
+  }, [ward]);
+
   if (!ward) {
     return (
       <div className="card">
@@ -42,13 +49,6 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
     critical: 'bg-danger-500'
   }[wpiLevel.level];
 
-  const topSignals = useMemo(() => {
-    if (!ward || !Array.isArray(ward.wpiBreakdown)) return [];
-    return [...ward.wpiBreakdown]
-      .sort((a, b) => (b.contribution || 0) - (a.contribution || 0))
-      .slice(0, 3);
-  }, [ward]);
-
   const actionFallback = {
     critical: [
       'Dispatch extra collection vehicles within 1 hour',
@@ -74,9 +74,8 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
     : actionFallback[wpiLevel.level];
 
   // RBAC Flags
-  const showScore = isCityHead || isWardOfficer; // Only Head & Ward Officer see Score
-  const showInsights = isCityHead || isWardOfficer; // Only Head see Insights? Plan said "Zone Click -> Add One Section Operational Insights". "Role Based: City Head ✅, Ward Officer 🔍 (Own ward - implied yes), Field Sup ❌". 
-  // User request: "City SWM Head ✅ Yes (Compliance Score)", "Ward Officer 🔍 Limited (own ward)", "Field Supervisor ❌ No"
+  const showScore = isCityHead || isWardOfficer;
+  const showInsights = isCityHead || isWardOfficer;
 
   return (
     <div className="card space-y-4">
@@ -92,7 +91,6 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
             {ward.zone} zone
           </p>
         </div>
-        {/* Supervisor sees NO Score/Level Badge */}
         {showScore && (
           <span className={`badge badge-${wpiLevel.color}`}>
             {wpiLevel.label}
@@ -100,7 +98,6 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
         )}
       </div>
 
-      {/* Score Section - Hidden for Supervisor */}
       {showScore && (
         <div>
           <div className="flex items-center justify-between mb-2">
@@ -117,7 +114,6 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
         </div>
       )}
 
-      {/* Compliance Score & Insights - New Section */}
       {showInsights && (ward.complianceScore || ward.operationalInsights) && (
         <div className="bg-primary-50 border border-primary-100 rounded-lg p-3 space-y-2">
           <div className="flex items-center gap-2">
@@ -145,13 +141,6 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
         </div>
       )}
 
-      {/* Signals - Hidden for Supervisor? Request says "What they DON’T do: No configuration...". 
-          "Zonal Supervisor -> Status update: pending / in-progress / done".
-          "High-level alerts & trends" for City Head.
-          I'll keep signals for everyone for context, UNLESS specified to hide. 
-          "What they DON’T see: ... City-wide controls".
-          I'll keep signals visible as they explain WHY actions are needed.
-      */}
       {showScore && (
         <div>
           <p className="text-sm font-medium text-secondary-900 mb-2">
@@ -172,7 +161,6 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
         </div>
       )}
 
-      {/* Status Update for Supervisor (Placeholder UI) */}
       {isZonalSupervisor && (
         <div className="bg-secondary-50 p-3 rounded-lg border border-secondary-200">
           <p className="text-xs font-semibold text-secondary-700 mb-2">Task Status</p>

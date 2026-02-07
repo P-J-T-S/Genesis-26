@@ -1,5 +1,14 @@
 // Utility helper functions for BMC SWM Dashboard
 
+export const ZONES = {
+  SOUTH: 'South',
+  NORTH: 'North',
+  EAST: 'East',
+  WEST: 'West',
+  CENTRAL: 'Central',
+  ISLAND_CITY: 'Island City',
+};
+
 /**
  * Format timestamp to readable format
  * @param {string|Date} timestamp

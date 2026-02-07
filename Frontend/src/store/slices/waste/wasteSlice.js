@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 
 const initialState = {
   // System mode
@@ -156,24 +156,25 @@ export const selectStats = (state) => state.waste.stats;
 export const selectLastUpdated = (state) => state.waste.lastUpdated;
 
 // Filtered selectors
-export const selectFilteredWards = (state) => {
-  const { wards, filters } = state.waste;
+export const selectFilteredWards = createSelector(
+  [selectWards, selectFilters],
+  (wards, filters) => {
+    return wards.filter((ward) => {
+      const matchesSearch =
+        !filters.searchQuery ||
+        ward.name.toLowerCase().includes(filters.searchQuery.toLowerCase()) ||
+        ward.id.toLowerCase().includes(filters.searchQuery.toLowerCase());
 
-  return wards.filter((ward) => {
-    const matchesSearch =
-      !filters.searchQuery ||
-      ward.name.toLowerCase().includes(filters.searchQuery.toLowerCase()) ||
-      ward.id.toLowerCase().includes(filters.searchQuery.toLowerCase());
+      const matchesPressure =
+        filters.pressureLevel === 'all' ||
+        ward.pressureLevel === filters.pressureLevel;
 
-    const matchesPressure =
-      filters.pressureLevel === 'all' ||
-      ward.pressureLevel === filters.pressureLevel;
+      const matchesZone =
+        filters.zone === 'all' || ward.zone === filters.zone;
 
-    const matchesZone =
-      filters.zone === 'all' || ward.zone === filters.zone;
-
-    return matchesSearch && matchesPressure && matchesZone;
-  });
-};
+      return matchesSearch && matchesPressure && matchesZone;
+    });
+  }
+);
 
 export default wasteSlice.reducer;

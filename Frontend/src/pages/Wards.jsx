@@ -1,4 +1,4 @@
-import { zonesAPI } from '../services/api';
+import { zonesAPI, signalAPI } from '../services/api';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAuth } from '../contexts/AuthContext';
@@ -22,13 +22,13 @@ import {
   selectWard,
   selectWards
 } from '../store/slices/waste/wasteSlice';
-import { demoAPI, ZONES } from '../data/demoData';
+// import { demoAPI, ZONES } from '../data/demoData';
 import LiveWastePressureMap from '../components/waste/LiveWastePressureMap';
 import WardCard from '../components/waste/WardCard';
 import WardDetailModal from '../components/waste/WardDetailModal';
 import ModeToggle from '../components/waste/ModeToggle';
 import WardDecisionPanel from '../components/waste/WardDecisionPanel';
-import { exportToCSV, getWPILevel } from '../utils/helpers';
+import { exportToCSV, getWPILevel, ZONES } from '../utils/helpers';
 
 const Wards = () => {
   const dispatch = useDispatch();
@@ -177,7 +177,10 @@ const Wards = () => {
   }
 
   return (
-    <div className="container-fluid py-6 space-y-6 animate-fade-in">
+    <div className="container-fluid py-6 space-y-6 animate-fade-in relative">
+      <div className="absolute top-2 right-2 z-20">
+        <span className="px-3 py-1 bg-green-600 text-white rounded font-semibold text-xs animate-pulse shadow-lg border border-green-700">LIVE</span>
+      </div>
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
@@ -374,6 +377,7 @@ const Wards = () => {
                           <span className={`badge badge-${level.color}`}>
                             {level.label}
                           </span>
+                          <span className="ml-2 px-2 py-0.5 bg-green-600 text-white rounded text-[10px] animate-pulse align-middle font-bold">LIVE</span>
                         </div>
                       </div>
                     </button>
