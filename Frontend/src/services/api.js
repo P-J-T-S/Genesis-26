@@ -71,19 +71,19 @@ api.interceptors.response.use(
     (response) => response,
     async (error) => {
         const originalRequest = error.config;
-        
+
         if (error.response?.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
-            
+
             try {
                 const response = await axios.post(`${API_URL}/auth/refresh-token`, {}, {
                     withCredentials: true,
                 });
-                
+
                 const { accessToken } = response.data.data;
                 localStorage.setItem('accessToken', accessToken);
                 originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-                
+
                 return api(originalRequest);
             } catch (refreshError) {
                 // Refresh token failed, clear auth and redirect
@@ -93,7 +93,7 @@ api.interceptors.response.use(
                 return Promise.reject(refreshError);
             }
         }
-        
+
         return Promise.reject(error);
     }
 );
@@ -133,9 +133,9 @@ export const teamAPI = {
     create: (data) => api.post('/api/v1/teams', data),
     update: (id, data) => api.put(`/api/v1/teams/${id}`, data),
     delete: (id) => api.delete(`/api/v1/teams/${id}`),
-    addTechnician: (teamId, technicianId) => 
+    addTechnician: (teamId, technicianId) =>
         api.post(`/api/v1/teams/${teamId}/technicians`, { technicianId }),
-    removeTechnician: (teamId, technicianId) => 
+    removeTechnician: (teamId, technicianId) =>
         api.delete(`/api/v1/teams/${teamId}/technicians`, { data: { technicianId } }),
 };
 
@@ -146,7 +146,7 @@ export const requestAPI = {
     create: (data) => api.post('/api/v1/requests', data),
     update: (id, data) => api.put(`/api/v1/requests/${id}`, data),
     delete: (id) => api.delete(`/api/v1/requests/${id}`),
-    updateStatus: (id, status, duration) => 
+    updateStatus: (id, status, duration) =>
         api.patch(`/api/v1/requests/${id}/status`, { status, duration }),
     getKanban: () => api.get('/api/v1/requests/kanban'),
     getPreventive: (params) => api.get('/api/v1/requests/preventive', { params }),
