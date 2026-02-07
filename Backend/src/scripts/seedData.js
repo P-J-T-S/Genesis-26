@@ -13,7 +13,7 @@ dotenv.config();
 const seedDatabase = async () => {
   try {
     console.log('🌱 Starting seed process...');
-    
+
     // Connect to DB
     await connectDB();
     console.log('✅ Connected to MongoDB');

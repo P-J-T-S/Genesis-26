@@ -4,17 +4,17 @@ import { ZoneStatus } from '../models/zone_status.model.js';
 export const getTopPriorityZones = async (limit = 5) => {
   const priorityZones = await ZoneStatus.find()
     .populate('zone_id')
-    .sort({ wpi: -1, priority_rank: 1 })
+    .sort({ wpi_score: -1, priority_rank: 1 })
     .limit(limit)
     .lean();
 
   return priorityZones.map(z => ({
     zone_id: z.zone_id,
-    wpi: z.wpi,
-    color: z.color,
+    wpi_score: z.wpi_score,
+    status_color: z.status_color,
     priority_rank: z.priority_rank,
     updated_at: z.updated_at,
-    critical: z.wpi >= 75,
+    critical: z.wpi_score >= 75,
     actionable: z.actionable_signals ? Object.values(z.actionable_signals).some(v => v) : false
   }));
 };

@@ -61,8 +61,8 @@ async function runTests() {
     }
 
     // Test 2: GET /api/v1/zones/status
-    console.log('Test 2: GET /api/v1/zones/api/status');
-    const statusRes = await makeRequest('/api/v1/zones/api/status');
+    console.log('Test 2: GET /api/v1/zones/status');
+    const statusRes = await makeRequest('/api/v1/zones/status');
     console.log(`Status: ${statusRes.statusCode}`);
     if (statusRes.data.data) {
       console.log(`Mode: ${statusRes.data.data.mode}`);
@@ -73,8 +73,8 @@ async function runTests() {
     }
 
     // Test 3: GET /api/v1/zones/dashboard/summary
-    console.log('Test 3: GET /api/v1/zones/api/dashboard/summary');
-    const summaryRes = await makeRequest('/api/v1/zones/api/dashboard/summary');
+    console.log('Test 3: GET /api/v1/zones/dashboard/summary');
+    const summaryRes = await makeRequest('/api/v1/zones/dashboard/summary');
     console.log(`Status: ${summaryRes.statusCode}`);
     if (summaryRes.data.data) {
       console.log(`Total zones: ${summaryRes.data.data.total_zones}`);
@@ -83,8 +83,8 @@ async function runTests() {
     }
 
     // Test 4: POST /api/v1/zones/mode (switch to event mode)
-    console.log('Test 4: POST /api/v1/zones/api/mode');
-    const modeRes = await makeRequest('/api/v1/zones/api/mode', 'POST', { mode: 'event' });
+    console.log('Test 4: POST /api/v1/zones/mode');
+    const modeRes = await makeRequest('/api/v1/zones/mode', 'POST', { mode: 'event' });
     console.log(`Status: ${modeRes.statusCode}`);
     console.log(`Mode switched to: ${modeRes.data.data.mode}\n`);
 

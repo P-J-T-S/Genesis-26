@@ -1,0 +1,2501 @@
+ward_id,ward_name,zone,month,day_of_month,is_festival_window,festival_intensity,complaint_intensity,crowd_index,weather_risk,wpi
+W003,Andheri East,West,12,28,0,0.06,72,60,50,31
+X005,Andheri West,West,9,11,1,0.85,152,107,43,58
+W006,Borivali,North,4,21,0,0.02,45,55,38,23
+W002,Bandra West,West,7,6,0,0.13,32,95,16,27
+W001,Colaba,South,3,22,1,0.95,168,107,56,63
+W001,Colaba,South,8,26,0,0.07,40,68,41,25
+W008,Worli,South,11,15,1,0.95,79,108,25,41
+W001,Colaba,South,11,12,0,0.06,73,98,12,36
+X005,Andheri West,West,3,24,1,0.85,139,120,38,58
+W002,Bandra West,West,4,24,0,0.1,34,90,43,28
+W003,Andheri East,West,7,24,0,0.11,51,57,21,24
+W005,Kurla,East,6,15,0,0.14,90,73,44,38
+W006,Borivali,North,6,12,0,0.11,52,83,42,31
+W006,Borivali,North,2,23,0,0.07,45,45,55,23
+W001,Colaba,South,7,4,0,0.01,38,51,50,22
+W008,Worli,South,8,2,1,0.95,145,167,49,69
+W005,Kurla,East,2,1,0,0.13,44,84,13,27
+W002,Bandra West,West,4,20,0,0.13,93,70,56,39
+X006,Juhu,West,10,4,1,0.85,93,132,36,50
+W006,Borivali,North,5,1,0,0.09,90,78,50,39
+W002,Bandra West,West,12,17,0,0.03,72,67,43,32
+W007,Mulund,North,3,22,1,0.6,126,157,37,62
+X006,Juhu,West,3,3,0,0.12,37,74,17,24
+W002,Bandra West,West,9,16,1,0.85,172,97,40,61
+X011,Dahisar,North,8,3,0,0.13,58,74,43,31
+W006,Borivali,North,10,2,1,0.6,108,98,46,47
+W006,Borivali,North,6,18,0,0.07,83,90,56,40
+X001,Fort,Island City,12,22,0,0.0,28,41,38,17
+X002,Churchgate,Island City,2,2,0,0.01,81,85,11,36
+W001,Colaba,South,8,13,1,0.95,139,122,18,57
+W003,Andheri East,West,9,11,1,0.85,164,171,46,74
+W007,Mulund,North,4,7,0,0.06,86,67,23,34
+X008,Vikhroli,East,8,25,1,0.7,149,90,60,56
+W001,Colaba,South,12,9,0,0.11,61,49,23,25
+W007,Mulund,North,1,24,0,0.06,89,88,56,41
+W004,Dadar,Central,2,24,0,0.11,35,58,46,22
+W007,Mulund,North,3,2,1,0.6,72,106,40,40
+W008,Worli,South,2,27,0,0.11,81,104,26,40
+W001,Colaba,South,8,6,1,0.95,137,103,53,55
+W005,Kurla,East,2,11,0,0.02,30,49,40,19
+W005,Kurla,East,10,9,1,0.7,99,112,23,46
+X004,Marine Lines,Island City,2,19,0,0.14,30,105,31,30
+W004,Dadar,Central,9,2,1,0.9,107,123,51,52
+W005,Kurla,East,2,11,0,0.02,86,49,14,30
+W008,Worli,South,7,1,0,0.12,49,82,28,29
+W007,Mulund,North,7,19,0,0.13,30,99,31,28
+W005,Kurla,East,12,12,0,0.1,81,95,40,40
+W001,Colaba,South,2,7,0,0.11,76,71,12,32
+W006,Borivali,North,10,28,1,0.6,60,169,20,48
+W003,Andheri East,West,11,28,0,0.13,74,85,50,37
+W001,Colaba,South,2,10,0,0.11,69,94,27,36
+W003,Andheri East,West,4,18,0,0.1,80,103,13,39
+W001,Colaba,South,12,12,0,0.14,35,103,11,29
+X008,Vikhroli,East,12,22,0,0.07,86,96,34,41
+W008,Worli,South,11,4,0,0.14,44,107,37,34
+W007,Mulund,North,10,25,1,0.6,91,101,36,43
+W008,Worli,South,8,25,1,0.95,101,196,33,64
+X012,Kandarpada,North,9,7,1,0.6,135,97,15,50
+W002,Bandra West,West,11,8,1,0.85,112,130,60,55
+X006,Juhu,West,12,14,0,0.05,62,58,44,28
+W002,Bandra West,West,4,2,0,0.0,40,63,52,25
+W008,Worli,South,11,21,0,0.13,69,93,27,36
+X007,Ghatkopar,East,5,17,0,0.12,94,93,38,42
+W001,Colaba,South,6,1,0,0.03,29,46,39,18
+W006,Borivali,North,2,24,0,0.05,60,80,18,30
+W003,Andheri East,West,3,16,1,0.85,91,192,44,62
+X002,Churchgate,Island City,2,18,0,0.08,61,50,14,24
+X006,Juhu,West,9,2,1,0.85,141,92,12,51
+W008,Worli,South,5,25,0,0.06,82,67,24,33
+W002,Bandra West,West,12,21,0,0.06,46,52,43,23
+W008,Worli,South,2,27,0,0.15,79,58,55,33
+X008,Vikhroli,East,1,20,0,0.08,43,71,28,25
+W005,Kurla,East,12,28,0,0.09,48,46,20,21
+W003,Andheri East,West,1,18,0,0.07,65,85,24,33
+X009,Parel,Central,5,13,0,0.13,50,52,32,24
+X003,Cuffe Parade,Island City,7,13,0,0.11,67,62,51,31
+W001,Colaba,South,8,25,1,0.95,82,147,16,49
+X002,Churchgate,Island City,6,3,0,0.1,42,58,35,23
+W003,Andheri East,West,5,4,0,0.07,66,49,44,27
+W002,Bandra West,West,3,12,1,0.85,124,119,36,54
+X010,Byculla,Central,4,3,0,0.02,53,85,10,29
+W008,Worli,South,8,20,1,0.95,56,144,43,44
+X003,Cuffe Parade,Island City,3,5,0,0.03,60,89,15,32
+W002,Bandra West,West,11,6,0,0.07,52,88,10,30
+W004,Dadar,Central,10,22,1,0.9,153,163,17,68
+W004,Dadar,Central,6,23,0,0.06,42,79,56,29
+W007,Mulund,North,11,15,0,0.07,77,77,37,35
+W008,Worli,South,1,2,0,0.05,74,90,24,36
+X011,Dahisar,North,11,3,0,0.01,55,88,54,34
+W007,Mulund,North,1,21,0,0.11,66,48,49,28
+W007,Mulund,North,10,19,1,0.6,59,148,14,43
+W004,Dadar,Central,10,24,1,0.9,75,140,38,47
+W002,Bandra West,West,9,24,1,0.85,65,193,13,54
+W007,Mulund,North,6,4,0,0.12,90,67,54,37
+W007,Mulund,North,6,7,0,0.07,57,87,54,34
+W007,Mulund,North,10,23,1,0.6,98,157,37,56
+W002,Bandra West,West,1,19,0,0.08,54,53,43,25
+W005,Kurla,East,12,12,0,0.05,40,95,42,31
+X011,Dahisar,North,12,27,0,0.02,79,91,49,39
+W004,Dadar,Central,11,3,1,0.9,153,171,60,73
+X008,Vikhroli,East,6,6,0,0.05,70,78,45,34
+X005,Andheri West,West,6,6,0,0.11,68,60,28,29
+W008,Worli,South,5,14,0,0.1,66,66,22,29
+X008,Vikhroli,East,9,20,1,0.7,118,98,56,50
+W003,Andheri East,West,3,16,0,0.08,72,81,18,33
+W001,Colaba,South,10,4,1,0.95,116,208,30,69
+W001,Colaba,South,11,19,1,0.95,119,115,42,52
+W006,Borivali,North,8,17,1,0.6,92,143,30,51
+X009,Parel,Central,5,8,0,0.0,33,42,29,18
+W001,Colaba,South,5,13,0,0.12,66,61,28,29
+X012,Kandarpada,North,7,20,0,0.06,34,65,44,23
+W006,Borivali,North,2,8,0,0.11,96,86,13,39
+X002,Churchgate,Island City,11,23,0,0.09,74,101,31,39
+W001,Colaba,South,8,23,1,0.95,113,122,31,52
+X001,Fort,Island City,11,19,1,0.92,144,163,39,67
+W004,Dadar,Central,7,24,0,0.13,89,81,54,40
+W007,Mulund,North,5,16,0,0.13,85,59,36,33
+W004,Dadar,Central,3,5,1,0.9,78,165,19,51
+W007,Mulund,North,11,1,1,0.6,104,74,10,38
+X005,Andheri West,West,8,27,1,0.85,56,160,23,46
+X007,Ghatkopar,East,4,9,0,0.14,64,56,55,29
+X002,Churchgate,Island City,7,16,0,0.14,34,89,34,28
+W001,Colaba,South,12,8,0,0.07,61,88,45,34
+W002,Bandra West,West,7,12,0,0.1,80,61,22,31
+W002,Bandra West,West,8,16,1,0.85,137,125,31,58
+W007,Mulund,North,5,3,0,0.14,34,89,16,26
+W002,Bandra West,West,12,26,0,0.07,31,87,40,27
+W008,Worli,South,12,21,0,0.14,61,93,51,36
+X003,Cuffe Parade,Island City,2,26,0,0.1,81,49,20,29
+X009,Parel,Central,4,28,0,0.03,68,86,22,34
+W008,Worli,South,4,19,0,0.04,52,75,22,28
+X001,Fort,Island City,5,28,0,0.02,86,48,10,29
+W007,Mulund,North,6,19,0,0.08,53,66,27,27
+W008,Worli,South,6,2,0,0.06,62,57,51,29
+W006,Borivali,North,9,13,1,0.6,64,126,12,40
+W006,Borivali,North,8,28,1,0.6,65,123,58,43
+W001,Colaba,South,9,5,1,0.95,63,116,36,40
+W001,Colaba,South,9,19,0,0.06,43,81,21,27
+W001,Colaba,South,11,1,1,0.95,81,97,25,39
+W008,Worli,South,9,20,0,0.15,96,100,29,43
+X012,Kandarpada,North,5,3,0,0.14,77,105,46,41
+W001,Colaba,South,8,22,1,0.95,98,181,32,60
+W001,Colaba,South,10,15,1,0.95,56,169,44,49
+X004,Marine Lines,Island City,5,14,0,0.11,31,62,30,21
+W005,Kurla,East,4,12,0,0.11,33,74,47,25
+W005,Kurla,East,3,17,1,0.7,109,109,26,48
+W006,Borivali,North,6,11,0,0.1,66,45,35,26
+W001,Colaba,South,11,4,0,0.02,71,93,18,35
+W003,Andheri East,West,12,7,0,0.1,73,95,10,36
+W004,Dadar,Central,2,4,0,0.04,43,66,38,25
+W001,Colaba,South,4,15,0,0.02,73,41,33,27
+W007,Mulund,North,5,4,0,0.03,58,47,24,24
+W005,Kurla,East,6,12,0,0.11,77,91,11,36
+W004,Dadar,Central,2,19,0,0.07,77,44,44,29
+W001,Colaba,South,8,11,1,0.95,177,162,36,74
+W006,Borivali,North,2,3,0,0.09,74,81,42,36
+W005,Kurla,East,1,14,0,0.02,66,53,16,26
+X003,Cuffe Parade,Island City,10,22,1,0.92,67,194,46,57
+W003,Andheri East,West,2,7,0,0.03,62,83,15,31
+W007,Mulund,North,11,7,1,0.6,73,117,54,43
+W007,Mulund,North,6,7,0,0.11,39,100,34,31
+W003,Andheri East,West,3,2,1,0.85,153,153,39,67
+X005,Andheri West,West,12,2,0,0.12,90,99,18,41
+W008,Worli,South,9,1,1,0.95,82,205,34,62
+X003,Cuffe Parade,Island City,2,15,0,0.03,78,77,18,34
+W003,Andheri East,West,7,25,0,0.0,60,90,31,33
+W003,Andheri East,West,7,22,0,0.0,51,63,34,26
+X002,Churchgate,Island City,8,9,0,0.11,29,58,20,19
+W004,Dadar,Central,10,7,1,0.9,139,122,52,59
+W001,Colaba,South,10,18,1,0.95,93,125,43,49
+W007,Mulund,North,5,5,0,0.14,70,63,43,31
+W002,Bandra West,West,6,1,0,0.1,88,84,50,40
+W003,Andheri East,West,10,15,0,0.12,38,76,35,26
+W005,Kurla,East,6,15,0,0.05,36,60,32,22
+X001,Fort,Island City,12,15,0,0.13,94,53,19,33
+W001,Colaba,South,8,18,1,0.95,188,138,54,73
+W002,Bandra West,West,2,4,0,0.13,58,66,17,27
+X002,Churchgate,Island City,3,21,0,0.15,87,97,29,41
+X011,Dahisar,North,5,12,0,0.14,41,83,26,27
+X007,Ghatkopar,East,10,2,1,0.7,77,96,18,37
+X009,Parel,Central,3,14,1,0.9,179,128,29,68
+X006,Juhu,West,5,7,0,0.06,76,99,27,38
+X001,Fort,Island City,2,20,0,0.04,73,52,49,30
+W002,Bandra West,West,5,17,0,0.14,85,102,17,40
+W001,Colaba,South,6,1,0,0.11,42,105,32,32
+X001,Fort,Island City,5,3,0,0.14,89,86,56,41
+W004,Dadar,Central,9,8,1,0.9,149,93,20,53
+W006,Borivali,North,12,12,0,0.12,48,101,38,33
+W005,Kurla,East,5,18,0,0.02,54,73,52,30
+W001,Colaba,South,12,21,0,0.03,43,47,43,22
+X009,Parel,Central,11,23,1,0.9,82,127,48,47
+W005,Kurla,East,11,14,1,0.7,92,159,25,54
+W005,Kurla,East,4,1,0,0.02,58,83,10,30
+W007,Mulund,North,8,4,1,0.6,93,141,57,53
+X003,Cuffe Parade,Island City,8,23,0,0.07,40,59,37,23
+W001,Colaba,South,9,25,1,0.95,157,119,27,61
+X010,Byculla,Central,7,28,0,0.09,53,56,60,27
+W007,Mulund,North,8,24,0,0.14,72,87,57,37
+W002,Bandra West,West,1,24,0,0.01,80,48,23,29
+W006,Borivali,North,7,5,0,0.05,74,73,12,32
+X010,Byculla,Central,3,15,1,0.9,126,128,22,55
+W004,Dadar,Central,12,3,0,0.12,68,80,23,33
+X001,Fort,Island City,3,25,1,0.92,62,194,38,55
+X003,Cuffe Parade,Island City,2,13,0,0.14,42,51,52,23
+W007,Mulund,North,12,20,0,0.02,80,82,38,37
+X006,Juhu,West,5,16,0,0.06,68,47,46,28
+X001,Fort,Island City,6,21,0,0.06,47,69,47,27
+X003,Cuffe Parade,Island City,1,19,0,0.14,58,89,52,34
+W005,Kurla,East,1,1,0,0.03,44,80,44,29
+W001,Colaba,South,8,6,1,0.95,57,169,44,49
+W004,Dadar,Central,10,4,1,0.9,106,128,45,52
+W005,Kurla,East,7,10,0,0.03,47,80,59,31
+W002,Bandra West,West,6,8,0,0.09,40,102,41,32
+W001,Colaba,South,9,21,1,0.95,175,148,47,72
+W005,Kurla,East,3,16,0,0.13,66,107,16,37
+W003,Andheri East,West,3,5,1,0.85,124,127,42,56
+X002,Churchgate,Island City,10,8,0,0.14,44,93,28,30
+W001,Colaba,South,6,12,0,0.07,50,94,51,33
+W005,Kurla,East,10,17,1,0.7,77,149,52,51
+W006,Borivali,North,5,20,0,0.04,75,67,53,34
+X010,Byculla,Central,2,6,0,0.0,72,74,51,34
+W006,Borivali,North,8,25,0,0.13,58,66,38,29
+W004,Dadar,Central,12,27,0,0.09,74,71,35,33
+W005,Kurla,East,1,4,0,0.0,73,67,16,31
+W005,Kurla,East,9,17,1,0.7,112,142,30,55
+W002,Bandra West,West,2,9,0,0.04,74,43,39,28
+X003,Cuffe Parade,Island City,3,11,1,0.92,62,100,16,35
+W004,Dadar,Central,8,6,1,0.9,157,174,57,74
+W004,Dadar,Central,4,20,0,0.03,45,78,20,27
+W001,Colaba,South,12,27,0,0.1,53,70,50,29
+X009,Parel,Central,3,3,1,0.9,169,98,20,59
+X012,Kandarpada,North,4,17,0,0.01,74,42,40,28
+W008,Worli,South,1,11,0,0.06,61,48,42,26
+W003,Andheri East,West,8,28,1,0.85,69,192,40,56
+W001,Colaba,South,6,16,0,0.04,60,55,25,26
+W004,Dadar,Central,10,17,1,0.9,133,160,12,62
+X005,Andheri West,West,2,4,0,0.08,33,69,12,22
+W006,Borivali,North,10,7,0,0.06,56,96,22,33
+X011,Dahisar,North,8,19,1,0.6,104,94,12,43
+W008,Worli,South,3,22,1,0.95,170,126,23,65
+X012,Kandarpada,North,1,11,0,0.12,34,65,21,22
+W007,Mulund,North,10,14,1,0.6,71,81,19,33
+W007,Mulund,North,10,7,0,0.14,84,62,16,32
+X008,Vikhroli,East,3,18,1,0.7,52,101,43,35
+W004,Dadar,Central,6,4,0,0.08,29,73,13,22
+W008,Worli,South,7,10,0,0.13,69,65,49,32
+W001,Colaba,South,9,5,1,0.95,188,188,14,80
+X011,Dahisar,North,4,25,0,0.03,27,47,17,16
+W006,Borivali,North,12,6,0,0.14,54,57,34,26
+W007,Mulund,North,7,19,0,0.13,45,50,13,21
+W007,Mulund,North,11,17,1,0.6,87,118,52,47
+W002,Bandra West,West,9,6,0,0.14,42,71,30,25
+W007,Mulund,North,4,23,0,0.14,31,93,60,30
+X003,Cuffe Parade,Island City,2,21,0,0.02,67,55,18,27
+W005,Kurla,East,8,16,0,0.08,38,97,39,30
+W007,Mulund,North,7,11,0,0.12,89,105,52,44
+X002,Churchgate,Island City,5,17,0,0.09,74,64,60,33
+X004,Marine Lines,Island City,12,28,0,0.11,51,80,20,28
+W002,Bandra West,West,4,5,0,0.01,84,91,19,38
+W002,Bandra West,West,6,5,0,0.1,76,56,32,30
+X008,Vikhroli,East,7,21,0,0.11,36,72,58,26
+X001,Fort,Island City,10,14,0,0.14,37,84,60,29
+W007,Mulund,North,12,5,0,0.04,36,69,55,26
+W005,Kurla,East,1,9,0,0.0,74,49,14,27
+X005,Andheri West,West,11,14,0,0.04,63,94,48,36
+X001,Fort,Island City,8,9,1,0.92,92,125,55,49
+W004,Dadar,Central,11,1,1,0.9,93,154,60,56
+W008,Worli,South,1,14,0,0.04,72,95,41,38
+W007,Mulund,North,5,19,0,0.12,30,75,50,25
+W003,Andheri East,West,8,24,0,0.06,56,87,28,32
+X010,Byculla,Central,7,13,0,0.13,63,80,33,32
+W005,Kurla,East,7,21,0,0.09,45,88,55,31
+W007,Mulund,North,6,28,0,0.06,38,96,14,28
+W006,Borivali,North,9,4,1,0.6,45,75,23,26
+W005,Kurla,East,7,9,0,0.07,50,57,37,25
+W003,Andheri East,West,9,7,1,0.85,99,89,13,41
+W008,Worli,South,10,26,1,0.95,89,189,59,62
+W006,Borivali,North,1,2,0,0.11,58,97,57,36
+W007,Mulund,North,4,22,0,0.14,75,83,10,34
+X002,Churchgate,Island City,5,12,0,0.01,55,64,60,29
+W003,Andheri East,West,2,10,0,0.03,66,90,25,34
+W003,Andheri East,West,8,26,0,0.1,35,51,27,20
+W008,Worli,South,8,16,1,0.95,65,163,11,48
+W005,Kurla,East,6,2,0,0.08,53,60,40,26
+X010,Byculla,Central,9,27,1,0.9,74,135,26,45
+W003,Andheri East,West,11,13,1,0.85,171,143,13,68
+W004,Dadar,Central,3,9,0,0.03,65,89,38,35
+W007,Mulund,North,3,5,1,0.6,65,150,36,47
+W008,Worli,South,2,21,0,0.04,46,90,33,30
+W006,Borivali,North,5,5,0,0.1,44,88,18,28
+W004,Dadar,Central,6,15,0,0.01,36,60,51,23
+X005,Andheri West,West,12,8,0,0.03,60,61,15,26
+X001,Fort,Island City,2,19,0,0.13,56,79,18,29
+W005,Kurla,East,8,15,1,0.7,63,168,45,51
+X007,Ghatkopar,East,8,3,1,0.7,141,168,50,69
+W002,Bandra West,West,11,19,1,0.85,133,95,20,50
+X004,Marine Lines,Island City,5,19,0,0.12,95,65,17,35
+X007,Ghatkopar,East,8,8,1,0.7,126,111,57,54
+W005,Kurla,East,4,23,0,0.11,57,63,54,29
+W007,Mulund,North,8,24,1,0.6,53,84,22,30
+W008,Worli,South,6,16,0,0.14,48,73,60,29
+X004,Marine Lines,Island City,8,20,1,0.92,134,127,22,57
+W005,Kurla,East,8,25,1,0.7,157,105,14,57
+W003,Andheri East,West,7,12,0,0.15,95,98,53,44
+W004,Dadar,Central,6,15,0,0.1,90,72,43,37
+W003,Andheri East,West,7,13,0,0.14,81,84,43,38
+W007,Mulund,North,3,16,1,0.6,62,110,60,40
+W005,Kurla,East,8,9,0,0.13,49,103,48,35
+X008,Vikhroli,East,9,8,1,0.7,64,162,15,47
+X012,Kandarpada,North,10,13,1,0.6,48,122,53,39
+X003,Cuffe Parade,Island City,2,4,0,0.06,64,95,51,37
+X008,Vikhroli,East,1,1,0,0.05,39,50,45,22
+X008,Vikhroli,East,10,13,1,0.7,97,177,59,61
+X012,Kandarpada,North,1,7,0,0.07,60,47,35,25
+W002,Bandra West,West,7,13,0,0.1,72,67,51,33
+W001,Colaba,South,9,11,1,0.95,155,194,44,76
+W001,Colaba,South,12,5,0,0.03,78,81,14,34
+W001,Colaba,South,7,7,0,0.14,82,72,35,35
+X004,Marine Lines,Island City,7,8,0,0.03,67,88,26,34
+W007,Mulund,North,9,28,1,0.6,46,156,49,45
+X011,Dahisar,North,1,12,0,0.04,86,86,18,37
+X001,Fort,Island City,7,7,0,0.08,77,55,43,31
+W003,Andheri East,West,3,7,0,0.07,56,95,60,36
+X002,Churchgate,Island City,1,19,0,0.08,82,79,59,38
+W008,Worli,South,10,3,1,0.95,147,165,36,68
+W004,Dadar,Central,3,6,1,0.9,172,124,31,65
+X011,Dahisar,North,7,10,0,0.03,27,64,33,21
+X007,Ghatkopar,East,6,15,0,0.12,45,96,44,32
+W004,Dadar,Central,1,21,0,0.1,94,96,58,44
+W006,Borivali,North,10,25,1,0.6,108,113,15,48
+W002,Bandra West,West,7,15,0,0.12,33,71,52,25
+W008,Worli,South,10,1,1,0.95,115,200,44,69
+W004,Dadar,Central,9,18,1,0.9,123,125,60,57
+W006,Borivali,North,9,8,1,0.6,145,169,54,70
+W002,Bandra West,West,9,26,0,0.14,51,104,34,34
+W002,Bandra West,West,10,22,1,0.85,174,88,57,61
+X003,Cuffe Parade,Island City,6,16,0,0.0,56,74,57,31
+W002,Bandra West,West,10,2,0,0.13,69,62,32,30
+W007,Mulund,North,9,24,1,0.6,47,114,25,35
+W008,Worli,South,2,14,0,0.03,76,52,28,29
+W003,Andheri East,West,3,13,0,0.05,73,89,38,37
+W004,Dadar,Central,6,28,0,0.05,39,97,18,29
+X004,Marine Lines,Island City,5,14,0,0.05,26,79,10,22
+W003,Andheri East,West,12,8,0,0.08,38,58,40,23
+X009,Parel,Central,12,24,0,0.03,45,91,45,31
+X009,Parel,Central,10,6,0,0.06,90,47,35,32
+X004,Marine Lines,Island City,12,11,0,0.04,70,81,32,34
+X004,Marine Lines,Island City,4,8,0,0.09,72,94,32,37
+W001,Colaba,South,5,15,0,0.02,31,90,47,28
+W007,Mulund,North,12,15,0,0.12,61,47,25,25
+W005,Kurla,East,10,8,1,0.7,113,176,50,64
+W005,Kurla,East,11,5,1,0.7,113,108,47,50
+X001,Fort,Island City,12,20,0,0.13,56,66,38,28
+W007,Mulund,North,10,11,1,0.6,97,140,35,52
+W005,Kurla,East,3,27,1,0.7,116,81,58,46
+W007,Mulund,North,8,11,1,0.6,135,113,45,56
+W007,Mulund,North,11,18,1,0.6,123,156,23,60
+W003,Andheri East,West,12,4,0,0.04,65,93,37,36
+X007,Ghatkopar,East,2,3,0,0.14,33,82,43,27
+X004,Marine Lines,Island City,8,26,0,0.14,92,102,49,44
+W008,Worli,South,7,8,0,0.07,81,58,16,31
+X001,Fort,Island City,4,28,0,0.08,62,80,42,33
+W005,Kurla,East,6,10,0,0.12,82,60,34,33
+W004,Dadar,Central,11,3,0,0.05,38,74,33,25
+X002,Churchgate,Island City,12,25,0,0.02,71,58,38,30
+W008,Worli,South,12,26,0,0.0,80,52,44,31
+W006,Borivali,North,2,7,0,0.11,30,103,16,28
+X003,Cuffe Parade,Island City,8,13,0,0.01,31,49,42,19
+X011,Dahisar,North,3,5,1,0.6,98,92,34,43
+X011,Dahisar,North,7,22,0,0.08,49,72,15,26
+W007,Mulund,North,6,12,0,0.03,71,93,60,39
+W005,Kurla,East,1,13,0,0.11,86,46,48,32
+X005,Andheri West,West,10,6,1,0.85,100,188,20,61
+W002,Bandra West,West,11,5,1,0.85,108,99,38,46
+W004,Dadar,Central,4,2,0,0.06,30,80,36,25
+W006,Borivali,North,7,21,0,0.14,47,76,45,29
+W008,Worli,South,5,22,0,0.12,97,66,36,37
+X006,Juhu,West,11,22,1,0.85,143,138,56,63
+W001,Colaba,South,4,4,0,0.02,49,42,45,22
+W003,Andheri East,West,7,23,0,0.06,82,72,54,36
+W006,Borivali,North,6,5,0,0.14,43,82,37,28
+X004,Marine Lines,Island City,2,10,0,0.11,76,70,31,33
+W008,Worli,South,2,5,0,0.11,70,105,44,40
+W001,Colaba,South,9,9,1,0.95,148,97,32,55
+W001,Colaba,South,3,3,0,0.12,64,96,16,34
+W005,Kurla,East,10,26,1,0.7,95,82,58,42
+W004,Dadar,Central,11,28,1,0.9,126,114,35,53
+W006,Borivali,North,11,2,0,0.15,93,48,42,33
+W003,Andheri East,West,2,21,0,0.13,77,54,31,30
+W007,Mulund,North,4,24,0,0.06,46,88,57,32
+X010,Byculla,Central,1,14,0,0.06,67,46,22,25
+W005,Kurla,East,6,25,0,0.12,77,56,37,31
+X010,Byculla,Central,2,16,0,0.12,67,81,21,32
+X008,Vikhroli,East,8,13,1,0.7,122,176,27,64
+W001,Colaba,South,2,23,0,0.03,75,77,57,36
+X008,Vikhroli,East,4,20,0,0.14,52,107,34,35
+X011,Dahisar,North,5,7,0,0.02,41,49,48,22
+X009,Parel,Central,1,6,0,0.0,46,63,28,25
+X002,Churchgate,Island City,10,23,1,0.92,146,151,12,63
+X004,Marine Lines,Island City,9,3,1,0.92,82,127,42,47
+W002,Bandra West,West,4,16,0,0.14,77,79,15,34
+X002,Churchgate,Island City,8,24,1,0.92,130,196,47,71
+X003,Cuffe Parade,Island City,6,12,0,0.08,38,81,21,26
+X002,Churchgate,Island City,4,27,0,0.11,92,70,54,38
+W003,Andheri East,West,3,4,1,0.85,102,156,50,57
+X010,Byculla,Central,1,21,0,0.04,75,73,34,34
+W002,Bandra West,West,11,27,1,0.85,132,126,42,58
+W006,Borivali,North,12,11,0,0.01,70,77,13,32
+W008,Worli,South,7,26,0,0.04,80,86,58,39
+X005,Andheri West,West,11,24,0,0.12,29,97,30,28
+W005,Kurla,East,11,24,1,0.7,96,95,60,45
+X010,Byculla,Central,11,26,0,0.04,87,94,50,42
+X006,Juhu,West,7,22,0,0.01,76,66,40,33
+W008,Worli,South,4,6,0,0.01,58,85,23,31
+X003,Cuffe Parade,Island City,12,12,0,0.03,67,53,55,29
+X004,Marine Lines,Island City,12,4,0,0.02,56,59,46,27
+W003,Andheri East,West,9,20,0,0.07,92,78,35,38
+W008,Worli,South,5,18,0,0.08,61,91,12,32
+W005,Kurla,East,10,28,1,0.7,115,100,14,46
+W001,Colaba,South,4,12,0,0.01,81,43,33,29
+W004,Dadar,Central,10,14,0,0.13,89,106,23,42
+W001,Colaba,South,7,24,0,0.07,86,60,28,33
+X009,Parel,Central,1,14,0,0.1,91,94,13,40
+X009,Parel,Central,5,16,0,0.02,27,41,38,17
+W008,Worli,South,3,22,1,0.95,150,151,57,68
+X004,Marine Lines,Island City,7,12,0,0.11,73,64,15,30
+W007,Mulund,North,2,27,0,0.04,63,63,35,29
+W004,Dadar,Central,10,28,1,0.9,178,147,12,70
+X002,Churchgate,Island City,2,23,0,0.03,80,89,51,39
+W006,Borivali,North,6,21,0,0.14,76,74,11,32
+X008,Vikhroli,East,8,26,1,0.7,85,160,20,52
+W004,Dadar,Central,6,11,0,0.08,41,95,44,31
+W006,Borivali,North,6,15,0,0.1,68,54,13,27
+W002,Bandra West,West,5,22,0,0.14,50,56,55,26
+W001,Colaba,South,10,6,1,0.95,75,140,19,46
+W001,Colaba,South,6,20,0,0.09,50,61,41,26
+W004,Dadar,Central,1,2,0,0.01,85,48,32,31
+W006,Borivali,North,6,11,0,0.13,71,48,15,26
+W006,Borivali,North,9,14,1,0.6,92,162,48,56
+W005,Kurla,East,2,2,0,0.08,72,51,57,30
+W008,Worli,South,12,9,0,0.01,69,47,50,28
+W006,Borivali,North,3,20,0,0.04,50,59,30,25
+W004,Dadar,Central,2,4,0,0.05,67,92,13,34
+W003,Andheri East,West,4,15,0,0.09,46,81,33,29
+W007,Mulund,North,7,28,0,0.09,48,54,19,23
+W004,Dadar,Central,3,11,1,0.9,163,105,17,58
+X003,Cuffe Parade,Island City,2,10,0,0.14,81,63,26,32
+W001,Colaba,South,3,7,0,0.09,74,102,12,37
+W007,Mulund,North,6,18,0,0.03,36,49,21,19
+W002,Bandra West,West,1,14,0,0.1,67,94,34,36
+W005,Kurla,East,4,20,0,0.03,70,68,28,31
+W003,Andheri East,West,3,17,1,0.85,138,131,40,60
+X010,Byculla,Central,7,3,0,0.09,50,55,48,25
+W008,Worli,South,12,14,0,0.01,35,59,54,23
+W002,Bandra West,West,11,4,1,0.85,156,176,30,72
+W004,Dadar,Central,10,6,0,0.03,56,90,15,31
+W007,Mulund,North,5,11,0,0.04,77,49,13,28
+W006,Borivali,North,6,15,0,0.02,61,42,58,26
+X012,Kandarpada,North,11,4,1,0.6,142,80,20,49
+W004,Dadar,Central,6,26,0,0.13,54,47,31,23
+W004,Dadar,Central,11,16,1,0.9,144,138,29,62
+W003,Andheri East,West,9,16,1,0.85,67,90,18,34
+W006,Borivali,North,5,20,0,0.14,61,74,21,30
+W006,Borivali,North,11,18,1,0.6,80,97,20,38
+W004,Dadar,Central,1,23,0,0.04,36,81,12,25
+X010,Byculla,Central,4,1,0,0.07,78,48,31,29
+W008,Worli,South,4,11,0,0.06,32,80,30,25
+X010,Byculla,Central,7,3,0,0.09,43,51,30,22
+W002,Bandra West,West,3,10,1,0.85,146,108,17,55
+W002,Bandra West,West,5,19,0,0.02,85,92,33,40
+W005,Kurla,East,6,16,0,0.01,41,84,27,28
+W004,Dadar,Central,5,28,0,0.01,30,48,24,18
+W006,Borivali,North,12,9,0,0.08,80,81,10,34
+W007,Mulund,North,7,15,0,0.02,43,79,19,26
+X010,Byculla,Central,6,15,0,0.06,86,92,35,40
+W005,Kurla,East,6,2,0,0.13,52,49,13,22
+X009,Parel,Central,11,21,0,0.06,29,70,26,22
+X009,Parel,Central,6,2,0,0.0,38,48,45,21
+W001,Colaba,South,12,11,0,0.15,46,87,16,28
+X007,Ghatkopar,East,2,15,0,0.05,41,84,16,27
+W004,Dadar,Central,9,22,1,0.9,83,179,42,57
+W004,Dadar,Central,2,20,0,0.13,31,85,48,27
+W002,Bandra West,West,12,25,0,0.04,47,55,20,23
+W005,Kurla,East,12,24,0,0.11,66,94,13,34
+W005,Kurla,East,9,28,0,0.12,54,94,53,34
+W001,Colaba,South,5,25,0,0.08,44,60,26,23
+W008,Worli,South,7,26,0,0.06,42,70,22,25
+X008,Vikhroli,East,3,18,1,0.7,98,79,48,41
+X001,Fort,Island City,5,25,0,0.05,65,77,23,31
+W004,Dadar,Central,6,25,0,0.04,88,82,10,36
+W008,Worli,South,11,10,0,0.13,47,65,29,25
+X007,Ghatkopar,East,1,2,0,0.01,28,61,57,22
+X008,Vikhroli,East,10,1,0,0.07,91,75,16,36
+W005,Kurla,East,3,24,0,0.07,58,78,45,32
+W008,Worli,South,9,9,1,0.95,159,126,30,63
+W002,Bandra West,West,5,8,0,0.03,48,88,36,31
+W001,Colaba,South,4,11,0,0.07,86,74,56,38
+W001,Colaba,South,12,11,0,0.05,38,70,38,25
+W004,Dadar,Central,2,20,0,0.01,43,65,10,23
+X002,Churchgate,Island City,5,21,0,0.12,29,48,47,19
+W005,Kurla,East,6,23,0,0.04,61,71,22,29
+W003,Andheri East,West,8,23,1,0.85,91,116,30,45
+W002,Bandra West,West,8,1,0,0.08,83,83,49,38
+X004,Marine Lines,Island City,12,17,0,0.11,94,58,50,36
+X011,Dahisar,North,1,17,0,0.12,90,96,18,40
+W007,Mulund,North,10,14,1,0.6,105,121,45,51
+X009,Parel,Central,8,3,1,0.9,178,169,59,78
+W006,Borivali,North,6,11,0,0.05,58,97,19,33
+X005,Andheri West,West,3,20,1,0.85,75,178,25,54
+W006,Borivali,North,1,20,0,0.08,63,75,30,31
+W001,Colaba,South,10,21,1,0.95,102,98,43,45
+W006,Borivali,North,10,21,1,0.6,57,134,53,43
+W006,Borivali,North,1,16,0,0.04,75,69,26,32
+W003,Andheri East,West,5,14,0,0.01,57,92,36,33
+W001,Colaba,South,2,10,0,0.01,38,78,23,25
+W002,Bandra West,West,8,3,0,0.14,36,107,59,33
+X010,Byculla,Central,3,2,0,0.04,78,68,23,32
+X011,Dahisar,North,3,5,1,0.6,129,108,23,52
+X008,Vikhroli,East,12,13,0,0.14,48,83,31,29
+W001,Colaba,South,6,21,0,0.01,61,53,54,28
+X006,Juhu,West,9,3,0,0.0,34,43,55,20
+X005,Andheri West,West,8,12,0,0.01,35,82,20,25
+X009,Parel,Central,1,16,0,0.14,63,104,39,37
+W004,Dadar,Central,9,21,0,0.14,49,50,18,22
+W003,Andheri East,West,5,19,0,0.06,59,93,59,36
+W007,Mulund,North,12,15,0,0.04,79,48,55,31
+W008,Worli,South,1,4,0,0.13,60,98,36,35
+W003,Andheri East,West,12,6,0,0.12,36,88,57,29
+W002,Bandra West,West,9,20,0,0.13,67,58,29,28
+W003,Andheri East,West,6,25,0,0.03,84,54,11,30
+W005,Kurla,East,7,28,0,0.02,56,46,45,25
+W002,Bandra West,West,5,23,0,0.05,76,94,42,39
+W005,Kurla,East,7,4,0,0.03,81,80,21,35
+W001,Colaba,South,9,22,0,0.04,51,88,38,31
+W001,Colaba,South,9,8,1,0.95,57,115,17,37
+W008,Worli,South,7,3,0,0.13,63,86,58,35
+W008,Worli,South,8,16,0,0.03,48,78,37,29
+X002,Churchgate,Island City,5,18,0,0.06,60,69,23,29
+W007,Mulund,North,7,10,0,0.07,36,79,17,25
+W003,Andheri East,West,7,13,0,0.11,76,59,38,31
+W003,Andheri East,West,10,3,1,0.85,74,201,18,58
+W007,Mulund,North,7,2,0,0.09,80,100,45,41
+W004,Dadar,Central,9,16,1,0.9,128,131,59,59
+W003,Andheri East,West,7,2,0,0.1,84,59,12,31
+W008,Worli,South,7,6,0,0.14,47,57,21,23
+W005,Kurla,East,9,27,1,0.7,139,119,33,57
+X011,Dahisar,North,11,17,1,0.6,102,105,31,46
+W008,Worli,South,3,17,1,0.95,68,129,41,44
+W006,Borivali,North,10,21,1,0.6,137,129,11,57
+W006,Borivali,North,5,25,0,0.12,44,66,23,24
+W001,Colaba,South,1,26,0,0.15,43,99,51,33
+X005,Andheri West,West,3,25,0,0.14,78,75,20,34
+W003,Andheri East,West,2,27,0,0.13,91,77,34,38
+X011,Dahisar,North,3,26,1,0.6,125,150,58,62
+W001,Colaba,South,4,24,0,0.09,30,88,40,27
+W003,Andheri East,West,11,15,1,0.85,104,147,29,54
+W001,Colaba,South,3,9,1,0.95,171,188,45,79
+W002,Bandra West,West,12,13,0,0.07,76,93,43,38
+X003,Cuffe Parade,Island City,10,20,0,0.15,92,78,44,39
+W001,Colaba,South,7,26,0,0.06,63,89,48,35
+X003,Cuffe Parade,Island City,5,26,0,0.07,76,44,33,28
+W006,Borivali,North,5,1,0,0.06,52,76,29,29
+W008,Worli,South,7,28,0,0.12,51,95,21,32
+X005,Andheri West,West,8,9,1,0.85,150,127,31,61
+W003,Andheri East,West,10,2,1,0.85,147,116,24,58
+X002,Churchgate,Island City,7,28,0,0.14,37,75,44,26
+W004,Dadar,Central,8,11,1,0.9,58,142,16,42
+W005,Kurla,East,6,16,0,0.09,56,89,30,32
+W003,Andheri East,West,10,4,1,0.85,153,133,29,63
+W003,Andheri East,West,9,7,1,0.85,178,92,38,61
+W004,Dadar,Central,9,27,1,0.9,59,96,44,35
+W002,Bandra West,West,11,23,0,0.1,42,51,13,20
+W008,Worli,South,3,3,1,0.95,96,189,60,63
+W001,Colaba,South,11,16,1,0.95,69,201,48,59
+X003,Cuffe Parade,Island City,4,4,0,0.14,72,70,13,31
+W008,Worli,South,12,9,0,0.07,78,80,10,34
+X001,Fort,Island City,7,10,0,0.01,52,71,53,29
+W003,Andheri East,West,6,11,0,0.05,50,82,18,29
+X010,Byculla,Central,9,10,1,0.9,104,157,56,59
+X011,Dahisar,North,8,4,1,0.6,98,163,37,57
+X007,Ghatkopar,East,2,14,0,0.08,58,51,41,26
+W003,Andheri East,West,2,22,0,0.04,40,82,19,26
+W007,Mulund,North,1,12,0,0.14,55,84,45,32
+W001,Colaba,South,11,9,1,0.95,145,143,58,65
+W002,Bandra West,West,2,20,0,0.08,55,78,20,29
+X002,Churchgate,Island City,11,14,1,0.92,155,168,34,71
+W008,Worli,South,12,13,0,0.01,50,83,24,29
+W007,Mulund,North,6,2,0,0.1,66,93,59,37
+W005,Kurla,East,2,16,0,0.01,53,63,35,27
+W001,Colaba,South,5,19,0,0.01,26,71,17,21
+W001,Colaba,South,8,9,1,0.95,186,148,14,72
+X004,Marine Lines,Island City,10,4,1,0.92,150,186,25,72
+W001,Colaba,South,12,7,0,0.12,47,74,25,27
+W008,Worli,South,7,22,0,0.12,29,100,33,29
+X006,Juhu,West,7,23,0,0.1,51,85,36,31
+X012,Kandarpada,North,10,12,1,0.6,53,163,25,46
+W007,Mulund,North,12,20,0,0.03,78,62,11,30
+W005,Kurla,East,5,12,0,0.06,35,60,48,23
+W003,Andheri East,West,8,23,0,0.09,44,102,36,33
+X004,Marine Lines,Island City,3,9,1,0.92,181,201,42,84
+W007,Mulund,North,8,6,1,0.6,111,160,34,59
+W004,Dadar,Central,2,23,0,0.11,61,89,55,35
+X010,Byculla,Central,7,28,0,0.01,27,56,41,20
+X005,Andheri West,West,7,18,0,0.05,55,87,49,33
+W003,Andheri East,West,10,23,0,0.01,80,63,25,32
+X010,Byculla,Central,2,15,0,0.05,55,70,37,29
+W007,Mulund,North,1,13,0,0.11,85,66,14,33
+W001,Colaba,South,1,10,0,0.1,92,85,33,40
+X010,Byculla,Central,1,12,0,0.09,68,93,53,37
+X002,Churchgate,Island City,2,19,0,0.13,39,48,58,22
+X010,Byculla,Central,11,14,0,0.08,93,85,24,39
+W003,Andheri East,West,2,15,0,0.07,71,57,39,30
+W002,Bandra West,West,1,15,0,0.09,93,46,59,34
+W002,Bandra West,West,5,10,0,0.01,82,54,18,30
+W001,Colaba,South,5,18,0,0.15,98,79,16,39
+X002,Churchgate,Island City,9,24,0,0.13,64,93,26,34
+W003,Andheri East,West,9,5,1,0.85,93,173,10,56
+W007,Mulund,North,8,26,1,0.6,129,78,41,47
+W003,Andheri East,West,11,5,0,0.09,72,101,13,37
+X009,Parel,Central,10,28,0,0.06,71,98,10,36
+W005,Kurla,East,5,24,0,0.09,40,57,41,23
+W006,Borivali,North,10,16,0,0.03,83,54,16,30
+W003,Andheri East,West,4,19,0,0.02,58,61,39,28
+X011,Dahisar,North,4,15,0,0.13,38,95,45,30
+W003,Andheri East,West,12,1,0,0.12,63,106,15,36
+W003,Andheri East,West,7,22,0,0.08,62,55,19,26
+W003,Andheri East,West,11,5,1,0.85,112,108,56,51
+W001,Colaba,South,7,13,0,0.01,33,86,60,29
+W007,Mulund,North,4,4,0,0.01,52,55,56,26
+W006,Borivali,North,9,13,1,0.6,86,167,35,55
+X008,Vikhroli,East,6,2,0,0.06,59,51,53,27
+X005,Andheri West,West,1,7,0,0.02,57,71,22,28
+W007,Mulund,North,1,9,0,0.01,29,71,20,22
+W006,Borivali,North,4,8,0,0.12,29,96,54,29
+W004,Dadar,Central,11,20,1,0.9,109,97,19,45
+X012,Kandarpada,North,3,28,1,0.6,54,88,40,32
+W003,Andheri East,West,3,11,1,0.85,71,179,17,53
+W004,Dadar,Central,1,18,0,0.07,60,100,52,37
+W005,Kurla,East,8,12,1,0.7,51,120,35,38
+X012,Kandarpada,North,8,3,0,0.15,51,80,57,31
+X009,Parel,Central,10,26,1,0.9,132,106,45,54
+W006,Borivali,North,10,15,1,0.6,150,142,55,66
+X012,Kandarpada,North,12,18,0,0.01,46,86,37,30
+X010,Byculla,Central,11,26,1,0.9,65,105,20,37
+W001,Colaba,South,3,18,1,0.95,107,128,53,53
+W004,Dadar,Central,8,22,1,0.9,131,107,17,52
+W005,Kurla,East,2,1,0,0.08,53,88,12,30
+X006,Juhu,West,4,20,0,0.13,95,78,53,40
+W006,Borivali,North,11,11,1,0.6,70,163,11,49
+W008,Worli,South,11,13,1,0.95,176,136,46,70
+W001,Colaba,South,3,25,1,0.95,112,142,58,57
+W006,Borivali,North,11,10,1,0.6,76,121,24,43
+W004,Dadar,Central,12,7,0,0.04,52,42,30,22
+W008,Worli,South,5,10,0,0.13,46,75,57,29
+X010,Byculla,Central,4,23,0,0.02,36,74,19,24
+W004,Dadar,Central,4,23,0,0.12,89,89,49,41
+W001,Colaba,South,9,3,0,0.04,44,56,25,22
+W004,Dadar,Central,4,6,0,0.02,86,61,37,34
+W004,Dadar,Central,9,15,1,0.9,174,124,34,66
+W006,Borivali,North,2,9,0,0.11,44,66,58,27
+X001,Fort,Island City,2,11,0,0.14,84,66,47,35
+W007,Mulund,North,2,7,0,0.03,47,76,48,29
+X007,Ghatkopar,East,5,18,0,0.13,38,72,25,24
+W002,Bandra West,West,2,13,0,0.03,51,43,49,23
+W006,Borivali,North,3,6,1,0.6,110,142,20,54
+X004,Marine Lines,Island City,11,7,1,0.92,93,160,34,55
+W001,Colaba,South,8,23,1,0.95,121,93,54,49
+X009,Parel,Central,11,1,0,0.1,79,75,36,35
+W006,Borivali,North,1,15,0,0.02,82,69,54,36
+W007,Mulund,North,2,19,0,0.1,33,59,39,22
+X012,Kandarpada,North,12,18,0,0.07,52,97,43,34
+X001,Fort,Island City,11,20,1,0.92,84,137,50,50
+W001,Colaba,South,5,6,0,0.0,64,91,53,36
+X001,Fort,Island City,11,11,1,0.92,176,182,52,79
+W001,Colaba,South,1,7,0,0.03,69,49,19,26
+X001,Fort,Island City,11,9,1,0.92,68,123,50,43
+X004,Marine Lines,Island City,8,28,1,0.92,175,166,10,73
+X011,Dahisar,North,6,4,0,0.09,51,75,20,27
+W001,Colaba,South,12,8,0,0.07,70,44,18,25
+W005,Kurla,East,3,15,1,0.7,127,132,15,56
+X007,Ghatkopar,East,7,15,0,0.09,86,76,11,35
+W006,Borivali,North,2,3,0,0.03,36,49,33,20
+W007,Mulund,North,10,12,1,0.6,83,85,59,40
+W002,Bandra West,West,2,28,0,0.03,74,70,16,31
+W008,Worli,South,4,15,0,0.0,27,89,37,26
+X008,Vikhroli,East,3,27,1,0.7,49,96,31,32
+W002,Bandra West,West,8,1,1,0.85,110,147,40,57
+W004,Dadar,Central,5,20,0,0.07,60,73,52,32
+W006,Borivali,North,11,25,1,0.6,108,136,44,54
+W006,Borivali,North,1,14,0,0.06,41,75,41,27
+W005,Kurla,East,5,17,0,0.04,57,58,27,26
+W002,Bandra West,West,8,22,0,0.09,55,66,44,28
+W005,Kurla,East,10,4,1,0.7,105,169,41,60
+X004,Marine Lines,Island City,3,14,0,0.08,55,51,15,23
+X002,Churchgate,Island City,3,6,0,0.04,55,82,48,32
+W006,Borivali,North,2,23,0,0.03,72,50,35,28
+X006,Juhu,West,9,27,1,0.85,103,168,55,60
+W008,Worli,South,4,16,0,0.07,33,72,44,25
+W007,Mulund,North,7,19,0,0.11,55,60,24,26
+X001,Fort,Island City,8,9,1,0.92,79,192,35,58
+X007,Ghatkopar,East,10,12,1,0.7,88,173,36,57
+W007,Mulund,North,4,14,0,0.07,62,57,28,27
+W007,Mulund,North,6,27,0,0.12,38,105,32,31
+W008,Worli,South,1,26,0,0.08,64,83,48,34
+X008,Vikhroli,East,6,1,0,0.02,57,72,48,30
+X002,Churchgate,Island City,12,22,0,0.14,75,49,17,27
+W005,Kurla,East,12,27,0,0.1,33,66,26,22
+W003,Andheri East,West,12,9,0,0.06,86,61,42,34
+X003,Cuffe Parade,Island City,10,27,1,0.92,181,103,43,64
+W008,Worli,South,10,6,1,0.95,107,105,48,48
+X010,Byculla,Central,5,3,0,0.05,51,96,16,31
+W006,Borivali,North,1,8,0,0.08,64,94,52,37
+W006,Borivali,North,6,23,0,0.13,65,90,45,36
+W003,Andheri East,West,4,11,0,0.12,46,57,38,24
+W004,Dadar,Central,6,13,0,0.15,79,104,42,41
+X008,Vikhroli,East,11,12,1,0.7,111,134,49,55
+W005,Kurla,East,5,21,0,0.02,69,57,13,27
+W007,Mulund,North,12,28,0,0.14,44,104,55,34
+W005,Kurla,East,11,23,1,0.7,97,122,56,50
+W001,Colaba,South,10,1,0,0.13,32,85,55,28
+W005,Kurla,East,3,27,0,0.02,84,46,32,30
+W002,Bandra West,West,2,4,0,0.05,61,79,40,32
+W007,Mulund,North,9,16,1,0.6,75,100,58,41
+W004,Dadar,Central,2,22,0,0.06,28,50,56,20
+X010,Byculla,Central,5,3,0,0.14,91,104,45,44
+W002,Bandra West,West,6,18,0,0.11,54,96,58,35
+W007,Mulund,North,4,22,0,0.09,75,97,11,37
+W002,Bandra West,West,2,8,0,0.07,42,93,30,30
+X004,Marine Lines,Island City,4,5,0,0.13,35,63,40,23
+X004,Marine Lines,Island City,4,21,0,0.08,84,96,12,39
+X009,Parel,Central,8,17,1,0.9,142,203,41,75
+W006,Borivali,North,2,27,0,0.13,97,86,47,42
+W008,Worli,South,2,12,0,0.07,91,48,33,32
+X007,Ghatkopar,East,11,27,0,0.14,33,61,47,23
+W008,Worli,South,2,2,0,0.14,52,58,36,26
+W008,Worli,South,6,18,0,0.14,97,59,46,37
+W004,Dadar,Central,6,25,0,0.14,53,95,55,35
+W001,Colaba,South,7,22,0,0.01,61,47,50,26
+W006,Borivali,North,6,11,0,0.09,52,69,22,27
+X008,Vikhroli,East,8,20,1,0.7,108,82,13,41
+W008,Worli,South,4,2,0,0.11,96,104,44,45
+X002,Churchgate,Island City,12,5,0,0.07,31,66,52,24
+W006,Borivali,North,5,13,0,0.08,75,78,43,35
+W005,Kurla,East,8,12,1,0.7,146,176,52,71
+W001,Colaba,South,7,14,0,0.02,66,50,11,25
+X008,Vikhroli,East,8,5,1,0.7,91,144,13,50
+W004,Dadar,Central,10,11,0,0.15,42,69,58,27
+X001,Fort,Island City,12,11,0,0.11,45,84,25,28
+W001,Colaba,South,10,12,0,0.04,78,95,51,40
+W004,Dadar,Central,6,25,0,0.09,58,97,33,34
+X005,Andheri West,West,1,3,0,0.15,71,98,53,39
+W004,Dadar,Central,1,20,0,0.13,31,70,54,25
+W008,Worli,South,5,3,0,0.11,85,72,38,36
+X010,Byculla,Central,11,15,0,0.01,59,47,33,25
+X004,Marine Lines,Island City,2,11,0,0.14,48,58,27,24
+W004,Dadar,Central,2,6,0,0.15,101,78,13,39
+W001,Colaba,South,12,16,0,0.14,44,78,16,26
+X005,Andheri West,West,4,20,0,0.05,63,51,50,28
+W007,Mulund,North,11,26,1,0.6,131,97,48,52
+W003,Andheri East,West,11,14,1,0.85,72,196,47,58
+X007,Ghatkopar,East,7,21,0,0.14,66,57,51,30
+X008,Vikhroli,East,3,26,1,0.7,92,178,10,57
+W001,Colaba,South,8,14,0,0.05,36,52,52,22
+W001,Colaba,South,10,13,1,0.95,92,152,44,54
+W007,Mulund,North,3,26,1,0.6,139,101,58,55
+X001,Fort,Island City,5,28,0,0.13,79,67,51,35
+X009,Parel,Central,5,3,0,0.03,30,54,33,20
+W001,Colaba,South,11,25,0,0.13,94,76,29,38
+X011,Dahisar,North,6,4,0,0.09,88,81,21,37
+X005,Andheri West,West,11,2,1,0.85,118,147,56,60
+W003,Andheri East,West,4,11,0,0.0,71,42,24,26
+W008,Worli,South,12,20,0,0.08,84,76,58,38
+W001,Colaba,South,7,10,0,0.12,42,91,35,30
+W003,Andheri East,West,9,13,1,0.85,53,124,11,37
+W006,Borivali,North,2,24,0,0.0,25,81,28,23
+W002,Bandra West,West,6,6,0,0.13,89,61,48,35
+X005,Andheri West,West,5,27,0,0.12,42,58,47,24
+W005,Kurla,East,9,3,1,0.7,156,82,56,55
+X007,Ghatkopar,East,6,14,0,0.14,32,56,52,22
+W006,Borivali,North,11,22,1,0.6,72,130,39,45
+W007,Mulund,North,5,4,0,0.08,71,79,44,35
+W006,Borivali,North,12,18,0,0.14,68,70,57,33
+W005,Kurla,East,10,2,0,0.15,42,80,30,27
+X009,Parel,Central,8,4,1,0.9,139,154,18,63
+W007,Mulund,North,10,24,1,0.6,119,106,60,52
+W008,Worli,South,8,12,1,0.95,109,107,30,48
+X012,Kandarpada,North,10,22,1,0.6,140,131,38,60
+W005,Kurla,East,2,2,0,0.07,47,46,49,23
+W007,Mulund,North,8,10,0,0.08,84,87,25,38
+W003,Andheri East,West,10,2,1,0.85,86,169,34,55
+W003,Andheri East,West,3,10,0,0.09,49,73,19,27
+W005,Kurla,East,9,25,1,0.7,129,147,52,62
+W004,Dadar,Central,2,28,0,0.12,75,77,30,34
+W003,Andheri East,West,4,25,0,0.09,48,92,45,32
+W001,Colaba,South,1,19,0,0.02,69,67,19,30
+X010,Byculla,Central,5,18,0,0.02,35,66,49,24
+W007,Mulund,North,5,14,0,0.11,28,52,16,17
+W008,Worli,South,5,4,0,0.0,58,64,39,28
+W005,Kurla,East,1,8,0,0.09,28,94,37,27
+X005,Andheri West,West,7,16,0,0.12,75,74,14,32
+X007,Ghatkopar,East,10,12,1,0.7,161,96,57,59
+X004,Marine Lines,Island City,1,11,0,0.02,31,60,28,21
+W005,Kurla,East,12,13,0,0.02,68,60,26,29
+X003,Cuffe Parade,Island City,2,13,0,0.03,75,92,60,39
+X003,Cuffe Parade,Island City,11,16,0,0.13,60,72,31,30
+X004,Marine Lines,Island City,11,25,0,0.04,73,75,15,32
+X009,Parel,Central,10,21,1,0.9,104,109,58,49
+W003,Andheri East,West,3,25,1,0.85,95,160,46,56
+W004,Dadar,Central,7,1,0,0.07,69,96,12,35
+W008,Worli,South,2,9,0,0.03,63,50,53,28
+W004,Dadar,Central,11,4,1,0.9,141,188,30,71
+W007,Mulund,North,9,6,0,0.06,33,74,51,26
+W005,Kurla,East,12,14,0,0.02,70,72,50,33
+W001,Colaba,South,3,11,1,0.95,156,194,29,76
+X001,Fort,Island City,4,17,0,0.13,37,65,58,25
+W003,Andheri East,West,12,17,0,0.03,34,88,48,28
+X003,Cuffe Parade,Island City,10,7,0,0.14,58,73,11,28
+W002,Bandra West,West,2,4,0,0.04,43,67,21,24
+X008,Vikhroli,East,5,3,0,0.14,35,92,19,27
+W006,Borivali,North,12,20,0,0.03,68,68,27,30
+W004,Dadar,Central,1,26,0,0.1,63,57,31,27
+W004,Dadar,Central,7,19,0,0.13,39,70,49,26
+X001,Fort,Island City,7,12,0,0.03,78,48,27,29
+W001,Colaba,South,9,4,1,0.95,71,173,21,52
+W004,Dadar,Central,5,26,0,0.05,46,51,15,21
+W004,Dadar,Central,8,23,0,0.02,69,93,60,38
+X003,Cuffe Parade,Island City,6,16,0,0.14,95,63,40,36
+W006,Borivali,North,10,27,1,0.6,48,84,40,30
+W002,Bandra West,West,2,9,0,0.13,80,108,16,40
+W003,Andheri East,West,9,20,0,0.0,46,60,14,23
+W007,Mulund,North,11,10,1,0.6,62,79,17,31
+X009,Parel,Central,4,13,0,0.14,93,71,19,36
+X001,Fort,Island City,1,3,0,0.03,74,64,33,31
+X012,Kandarpada,North,5,11,0,0.02,43,90,42,30
+W003,Andheri East,West,1,16,0,0.14,33,105,18,29
+X012,Kandarpada,North,10,27,0,0.02,71,49,16,26
+W006,Borivali,North,2,17,0,0.07,64,56,13,26
+W008,Worli,South,9,2,1,0.95,113,158,24,58
+W005,Kurla,East,9,16,0,0.05,58,92,26,33
+W003,Andheri East,West,1,24,0,0.05,84,74,56,37
+W004,Dadar,Central,2,15,0,0.04,50,90,59,33
+W005,Kurla,East,4,14,0,0.06,65,80,31,32
+W003,Andheri East,West,3,12,1,0.85,55,162,22,46
+W005,Kurla,East,6,3,0,0.07,40,47,43,21
+X004,Marine Lines,Island City,6,8,0,0.12,34,72,45,25
+W001,Colaba,South,7,3,0,0.15,97,71,21,37
+X007,Ghatkopar,East,1,25,0,0.06,67,86,36,34
+W008,Worli,South,6,22,0,0.15,40,106,34,32
+W004,Dadar,Central,4,25,0,0.12,58,85,42,33
+X011,Dahisar,North,6,12,0,0.12,30,68,47,23
+W005,Kurla,East,4,11,0,0.05,71,89,10,34
+X002,Churchgate,Island City,11,13,1,0.92,177,203,21,82
+W007,Mulund,North,3,2,0,0.07,82,51,46,32
+W004,Dadar,Central,11,11,1,0.9,125,119,15,53
+X010,Byculla,Central,5,1,0,0.15,57,51,52,26
+X009,Parel,Central,11,15,0,0.0,45,57,19,22
+W007,Mulund,North,4,1,0,0.0,40,60,39,23
+X009,Parel,Central,5,11,0,0.02,77,79,14,34
+W001,Colaba,South,10,27,0,0.13,71,74,15,31
+W003,Andheri East,West,1,11,0,0.04,72,78,24,33
+W003,Andheri East,West,4,7,0,0.09,54,89,52,33
+W001,Colaba,South,1,3,0,0.07,66,96,14,35
+W004,Dadar,Central,3,13,1,0.9,127,103,21,50
+X010,Byculla,Central,8,24,1,0.9,135,203,30,73
+W007,Mulund,North,1,11,0,0.1,86,60,15,32
+W002,Bandra West,West,8,11,1,0.85,89,149,14,50
+W006,Borivali,North,10,1,1,0.6,127,165,35,64
+X004,Marine Lines,Island City,10,19,1,0.92,144,185,59,73
+W002,Bandra West,West,7,18,0,0.1,43,58,49,24
+W002,Bandra West,West,12,26,0,0.11,70,105,56,40
+W007,Mulund,North,8,16,0,0.13,89,48,59,34
+W002,Bandra West,West,6,25,0,0.01,25,44,42,17
+W002,Bandra West,West,5,24,0,0.11,88,64,39,35
+W004,Dadar,Central,8,10,1,0.9,170,202,56,82
+X007,Ghatkopar,East,9,1,1,0.7,98,101,59,46
+W001,Colaba,South,11,13,0,0.0,66,40,21,24
+X011,Dahisar,North,5,15,0,0.14,38,101,36,31
+W001,Colaba,South,7,9,0,0.01,57,42,25,23
+W007,Mulund,North,11,5,0,0.13,85,94,13,38
+X011,Dahisar,North,3,13,0,0.07,40,58,42,23
+W007,Mulund,North,3,26,1,0.6,115,90,45,47
+X008,Vikhroli,East,4,20,0,0.01,50,48,58,25
+W001,Colaba,South,12,13,0,0.15,75,98,27,38
+X007,Ghatkopar,East,8,15,1,0.7,157,132,19,63
+X011,Dahisar,North,1,23,0,0.06,81,63,37,33
+X004,Marine Lines,Island City,10,8,0,0.08,32,91,36,28
+W001,Colaba,South,10,11,0,0.14,44,68,55,27
+X008,Vikhroli,East,11,16,1,0.7,143,126,22,59
+W001,Colaba,South,6,16,0,0.05,85,85,11,36
+X001,Fort,Island City,9,15,0,0.06,42,64,45,25
+W003,Andheri East,West,12,24,0,0.15,36,81,59,28
+W003,Andheri East,West,4,16,0,0.02,35,92,57,30
+X012,Kandarpada,North,8,10,0,0.05,49,88,23,30
+X010,Byculla,Central,10,19,1,0.9,178,177,17,76
+X011,Dahisar,North,5,20,0,0.13,39,108,49,34
+X010,Byculla,Central,9,2,1,0.9,162,125,15,62
+W008,Worli,South,11,5,0,0.05,68,70,40,32
+W004,Dadar,Central,11,15,1,0.9,98,122,57,50
+W006,Borivali,North,3,15,0,0.03,53,76,34,29
+W002,Bandra West,West,12,18,0,0.12,56,58,28,26
+W004,Dadar,Central,8,2,1,0.9,114,207,46,70
+W001,Colaba,South,11,20,1,0.95,107,195,10,63
+X002,Churchgate,Island City,8,15,1,0.92,126,96,41,50
+W002,Bandra West,West,9,26,1,0.85,59,119,18,38
+W007,Mulund,North,3,12,1,0.6,118,126,22,53
+W002,Bandra West,West,1,13,0,0.09,82,95,13,38
+W007,Mulund,North,8,25,1,0.6,46,95,59,33
+W007,Mulund,North,7,15,0,0.12,47,88,30,30
+W004,Dadar,Central,7,15,0,0.02,69,69,52,33
+W006,Borivali,North,9,27,1,0.6,125,87,10,46
+W006,Borivali,North,12,13,0,0.08,52,84,26,30
+W001,Colaba,South,2,7,0,0.06,78,58,52,33
+W002,Bandra West,West,12,23,0,0.01,56,70,47,30
+X010,Byculla,Central,2,16,0,0.1,42,98,32,31
+W001,Colaba,South,3,6,1,0.95,109,155,54,59
+W001,Colaba,South,7,20,0,0.12,65,92,14,34
+X008,Vikhroli,East,4,23,0,0.05,70,96,42,38
+W008,Worli,South,3,9,1,0.95,137,120,33,57
+W002,Bandra West,West,1,24,0,0.09,29,101,12,27
+X008,Vikhroli,East,1,18,0,0.06,68,82,23,33
+W001,Colaba,South,11,9,1,0.95,130,94,21,49
+W001,Colaba,South,2,4,0,0.12,48,55,42,24
+X005,Andheri West,West,2,11,0,0.12,53,82,40,31
+W007,Mulund,North,9,24,1,0.6,107,95,54,47
+X007,Ghatkopar,East,2,10,0,0.12,33,58,15,20
+X002,Churchgate,Island City,7,12,0,0.12,53,68,13,26
+W003,Andheri East,West,6,23,0,0.04,50,52,51,25
+X008,Vikhroli,East,6,5,0,0.05,85,96,47,41
+W005,Kurla,East,3,18,1,0.7,153,106,42,58
+W007,Mulund,North,4,22,0,0.05,71,51,15,27
+W007,Mulund,North,5,25,0,0.05,83,87,45,39
+W008,Worli,South,3,7,0,0.0,56,65,30,27
+W006,Borivali,North,12,16,0,0.13,62,83,51,34
+W004,Dadar,Central,11,13,1,0.9,103,162,29,57
+W003,Andheri East,West,7,6,0,0.08,83,75,23,35
+W004,Dadar,Central,5,22,0,0.08,50,88,25,30
+W003,Andheri East,West,1,22,0,0.08,86,94,38,41
+W003,Andheri East,West,12,4,0,0.11,52,71,35,28
+W002,Bandra West,West,6,27,0,0.14,94,62,31,35
+X009,Parel,Central,6,23,0,0.02,37,48,25,19
+X010,Byculla,Central,2,9,0,0.02,29,46,19,17
+W007,Mulund,North,2,24,0,0.03,88,75,21,36
+W004,Dadar,Central,6,6,0,0.05,36,97,42,30
+W004,Dadar,Central,8,21,1,0.9,135,120,59,58
+W002,Bandra West,West,9,19,1,0.85,86,167,24,54
+W004,Dadar,Central,8,9,1,0.9,143,120,19,57
+X010,Byculla,Central,7,1,0,0.03,77,69,56,35
+W004,Dadar,Central,12,19,0,0.07,84,47,34,30
+X008,Vikhroli,East,10,23,1,0.7,82,164,49,54
+W004,Dadar,Central,7,4,0,0.03,26,63,31,20
+W005,Kurla,East,11,25,0,0.04,46,75,11,26
+X011,Dahisar,North,11,6,1,0.6,59,74,42,31
+W003,Andheri East,West,2,28,0,0.01,51,65,34,27
+X001,Fort,Island City,11,28,0,0.02,32,88,50,28
+X002,Churchgate,Island City,9,27,1,0.92,183,137,23,70
+W003,Andheri East,West,5,26,0,0.01,76,83,37,36
+W001,Colaba,South,5,11,0,0.1,75,91,11,35
+W008,Worli,South,6,2,0,0.07,88,83,50,40
+X006,Juhu,West,11,5,1,0.85,135,138,34,60
+W001,Colaba,South,6,8,0,0.08,44,56,25,22
+W005,Kurla,East,7,14,0,0.11,57,74,58,31
+W001,Colaba,South,8,27,1,0.95,148,101,34,56
+W006,Borivali,North,7,1,0,0.02,79,78,11,34
+X005,Andheri West,West,2,10,0,0.05,52,46,31,23
+X004,Marine Lines,Island City,3,9,1,0.92,153,123,20,60
+X007,Ghatkopar,East,2,17,0,0.04,47,63,31,25
+X005,Andheri West,West,4,16,0,0.09,38,60,40,23
+W006,Borivali,North,1,21,0,0.01,52,46,16,22
+W004,Dadar,Central,2,19,0,0.13,41,69,22,24
+X003,Cuffe Parade,Island City,8,2,1,0.92,164,197,32,78
+W004,Dadar,Central,11,16,1,0.9,139,160,50,67
+X011,Dahisar,North,10,26,1,0.6,126,115,34,53
+W003,Andheri East,West,11,1,1,0.85,68,126,15,41
+W008,Worli,South,8,3,1,0.95,61,138,55,45
+W004,Dadar,Central,7,5,0,0.06,61,44,29,24
+W004,Dadar,Central,9,5,0,0.11,56,47,32,24
+W005,Kurla,East,2,24,0,0.14,36,102,34,31
+X006,Juhu,West,5,28,0,0.06,35,45,38,19
+X010,Byculla,Central,3,20,1,0.9,168,145,44,70
+W001,Colaba,South,2,2,0,0.11,34,59,38,22
+W005,Kurla,East,2,20,0,0.13,71,57,26,29
+X010,Byculla,Central,2,21,0,0.11,78,100,44,40
+X004,Marine Lines,Island City,12,17,0,0.04,72,90,34,36
+W006,Borivali,North,9,6,1,0.6,70,153,28,48
+W007,Mulund,North,2,19,0,0.1,37,78,33,26
+X005,Andheri West,West,12,16,0,0.06,91,94,14,40
+W003,Andheri East,West,1,5,0,0.03,50,85,12,29
+X008,Vikhroli,East,10,16,0,0.09,88,97,35,41
+W008,Worli,South,10,20,1,0.95,180,168,44,77
+W001,Colaba,South,7,22,0,0.0,76,81,11,34
+W002,Bandra West,West,9,19,1,0.85,57,146,41,45
+X006,Juhu,West,10,19,0,0.13,89,103,42,43
+X010,Byculla,Central,5,9,0,0.07,58,74,11,28
+W005,Kurla,East,12,1,0,0.13,48,94,45,32
+W004,Dadar,Central,6,18,0,0.13,86,95,16,39
+W001,Colaba,South,2,10,0,0.06,35,64,22,22
+X006,Juhu,West,7,2,0,0.04,62,91,40,35
+X001,Fort,Island City,10,6,1,0.92,160,126,55,65
+W001,Colaba,South,9,21,1,0.95,135,161,59,67
+X003,Cuffe Parade,Island City,3,3,1,0.92,180,195,38,82
+W002,Bandra West,West,1,5,0,0.11,80,48,29,29
+W008,Worli,South,4,22,0,0.15,75,85,26,35
+W003,Andheri East,West,11,22,1,0.85,129,192,24,69
+W001,Colaba,South,8,16,0,0.15,30,109,35,31
+W001,Colaba,South,7,28,0,0.15,87,52,56,34
+W005,Kurla,East,6,25,0,0.06,61,61,40,28
+W005,Kurla,East,12,27,0,0.09,74,64,36,32
+X008,Vikhroli,East,8,13,1,0.7,129,149,57,63
+W006,Borivali,North,7,28,0,0.02,55,43,10,21
+W005,Kurla,East,6,27,0,0.12,45,88,20,29
+W005,Kurla,East,2,28,0,0.01,66,82,18,32
+W004,Dadar,Central,4,22,0,0.14,51,78,48,30
+X004,Marine Lines,Island City,12,19,0,0.14,69,76,54,34
+W007,Mulund,North,11,11,1,0.6,48,91,23,30
+W008,Worli,South,7,9,0,0.08,82,98,32,40
+W008,Worli,South,9,8,1,0.95,98,205,23,64
+W005,Kurla,East,8,25,1,0.7,89,172,38,57
+X012,Kandarpada,North,5,19,0,0.06,52,95,29,32
+X009,Parel,Central,2,10,0,0.03,76,71,56,35
+X003,Cuffe Parade,Island City,5,6,0,0.02,38,70,17,23
+W001,Colaba,South,12,23,0,0.1,44,91,29,30
+W005,Kurla,East,10,9,1,0.7,48,148,34,42
+X002,Churchgate,Island City,10,24,1,0.92,177,159,40,74
+X008,Vikhroli,East,5,14,0,0.01,30,49,43,19
+W002,Bandra West,West,11,7,1,0.85,117,112,40,51
+W008,Worli,South,12,24,0,0.06,67,67,49,32
+W008,Worli,South,11,10,1,0.95,80,149,52,51
+W003,Andheri East,West,4,19,0,0.02,26,90,24,25
+W002,Bandra West,West,11,18,1,0.85,118,158,31,60
+W006,Borivali,North,8,6,0,0.03,55,70,10,27
+W004,Dadar,Central,5,4,0,0.15,91,98,39,43
+W007,Mulund,North,3,27,0,0.1,36,72,20,24
+W003,Andheri East,West,10,15,1,0.85,141,102,20,53
+W007,Mulund,North,7,26,0,0.11,90,99,51,43
+W005,Kurla,East,3,19,1,0.7,95,86,39,41
+W008,Worli,South,4,19,0,0.01,75,53,31,29
+W004,Dadar,Central,1,25,0,0.05,35,90,15,27
+W003,Andheri East,West,2,12,0,0.06,85,79,24,36
+W006,Borivali,North,6,17,0,0.1,31,84,48,27
+W008,Worli,South,12,20,0,0.07,85,86,38,39
+W004,Dadar,Central,8,5,0,0.08,40,57,24,22
+W002,Bandra West,West,1,26,0,0.01,71,55,22,28
+W001,Colaba,South,5,5,0,0.07,81,45,41,30
+X004,Marine Lines,Island City,6,13,0,0.03,66,69,37,31
+W006,Borivali,North,12,21,0,0.04,30,56,57,22
+W003,Andheri East,West,12,5,0,0.11,93,92,42,42
+W003,Andheri East,West,10,21,1,0.85,103,127,30,50
+W008,Worli,South,12,22,0,0.12,71,51,24,27
+W004,Dadar,Central,1,3,0,0.12,62,53,20,26
+W004,Dadar,Central,10,27,1,0.9,74,125,26,43
+X007,Ghatkopar,East,7,20,0,0.07,81,62,31,32
+W004,Dadar,Central,8,27,0,0.12,73,96,35,38
+W003,Andheri East,West,2,14,0,0.07,29,99,43,29
+W002,Bandra West,West,3,2,1,0.85,160,125,19,62
+X009,Parel,Central,11,18,0,0.04,68,68,21,30
+W002,Bandra West,West,3,8,1,0.85,155,179,38,73
+W004,Dadar,Central,3,7,1,0.9,107,194,50,66
+W003,Andheri East,West,3,27,1,0.85,85,168,37,55
+W001,Colaba,South,12,19,0,0.13,57,97,30,34
+W001,Colaba,South,4,6,0,0.08,54,97,55,35
+W002,Bandra West,West,12,11,0,0.09,43,88,39,30
+W004,Dadar,Central,9,24,0,0.1,43,68,20,24
+W001,Colaba,South,10,5,1,0.95,64,139,38,45
+W005,Kurla,East,12,3,0,0.14,45,83,42,29
+W004,Dadar,Central,1,10,0,0.09,35,99,59,32
+W002,Bandra West,West,2,16,0,0.12,83,64,25,33
+W002,Bandra West,West,2,26,0,0.01,68,75,56,34
+X002,Churchgate,Island City,10,16,0,0.12,43,53,53,24
+W003,Andheri East,West,11,1,1,0.85,107,164,26,58
+X006,Juhu,West,5,14,0,0.12,54,50,16,23
+W006,Borivali,North,2,11,0,0.14,90,103,46,44
+W001,Colaba,South,2,20,0,0.04,72,88,18,35
+W003,Andheri East,West,11,9,0,0.06,68,61,18,28
+W007,Mulund,North,11,20,1,0.6,67,101,42,38
+W005,Kurla,East,5,7,0,0.01,67,50,28,27
+W003,Andheri East,West,9,14,1,0.85,65,191,59,57
+W006,Borivali,North,7,1,0,0.01,74,48,54,30
+W006,Borivali,North,9,4,1,0.6,111,105,11,46
+W005,Kurla,East,4,21,0,0.12,62,105,46,38
+W006,Borivali,North,2,6,0,0.01,31,56,18,19
+W001,Colaba,South,11,7,0,0.07,60,83,42,33
+W003,Andheri East,West,1,28,0,0.15,55,87,60,34
+W001,Colaba,South,10,7,1,0.95,165,131,43,66
+W005,Kurla,East,8,13,0,0.07,82,77,60,38
+X002,Churchgate,Island City,11,20,1,0.92,100,156,20,55
+W008,Worli,South,4,12,0,0.03,79,91,19,37
+W002,Bandra West,West,5,15,0,0.13,94,104,57,46
+W004,Dadar,Central,6,10,0,0.04,65,51,56,29
+W006,Borivali,North,5,6,0,0.11,73,46,30,27
+X010,Byculla,Central,6,21,0,0.03,78,50,24,29
+W004,Dadar,Central,2,2,0,0.1,40,81,10,25
+W004,Dadar,Central,3,21,1,0.9,142,207,23,75
+X004,Marine Lines,Island City,11,23,1,0.92,110,177,57,64
+W008,Worli,South,6,12,0,0.03,77,68,31,33
+W006,Borivali,North,4,2,0,0.06,55,58,40,26
+W005,Kurla,East,11,2,0,0.12,71,79,11,32
+W003,Andheri East,West,2,24,0,0.07,74,88,22,35
+W004,Dadar,Central,7,15,0,0.09,28,96,52,29
+W004,Dadar,Central,10,27,1,0.9,113,185,34,64
+W004,Dadar,Central,10,25,1,0.9,77,187,43,57
+X009,Parel,Central,1,17,0,0.02,78,50,54,31
+W005,Kurla,East,4,14,0,0.07,39,46,51,21
+W004,Dadar,Central,1,23,0,0.06,31,84,44,27
+X010,Byculla,Central,2,4,0,0.07,31,56,17,19
+W008,Worli,South,10,15,1,0.95,95,96,48,44
+W008,Worli,South,6,27,0,0.12,95,93,33,42
+W008,Worli,South,7,26,0,0.01,55,47,25,23
+X010,Byculla,Central,1,5,0,0.08,66,84,57,35
+W007,Mulund,North,7,26,0,0.03,59,63,54,29
+W004,Dadar,Central,12,11,0,0.14,87,62,10,32
+W004,Dadar,Central,6,17,0,0.15,70,52,28,28
+W008,Worli,South,12,23,0,0.0,36,52,54,22
+X009,Parel,Central,1,8,0,0.07,40,86,50,29
+W005,Kurla,East,11,20,1,0.7,85,181,44,58
+W004,Dadar,Central,2,14,0,0.08,49,54,23,23
+X009,Parel,Central,12,25,0,0.03,49,47,56,24
+W007,Mulund,North,8,14,0,0.03,65,47,42,27
+W001,Colaba,South,9,6,1,0.95,97,130,42,50
+W008,Worli,South,12,13,0,0.13,99,94,25,42
+W006,Borivali,North,5,22,0,0.08,71,52,54,30
+W006,Borivali,North,10,26,0,0.02,59,88,34,33
+W005,Kurla,East,1,9,0,0.14,62,88,17,32
+W008,Worli,South,11,24,1,0.95,66,105,43,39
+W008,Worli,South,11,1,1,0.95,68,210,49,60
+W002,Bandra West,West,2,8,0,0.05,49,94,54,33
+X009,Parel,Central,4,14,0,0.1,84,94,27,39
+X012,Kandarpada,North,12,18,0,0.04,58,76,60,32
+W004,Dadar,Central,2,23,0,0.14,29,100,43,29
+W002,Bandra West,West,4,14,0,0.12,58,66,26,28
+W003,Andheri East,West,10,18,1,0.85,129,173,15,64
+W007,Mulund,North,10,25,1,0.6,107,78,25,41
+W006,Borivali,North,2,21,0,0.12,86,66,24,34
+W004,Dadar,Central,9,18,1,0.9,135,129,14,57
+W007,Mulund,North,3,5,0,0.14,52,57,47,26
+W001,Colaba,South,2,23,0,0.11,66,76,32,32
+W008,Worli,South,10,27,1,0.95,116,148,20,57
+W001,Colaba,South,9,3,1,0.95,65,187,36,54
+W001,Colaba,South,5,27,0,0.03,59,45,16,23
+W002,Bandra West,West,6,6,0,0.0,40,88,23,28
+W003,Andheri East,West,12,17,0,0.09,73,67,10,30
+W005,Kurla,East,3,27,1,0.7,99,96,49,45
+W005,Kurla,East,1,20,0,0.05,58,81,56,33
+W003,Andheri East,West,10,5,1,0.85,161,187,19,75
+W004,Dadar,Central,6,7,0,0.03,72,47,36,28
+X003,Cuffe Parade,Island City,4,26,0,0.0,77,65,40,33
+W008,Worli,South,2,11,0,0.03,66,87,26,34
+W001,Colaba,South,12,10,0,0.0,31,78,31,24
+X011,Dahisar,North,7,13,0,0.03,34,68,33,23
+W008,Worli,South,7,2,0,0.07,84,54,13,30
+X002,Churchgate,Island City,8,2,1,0.92,121,108,50,52
+W008,Worli,South,10,19,1,0.95,109,192,36,65
+W008,Worli,South,5,2,0,0.03,32,87,58,28
+W002,Bandra West,West,8,13,1,0.85,112,189,36,65
+W002,Bandra West,West,5,1,0,0.06,37,93,27,28
+X009,Parel,Central,1,20,0,0.08,35,86,22,26
+W008,Worli,South,1,4,0,0.05,49,89,30,31
+W006,Borivali,North,7,13,0,0.0,66,78,31,32
+X008,Vikhroli,East,4,8,0,0.08,75,101,36,39
+X008,Vikhroli,East,2,5,0,0.09,36,48,25,19
+W007,Mulund,North,4,2,0,0.05,88,87,38,40
+X010,Byculla,Central,8,19,1,0.9,88,207,25,63
+X001,Fort,Island City,10,21,0,0.14,60,51,39,26
+X010,Byculla,Central,1,19,0,0.12,43,83,23,28
+W003,Andheri East,West,3,23,1,0.85,158,148,24,66
+W002,Bandra West,West,3,20,0,0.06,91,46,46,33
+W006,Borivali,North,9,20,1,0.6,119,121,36,53
+W001,Colaba,South,4,21,0,0.04,44,68,17,24
+W001,Colaba,South,1,26,0,0.03,45,75,46,28
+W003,Andheri East,West,10,12,1,0.85,99,88,43,43
+X003,Cuffe Parade,Island City,1,25,0,0.13,38,101,41,31
+W004,Dadar,Central,9,28,1,0.9,175,174,19,75
+W004,Dadar,Central,2,8,0,0.09,48,55,60,26
+W006,Borivali,North,5,7,0,0.0,79,66,48,34
+X007,Ghatkopar,East,4,15,0,0.02,78,43,35,28
+X009,Parel,Central,7,8,0,0.11,74,90,59,39
+W006,Borivali,North,11,8,1,0.6,124,90,44,49
+X001,Fort,Island City,6,8,0,0.15,78,92,17,37
+W001,Colaba,South,1,23,0,0.02,35,80,41,26
+W002,Bandra West,West,2,19,0,0.08,74,91,17,36
+W005,Kurla,East,5,16,0,0.08,63,98,55,37
+W006,Borivali,North,9,27,1,0.6,137,121,33,57
+X009,Parel,Central,3,28,0,0.06,45,75,35,27
+X006,Juhu,West,2,5,0,0.04,42,69,34,25
+W003,Andheri East,West,2,16,0,0.12,87,103,35,42
+W005,Kurla,East,12,12,0,0.1,90,64,41,36
+W008,Worli,South,8,19,0,0.11,79,100,18,39
+X005,Andheri West,West,7,2,0,0.1,66,98,38,37
+W008,Worli,South,1,9,0,0.09,75,76,11,32
+W001,Colaba,South,1,18,0,0.03,68,58,53,30
+W007,Mulund,North,11,15,1,0.6,135,115,39,56
+W004,Dadar,Central,4,15,0,0.12,75,93,29,37
+W005,Kurla,East,7,26,0,0.09,55,101,53,36
+X002,Churchgate,Island City,3,21,1,0.92,80,97,54,41
+W003,Andheri East,West,3,10,0,0.12,36,91,19,27
+W006,Borivali,North,1,24,0,0.02,57,66,42,29
+X005,Andheri West,West,3,4,1,0.85,143,167,35,68
+X012,Kandarpada,North,10,3,1,0.6,92,121,39,47
+X011,Dahisar,North,4,3,0,0.08,68,94,18,35
+W001,Colaba,South,7,23,0,0.05,58,44,31,24
+W002,Bandra West,West,9,22,0,0.12,46,89,51,31
+X011,Dahisar,North,9,10,1,0.6,92,109,36,45
+W003,Andheri East,West,4,2,0,0.06,63,81,51,34
+W002,Bandra West,West,1,27,0,0.1,46,93,23,30
+X001,Fort,Island City,5,10,0,0.14,63,70,47,31
+W005,Kurla,East,6,18,0,0.15,98,71,21,37
+W001,Colaba,South,4,23,0,0.09,90,48,17,31
+W002,Bandra West,West,11,11,1,0.85,176,94,43,61
+W006,Borivali,North,4,24,0,0.01,83,67,16,33
+W003,Andheri East,West,6,23,0,0.06,48,56,37,24
+W004,Dadar,Central,11,24,1,0.9,66,170,56,53
+X010,Byculla,Central,11,16,1,0.9,162,165,47,72
+W004,Dadar,Central,1,7,0,0.09,94,83,36,40
+X009,Parel,Central,8,14,1,0.9,145,159,24,66
+X010,Byculla,Central,2,18,0,0.1,29,64,20,20
+W006,Borivali,North,11,2,1,0.6,133,107,16,52
+W001,Colaba,South,10,5,0,0.11,84,69,45,36
+X005,Andheri West,West,11,16,1,0.85,141,121,17,57
+W002,Bandra West,West,8,20,1,0.85,124,123,41,55
+X007,Ghatkopar,East,8,6,1,0.7,157,119,27,61
+W004,Dadar,Central,3,8,1,0.9,103,108,47,48
+X008,Vikhroli,East,4,14,0,0.05,89,69,46,37
+W007,Mulund,North,10,19,1,0.6,98,139,51,53
+W008,Worli,South,7,26,0,0.02,69,67,24,30
+X007,Ghatkopar,East,7,9,0,0.09,90,57,26,33
+X007,Ghatkopar,East,4,18,0,0.03,71,58,31,29
+W002,Bandra West,West,7,6,0,0.12,95,92,32,42
+W005,Kurla,East,7,4,0,0.11,75,93,42,38
+W003,Andheri East,West,9,12,1,0.85,87,152,33,52
+W002,Bandra West,West,6,27,0,0.13,60,102,49,37
+W004,Dadar,Central,10,10,1,0.9,61,180,19,51
+W008,Worli,South,11,15,1,0.95,119,121,38,53
+W005,Kurla,East,11,27,1,0.7,53,111,36,36
+X012,Kandarpada,North,7,4,0,0.05,45,44,52,22
+X009,Parel,Central,12,4,0,0.0,74,83,58,37
+W005,Kurla,East,7,24,0,0.1,33,64,56,24
+W001,Colaba,South,8,15,0,0.1,30,98,26,28
+W008,Worli,South,5,9,0,0.14,42,95,49,32
+W007,Mulund,North,6,26,0,0.05,74,83,14,34
+W006,Borivali,North,4,14,0,0.09,89,84,38,39
+W001,Colaba,South,9,26,1,0.95,154,163,59,71
+W006,Borivali,North,1,12,0,0.11,58,68,19,28
+W001,Colaba,South,7,11,0,0.02,77,45,11,27
+W005,Kurla,East,10,15,0,0.03,84,44,34,30
+X004,Marine Lines,Island City,8,3,1,0.92,66,208,55,60
+W004,Dadar,Central,5,2,0,0.07,52,76,12,27
+X009,Parel,Central,10,26,1,0.9,94,162,42,56
+W008,Worli,South,11,19,1,0.95,76,153,50,51
+X002,Churchgate,Island City,10,21,1,0.92,161,119,34,62
+X010,Byculla,Central,11,24,0,0.02,42,65,30,24
+W002,Bandra West,West,7,17,0,0.06,60,98,45,36
+W002,Bandra West,West,10,24,0,0.07,42,77,17,26
+X006,Juhu,West,9,24,1,0.85,158,200,44,78
+W004,Dadar,Central,11,16,1,0.9,94,116,20,45
+W001,Colaba,South,5,1,0,0.05,86,77,58,39
+X002,Churchgate,Island City,8,16,1,0.92,56,169,48,50
+W008,Worli,South,9,18,0,0.06,62,93,51,36
+W002,Bandra West,West,5,24,0,0.05,31,62,59,23
+X007,Ghatkopar,East,4,8,0,0.0,26,75,45,24
+W005,Kurla,East,3,6,1,0.7,92,140,20,50
+W005,Kurla,East,3,19,1,0.7,69,90,14,34
+W001,Colaba,South,12,7,0,0.08,59,53,59,28
+X004,Marine Lines,Island City,8,4,1,0.92,182,173,35,78
+W003,Andheri East,West,1,21,0,0.1,37,68,11,22
+X009,Parel,Central,4,18,0,0.03,72,53,13,27
+W007,Mulund,North,11,18,1,0.6,111,123,40,52
+W008,Worli,South,11,22,1,0.95,159,203,54,80
+X003,Cuffe Parade,Island City,7,28,0,0.07,53,50,59,26
+W006,Borivali,North,8,3,1,0.6,80,110,36,42
+W005,Kurla,East,3,22,1,0.7,158,113,60,62
+W002,Bandra West,West,8,22,0,0.07,85,89,53,40
+W002,Bandra West,West,8,9,1,0.85,104,122,15,48
+X003,Cuffe Parade,Island City,1,12,0,0.04,88,83,27,38
+W001,Colaba,South,4,13,0,0.12,91,96,50,43
+W002,Bandra West,West,12,4,0,0.14,72,77,33,34
+W008,Worli,South,11,22,1,0.95,162,170,20,71
+W008,Worli,South,5,8,0,0.14,75,93,34,38
+X008,Vikhroli,East,3,21,1,0.7,138,132,50,61
+W004,Dadar,Central,11,8,1,0.9,140,163,51,67
+W001,Colaba,South,4,19,0,0.13,80,97,53,41
+X004,Marine Lines,Island City,4,10,0,0.1,80,72,32,34
+W001,Colaba,South,5,16,0,0.07,90,75,23,36
+X001,Fort,Island City,8,20,1,0.92,165,134,36,66
+X010,Byculla,Central,9,24,1,0.9,170,158,43,73
+X002,Churchgate,Island City,10,23,1,0.92,89,150,20,51
+W006,Borivali,North,1,28,0,0.04,79,71,14,33
+W003,Andheri East,West,12,20,0,0.15,55,81,44,31
+W007,Mulund,North,9,27,1,0.6,104,111,59,50
+W004,Dadar,Central,12,17,0,0.02,63,90,43,35
+X010,Byculla,Central,3,24,1,0.9,74,181,36,55
+X005,Andheri West,West,12,18,0,0.06,49,86,47,31
+X003,Cuffe Parade,Island City,2,15,0,0.05,50,63,39,26
+W001,Colaba,South,6,26,0,0.12,40,46,48,21
+X002,Churchgate,Island City,9,20,1,0.92,71,170,55,54
+W003,Andheri East,West,6,10,0,0.08,68,76,24,32
+W001,Colaba,South,11,10,1,0.95,163,200,43,79
+W002,Bandra West,West,8,3,1,0.85,117,149,40,59
+X012,Kandarpada,North,1,26,0,0.03,62,42,52,26
+X006,Juhu,West,8,9,1,0.85,55,112,25,36
+W007,Mulund,North,2,16,0,0.07,74,97,48,39
+X009,Parel,Central,7,24,0,0.11,41,89,57,31
+X002,Churchgate,Island City,7,20,0,0.05,49,65,36,26
+W004,Dadar,Central,4,13,0,0.03,31,69,23,22
+W005,Kurla,East,2,28,0,0.13,35,85,22,26
+W005,Kurla,East,12,16,0,0.15,77,76,31,34
+W005,Kurla,East,4,8,0,0.09,34,56,44,22
+W002,Bandra West,West,12,24,0,0.01,40,63,30,23
+W005,Kurla,East,4,10,0,0.07,62,84,13,31
+X008,Vikhroli,East,6,12,0,0.14,60,69,21,28
+X003,Cuffe Parade,Island City,6,18,0,0.12,50,99,36,33
+X009,Parel,Central,8,26,1,0.9,153,205,54,79
+W005,Kurla,East,4,7,0,0.07,48,46,41,23
+X001,Fort,Island City,5,16,0,0.12,34,106,19,30
+W008,Worli,South,8,27,1,0.95,154,167,56,72
+W007,Mulund,North,11,14,0,0.02,50,80,58,31
+W001,Colaba,South,6,4,0,0.03,46,73,10,25
+W006,Borivali,North,11,3,1,0.6,115,121,11,50
+W008,Worli,South,3,1,0,0.1,29,104,30,29
+W006,Borivali,North,6,13,0,0.11,59,79,19,30
+W002,Bandra West,West,3,18,1,0.85,61,143,25,44
+W007,Mulund,North,8,3,1,0.6,64,99,24,36
+W006,Borivali,North,10,15,1,0.6,61,144,26,44
+W006,Borivali,North,2,19,0,0.07,41,89,34,29
+W004,Dadar,Central,12,5,0,0.04,55,51,46,26
+W003,Andheri East,West,2,20,0,0.05,76,69,42,34
+W004,Dadar,Central,7,3,0,0.13,89,78,43,38
+X010,Byculla,Central,1,7,0,0.01,81,88,38,38
+W003,Andheri East,West,4,25,0,0.13,70,77,37,33
+X002,Churchgate,Island City,7,21,0,0.06,39,44,22,19
+W002,Bandra West,West,12,26,0,0.1,66,69,55,32
+X010,Byculla,Central,12,10,0,0.1,39,64,55,25
+W001,Colaba,South,8,1,0,0.02,77,72,59,36
+W008,Worli,South,10,17,1,0.95,93,97,54,44
+X001,Fort,Island City,8,16,1,0.92,176,94,10,59
+X012,Kandarpada,North,1,18,0,0.1,95,87,39,41
+W004,Dadar,Central,1,12,0,0.14,51,48,22,22
+X010,Byculla,Central,1,14,0,0.13,57,85,50,33
+W001,Colaba,South,9,11,1,0.95,62,118,39,40
+W001,Colaba,South,1,1,0,0.11,54,98,10,32
+W006,Borivali,North,10,22,0,0.07,28,83,18,24
+W006,Borivali,North,12,12,0,0.12,70,84,19,33
+W006,Borivali,North,10,3,1,0.6,133,141,38,60
+W005,Kurla,East,7,20,0,0.05,45,75,21,26
+X005,Andheri West,West,10,16,1,0.85,148,132,33,62
+W004,Dadar,Central,3,10,1,0.9,172,185,38,78
+W001,Colaba,South,12,9,0,0.04,49,54,26,23
+X004,Marine Lines,Island City,9,5,1,0.92,85,93,20,39
+W005,Kurla,East,3,2,0,0.02,57,78,47,31
+W007,Mulund,North,9,7,0,0.06,75,65,23,31
+X012,Kandarpada,North,4,18,0,0.07,83,79,51,38
+W006,Borivali,North,12,3,0,0.01,47,65,40,26
+X009,Parel,Central,12,4,0,0.09,35,92,25,28
+W004,Dadar,Central,3,4,1,0.9,144,158,39,66
+W002,Bandra West,West,6,4,0,0.15,50,93,19,31
+W005,Kurla,East,1,9,0,0.03,66,69,34,31
+W006,Borivali,North,6,5,0,0.14,67,95,56,38
+X009,Parel,Central,6,27,0,0.01,81,85,34,37
+W007,Mulund,North,5,2,0,0.01,71,74,36,33
+W006,Borivali,North,11,2,0,0.0,50,44,27,22
+X001,Fort,Island City,9,16,1,0.92,102,199,17,64
+W006,Borivali,North,9,9,1,0.6,97,120,33,48
+W001,Colaba,South,6,5,0,0.13,35,56,14,20
+X011,Dahisar,North,12,20,0,0.1,82,60,27,32
+W005,Kurla,East,12,25,0,0.06,43,86,28,28
+W002,Bandra West,West,10,25,1,0.85,109,125,25,51
+W001,Colaba,South,10,5,0,0.12,82,97,47,41
+W004,Dadar,Central,2,7,0,0.13,66,58,42,29
+X006,Juhu,West,3,19,1,0.85,176,157,24,72
+X010,Byculla,Central,2,2,0,0.1,60,62,22,27
+W004,Dadar,Central,9,28,1,0.9,73,195,22,57
+X002,Churchgate,Island City,3,8,1,0.92,141,122,12,57
+X002,Churchgate,Island City,4,5,0,0.02,79,76,47,36
+W007,Mulund,North,2,14,0,0.02,84,71,56,37
+W008,Worli,South,9,13,1,0.95,94,114,44,47
+W006,Borivali,North,4,27,0,0.14,51,86,40,31
+X007,Ghatkopar,East,6,8,0,0.08,31,58,37,21
+W005,Kurla,East,10,9,0,0.02,31,57,33,20
+W003,Andheri East,West,1,6,0,0.11,41,76,58,28
+W005,Kurla,East,3,10,1,0.7,103,94,10,42
+W002,Bandra West,West,8,24,0,0.15,65,56,36,28
+X011,Dahisar,North,7,5,0,0.11,69,100,40,38
+W006,Borivali,North,7,6,0,0.12,38,93,44,30
+W005,Kurla,East,12,28,0,0.14,79,69,11,32
+W007,Mulund,North,8,23,1,0.6,72,129,11,42
+W002,Bandra West,West,4,4,0,0.07,73,58,58,32
+W002,Bandra West,West,11,23,1,0.85,75,194,22,57
+W002,Bandra West,West,9,5,1,0.85,133,116,29,55
+W005,Kurla,East,3,1,1,0.7,87,114,47,45
+W003,Andheri East,West,10,8,1,0.85,133,153,22,62
+W007,Mulund,North,3,13,0,0.14,86,104,17,41
+X006,Juhu,West,1,3,0,0.1,64,95,24,35
+W006,Borivali,North,2,1,0,0.13,50,105,39,35
+X002,Churchgate,Island City,7,5,0,0.09,60,56,21,26
+W002,Bandra West,West,6,4,0,0.1,75,88,48,38
+X010,Byculla,Central,2,2,0,0.12,40,81,20,26
+X010,Byculla,Central,4,22,0,0.1,58,94,52,35
+W002,Bandra West,West,6,4,0,0.14,50,109,25,34
+X009,Parel,Central,8,25,1,0.9,63,201,32,56
+W004,Dadar,Central,7,26,0,0.02,72,47,22,27
+W001,Colaba,South,2,17,0,0.07,49,100,33,33
+X001,Fort,Island City,10,19,1,0.92,142,124,54,60
+W004,Dadar,Central,4,23,0,0.01,61,59,27,27
+W002,Bandra West,West,12,26,0,0.14,96,71,36,38
+W005,Kurla,East,5,21,0,0.03,64,70,12,29
+W008,Worli,South,8,9,0,0.06,87,96,20,40
+W003,Andheri East,West,3,10,0,0.02,83,43,13,28
+W002,Bandra West,West,1,19,0,0.13,80,62,55,34
+W007,Mulund,North,4,14,0,0.11,62,56,11,25
+W002,Bandra West,West,5,16,0,0.11,59,64,12,26
+W008,Worli,South,6,9,0,0.1,54,49,52,25
+W006,Borivali,North,5,17,0,0.01,33,74,14,23
+W006,Borivali,North,6,9,0,0.14,36,75,30,25
+W001,Colaba,South,6,15,0,0.05,61,82,32,32
+W001,Colaba,South,12,27,0,0.14,95,54,55,36
+X004,Marine Lines,Island City,9,9,1,0.92,121,147,35,59
+X006,Juhu,West,11,6,1,0.85,96,179,54,61
+W008,Worli,South,11,8,1,0.95,161,189,54,78
+X008,Vikhroli,East,10,24,1,0.7,100,149,33,54
+W004,Dadar,Central,4,11,0,0.02,79,54,10,29
+W008,Worli,South,9,11,1,0.95,148,194,45,75
+W004,Dadar,Central,4,26,0,0.06,59,80,56,33
+W008,Worli,South,8,4,1,0.95,60,159,21,46
+W006,Borivali,North,8,8,0,0.05,55,79,31,30
+X002,Churchgate,Island City,1,1,0,0.02,60,87,45,34
+X007,Ghatkopar,East,1,5,0,0.05,46,79,57,30
+W007,Mulund,North,3,19,0,0.1,69,45,21,26
+W001,Colaba,South,3,19,0,0.09,29,51,38,19
+W004,Dadar,Central,3,27,1,0.9,116,95,24,46
+W001,Colaba,South,9,27,0,0.03,54,90,25,32
+W004,Dadar,Central,7,4,0,0.04,88,62,33,34
+W006,Borivali,North,9,27,1,0.6,95,98,53,44
+W001,Colaba,South,12,16,0,0.09,44,70,21,25
+W003,Andheri East,West,6,4,0,0.09,79,79,18,34
+W001,Colaba,South,9,6,1,0.95,122,194,48,69
+W003,Andheri East,West,1,20,0,0.13,47,72,37,27
+W006,Borivali,North,7,7,0,0.06,51,50,25,23
+W007,Mulund,North,6,13,0,0.07,45,78,29,27
+W002,Bandra West,West,2,16,0,0.14,51,79,21,28
+X007,Ghatkopar,East,3,5,0,0.01,31,81,50,26
+W002,Bandra West,West,4,17,0,0.03,43,71,54,27
+W003,Andheri East,West,5,5,0,0.02,45,74,32,27
+X001,Fort,Island City,6,27,0,0.09,52,46,39,23
+W002,Bandra West,West,10,13,1,0.85,111,169,43,62
+X003,Cuffe Parade,Island City,1,13,0,0.02,62,71,43,31
+W006,Borivali,North,11,25,0,0.07,53,94,32,33
+W002,Bandra West,West,8,14,0,0.13,88,62,31,34
+W005,Kurla,East,5,13,0,0.15,69,86,15,33
+W001,Colaba,South,6,16,0,0.13,48,82,27,29
+X007,Ghatkopar,East,5,25,0,0.1,39,89,47,30
+W005,Kurla,East,1,9,0,0.05,66,43,43,26
+W002,Bandra West,West,5,24,0,0.12,42,58,41,24
+X001,Fort,Island City,7,4,0,0.12,74,84,17,34
+W006,Borivali,North,12,12,0,0.12,94,61,29,35
+X011,Dahisar,North,9,15,0,0.12,46,99,13,31
+W001,Colaba,South,2,23,0,0.01,58,43,34,24
+X012,Kandarpada,North,1,1,0,0.02,35,58,22,21
+W004,Dadar,Central,11,16,1,0.9,122,207,28,70
+W004,Dadar,Central,2,19,0,0.07,34,67,57,25
+W008,Worli,South,8,18,1,0.95,187,101,13,63
+W002,Bandra West,West,8,26,1,0.85,129,127,51,58
+W005,Kurla,East,4,22,0,0.03,72,49,54,30
+W005,Kurla,East,9,20,1,0.7,71,97,20,36
+X002,Churchgate,Island City,4,21,0,0.08,68,65,37,31
+W007,Mulund,North,7,28,0,0.12,37,77,56,27
+W005,Kurla,East,8,24,1,0.7,140,81,23,49
+W007,Mulund,North,12,27,0,0.11,61,72,10,28
+W004,Dadar,Central,2,21,0,0.03,53,61,60,28
+W004,Dadar,Central,3,9,1,0.9,152,120,55,62
+W007,Mulund,North,1,23,0,0.1,93,80,44,40
+X006,Juhu,West,6,13,0,0.06,41,65,36,24
+W007,Mulund,North,3,18,1,0.6,147,82,55,53
+W001,Colaba,South,11,13,1,0.95,87,122,12,44
+W002,Bandra West,West,12,4,0,0.06,68,62,18,29
+X012,Kandarpada,North,1,26,0,0.0,45,81,56,30
+W004,Dadar,Central,10,6,1,0.9,104,122,46,51
+W005,Kurla,East,1,11,0,0.01,81,78,24,35
+X009,Parel,Central,9,11,0,0.03,33,66,12,21
+X009,Parel,Central,11,11,0,0.07,50,83,30,30
+W005,Kurla,East,8,27,1,0.7,74,121,28,42
+W006,Borivali,North,7,7,0,0.04,42,90,14,28
+X009,Parel,Central,3,10,0,0.11,38,58,17,21
+W001,Colaba,South,2,28,0,0.15,88,59,21,33
+W008,Worli,South,8,20,1,0.95,127,129,50,58
+X012,Kandarpada,North,3,22,1,0.6,129,75,12,44
+X005,Andheri West,West,9,6,1,0.85,99,121,24,48
+W005,Kurla,East,5,2,0,0.08,31,71,24,22
+W002,Bandra West,West,2,13,0,0.08,43,86,48,30
+W004,Dadar,Central,4,20,0,0.06,68,62,50,31
+X012,Kandarpada,North,10,10,1,0.6,90,110,13,43
+X011,Dahisar,North,11,18,1,0.6,112,122,15,50
+W008,Worli,South,8,4,0,0.13,82,88,53,40
+W001,Colaba,South,6,3,0,0.06,59,55,46,27
+W002,Bandra West,West,5,27,0,0.09,45,101,36,33
+X008,Vikhroli,East,1,11,0,0.04,49,86,23,29
+X009,Parel,Central,12,12,0,0.03,63,42,49,26
+W004,Dadar,Central,1,8,0,0.05,36,89,46,29
+W007,Mulund,North,5,20,0,0.09,32,96,45,29
+W008,Worli,South,5,24,0,0.15,63,63,46,30
+W004,Dadar,Central,1,14,0,0.09,36,64,43,24
+X006,Juhu,West,10,14,1,0.85,130,88,52,50
+W004,Dadar,Central,6,26,0,0.1,82,73,51,36
+X011,Dahisar,North,1,12,0,0.12,36,100,12,29
+W005,Kurla,East,6,20,0,0.13,48,103,33,33
+X006,Juhu,West,4,10,0,0.07,78,51,48,31
+X004,Marine Lines,Island City,12,15,0,0.06,68,67,30,30
+W008,Worli,South,3,12,1,0.95,78,116,22,42
+W001,Colaba,South,12,15,0,0.04,36,76,41,26
+X009,Parel,Central,1,1,0,0.05,41,59,17,22
+X012,Kandarpada,North,1,19,0,0.02,36,50,16,19
+X007,Ghatkopar,East,11,4,1,0.7,131,132,55,60
+W005,Kurla,East,8,11,1,0.7,81,119,58,46
+W001,Colaba,South,7,4,0,0.03,77,73,16,33
+X004,Marine Lines,Island City,8,13,0,0.02,73,74,51,35
+X006,Juhu,West,2,14,0,0.0,30,63,13,20
+W008,Worli,South,12,12,0,0.06,56,72,29,29
+W003,Andheri East,West,1,6,0,0.13,97,79,50,41
+W008,Worli,South,3,7,0,0.08,59,90,37,34
+W006,Borivali,North,7,2,0,0.09,42,58,39,23
+X009,Parel,Central,1,25,0,0.13,96,52,40,35
+W008,Worli,South,9,13,0,0.08,38,98,59,32
+W005,Kurla,East,4,18,0,0.05,88,54,18,31
+W003,Andheri East,West,2,3,0,0.1,46,45,26,21
+W003,Andheri East,West,7,18,0,0.1,68,99,28,37
+W005,Kurla,East,1,9,0,0.1,72,79,45,35
+W007,Mulund,North,6,18,0,0.06,33,66,21,22
+W001,Colaba,South,12,4,0,0.01,48,62,25,25
+W003,Andheri East,West,3,27,0,0.02,36,87,45,28
+X001,Fort,Island City,10,13,1,0.92,60,138,22,42
+X003,Cuffe Parade,Island City,3,2,1,0.92,64,100,30,36
+W006,Borivali,North,10,3,1,0.6,62,142,57,46
+W006,Borivali,North,10,2,1,0.6,92,74,17,36
+W006,Borivali,North,2,13,0,0.04,61,89,21,33
+X011,Dahisar,North,3,16,1,0.6,145,137,40,63
+W005,Kurla,East,4,27,0,0.04,84,61,38,33
+X010,Byculla,Central,3,15,1,0.9,128,113,42,54
+W008,Worli,South,10,9,1,0.95,185,170,13,76
+W007,Mulund,North,2,1,0,0.07,86,87,40,39
+W001,Colaba,South,6,24,0,0.14,38,75,47,27
+X004,Marine Lines,Island City,10,18,1,0.92,168,202,57,82
+W008,Worli,South,4,16,0,0.1,56,46,44,25
+X004,Marine Lines,Island City,9,5,1,0.92,112,144,18,55
+W004,Dadar,Central,2,16,0,0.05,31,54,39,20
+X007,Ghatkopar,East,6,4,0,0.05,77,46,31,28
+W007,Mulund,North,7,11,0,0.11,80,69,44,35
+X007,Ghatkopar,East,12,13,0,0.07,40,47,43,21
+X001,Fort,Island City,2,27,0,0.07,77,80,55,37
+X004,Marine Lines,Island City,1,17,0,0.12,40,66,43,25
+X005,Andheri West,West,10,7,1,0.85,166,88,30,57
+W006,Borivali,North,12,27,0,0.03,84,78,40,37
+X009,Parel,Central,8,24,1,0.9,64,169,35,50
+W006,Borivali,North,10,5,1,0.6,133,154,29,62
+W005,Kurla,East,4,15,0,0.11,39,105,18,31
+X006,Juhu,West,12,25,0,0.13,70,65,15,29
+X012,Kandarpada,North,2,21,0,0.11,83,95,14,38
+W003,Andheri East,West,2,12,0,0.05,66,80,32,33
+W006,Borivali,North,1,13,0,0.01,65,73,51,33
+X008,Vikhroli,East,3,9,1,0.7,47,106,29,33
+W007,Mulund,North,10,13,1,0.6,46,125,13,36
+X002,Churchgate,Island City,12,15,0,0.06,63,95,50,36
+W001,Colaba,South,5,27,0,0.06,82,81,48,38
+W006,Borivali,North,1,14,0,0.14,90,71,26,36
+W007,Mulund,North,9,2,1,0.6,84,79,48,38
+X012,Kandarpada,North,8,24,1,0.6,61,85,42,33
+W003,Andheri East,West,5,20,0,0.14,41,63,14,22
+X008,Vikhroli,East,6,3,0,0.13,40,68,21,24
+X010,Byculla,Central,10,12,1,0.9,107,94,30,45
+X002,Churchgate,Island City,10,9,1,0.92,121,174,15,63
+W004,Dadar,Central,4,6,0,0.05,58,81,48,32
+W006,Borivali,North,7,9,0,0.05,42,56,59,25
+W007,Mulund,North,8,12,1,0.6,149,82,13,50
+W002,Bandra West,West,2,4,0,0.13,73,98,36,38
+X010,Byculla,Central,9,4,1,0.9,181,123,11,66
+W007,Mulund,North,1,11,0,0.12,49,71,41,28
+W004,Dadar,Central,7,16,0,0.08,39,93,54,31
+X009,Parel,Central,1,23,0,0.05,74,59,11,29
+W008,Worli,South,1,21,0,0.05,77,89,51,38
+W006,Borivali,North,4,12,0,0.04,46,42,57,23
+X003,Cuffe Parade,Island City,2,20,0,0.15,53,87,51,33
+W004,Dadar,Central,8,24,0,0.15,39,108,24,32
+X005,Andheri West,West,5,22,0,0.04,50,69,49,28
+W006,Borivali,North,7,27,0,0.0,39,61,44,24
+W004,Dadar,Central,9,2,0,0.13,89,50,46,33
+W006,Borivali,North,12,28,0,0.14,92,77,18,37
+W006,Borivali,North,10,28,1,0.6,57,137,35,42
+W001,Colaba,South,9,4,0,0.06,56,75,33,30
+W002,Bandra West,West,1,12,0,0.12,96,71,30,38
+W008,Worli,South,8,9,1,0.95,153,159,27,68
+W008,Worli,South,5,13,0,0.02,77,73,17,33
+W003,Andheri East,West,11,26,0,0.01,38,87,42,29
+W002,Bandra West,West,11,5,1,0.85,103,141,54,55
+W005,Kurla,East,1,19,0,0.07,53,76,12,28
+W006,Borivali,North,8,28,1,0.6,83,81,42,38
+X004,Marine Lines,Island City,8,13,1,0.92,85,143,58,52
+X001,Fort,Island City,7,2,0,0.14,75,72,37,34
+W004,Dadar,Central,4,16,0,0.04,46,47,55,23
+W001,Colaba,South,1,1,0,0.05,80,66,40,34
+W002,Bandra West,West,8,14,0,0.11,80,50,51,31
+X003,Cuffe Parade,Island City,5,5,0,0.1,29,91,39,27
+X002,Churchgate,Island City,5,12,0,0.06,63,52,25,26
+W004,Dadar,Central,11,24,1,0.9,172,188,48,79
+W001,Colaba,South,4,19,0,0.11,64,47,11,24
+X004,Marine Lines,Island City,1,22,0,0.11,68,94,49,37
+W007,Mulund,North,1,17,0,0.12,82,91,48,40
+W007,Mulund,North,2,17,0,0.0,79,79,60,38
+W002,Bandra West,West,11,24,1,0.85,52,190,53,53
+W004,Dadar,Central,8,15,1,0.9,179,112,21,64
+W008,Worli,South,6,13,0,0.12,61,74,23,30
+X010,Byculla,Central,10,26,1,0.9,70,101,33,38
+W004,Dadar,Central,1,5,0,0.14,49,109,13,33
+W006,Borivali,North,7,17,0,0.12,74,47,11,26
+X010,Byculla,Central,6,9,0,0.05,48,78,43,29
+W008,Worli,South,7,16,0,0.14,76,52,34,30
+W003,Andheri East,West,10,24,1,0.85,71,156,53,51
+W006,Borivali,North,12,26,0,0.12,34,80,53,27
+W002,Bandra West,West,3,11,1,0.85,68,94,27,36
+W004,Dadar,Central,6,28,0,0.04,52,84,24,30
+W007,Mulund,North,2,22,0,0.12,75,67,27,32
+W003,Andheri East,West,6,19,0,0.1,91,54,17,32
+W005,Kurla,East,11,26,0,0.04,62,69,55,31
+W005,Kurla,East,12,5,0,0.09,51,85,50,32
+W007,Mulund,North,9,16,1,0.6,70,146,49,48
+W005,Kurla,East,2,4,0,0.04,60,42,17,23
+W008,Worli,South,9,18,1,0.95,96,106,35,45
+W003,Andheri East,West,3,3,1,0.85,109,156,19,57
+X009,Parel,Central,10,1,1,0.9,90,123,24,46
+X001,Fort,Island City,5,28,0,0.05,41,55,14,21
+W005,Kurla,East,10,23,0,0.1,42,86,29,28
+W007,Mulund,North,11,2,1,0.6,134,167,26,65
+W007,Mulund,North,3,22,0,0.08,66,47,59,28
+W003,Andheri East,West,7,21,0,0.01,51,49,57,25
+W001,Colaba,South,10,8,1,0.95,79,186,10,55
+W008,Worli,South,6,4,0,0.11,92,97,48,43
+X008,Vikhroli,East,9,6,0,0.1,94,84,31,40
+X003,Cuffe Parade,Island City,3,15,1,0.92,115,194,33,67
+W005,Kurla,East,10,2,1,0.7,52,156,15,44
+X011,Dahisar,North,2,9,0,0.0,78,89,56,39
+X007,Ghatkopar,East,4,17,0,0.03,79,47,48,30
+X004,Marine Lines,Island City,3,12,1,0.92,54,176,20,48
+W002,Bandra West,West,12,25,0,0.12,37,104,41,32
+W007,Mulund,North,10,24,0,0.11,46,90,55,32
+W006,Borivali,North,7,6,0,0.07,37,60,56,24
+W006,Borivali,North,11,20,1,0.6,71,92,40,37
+W008,Worli,South,8,24,1,0.95,136,124,53,59
+W002,Bandra West,West,3,4,1,0.85,100,138,60,54
+X011,Dahisar,North,5,27,0,0.05,35,44,31,19
+W003,Andheri East,West,9,24,1,0.85,57,177,31,50
+W005,Kurla,East,8,25,1,0.7,60,175,24,50
+X008,Vikhroli,East,7,24,0,0.01,50,81,60,31
+W002,Bandra West,West,10,10,1,0.85,147,145,38,64
+W001,Colaba,South,2,24,0,0.1,94,47,37,33
+X005,Andheri West,West,1,13,0,0.0,57,85,21,31
+W007,Mulund,North,9,18,0,0.04,67,55,32,28
+X012,Kandarpada,North,11,21,1,0.6,127,127,35,56
+W002,Bandra West,West,11,18,1,0.85,81,115,13,42
+W005,Kurla,East,11,12,1,0.7,131,154,20,61
+X002,Churchgate,Island City,5,26,0,0.01,30,43,12,16
+X002,Churchgate,Island City,3,14,1,0.92,146,138,15,61
+X012,Kandarpada,North,11,14,1,0.6,108,129,29,52
+W003,Andheri East,West,6,15,0,0.07,61,45,45,26
+W007,Mulund,North,7,17,0,0.08,56,82,33,31
+W008,Worli,South,2,3,0,0.06,69,58,35,29
+W003,Andheri East,West,9,16,0,0.04,58,75,19,29
+X004,Marine Lines,Island City,12,3,0,0.1,66,96,12,34
+X005,Andheri West,West,1,26,0,0.09,78,61,53,33
+X007,Ghatkopar,East,4,15,0,0.05,50,75,44,29
+X003,Cuffe Parade,Island City,7,15,0,0.13,49,99,39,33
+W005,Kurla,East,3,20,1,0.7,122,123,49,55
+X007,Ghatkopar,East,8,11,1,0.7,98,116,60,49
+W007,Mulund,North,7,24,0,0.0,52,57,26,25
+W006,Borivali,North,2,1,0,0.13,71,97,42,38
+W003,Andheri East,West,2,15,0,0.01,60,82,30,32
+W007,Mulund,North,4,17,0,0.1,36,85,51,28
+X007,Ghatkopar,East,8,28,1,0.7,85,90,17,38
+W001,Colaba,South,7,24,0,0.13,80,96,55,41
+W007,Mulund,North,4,27,0,0.06,69,72,10,30
+W008,Worli,South,8,28,1,0.95,115,102,13,47
+W007,Mulund,North,7,11,0,0.11,61,75,52,32
+X003,Cuffe Parade,Island City,10,11,1,0.92,107,139,31,54
+W006,Borivali,North,9,5,1,0.6,120,110,59,53
+X002,Churchgate,Island City,7,16,0,0.02,79,45,25,28
+X004,Marine Lines,Island City,6,24,0,0.07,65,84,14,32
+W007,Mulund,North,12,5,0,0.08,74,65,25,31
+W004,Dadar,Central,10,2,1,0.9,161,157,60,72
+W005,Kurla,East,10,27,1,0.7,156,131,51,65
+W002,Bandra West,West,12,5,0,0.06,42,82,15,26
+W007,Mulund,North,10,25,1,0.6,150,76,17,50
+X008,Vikhroli,East,9,2,1,0.7,157,169,17,70
+X005,Andheri West,West,2,6,0,0.08,39,92,54,31
+X010,Byculla,Central,5,3,0,0.07,37,100,19,29
+X002,Churchgate,Island City,6,5,0,0.15,90,52,49,34
+W006,Borivali,North,2,25,0,0.04,73,95,57,39
+W002,Bandra West,West,8,2,1,0.85,162,118,20,61
+X011,Dahisar,North,12,10,0,0.15,96,90,58,43
+W004,Dadar,Central,2,13,0,0.02,56,71,46,30
+W008,Worli,South,5,22,0,0.12,32,76,16,23
+W003,Andheri East,West,8,14,1,0.85,96,92,44,43
+W005,Kurla,East,10,7,1,0.7,56,140,50,44
+W002,Bandra West,West,7,25,0,0.04,85,76,21,35
+W007,Mulund,North,4,12,0,0.03,82,55,10,30
+W003,Andheri East,West,1,28,0,0.12,49,69,12,25
+W004,Dadar,Central,10,6,0,0.1,36,86,43,28
+X006,Juhu,West,12,19,0,0.04,49,65,42,27
+W005,Kurla,East,11,19,1,0.7,143,134,36,61
+X012,Kandarpada,North,3,9,1,0.6,52,101,17,33
+W001,Colaba,South,1,13,0,0.03,29,94,12,26
+W003,Andheri East,West,3,3,1,0.85,101,197,45,65
+W005,Kurla,East,9,1,1,0.7,116,93,18,46
+X007,Ghatkopar,East,7,12,0,0.02,60,68,41,30
+W001,Colaba,South,6,18,0,0.03,58,86,52,34
+X007,Ghatkopar,East,6,7,0,0.06,87,85,27,38
+W006,Borivali,North,7,23,0,0.04,84,92,44,40
+W007,Mulund,North,8,14,1,0.6,136,116,28,55
+W002,Bandra West,West,9,8,1,0.85,145,105,53,57
+X006,Juhu,West,6,14,0,0.11,88,50,41,32
+W008,Worli,South,4,25,0,0.02,74,57,27,30
+W002,Bandra West,West,8,1,0,0.09,63,75,38,32
+W001,Colaba,South,4,27,0,0.14,30,79,28,24
+X006,Juhu,West,8,26,1,0.85,164,94,39,58
+W003,Andheri East,West,7,14,0,0.1,94,77,24,38
+W003,Andheri East,West,7,26,0,0.04,40,86,41,29
+X005,Andheri West,West,2,26,0,0.07,74,80,12,33
+W006,Borivali,North,11,9,1,0.6,147,148,15,63
+W008,Worli,South,2,10,0,0.06,34,91,52,29
+W007,Mulund,North,5,23,0,0.05,35,46,18,18
+W003,Andheri East,West,5,26,0,0.12,80,74,52,36
+W005,Kurla,East,8,18,1,0.7,115,159,28,59
+W002,Bandra West,West,9,26,0,0.13,62,64,35,29
+W002,Bandra West,West,1,26,0,0.12,41,60,18,22
+W003,Andheri East,West,12,4,0,0.03,39,45,29,19
+W005,Kurla,East,1,21,0,0.08,47,74,60,29
+W003,Andheri East,West,7,22,0,0.1,65,62,47,30
+W001,Colaba,South,8,7,1,0.95,152,153,55,68
+X001,Fort,Island City,9,11,1,0.92,93,142,50,53
+W008,Worli,South,12,12,0,0.09,54,86,40,32
+W004,Dadar,Central,10,16,1,0.9,105,165,46,60
+W007,Mulund,North,2,3,0,0.0,82,70,29,34
+X010,Byculla,Central,6,21,0,0.02,64,84,16,32
+W007,Mulund,North,11,19,1,0.6,79,108,34,41
+W001,Colaba,South,3,18,1,0.95,82,200,31,60
+W002,Bandra West,West,7,5,0,0.14,99,81,54,42
+W008,Worli,South,12,11,0,0.08,78,98,27,39
+W004,Dadar,Central,7,21,0,0.15,87,69,21,34
+W006,Borivali,North,5,8,0,0.11,58,57,42,27
+W003,Andheri East,West,9,4,0,0.14,59,50,51,27
+W003,Andheri East,West,1,9,0,0.1,71,65,57,33
+W005,Kurla,East,9,23,1,0.7,80,140,26,47
+W008,Worli,South,8,15,1,0.95,171,195,53,81
+W007,Mulund,North,2,25,0,0.0,46,89,29,30
+W002,Bandra West,West,10,22,0,0.05,74,89,41,37
+X003,Cuffe Parade,Island City,6,20,0,0.08,61,50,34,26
+W002,Bandra West,West,6,9,0,0.13,36,100,55,32
+W004,Dadar,Central,3,3,1,0.9,137,112,25,55
+W005,Kurla,East,12,13,0,0.05,82,88,16,37
+W002,Bandra West,West,3,4,1,0.85,137,131,22,58
+X010,Byculla,Central,2,21,0,0.02,35,62,41,23
+W004,Dadar,Central,12,18,0,0.09,49,97,29,32
+X005,Andheri West,West,8,11,1,0.85,133,186,47,70
+W005,Kurla,East,11,26,0,0.11,28,75,49,24
+X010,Byculla,Central,6,11,0,0.13,44,62,44,25
+X003,Cuffe Parade,Island City,10,5,1,0.92,157,104,41,59
+W002,Bandra West,West,11,25,1,0.85,118,128,56,56
+W007,Mulund,North,5,11,0,0.15,30,76,10,22
+X008,Vikhroli,East,4,9,0,0.02,77,76,39,35
+X002,Churchgate,Island City,9,17,1,0.92,82,202,28,60
+W007,Mulund,North,10,17,1,0.6,137,128,13,57
+W004,Dadar,Central,9,23,1,0.9,103,147,44,55
+W002,Bandra West,West,1,1,0,0.14,54,94,22,32
+X003,Cuffe Parade,Island City,9,3,0,0.05,32,63,46,23
+W008,Worli,South,2,22,0,0.03,48,92,35,31
+X002,Churchgate,Island City,6,10,0,0.12,95,59,56,37
+W001,Colaba,South,10,11,1,0.95,168,175,43,76
+W007,Mulund,North,1,26,0,0.04,74,64,15,30
+W004,Dadar,Central,2,25,0,0.13,95,69,50,38
+W001,Colaba,South,12,8,0,0.03,56,64,23,27
+W001,Colaba,South,1,19,0,0.02,55,91,22,32
+W002,Bandra West,West,8,6,1,0.85,160,99,21,57
+W006,Borivali,North,10,25,1,0.6,129,109,26,52
+W005,Kurla,East,3,15,1,0.7,89,129,28,47
+W003,Andheri East,West,12,19,0,0.0,82,56,29,31
+W006,Borivali,North,3,7,1,0.6,95,98,28,43
+W002,Bandra West,West,11,5,0,0.04,66,44,35,26
+W004,Dadar,Central,3,10,1,0.9,183,195,25,82
+X001,Fort,Island City,10,14,0,0.08,90,97,50,43
+W005,Kurla,East,9,6,1,0.7,114,181,59,66
+W006,Borivali,North,8,19,1,0.6,108,144,12,54
+W005,Kurla,East,7,15,0,0.05,40,81,11,26
+W008,Worli,South,2,15,0,0.04,50,63,19,25
+W004,Dadar,Central,9,18,1,0.9,177,183,40,79
+W006,Borivali,North,11,26,1,0.6,124,133,51,58
+W001,Colaba,South,12,4,0,0.06,83,93,50,41
+W002,Bandra West,West,1,16,0,0.15,64,101,45,37
+W003,Andheri East,West,8,5,1,0.85,86,180,18,56
+X011,Dahisar,North,6,23,0,0.11,30,102,16,28
+W004,Dadar,Central,3,27,0,0.11,86,73,23,35
+W003,Andheri East,West,8,24,1,0.85,66,190,40,55
+X007,Ghatkopar,East,12,28,0,0.01,36,92,24,28
+W005,Kurla,East,7,3,0,0.0,54,75,51,30
+W004,Dadar,Central,10,27,1,0.9,181,169,50,78
+X007,Ghatkopar,East,3,9,1,0.7,145,170,41,69
+W001,Colaba,South,11,22,1,0.95,155,159,30,68
+X007,Ghatkopar,East,12,5,0,0.13,89,63,54,36
+X011,Dahisar,North,4,21,0,0.09,91,94,35,41
+W003,Andheri East,West,6,18,0,0.08,54,76,33,29
+W007,Mulund,North,10,17,1,0.6,58,118,12,37
+W008,Worli,South,3,21,1,0.95,144,105,28,55
+X007,Ghatkopar,East,7,21,0,0.13,44,92,17,29
+W005,Kurla,East,8,27,1,0.7,70,95,11,35
+W005,Kurla,East,7,8,0,0.07,63,53,20,26
+X003,Cuffe Parade,Island City,3,15,0,0.07,49,47,16,21
+W004,Dadar,Central,4,23,0,0.1,73,63,57,33
+W008,Worli,South,6,16,0,0.09,83,58,10,31
+W007,Mulund,North,3,21,1,0.6,124,142,10,57
+W008,Worli,South,8,18,1,0.95,104,127,54,52
+W003,Andheri East,West,5,18,0,0.08,57,86,34,32
+W005,Kurla,East,11,28,1,0.7,55,93,39,33
+W004,Dadar,Central,6,1,0,0.14,87,50,58,33
+W004,Dadar,Central,12,20,0,0.11,58,102,23,35
+W003,Andheri East,West,8,23,1,0.85,138,168,21,66
+W006,Borivali,North,10,22,1,0.6,80,115,56,45
+X009,Parel,Central,8,1,1,0.9,167,189,10,76
+W006,Borivali,North,9,20,1,0.6,54,115,18,36
+W006,Borivali,North,10,25,1,0.6,46,156,19,42
+W003,Andheri East,West,1,5,0,0.06,29,44,41,18
+W006,Borivali,North,1,3,0,0.12,65,94,17,34
+W002,Bandra West,West,8,11,0,0.07,68,85,29,34
+X001,Fort,Island City,8,4,1,0.92,105,165,44,59
+W003,Andheri East,West,3,25,1,0.85,64,164,15,48
+X011,Dahisar,North,5,8,0,0.02,28,69,15,21
+W007,Mulund,North,4,10,0,0.06,84,78,12,35
+X008,Vikhroli,East,1,2,0,0.14,46,57,60,26
+W001,Colaba,South,12,25,0,0.02,82,88,53,40
+X011,Dahisar,North,7,13,0,0.11,57,55,37,26
+W006,Borivali,North,11,3,1,0.6,129,93,16,48
+W006,Borivali,North,12,21,0,0.07,46,80,36,29
+X006,Juhu,West,9,8,1,0.85,103,158,28,56
+W006,Borivali,North,5,21,0,0.05,51,88,27,31
+X012,Kandarpada,North,9,12,1,0.6,113,101,42,48
+W004,Dadar,Central,2,2,0,0.06,68,56,39,29
+W002,Bandra West,West,3,10,1,0.85,148,189,38,73
+W006,Borivali,North,10,14,0,0.05,41,50,50,22
+X005,Andheri West,West,1,8,0,0.14,62,55,26,26
+W003,Andheri East,West,11,9,1,0.85,150,157,35,67
+W002,Bandra West,West,11,2,1,0.85,99,104,42,46
+W002,Bandra West,West,10,5,1,0.85,89,192,55,62
+W003,Andheri East,West,2,23,0,0.03,60,92,33,34
+W007,Mulund,North,3,25,1,0.6,88,92,27,40
+W007,Mulund,North,6,16,0,0.08,72,99,50,39
+X011,Dahisar,North,11,21,1,0.6,60,159,51,49
+X005,Andheri West,West,4,15,0,0.07,31,70,42,24
+X002,Churchgate,Island City,10,22,1,0.92,162,92,25,56
+X012,Kandarpada,North,11,3,1,0.6,54,130,20,39
+W004,Dadar,Central,2,4,0,0.14,94,102,13,42
+X005,Andheri West,West,4,1,0,0.1,50,94,14,31
+W006,Borivali,North,5,10,0,0.11,77,68,51,34
+X010,Byculla,Central,8,16,0,0.02,68,56,11,27
+W001,Colaba,South,1,24,0,0.14,62,105,53,38
+W001,Colaba,South,1,11,0,0.13,70,90,25,35
+W004,Dadar,Central,11,15,1,0.9,170,194,25,78
+W003,Andheri East,West,10,22,1,0.85,63,145,53,47
+W007,Mulund,North,9,27,1,0.6,100,90,56,44
+W001,Colaba,South,9,8,0,0.11,85,58,12,31
+W004,Dadar,Central,7,1,0,0.15,90,63,36,35
+X007,Ghatkopar,East,12,8,0,0.13,74,97,32,38
+W001,Colaba,South,11,17,0,0.03,34,74,46,25
+W007,Mulund,North,6,3,0,0.11,76,70,42,34
+W006,Borivali,North,3,17,1,0.6,54,136,19,40
+W005,Kurla,East,5,14,0,0.07,82,51,17,29
+W007,Mulund,North,2,27,0,0.1,51,98,39,34
+W005,Kurla,East,10,8,1,0.7,93,130,27,48
+X009,Parel,Central,12,10,0,0.11,69,50,53,29
+X005,Andheri West,West,12,10,0,0.14,46,80,57,30
+X008,Vikhroli,East,1,28,0,0.08,45,94,27,30
+X011,Dahisar,North,11,28,1,0.6,97,133,19,49
+W008,Worli,South,11,24,1,0.95,124,162,18,61
+W006,Borivali,North,8,4,1,0.6,139,155,13,63
+X003,Cuffe Parade,Island City,2,1,0,0.13,77,70,21,32
+W006,Borivali,North,5,23,0,0.06,87,55,56,34
+W002,Bandra West,West,8,15,1,0.85,125,160,53,64
+W007,Mulund,North,4,18,0,0.01,79,51,40,30
+W008,Worli,South,12,17,0,0.05,83,60,11,31
+X012,Kandarpada,North,12,2,0,0.15,51,52,24,23
+W002,Bandra West,West,11,22,1,0.85,107,198,48,67
+W007,Mulund,North,3,15,1,0.6,126,90,26,48
+X006,Juhu,West,6,19,0,0.07,30,53,55,21
+W007,Mulund,North,1,11,0,0.05,44,73,27,26
+X001,Fort,Island City,5,26,0,0.04,40,72,10,24
+X005,Andheri West,West,12,1,0,0.1,76,67,29,32
+X006,Juhu,West,10,26,1,0.85,156,142,56,67
+W008,Worli,South,10,15,0,0.14,79,50,17,29
+W001,Colaba,South,3,16,1,0.95,166,141,32,67
+W003,Andheri East,West,8,4,1,0.85,124,129,16,54
+W003,Andheri East,West,8,11,1,0.85,55,116,43,38
+W007,Mulund,North,10,14,1,0.6,58,78,36,31
+X003,Cuffe Parade,Island City,7,13,0,0.08,35,75,12,23
+W004,Dadar,Central,1,25,0,0.13,49,92,48,33
+X010,Byculla,Central,4,8,0,0.1,68,61,30,29
+W006,Borivali,North,7,22,0,0.04,71,80,31,34
+W006,Borivali,North,12,21,0,0.14,39,48,14,19
+X012,Kandarpada,North,10,27,0,0.04,80,89,40,38
+W003,Andheri East,West,3,9,0,0.02,66,47,13,25
+W002,Bandra West,West,8,10,1,0.85,126,151,43,61
+X005,Andheri West,West,2,23,0,0.01,30,91,21,26
+X010,Byculla,Central,12,17,0,0.12,48,73,14,26
+X003,Cuffe Parade,Island City,8,27,1,0.92,92,148,11,51
+X005,Andheri West,West,4,9,0,0.13,38,95,56,31
+W008,Worli,South,3,7,0,0.08,61,81,60,34
+W007,Mulund,North,2,1,0,0.11,34,84,56,28
+W004,Dadar,Central,2,20,0,0.12,63,71,31,30
+X008,Vikhroli,East,1,21,0,0.11,66,97,10,35
+X010,Byculla,Central,1,28,0,0.06,58,48,58,27
+X012,Kandarpada,North,10,1,0,0.02,55,88,13,30
+W005,Kurla,East,4,17,0,0.03,60,82,20,31
+W008,Worli,South,11,9,0,0.01,70,48,40,28
+W005,Kurla,East,8,21,1,0.7,101,95,40,44
+X012,Kandarpada,North,10,7,1,0.6,149,161,38,68
+X004,Marine Lines,Island City,12,5,0,0.03,48,86,43,31
+W006,Borivali,North,3,16,1,0.6,115,119,12,50
+W001,Colaba,South,6,12,0,0.03,86,47,49,32
+W005,Kurla,East,5,19,0,0.06,74,91,56,39
+X004,Marine Lines,Island City,4,20,0,0.12,89,64,41,35
+W005,Kurla,East,7,1,0,0.1,53,67,22,26
+W005,Kurla,East,3,17,1,0.7,106,100,30,46
+W003,Andheri East,West,7,9,0,0.05,62,89,22,33
+W007,Mulund,North,6,4,0,0.01,69,41,50,27
+W008,Worli,South,5,9,0,0.11,92,83,25,39
+W003,Andheri East,West,6,18,0,0.01,78,55,58,32
+W004,Dadar,Central,4,5,0,0.02,37,59,38,22
+W003,Andheri East,West,2,23,0,0.04,67,75,35,32
+W005,Kurla,East,8,2,1,0.7,113,181,37,64
+W005,Kurla,East,10,27,0,0.07,71,69,46,33
+W005,Kurla,East,3,3,1,0.7,126,102,41,51
+X011,Dahisar,North,7,11,0,0.1,38,47,38,20
+W008,Worli,South,12,28,0,0.06,48,45,20,21
+X007,Ghatkopar,East,1,13,0,0.1,54,57,52,27
+W003,Andheri East,West,4,17,0,0.07,59,58,55,29
+X010,Byculla,Central,9,8,1,0.9,120,161,24,61
+W003,Andheri East,West,5,5,0,0.09,79,78,60,37
+W006,Borivali,North,9,8,0,0.02,36,50,50,21
+W004,Dadar,Central,4,12,0,0.04,50,95,26,32
+W001,Colaba,South,8,9,1,0.95,61,151,20,45
+W002,Bandra West,West,3,7,1,0.85,124,114,10,51
+W008,Worli,South,12,16,0,0.05,86,80,60,39
+W004,Dadar,Central,6,23,0,0.08,59,85,51,34
+X009,Parel,Central,8,10,0,0.1,84,82,42,38
+W004,Dadar,Central,10,22,1,0.9,127,145,16,58
+X008,Vikhroli,East,7,24,0,0.1,85,84,57,40
+X002,Churchgate,Island City,6,23,0,0.14,68,65,34,30
+W002,Bandra West,West,3,14,1,0.85,95,193,53,63
+X004,Marine Lines,Island City,8,28,1,0.92,80,116,42,44
+W008,Worli,South,8,27,1,0.95,166,145,28,68
+W006,Borivali,North,10,7,1,0.6,140,122,57,60
+W006,Borivali,North,1,11,0,0.01,72,83,10,33
+W007,Mulund,North,7,23,0,0.12,38,61,47,24
+X012,Kandarpada,North,12,28,0,0.14,33,64,53,24
+W007,Mulund,North,3,21,1,0.6,120,76,20,43
+X001,Fort,Island City,11,12,1,0.92,107,204,57,69
+W007,Mulund,North,6,28,0,0.02,36,94,15,28
+W001,Colaba,South,12,6,0,0.08,33,90,32,27
+X001,Fort,Island City,6,20,0,0.02,66,59,53,30
+X004,Marine Lines,Island City,5,16,0,0.14,49,76,44,29
+X009,Parel,Central,7,2,0,0.04,72,96,32,37
+W002,Bandra West,West,6,16,0,0.06,91,64,47,36
+W006,Borivali,North,11,4,1,0.6,68,118,22,40
+W005,Kurla,East,9,1,1,0.7,82,159,38,53
+W007,Mulund,North,11,19,1,0.6,92,99,41,43
+W007,Mulund,North,7,2,0,0.01,82,80,47,37
+W001,Colaba,South,7,11,0,0.01,74,66,38,32
+W002,Bandra West,West,6,16,0,0.04,60,87,23,32
+W001,Colaba,South,7,25,0,0.14,79,50,44,31
+W005,Kurla,East,12,6,0,0.1,75,83,11,34
+X005,Andheri West,West,5,25,0,0.08,47,75,51,29
+W005,Kurla,East,4,10,0,0.08,71,87,57,37
+X001,Fort,Island City,5,15,0,0.0,26,70,60,24
+W004,Dadar,Central,7,13,0,0.14,76,96,52,40
+X003,Cuffe Parade,Island City,7,17,0,0.02,28,49,34,18
+W002,Bandra West,West,4,8,0,0.13,86,59,13,32
+W007,Mulund,North,12,11,0,0.09,32,77,47,26
+W003,Andheri East,West,9,25,1,0.85,169,147,15,68
+W003,Andheri East,West,10,20,1,0.85,134,170,59,68
+W007,Mulund,North,11,26,0,0.02,79,45,33,29
+W003,Andheri East,West,9,2,1,0.85,137,173,58,69
+W001,Colaba,South,6,9,0,0.15,58,57,22,26
+W004,Dadar,Central,10,23,1,0.9,101,114,12,46
+X001,Fort,Island City,1,16,0,0.07,67,71,24,31
+W006,Borivali,North,9,21,1,0.6,148,150,26,65
+W002,Bandra West,West,2,21,0,0.03,81,46,48,31
+W006,Borivali,North,5,18,0,0.02,65,74,43,32
+W003,Andheri East,West,8,23,1,0.85,113,142,60,58
+W005,Kurla,East,3,12,0,0.02,32,71,49,25
+X002,Churchgate,Island City,4,4,0,0.12,59,49,42,26
+W002,Bandra West,West,5,8,0,0.02,65,77,47,33
+X010,Byculla,Central,10,16,1,0.9,158,181,60,76
+W007,Mulund,North,11,14,1,0.6,59,155,48,47
+W003,Andheri East,West,7,19,0,0.07,45,78,38,28
+W008,Worli,South,3,2,1,0.95,171,139,18,67
+W008,Worli,South,6,19,0,0.06,72,49,51,29
+W002,Bandra West,West,6,19,0,0.12,50,72,19,27
+W003,Andheri East,West,7,2,0,0.15,72,103,16,38
+W005,Kurla,East,5,10,0,0.14,89,91,27,40
+W007,Mulund,North,11,21,1,0.6,98,131,60,52
+X006,Juhu,West,3,13,1,0.85,166,163,41,73
+W006,Borivali,North,6,7,0,0.03,72,90,30,36
+X012,Kandarpada,North,10,17,1,0.6,51,95,38,33
+W004,Dadar,Central,12,6,0,0.06,32,65,53,24
+W007,Mulund,North,9,12,1,0.6,60,150,35,46
+X005,Andheri West,West,6,19,0,0.06,51,63,12,24
+W001,Colaba,South,5,17,0,0.02,69,56,31,29
+W001,Colaba,South,3,3,1,0.95,96,108,12,44
+W005,Kurla,East,3,13,0,0.08,42,61,12,22
+W006,Borivali,North,6,18,0,0.11,85,67,45,35
+X011,Dahisar,North,8,20,0,0.11,81,104,52,42
+W002,Bandra West,West,10,3,1,0.85,156,190,18,74
+W008,Worli,South,7,23,0,0.13,30,86,19,25
+X002,Churchgate,Island City,10,28,0,0.01,32,87,15,25
+W005,Kurla,East,8,24,1,0.7,64,156,14,46
+X004,Marine Lines,Island City,1,26,0,0.02,70,64,22,30
+X008,Vikhroli,East,2,19,0,0.04,44,52,57,24
+X005,Andheri West,West,12,9,0,0.05,73,51,14,27
+X001,Fort,Island City,9,9,0,0.11,88,55,15,31
+X006,Juhu,West,4,25,0,0.03,80,70,35,34
+W003,Andheri East,West,2,1,0,0.03,73,52,37,29
+X004,Marine Lines,Island City,2,17,0,0.01,25,46,53,18
+W005,Kurla,East,10,15,1,0.7,156,143,25,65
+W007,Mulund,North,5,25,0,0.11,59,101,55,37
+W005,Kurla,East,11,4,0,0.04,66,68,57,32
+X006,Juhu,West,8,22,1,0.85,93,127,55,50
+X003,Cuffe Parade,Island City,9,7,1,0.92,58,119,27,38
+W008,Worli,South,9,3,1,0.95,58,155,45,47
+W004,Dadar,Central,1,3,0,0.11,63,73,34,31
+X005,Andheri West,West,10,1,0,0.09,59,101,24,35
+X006,Juhu,West,12,3,0,0.05,36,85,34,27
+W005,Kurla,East,12,6,0,0.06,33,87,10,25
+W002,Bandra West,West,2,12,0,0.15,46,61,20,24
+W003,Andheri East,West,7,2,0,0.12,56,72,38,29
+W002,Bandra West,West,6,28,0,0.05,65,76,32,32
+W001,Colaba,South,9,18,1,0.95,167,105,57,62
+X010,Byculla,Central,4,21,0,0.11,74,65,54,33
+X008,Vikhroli,East,4,19,0,0.14,78,82,55,38
+X005,Andheri West,West,1,1,0,0.08,51,101,34,34
+X002,Churchgate,Island City,4,6,0,0.07,28,61,42,21
+X001,Fort,Island City,5,25,0,0.04,86,96,19,39
+X002,Churchgate,Island City,6,27,0,0.09,92,53,14,32
+X003,Cuffe Parade,Island City,5,7,0,0.07,75,59,55,32
+X006,Juhu,West,3,11,0,0.02,49,81,56,31
+X002,Churchgate,Island City,8,1,1,0.92,66,143,14,44
+W003,Andheri East,West,12,7,0,0.05,32,79,55,27
+X004,Marine Lines,Island City,10,1,1,0.92,166,153,19,69
+W002,Bandra West,West,1,8,0,0.11,57,66,41,29
+X001,Fort,Island City,4,27,0,0.13,30,69,46,24
+W004,Dadar,Central,2,23,0,0.1,93,49,51,34
+X009,Parel,Central,3,3,1,0.9,158,196,16,75
+W008,Worli,South,1,21,0,0.06,75,45,15,27
+X011,Dahisar,North,10,7,1,0.6,148,125,25,60
+X006,Juhu,West,5,3,0,0.12,86,98,29,41
+W002,Bandra West,West,5,28,0,0.1,55,71,46,30
+W005,Kurla,East,10,11,1,0.7,159,83,42,55
+W003,Andheri East,West,5,23,0,0.1,43,61,35,24
+W005,Kurla,East,10,2,1,0.7,101,152,35,55
+X001,Fort,Island City,8,24,1,0.92,96,95,44,43
+W007,Mulund,North,2,25,0,0.11,34,46,26,18
+W007,Mulund,North,9,20,0,0.12,47,66,23,25
+W002,Bandra West,West,8,18,1,0.85,145,130,44,61
+W002,Bandra West,West,12,21,0,0.06,57,78,18,29
+W005,Kurla,East,9,9,1,0.7,89,98,57,43
+X010,Byculla,Central,7,7,0,0.05,77,56,17,29
+X002,Churchgate,Island City,8,17,0,0.1,93,89,34,41
+X003,Cuffe Parade,Island City,11,6,1,0.92,80,180,60,58
+W003,Andheri East,West,7,22,0,0.1,94,64,21,35
+W005,Kurla,East,11,27,1,0.7,95,155,30,54
+W006,Borivali,North,7,14,0,0.07,52,48,56,25
+X011,Dahisar,North,6,25,0,0.06,81,52,32,31
+X006,Juhu,West,6,20,0,0.04,31,66,26,22
+W005,Kurla,East,12,15,0,0.02,39,91,38,29
+W005,Kurla,East,2,8,0,0.01,27,86,35,25
+W002,Bandra West,West,2,14,0,0.07,92,54,15,32
+X001,Fort,Island City,1,20,0,0.15,46,103,34,33
+X009,Parel,Central,6,10,0,0.1,43,86,42,30
+W007,Mulund,North,4,26,0,0.07,44,47,28,21
+W001,Colaba,South,2,6,0,0.02,31,92,58,29
+W005,Kurla,East,2,15,0,0.02,46,85,21,28
+X004,Marine Lines,Island City,10,24,1,0.92,147,173,46,71
+W003,Andheri East,West,11,7,0,0.02,66,58,28,28
+W006,Borivali,North,11,25,1,0.6,64,149,29,46
+X012,Kandarpada,North,4,23,0,0.05,71,93,53,38
+W003,Andheri East,West,4,2,0,0.05,80,61,53,34
+X012,Kandarpada,North,3,25,1,0.6,129,119,59,57
+X002,Churchgate,Island City,9,16,1,0.92,156,170,37,71
+X001,Fort,Island City,12,11,0,0.02,40,63,54,25
+X012,Kandarpada,North,10,11,1,0.6,108,162,31,59
+W006,Borivali,North,3,12,0,0.06,90,99,60,44
+W006,Borivali,North,7,25,0,0.11,30,94,15,26
+W005,Kurla,East,6,4,0,0.07,54,57,57,27
+X006,Juhu,West,1,16,0,0.05,65,63,10,27
+W007,Mulund,North,4,20,0,0.1,44,75,10,25
+W008,Worli,South,2,7,0,0.1,72,83,47,36
+W008,Worli,South,6,15,0,0.1,43,87,47,30
+W005,Kurla,East,5,25,0,0.13,95,61,57,37
+W003,Andheri East,West,1,13,0,0.09,57,101,11,33
+W004,Dadar,Central,2,10,0,0.09,51,95,33,32
+W008,Worli,South,1,6,0,0.14,35,56,26,21
+W008,Worli,South,1,19,0,0.06,83,47,13,29
+W007,Mulund,North,7,12,0,0.1,60,56,18,26
+W005,Kurla,East,12,16,0,0.12,92,86,33,40
+W001,Colaba,South,1,23,0,0.04,56,88,20,31
+X007,Ghatkopar,East,4,14,0,0.08,39,81,37,27
+W006,Borivali,North,11,4,0,0.14,48,49,56,24
+W006,Borivali,North,1,1,0,0.02,46,87,46,31
+W001,Colaba,South,6,7,0,0.11,59,87,17,31
+X005,Andheri West,West,12,25,0,0.09,91,63,21,34
+W003,Andheri East,West,9,2,1,0.85,93,172,43,58
+X007,Ghatkopar,East,9,9,0,0.02,63,89,51,35
+W003,Andheri East,West,9,26,1,0.85,122,94,38,49
+W006,Borivali,North,2,1,0,0.14,36,106,60,33
+W001,Colaba,South,8,3,1,0.95,111,126,18,51
+X008,Vikhroli,East,3,3,1,0.7,58,166,45,49
+W002,Bandra West,West,2,7,0,0.03,28,69,33,22
+W006,Borivali,North,9,12,1,0.6,65,142,27,45
+W002,Bandra West,West,5,18,0,0.11,96,77,18,38
+X011,Dahisar,North,3,5,1,0.6,105,137,51,54
+W006,Borivali,North,6,11,0,0.06,70,96,22,36
+W001,Colaba,South,10,10,1,0.95,110,157,38,59
+W008,Worli,South,12,19,0,0.09,77,57,23,30
+W008,Worli,South,5,5,0,0.11,65,66,38,30
+W008,Worli,South,8,10,1,0.95,146,141,12,61
+W002,Bandra West,West,7,4,0,0.06,28,82,22,24
+X003,Cuffe Parade,Island City,10,25,1,0.92,68,118,13,39
+W003,Andheri East,West,6,5,0,0.03,48,57,43,25
+X005,Andheri West,West,7,21,0,0.03,54,50,56,26
+X011,Dahisar,North,12,27,0,0.14,47,55,18,22
+W004,Dadar,Central,1,11,0,0.08,80,84,35,37
+X005,Andheri West,West,1,10,0,0.14,83,84,45,38
+W004,Dadar,Central,11,15,1,0.9,123,187,35,67
+W003,Andheri East,West,9,28,1,0.85,125,152,33,61
+W005,Kurla,East,6,16,0,0.04,50,73,20,27
+X002,Churchgate,Island City,2,18,0,0.01,59,75,38,31
+W006,Borivali,North,8,13,1,0.6,77,146,36,49
+W003,Andheri East,West,2,24,0,0.01,45,46,21,20
+W005,Kurla,East,10,20,1,0.7,48,86,46,31
+W001,Colaba,South,1,20,0,0.12,39,84,50,29
+X002,Churchgate,Island City,1,19,0,0.12,65,65,42,30
+W007,Mulund,North,4,1,0,0.09,89,55,37,33
+X001,Fort,Island City,10,15,0,0.1,81,89,10,36
+W008,Worli,South,12,2,0,0.14,91,49,27,32
+X012,Kandarpada,North,10,19,1,0.6,139,97,28,52
+W006,Borivali,North,5,4,0,0.11,65,81,43,34
+X007,Ghatkopar,East,11,24,1,0.7,56,165,12,46
+W004,Dadar,Central,1,28,0,0.01,33,81,13,24
+W002,Bandra West,West,1,14,0,0.14,35,92,33,28
+W003,Andheri East,West,3,21,1,0.85,137,176,24,67
+W002,Bandra West,West,1,3,0,0.01,54,52,49,26
+W003,Andheri East,West,4,19,0,0.01,40,76,16,25
+W001,Colaba,South,11,9,1,0.95,172,146,48,71
+W002,Bandra West,West,10,10,1,0.85,126,176,38,66
+X007,Ghatkopar,East,1,19,0,0.11,30,63,54,23
+W005,Kurla,East,2,28,0,0.07,71,69,21,31
+W002,Bandra West,West,4,9,0,0.01,77,90,27,37
+W005,Kurla,East,10,2,1,0.7,89,123,11,45
+X009,Parel,Central,2,11,0,0.04,71,77,40,34
+W002,Bandra West,West,11,9,1,0.85,165,152,29,69
+W006,Borivali,North,10,25,1,0.6,145,100,29,54
+X007,Ghatkopar,East,7,28,0,0.1,41,50,31,21
+W006,Borivali,North,7,10,0,0.14,36,67,43,24
+W001,Colaba,South,11,13,0,0.11,63,102,51,38
+W005,Kurla,East,10,11,1,0.7,97,175,36,59
+W007,Mulund,North,7,27,0,0.1,65,89,17,33
+W006,Borivali,North,10,3,1,0.6,149,85,14,51
+X007,Ghatkopar,East,7,24,0,0.07,59,71,39,30
+X005,Andheri West,West,3,24,1,0.85,163,190,39,77
+W002,Bandra West,West,12,3,0,0.12,51,100,35,34
+W004,Dadar,Central,3,3,1,0.9,81,160,59,54
+W005,Kurla,East,9,23,1,0.7,97,122,17,47
+W008,Worli,South,3,24,0,0.08,48,90,52,32
+W006,Borivali,North,10,8,1,0.6,116,168,32,62
+W001,Colaba,South,3,23,0,0.01,76,87,33,36
+W005,Kurla,East,9,22,0,0.11,88,66,42,36
+X012,Kandarpada,North,4,1,0,0.11,69,55,35,29
+W002,Bandra West,West,12,6,0,0.11,79,60,16,30
+W005,Kurla,East,10,21,0,0.12,33,71,45,25
+W004,Dadar,Central,8,15,1,0.9,134,93,15,49
+W003,Andheri East,West,2,13,0,0.07,56,96,54,35
+W002,Bandra West,West,10,24,1,0.85,140,182,41,70
+X003,Cuffe Parade,Island City,10,12,1,0.92,118,98,40,49
+W003,Andheri East,West,6,13,0,0.11,93,54,32,34
+W004,Dadar,Central,8,26,1,0.9,179,183,32,79
+W004,Dadar,Central,7,1,0,0.11,78,102,29,40
+X006,Juhu,West,9,21,1,0.85,170,118,48,65
+X008,Vikhroli,East,1,7,0,0.03,65,92,13,34
+W007,Mulund,North,11,2,0,0.04,75,72,29,33
+X011,Dahisar,North,12,23,0,0.07,80,86,40,38
+W008,Worli,South,11,19,1,0.95,160,176,28,73
+W001,Colaba,South,12,12,0,0.12,30,102,10,27
+W007,Mulund,North,7,28,0,0.05,83,50,20,30
+W004,Dadar,Central,1,16,0,0.07,54,85,58,33
+W008,Worli,South,6,1,0,0.15,77,70,16,32
+W003,Andheri East,West,12,21,0,0.07,34,75,22,24
+W005,Kurla,East,9,11,1,0.7,90,174,46,58
+W007,Mulund,North,2,4,0,0.13,95,86,14,39
+W007,Mulund,North,12,22,0,0.15,37,71,56,26
+X011,Dahisar,North,10,26,1,0.6,84,108,56,44
+W005,Kurla,East,11,1,1,0.7,60,108,39,38
+X011,Dahisar,North,9,22,1,0.6,56,83,31,31
+W001,Colaba,South,4,12,0,0.09,50,95,22,31
+W001,Colaba,South,7,19,0,0.08,44,57,47,24
+W006,Borivali,North,5,4,0,0.04,37,50,52,22
+W002,Bandra West,West,11,6,1,0.85,171,152,59,73
+W003,Andheri East,West,4,8,0,0.07,40,97,17,29
+X003,Cuffe Parade,Island City,4,21,0,0.02,78,79,36,36
+W006,Borivali,North,7,26,0,0.12,97,95,50,44
+W001,Colaba,South,2,21,0,0.07,87,50,37,32
+W001,Colaba,South,7,7,0,0.09,58,68,23,28
+X005,Andheri West,West,8,21,1,0.85,71,184,59,57
+X008,Vikhroli,East,4,23,0,0.13,74,50,19,28
+W008,Worli,South,7,13,0,0.05,63,94,45,36
+X003,Cuffe Parade,Island City,7,17,0,0.01,40,51,15,20
+W002,Bandra West,West,9,15,1,0.85,138,187,14,69
+W004,Dadar,Central,2,12,0,0.03,41,54,28,22
+W004,Dadar,Central,3,17,0,0.07,30,82,43,26
+W007,Mulund,North,5,1,0,0.04,69,73,59,34
+W002,Bandra West,West,3,11,1,0.85,132,139,23,59
+X003,Cuffe Parade,Island City,7,6,0,0.09,60,48,56,27
+W008,Worli,South,6,13,0,0.02,52,73,37,29
+W004,Dadar,Central,7,26,0,0.05,27,92,26,26
+W002,Bandra West,West,6,18,0,0.04,46,72,36,27
+W007,Mulund,North,7,8,0,0.01,81,52,29,30
+W003,Andheri East,West,1,1,0,0.03,61,48,46,26
+X003,Cuffe Parade,Island City,1,20,0,0.12,84,83,45,38
+W004,Dadar,Central,6,17,0,0.13,33,90,12,26
+W003,Andheri East,West,7,25,0,0.07,44,70,46,27
+W007,Mulund,North,3,7,1,0.6,108,136,39,54
+W002,Bandra West,West,7,20,0,0.11,82,99,41,41
+W006,Borivali,North,11,26,1,0.6,123,145,15,57
+W008,Worli,South,10,8,1,0.95,151,118,25,59
+X001,Fort,Island City,1,15,0,0.04,77,84,48,37
+X011,Dahisar,North,9,4,1,0.6,49,91,50,32
+W007,Mulund,North,10,21,1,0.6,125,78,18,45
+W001,Colaba,South,9,17,1,0.95,157,185,24,74
+W002,Bandra West,West,7,11,0,0.15,40,93,42,30
+W005,Kurla,East,2,11,0,0.08,41,57,48,24
+W003,Andheri East,West,8,21,1,0.85,64,182,31,53
+W002,Bandra West,West,7,14,0,0.07,40,65,30,24
+W003,Andheri East,West,8,2,0,0.04,51,51,10,22
+W008,Worli,South,6,8,0,0.02,52,72,53,30
+W002,Bandra West,West,7,13,0,0.07,74,52,59,31
+W004,Dadar,Central,4,7,0,0.13,68,83,54,35
+X004,Marine Lines,Island City,12,4,0,0.0,33,89,27,27
+W007,Mulund,North,8,14,1,0.6,81,96,53,41
+W004,Dadar,Central,12,22,0,0.04,68,85,52,36
+W005,Kurla,East,6,13,0,0.13,95,108,32,45
+W006,Borivali,North,7,28,0,0.04,87,69,53,37
+W002,Bandra West,West,11,8,1,0.85,116,198,54,69
+W002,Bandra West,West,9,10,1,0.85,150,87,14,52
+W004,Dadar,Central,2,21,0,0.11,45,100,27,32
+X010,Byculla,Central,11,2,0,0.14,72,109,32,40
+W002,Bandra West,West,7,28,0,0.11,96,59,60,37
+W006,Borivali,North,6,6,0,0.06,76,65,51,33
+W004,Dadar,Central,4,28,0,0.04,67,75,42,33
+W001,Colaba,South,9,19,1,0.95,124,125,24,54
+W002,Bandra West,West,3,8,1,0.85,85,151,46,52
+W006,Borivali,North,8,1,1,0.6,105,147,35,55
+X006,Juhu,West,6,10,0,0.1,58,62,41,28
+X003,Cuffe Parade,Island City,3,13,1,0.92,143,125,47,60
+X006,Juhu,West,12,17,0,0.12,59,53,49,27
+W005,Kurla,East,6,3,0,0.05,37,52,18,20
+W006,Borivali,North,9,23,0,0.02,40,41,23,18
+W002,Bandra West,West,10,15,0,0.14,47,100,31,32
+X012,Kandarpada,North,2,16,0,0.1,51,92,36,32
+X011,Dahisar,North,3,10,1,0.6,93,121,23,46
+W007,Mulund,North,11,11,1,0.6,109,138,26,54
+W001,Colaba,South,9,13,1,0.95,86,182,57,60
+W008,Worli,South,4,23,0,0.15,99,63,45,38
+W007,Mulund,North,9,27,1,0.6,106,81,30,42
+W007,Mulund,North,10,27,0,0.06,82,81,43,37
+X002,Churchgate,Island City,1,2,0,0.07,31,70,29,23
+W003,Andheri East,West,5,2,0,0.13,41,79,38,27
+X003,Cuffe Parade,Island City,6,2,0,0.01,79,84,51,38
+W001,Colaba,South,9,15,0,0.13,37,103,53,32
+W007,Mulund,North,8,22,1,0.6,104,84,12,41
+W007,Mulund,North,8,2,0,0.04,74,96,49,39
+X009,Parel,Central,1,23,0,0.05,42,93,52,31
+X012,Kandarpada,North,8,10,1,0.6,105,79,31,41
+X005,Andheri West,West,2,26,0,0.01,41,50,23,20
+W003,Andheri East,West,6,18,0,0.04,75,49,50,30
+W006,Borivali,North,10,3,1,0.6,80,98,57,41
+W008,Worli,South,11,16,1,0.95,172,104,48,63
+W006,Borivali,North,2,12,0,0.08,42,44,21,19
+W005,Kurla,East,8,2,0,0.03,81,63,25,32
+W007,Mulund,North,8,27,0,0.15,44,54,29,22
+X007,Ghatkopar,East,9,15,0,0.08,70,58,22,29
+W008,Worli,South,12,10,0,0.15,94,97,38,43
+W005,Kurla,East,10,17,1,0.7,149,109,48,58
+X009,Parel,Central,1,20,0,0.11,46,76,59,29
+X010,Byculla,Central,10,14,1,0.9,116,197,42,68
+W002,Bandra West,West,7,17,0,0.07,66,89,26,34
+W007,Mulund,North,7,16,0,0.01,28,62,37,21
+W003,Andheri East,West,5,13,0,0.03,84,90,55,41
+W001,Colaba,South,1,18,0,0.02,30,70,11,21
+X011,Dahisar,North,6,6,0,0.1,32,77,60,27
+X005,Andheri West,West,10,27,1,0.85,76,159,53,52
+W005,Kurla,East,10,12,1,0.7,66,123,48,43
+W005,Kurla,East,11,6,1,0.7,67,172,45,52
+X003,Cuffe Parade,Island City,9,23,1,0.92,90,130,31,48
+X008,Vikhroli,East,10,21,1,0.7,73,139,59,48
+W008,Worli,South,8,1,1,0.95,125,175,44,66
+W002,Bandra West,West,9,11,1,0.85,85,91,40,40
+X007,Ghatkopar,East,7,4,0,0.05,71,67,54,33
+W001,Colaba,South,9,28,1,0.95,177,117,26,65
+W005,Kurla,East,2,18,0,0.05,40,52,48,23
+W001,Colaba,South,5,14,0,0.03,47,44,35,22
+W006,Borivali,North,9,23,1,0.6,63,160,54,50
+W002,Bandra West,West,12,26,0,0.03,29,87,40,26
+W008,Worli,South,2,16,0,0.04,60,62,57,30
+W004,Dadar,Central,3,26,1,0.9,91,191,49,62
+W006,Borivali,North,10,17,1,0.6,145,140,36,63
+W006,Borivali,North,7,2,0,0.09,49,50,29,23
+X001,Fort,Island City,11,9,0,0.05,45,64,51,26
+W003,Andheri East,West,7,16,0,0.1,96,91,15,40
+X010,Byculla,Central,12,3,0,0.01,34,75,41,25
+W003,Andheri East,West,8,2,0,0.0,69,89,38,36
+W001,Colaba,South,6,15,0,0.09,35,59,11,20
+X011,Dahisar,North,8,3,1,0.6,45,134,28,39
+W001,Colaba,South,2,17,0,0.0,45,78,36,28
+X003,Cuffe Parade,Island City,7,24,0,0.04,57,90,26,32
+W001,Colaba,South,5,8,0,0.06,61,88,20,32
+W007,Mulund,North,1,26,0,0.08,63,100,33,36
+W008,Worli,South,6,19,0,0.01,76,82,19,34
+W008,Worli,South,12,27,0,0.11,67,103,38,38
+X009,Parel,Central,4,23,0,0.07,81,63,23,32
+W004,Dadar,Central,2,10,0,0.07,31,69,19,22
+W008,Worli,South,8,25,1,0.95,84,191,32,59
+W003,Andheri East,West,10,24,1,0.85,166,195,11,77
+W007,Mulund,North,3,19,1,0.6,51,137,29,41
+W002,Bandra West,West,9,18,0,0.0,71,44,24,26
+W002,Bandra West,West,1,26,0,0.05,73,45,11,26
+W004,Dadar,Central,9,27,1,0.9,126,144,58,61
+X011,Dahisar,North,12,16,0,0.11,68,74,28,32
+W007,Mulund,North,5,22,0,0.14,87,59,32,33
+W008,Worli,South,4,23,0,0.04,55,78,36,30
+X008,Vikhroli,East,11,28,1,0.7,103,113,15,46
+W007,Mulund,North,3,1,1,0.6,47,93,23,30
+W008,Worli,South,4,16,0,0.08,28,47,17,16
+W008,Worli,South,6,18,0,0.09,47,68,54,28
+W001,Colaba,South,6,20,0,0.08,33,87,37,27
+W005,Kurla,East,12,27,0,0.12,86,78,58,39
+W001,Colaba,South,7,19,0,0.06,59,88,17,32
+W002,Bandra West,West,12,3,0,0.09,42,92,32,30
+W004,Dadar,Central,11,6,1,0.9,127,129,38,57
+X009,Parel,Central,6,15,0,0.14,66,51,19,26
+W008,Worli,South,1,23,0,0.12,45,103,10,31
+X009,Parel,Central,10,15,1,0.9,101,142,40,54
+X005,Andheri West,West,9,19,1,0.85,62,176,60,53
+W007,Mulund,North,1,4,0,0.11,68,51,27,27
+W004,Dadar,Central,8,1,0,0.13,43,95,14,29
+W004,Dadar,Central,11,15,0,0.11,49,50,23,22
+W002,Bandra West,West,9,12,1,0.85,113,97,51,48
+X002,Churchgate,Island City,2,20,0,0.07,66,87,32,34
+W004,Dadar,Central,3,28,1,0.9,104,100,39,46
+W001,Colaba,South,12,15,0,0.02,44,44,39,21
+X012,Kandarpada,North,5,13,0,0.01,65,45,38,26
+W003,Andheri East,West,1,1,0,0.06,50,69,58,29
+W003,Andheri East,West,5,12,0,0.05,77,58,21,30
+W001,Colaba,South,4,7,0,0.01,45,56,11,22
+W001,Colaba,South,9,10,1,0.95,74,174,29,53
+X008,Vikhroli,East,12,7,0,0.09,60,67,39,29
+W004,Dadar,Central,4,9,0,0.08,37,49,49,21
+X001,Fort,Island City,1,3,0,0.02,26,78,10,22
+W008,Worli,South,12,9,0,0.03,27,78,28,23
+W002,Bandra West,West,4,12,0,0.1,92,71,32,37
+W007,Mulund,North,12,26,0,0.06,30,74,15,22
+W008,Worli,South,8,23,1,0.95,59,192,41,54
+X012,Kandarpada,North,11,22,1,0.6,96,143,52,54
+W004,Dadar,Central,9,26,1,0.9,93,94,41,42
+W003,Andheri East,West,9,12,1,0.85,135,145,49,63
+W004,Dadar,Central,9,2,1,0.9,112,147,13,55
+X006,Juhu,West,12,8,0,0.07,69,92,34,36
+X002,Churchgate,Island City,3,8,1,0.92,154,159,52,70
+W002,Bandra West,West,6,28,0,0.11,69,62,32,30
+W005,Kurla,East,5,26,0,0.13,48,79,26,28
+X011,Dahisar,North,7,21,0,0.03,28,78,46,25
+W002,Bandra West,West,6,18,0,0.05,88,73,54,38
+W001,Colaba,South,6,27,0,0.06,71,49,17,27
+W004,Dadar,Central,11,22,1,0.9,108,122,43,51
+X006,Juhu,West,9,24,0,0.09,38,88,27,28
+X010,Byculla,Central,2,8,0,0.06,39,60,25,22
+W002,Bandra West,West,4,25,0,0.08,86,71,40,36
+X001,Fort,Island City,12,23,0,0.04,87,93,43,41
+W008,Worli,South,10,4,1,0.95,187,158,27,75
+W003,Andheri East,West,7,27,0,0.12,65,82,47,34
+W003,Andheri East,West,2,5,0,0.14,81,66,11,32
+X003,Cuffe Parade,Island City,4,24,0,0.05,29,88,45,27
+W001,Colaba,South,4,12,0,0.02,35,58,12,20
+W001,Colaba,South,5,11,0,0.09,56,95,45,34
+X007,Ghatkopar,East,6,9,0,0.03,67,89,13,33
+X007,Ghatkopar,East,4,25,0,0.11,74,78,11,33
+X012,Kandarpada,North,8,20,1,0.6,82,132,60,49
+X011,Dahisar,North,9,23,0,0.14,85,71,39,36
+X005,Andheri West,West,3,1,1,0.85,68,97,39,37
+W008,Worli,South,3,19,0,0.05,46,64,26,25
+X007,Ghatkopar,East,3,10,0,0.12,74,69,49,34
+W007,Mulund,North,12,5,0,0.11,76,93,35,38
+X007,Ghatkopar,East,8,27,1,0.7,56,141,25,42
+W002,Bandra West,West,12,13,0,0.07,33,59,38,22
+W001,Colaba,South,2,1,0,0.04,68,86,38,35
+W001,Colaba,South,8,7,1,0.95,143,133,25,60
+W005,Kurla,East,9,8,1,0.7,139,142,51,63
+W008,Worli,South,10,16,1,0.95,175,158,52,74
+W002,Bandra West,West,3,10,1,0.85,121,117,38,53
+X006,Juhu,West,9,23,1,0.85,57,159,48,48
+W004,Dadar,Central,11,19,1,0.9,81,97,47,41
+W001,Colaba,South,5,12,0,0.02,32,93,60,30
+X003,Cuffe Parade,Island City,4,5,0,0.03,60,72,18,29
+W008,Worli,South,4,27,0,0.09,37,79,35,26
+W007,Mulund,North,2,4,0,0.09,51,79,51,31
+W007,Mulund,North,5,2,0,0.06,68,64,29,30
+W002,Bandra West,West,12,22,0,0.13,30,94,43,28
+W003,Andheri East,West,3,17,1,0.85,59,160,31,47
+W001,Colaba,South,7,7,0,0.08,60,96,47,36
+W007,Mulund,North,8,19,0,0.04,89,70,45,37
+W008,Worli,South,9,28,1,0.95,67,112,16,38
+W002,Bandra West,West,7,11,0,0.08,37,93,28,29
+X012,Kandarpada,North,12,21,0,0.05,54,67,25,27
+W003,Andheri East,West,1,16,0,0.12,37,72,21,24
+W006,Borivali,North,8,9,1,0.6,55,131,30,40
+W006,Borivali,North,6,12,0,0.01,65,82,59,35
+X007,Ghatkopar,East,10,11,1,0.7,117,164,48,62
+W007,Mulund,North,4,21,0,0.13,65,50,24,26
+W008,Worli,South,8,18,1,0.95,86,165,35,54
+W002,Bandra West,West,5,24,0,0.06,54,89,21,31
+W007,Mulund,North,4,14,0,0.14,33,85,30,26
+X008,Vikhroli,East,7,20,0,0.08,32,60,11,20
+X008,Vikhroli,East,5,8,0,0.04,50,44,60,24
+W007,Mulund,North,1,16,0,0.05,37,49,57,22
+W008,Worli,South,5,25,0,0.06,65,55,45,29
+W001,Colaba,South,9,8,0,0.03,79,72,41,35
+W006,Borivali,North,1,23,0,0.14,66,79,53,34
+W005,Kurla,East,10,25,1,0.7,53,80,46,31
+W001,Colaba,South,10,13,0,0.11,71,77,51,35
+X007,Ghatkopar,East,7,18,0,0.01,79,63,50,34
+W001,Colaba,South,8,14,1,0.95,146,135,48,63
+W002,Bandra West,West,6,22,0,0.02,54,43,14,21
+W008,Worli,South,10,22,1,0.95,185,107,33,65
+W002,Bandra West,West,7,16,0,0.06,74,64,10,30
+X012,Kandarpada,North,10,18,1,0.6,90,129,40,49
+W008,Worli,South,10,8,1,0.95,78,180,11,54
+X001,Fort,Island City,11,9,1,0.92,55,208,58,58
+W002,Bandra West,West,5,22,0,0.13,69,105,25,38
+W007,Mulund,North,6,14,0,0.04,59,86,22,32
+W001,Colaba,South,6,7,0,0.12,29,72,22,22
+W005,Kurla,East,6,19,0,0.01,46,90,35,30
+W004,Dadar,Central,7,19,0,0.03,74,94,46,38
+W008,Worli,South,11,23,1,0.95,126,168,52,65
+W005,Kurla,East,4,19,0,0.11,81,90,58,40
+W006,Borivali,North,6,3,0,0.03,36,54,23,20
+W002,Bandra West,West,10,10,0,0.01,26,87,40,26
+W005,Kurla,East,8,6,1,0.7,111,165,28,60
+X002,Churchgate,Island City,7,2,0,0.15,44,109,55,35
+X010,Byculla,Central,4,19,0,0.05,67,70,20,30
+W007,Mulund,North,12,7,0,0.01,74,73,25,33
+X012,Kandarpada,North,3,5,1,0.6,150,156,46,68
+W004,Dadar,Central,1,11,0,0.03,31,79,34,25
+X011,Dahisar,North,1,25,0,0.05,47,86,35,30
+W006,Borivali,North,4,22,0,0.01,51,76,59,31
+W003,Andheri East,West,1,25,0,0.05,77,96,45,39
+X006,Juhu,West,7,25,0,0.07,85,48,25,30
+W007,Mulund,North,8,2,0,0.12,68,91,21,35
+W002,Bandra West,West,3,11,1,0.85,167,188,39,78
+W001,Colaba,South,1,7,0,0.09,60,95,27,34
+X009,Parel,Central,3,21,1,0.9,144,157,25,65
+W008,Worli,South,12,2,0,0.02,75,55,11,28
+W003,Andheri East,West,5,28,0,0.09,28,49,40,19
+W002,Bandra West,West,10,26,0,0.14,58,74,22,29
+W006,Borivali,North,10,22,1,0.6,63,158,27,47
+W002,Bandra West,West,12,27,0,0.11,88,77,24,37
+X011,Dahisar,North,10,21,1,0.6,47,86,35,30
+X011,Dahisar,North,7,6,0,0.09,39,62,17,22
+W004,Dadar,Central,10,2,1,0.9,86,179,33,57
+W007,Mulund,North,11,20,1,0.6,83,104,58,43
+X010,Byculla,Central,5,27,0,0.07,71,51,10,26
+W004,Dadar,Central,8,3,1,0.9,100,148,35,54
+X012,Kandarpada,North,10,18,1,0.6,142,166,11,65
+W003,Andheri East,West,6,25,0,0.05,72,51,40,29
+W004,Dadar,Central,3,4,1,0.9,128,108,59,54
+W007,Mulund,North,11,21,1,0.6,117,128,27,53
+W005,Kurla,East,4,27,0,0.04,39,55,18,21
+X010,Byculla,Central,7,18,0,0.11,40,49,38,21
+X012,Kandarpada,North,8,19,1,0.6,125,139,30,58
+W004,Dadar,Central,8,6,1,0.9,90,135,47,50
+W003,Andheri East,West,11,16,1,0.85,117,91,11,45
+W008,Worli,South,6,23,0,0.04,56,76,25,29
+W007,Mulund,North,9,26,0,0.08,72,101,56,40
+X006,Juhu,West,7,1,0,0.08,79,73,32,34
+W008,Worli,South,5,27,0,0.08,46,51,54,24
+W005,Kurla,East,3,9,1,0.7,152,151,59,68
+X004,Marine Lines,Island City,12,24,0,0.11,89,64,55,36
+X009,Parel,Central,8,26,1,0.9,106,192,14,63
+X008,Vikhroli,East,7,24,0,0.15,67,106,44,39
+X003,Cuffe Parade,Island City,3,15,1,0.92,183,198,38,83
+W001,Colaba,South,8,5,1,0.95,64,132,23,42
+W002,Bandra West,West,1,15,0,0.1,41,100,11,30
+W001,Colaba,South,8,17,1,0.95,89,136,31,49
+X009,Parel,Central,11,26,1,0.9,84,141,19,48
+X008,Vikhroli,East,5,17,0,0.14,83,107,17,41
