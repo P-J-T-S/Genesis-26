@@ -152,7 +152,7 @@ const seedDatabase = async () => {
       events.push({
         event_name: `${ward.name} Ward Event`,
         zone_id: zone._id,
-        event_type: ward.signals.eventPresence === 'critical' ? 'emergency' : 'festival',
+        event_type: ward.signals.eventPresence === 'critical' ? 'rally' : 'festival',
         start_time: eventStart,
         end_time: eventEnd,
         active_flag: true,
