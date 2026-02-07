@@ -41,12 +41,12 @@ EXTRA_WARDS = {
 # ZONE → FESTIVAL WEIGHT (UNCHANGED)
 # -------------------------------------------------
 zone_festival_weight = {
-    "South": 0.9,
-    "Island City": 0.9,
-    "Central": 0.8,
-    "West": 0.7,
-    "East": 0.6,
-    "North": 0.4,
+    "South": 0.95,
+    "Island City": 0.92,
+    "Central": 0.90,
+    "West": 0.85,
+    "East": 0.70,
+    "North": 0.60,
 }
 
 # -------------------------------------------------
@@ -73,7 +73,7 @@ for _ in range(2500):
     month = random.randint(1, 12)
     day = random.randint(1, 28)
 
-    is_festival = 1 if month in [8, 9, 10] and random.random() > 0.35 else 0
+    is_festival = 1 if month in [3, 8, 9, 10, 11] and random.random() > 0.25 else 0
 
     festival_intensity = (
         zone_festival_weight[zone]
@@ -81,14 +81,14 @@ for _ in range(2500):
         else round(random.uniform(0, 0.15), 2)
     )
 
-    complaint_intensity = int(random.uniform(20, 70) * (1 + festival_intensity))
-    crowd_index = int(random.uniform(30, 85) * (1 + festival_intensity))
+    complaint_intensity = int(random.uniform(25, 85) * (1 + festival_intensity * 1.3))
+    crowd_index = int(random.uniform(40, 92) * (1 + festival_intensity * 1.4))
     weather_risk = random.randint(10, 60)
 
     wpi = int(
-        0.4 * complaint_intensity +
-        0.35 * crowd_index +
-        0.25 * weather_risk
+        0.45 * complaint_intensity +
+        0.40 * crowd_index +
+        0.15 * weather_risk
     ) // 2
 
     rows.append([
