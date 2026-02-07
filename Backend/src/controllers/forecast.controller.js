@@ -14,13 +14,17 @@ export const forecastZone = asyncHandler(async (req, res) => {
       .json(new ApiResponse(400, null, 'date, ward and zone are required'));
   }
 
-  // Find zone by zone_id, fallback to zone_name for ML/legacy compatibility
+  // Find zone by zone_name first (incoming zone/ward are ward names), then fallback to zone_id
   console.log('[FORECAST] Incoming:', { zone, ward });
-  let zoneDoc = await Zone.findOne({ zone_id: zone });
-  console.log('[FORECAST] Lookup by zone_id:', zone, '=>', zoneDoc ? zoneDoc.zone_name : null);
+  let zoneDoc = await Zone.findOne({ zone_name: zone });
+  console.log('[FORECAST] Lookup by zone_name (zone param):', zone, '=>', zoneDoc ? zoneDoc.zone_id : null);
   if (!zoneDoc) {
     zoneDoc = await Zone.findOne({ zone_name: ward });
-    console.log('[FORECAST] Lookup by zone_name:', ward, '=>', zoneDoc ? zoneDoc.zone_id : null);
+    console.log('[FORECAST] Lookup by zone_name (ward param):', ward, '=>', zoneDoc ? zoneDoc.zone_id : null);
+  }
+  if (!zoneDoc) {
+    zoneDoc = await Zone.findOne({ zone_id: zone });
+    console.log('[FORECAST] Lookup by zone_id:', zone, '=>', zoneDoc ? zoneDoc.zone_name : null);
   }
   if (!zoneDoc) {
     console.log('[FORECAST] Zone not found for', { zone, ward });

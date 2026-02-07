@@ -15,7 +15,7 @@ const Sidebar = ({ isOpen, onClose }) => {
     // { path: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
     { path: '/wards', icon: Map, label: 'Ward Management' },
     { path: '/priorities', icon: ListOrdered, label: 'Priority Rankings' },
-    { path: '/recommendations', icon: Lightbulb, label: 'Recommendations' },
+    { path: '/recommendations', icon: Lightbulb, label: 'Actions' },
   ];
 
   const NavItem = ({ to, icon: Icon, label }) => (

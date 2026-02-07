@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { v4 as uuidv4 } from 'uuid';
 
 const recommendationSchema = new mongoose.Schema(
 	{
@@ -7,7 +8,8 @@ const recommendationSchema = new mongoose.Schema(
 			required: true,
 			unique: true,
 			index: true,
-			default: () => new mongoose.Types.ObjectId().toHexString(),
+			sparse: true,
+			default: () => uuidv4(),
 		},
 		zone_id: {
 			type: mongoose.Schema.Types.ObjectId,

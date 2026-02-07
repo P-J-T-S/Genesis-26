@@ -3,63 +3,57 @@ import random
 
 # -------------------------------------------------
 # FIXED DEMO WARDS (ID → NAME → ZONE)
+# From demoData.js - 24 wards across South, Central, West, East
 # -------------------------------------------------
 DEMO_WARDS = {
-    "W001": ("Colaba", "South"),
-    "W002": ("Bandra West", "West"),
-    "W003": ("Andheri East", "West"),
-    "W004": ("Dadar", "Central"),
-    "W005": ("Kurla", "East"),
-    "W006": ("Borivali", "North"),
-    "W007": ("Mulund", "North"),
-    "W008": ("Worli", "South"),
+    "W001": ("A", "South"),
+    "W002": ("B", "South"),
+    "W003": ("C", "South"),
+    "W004": ("D", "South"),
+    "W005": ("E", "South"),
+    "W006": ("F/N", "Central"),
+    "W007": ("F/S", "South"),
+    "W008": ("G/N", "Central"),
+    "W009": ("G/S", "Central"),
+    "W010": ("H/E", "West"),
+    "W011": ("H/W", "West"),
+    "W012": ("K/E", "West"),
+    "W013": ("K/W", "West"),
+    "W014": ("L", "East"),
+    "W015": ("M/E", "East"),
+    "W016": ("M/W", "East"),
+    "W017": ("N", "East"),
+    "W018": ("P/N", "West"),
+    "W019": ("P/S", "West"),
+    "W020": ("R/C", "West"),
+    "W021": ("R/N", "West"),
+    "W022": ("R/S", "West"),
+    "W023": ("S", "East"),
+    "W024": ("T", "East"),
 }
 
 # -------------------------------------------------
-# EXTRA WARDS (NON-CRITICAL IDS)
+# EXTRA WARDS (NON-CRITICAL IDS) - Not used, all data from DEMO_WARDS
 # -------------------------------------------------
-EXTRA_WARDS = {
-    "X001": ("Fort", "Island City"),
-    "X002": ("Churchgate", "Island City"),
-    "X003": ("Cuffe Parade", "Island City"),
-    "X004": ("Marine Lines", "Island City"),
-
-    "X005": ("Andheri West", "West"),
-    "X006": ("Juhu", "West"),
-
-    "X007": ("Ghatkopar", "East"),
-    "X008": ("Vikhroli", "East"),
-
-    "X009": ("Parel", "Central"),
-    "X010": ("Byculla", "Central"),
-
-    "X011": ("Dahisar", "North"),
-    "X012": ("Kandarpada", "North"),
-}
+EXTRA_WARDS = {}
 
 # -------------------------------------------------
 # ZONE → FESTIVAL WEIGHT (UNCHANGED)
 # -------------------------------------------------
 zone_festival_weight = {
     "South": 0.95,
-    "Island City": 0.92,
     "Central": 0.90,
     "West": 0.85,
     "East": 0.70,
-    "North": 0.60,
 }
 
 # -------------------------------------------------
 # WEIGHTED WARD PICKER
 # -------------------------------------------------
 def choose_ward():
-    # 70% demo wards
-    if random.random() < 0.7:
-        wid = random.choice(list(DEMO_WARDS.keys()))
-        name, zone = DEMO_WARDS[wid]
-    else:
-        wid = random.choice(list(EXTRA_WARDS.keys()))
-        name, zone = EXTRA_WARDS[wid]
+    # All wards from demoData.js
+    wid = random.choice(list(DEMO_WARDS.keys()))
+    name, zone = DEMO_WARDS[wid]
     return wid, name, zone
 
 # -------------------------------------------------
