@@ -240,13 +240,13 @@ const Dashboard = () => {
             {/* Metric 1 */}
             <div className="flex items-center gap-3">
               <div className="p-1.5 rounded-md bg-secondary-800 border border-secondary-700">
-                <TrendingUp className="w-4 h-4 text-success-400" />
+                <Activity className="w-4 h-4 text-primary-400" />
               </div>
               <div>
-                <p className="text-[10px] text-secondary-400 uppercase tracking-wider font-semibold">Collection Eff.</p>
+                <p className="text-[10px] text-secondary-400 uppercase tracking-wider font-semibold">Average WPI</p>
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl font-bold font-mono text-white">{stats.collectionEfficiency || 87}%</span>
-                  <span className="text-[10px] text-success-400 font-medium">+2%</span>
+                  <span className="text-xl font-bold font-mono text-white">{avgWPI}</span>
+                  <span className="text-[10px] text-secondary-400 uppercase tracking-wide">Index</span>
                 </div>
               </div>
             </div>
@@ -257,10 +257,9 @@ const Dashboard = () => {
                 <Clock className="w-4 h-4 text-info-400" />
               </div>
               <div>
-                <p className="text-[10px] text-secondary-400 uppercase tracking-wider font-semibold">Avg Response</p>
+                <p className="text-[10px] text-secondary-400 uppercase tracking-wider font-semibold">Active Mode</p>
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl font-bold font-mono text-white">{stats.avgResponseTime || 2.3}</span>
-                  <span className="text-[10px] text-secondary-400">hours</span>
+                  <span className="text-xl font-bold font-mono text-white capitalize">{currentMode}</span>
                 </div>
               </div>
             </div>
@@ -282,13 +281,13 @@ const Dashboard = () => {
             {/* Metric 4 */}
             <div className="flex items-center gap-3">
               <div className="p-1.5 rounded-md bg-secondary-800 border border-secondary-700">
-                <CheckCircle2 className="w-4 h-4 text-primary-400" />
+                <AlertTriangle className="w-4 h-4 text-danger-400" />
               </div>
               <div>
-                <p className="text-[10px] text-secondary-400 uppercase tracking-wider font-semibold">Resolved</p>
+                <p className="text-[10px] text-secondary-400 uppercase tracking-wider font-semibold">High Priority</p>
                 <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl font-bold font-mono text-white">{stats.resolvedToday || 67}</span>
-                  <span className="text-[10px] text-secondary-400">today</span>
+                  <span className="text-xl font-bold font-mono text-white">{highPriorityWards}</span>
+                  <span className="text-[10px] text-secondary-400">zones</span>
                 </div>
               </div>
             </div>

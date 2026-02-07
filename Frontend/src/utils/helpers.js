@@ -51,9 +51,9 @@ export const formatRelativeTime = (timestamp) => {
  */
 export const getWPIThresholds = (mode = 'normal') => {
   const thresholds = {
-    normal: { low: 40, medium: 60, high: 75 },
-    event: { low: 50, medium: 70, high: 85 },
-    emergency: { low: 60, medium: 80, high: 90 }
+    normal: { low: 30, medium: 55, high: 80 },
+    event: { low: 25, medium: 50, high: 75 },
+    emergency: { low: 20, medium: 45, high: 70 }
   };
 
   return thresholds[mode] || thresholds.normal;

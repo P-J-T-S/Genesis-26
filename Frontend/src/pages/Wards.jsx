@@ -67,19 +67,34 @@ const Wards = () => {
     setLoading(true);
     try {
       const [wardsRes, recsRes, alertsRes] = await Promise.all([
-        demoAPI.getWards(currentMode),
-        demoAPI.getRecommendations(currentMode),
-        demoAPI.getAlerts(),
+        zonesAPI.getWards(currentMode),
+        recommendationsAPI.getAllRecommendations(),
+        signalAPI.getSignals(currentMode),
       ]);
 
-      if (wardsRes.success) dispatch(setWards(wardsRes.data));
-      if (recsRes.success) dispatch(setRecommendations(recsRes.data));
-      if (alertsRes.success) {
-        dispatch(setAlerts(alertsRes.data));
-        setSignals(alertsRes.data);
-        setActiveSignalId(null);
-        setHighlightedWards([]);
-      }
+      // Mapped zones data from /zones/status
+      const realWards = wardsRes?.data?.data || [];
+      dispatch(setWards(realWards));
+
+      // Mapped recommendations
+      const realRecs = Array.isArray(recsRes?.data?.data) ? recsRes.data.data : [];
+      dispatch(setRecommendations(realRecs));
+
+      // Mapped alerts/signals
+      const realAlertsArr = Array.isArray(alertsRes?.data?.data) ? alertsRes.data.data : [];
+      const mappedAlerts = realAlertsArr.map(s => ({
+        id: s._id || s.id,
+        title: s.title || s.event_type || 'Alert',
+        message: s.message || s.description || 'Action required',
+        severity: s.severity || 'info',
+        affectedWards: s.affectedWards || [],
+        type: s.type || 'System'
+      }));
+
+      dispatch(setAlerts(mappedAlerts));
+      setSignals(mappedAlerts);
+      setActiveSignalId(null);
+      setHighlightedWards([]);
     } catch (error) {
       console.error('Error loading wards:', error);
     } finally {

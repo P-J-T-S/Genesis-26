@@ -192,9 +192,9 @@ export const computeAllZonesWPI = async (mode = 'normal') => {
           { key: 'weather_alert', label: 'Weather Alert', contribution: Math.round((modeConfig[mode]?.weights?.weather_alert || 0.1) * (wpiData.signals.weather_alert || 0)) },
           { key: 'spike_flag', label: 'Complaint Spike', contribution: Math.round((modeConfig[mode]?.weights?.spike_flag || 0.1) * (wpiData.signals.spike_flag ? 100 : 0)) }
         ],
-        pressureLevel: wpiData.status_color === '#10b981' ? 'low' :
-          wpiData.status_color === '#eab308' ? 'medium' :
-            wpiData.status_color === '#f97316' ? 'high' : 'critical',
+        pressureLevel: wpiData.status_color === 'green' ? 'low' :
+          wpiData.status_color === 'yellow' ? 'medium' :
+            wpiData.status_color === 'orange' ? 'high' : 'critical',
         complianceScore: zone.compliance_score || 'Medium',
         operationalInsights: zone.operational_insights || '',
         resources: zone.resources || { vehicles: 0, personnel: 0 },
