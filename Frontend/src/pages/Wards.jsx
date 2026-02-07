@@ -193,39 +193,40 @@ const Wards = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2 lg:gap-3">
+        <button
+          onClick={handleExport}
+          className="btn btn-secondary btn-sm whitespace-nowrap"
+        >
+          <Download className="w-4 h-4 mr-2" />
+          Export
+        </button>
+
+        <ModeToggle />
+
+        <div className="flex items-center gap-1 bg-secondary-100 rounded-lg p-1">
           <button
-            onClick={handleExport}
-            className="btn btn-secondary btn-sm"
+            onClick={() => dispatch(setViewMode('map'))}
+            className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${viewMode === 'map'
+              ? 'bg-white text-primary-600 shadow-sm'
+              : 'text-secondary-600'
+              }`}
           >
-            <Download className="w-4 h-4" />
-            Export
+            <Map className="w-4 h-4 lg:inline lg:mr-1" />
+            <span className="hidden sm:inline">Map</span>
           </button>
-
-          <ModeToggle />
-
-          <div className="flex items-center gap-2 bg-secondary-100  rounded-lg p-1">
-            <button
-              onClick={() => dispatch(setViewMode('map'))}
-              className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${viewMode === 'map'
-                ? 'bg-white  text-primary-600 shadow-sm'
-                : 'text-secondary-600 '
-                }`}
-            >
-              <Map className="w-4 h-4 inline mr-1" />
-              Map
-            </button>
-            <button
-              onClick={() => dispatch(setViewMode('list'))}
-              className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${viewMode === 'list'
-                ? 'bg-white  text-primary-600 shadow-sm'
-                : 'text-secondary-600 '
-                }`}
-            >
-              <List className="w-4 h-4 inline mr-1" />
-              List
-            </button>
-          </div>
+          <button
+            onClick={() => dispatch(setViewMode('list'))}
+            className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${viewMode === 'list'
+              ? 'bg-white text-primary-600 shadow-sm'
+              : 'text-secondary-600'
+              }`}
+          >
+            <List className="w-4 h-4 lg:inline lg:mr-1" />
+            <span className="hidden sm:inline">List</span>
+          </button>
         </div>
       </div>
 
@@ -294,181 +295,183 @@ const Wards = () => {
       </div>
 
       {/* Content Area */}
-      {viewMode === 'map' ? (
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
-          <div className="xl:col-span-8">
-            <div className="lg:col-span-9 h-full relative rounded-xl overflow-hidden border border-secondary-200 shadow-md bg-white">
-              <LiveWastePressureMap
-                wardsData={displayedWards}
-                currentMode={currentMode}
-                selectedWardId={selectedWard?.id}
-                onWardSelect={handleWardSelect}
-              />
+      {
+        viewMode === 'map' ? (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-6">
+            <div className="lg:col-span-8 order-2 lg:order-1">
+              <div className="h-[400px] lg:h-[calc(100vh-320px)] relative rounded-xl overflow-hidden border border-secondary-200 shadow-md bg-white">
+                <LiveWastePressureMap
+                  wardsData={displayedWards}
+                  currentMode={currentMode}
+                  selectedWardId={selectedWard?.id}
+                  onWardSelect={handleWardSelect}
+                />
+              </div>
             </div>
-          </div>
-          <div className="xl:col-span-4 space-y-4">
-            <WardDecisionPanel
-              ward={selectedWard}
-              recommendations={recommendations}
-              currentMode={currentMode}
-            />
+            <div className="lg:col-span-4 space-y-4 order-1 lg:order-2 lg:overflow-y-auto lg:max-h-[calc(100vh-320px)] pr-1 custom-scrollbar">
+              <WardDecisionPanel
+                ward={selectedWard}
+                recommendations={recommendations}
+                currentMode={currentMode}
+              />
 
-            {/* City Head Review List */}
-            {isCityHead && reviewZones.length > 0 && (
-              <div className="card space-y-3 bg-red-50 border-red-100">
+              {/* City Head Review List */}
+              {isCityHead && reviewZones.length > 0 && (
+                <div className="card space-y-3 bg-red-50 border-red-100">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-red-900">Zones Needing Review</p>
+                      <p className="text-xs text-red-700">Process or awareness gaps detected</p>
+                    </div>
+                    <AlertTriangle className="w-4 h-4 text-red-600" />
+                  </div>
+                  <div className="space-y-2">
+                    {reviewZones.map(ward => (
+                      <button
+                        key={ward.id}
+                        className="w-full text-left px-3 py-2 rounded-lg bg-white border border-red-200 hover:shadow-md transition-all"
+                        onClick={() => dispatch(selectWard(ward))}
+                      >
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm font-medium text-red-900">{ward.name}</span>
+                          <span className="text-xs font-bold text-red-600">{ward.complianceScore === 'Low' ? 'Low Compliance' : 'Critical WPI'}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="card space-y-3">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-semibold text-red-900">Zones Needing Review</p>
-                    <p className="text-xs text-red-700">Process or awareness gaps detected</p>
+                    <p className="text-sm font-semibold text-secondary-900 ">
+                      Top Priority Zones
+                    </p>
+                    <p className="text-xs text-secondary-600 ">
+                      Auto-ranked by urgency
+                    </p>
                   </div>
-                  <AlertTriangle className="w-4 h-4 text-red-600" />
+                  <AlertTriangle className="w-4 h-4 text-warning-600" />
                 </div>
                 <div className="space-y-2">
-                  {reviewZones.map(ward => (
+                  {topPriorities.map((ward) => {
+                    const level = getWPILevel(ward.wpi, currentMode);
+                    return (
+                      <button
+                        key={ward.id}
+                        className="w-full text-left px-3 py-2 rounded-lg border border-secondary-200 hover:border-primary-300 hover:bg-primary-50/40 transition-colors"
+                        onClick={() => dispatch(selectWard(ward))}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm font-medium text-secondary-900 ">
+                              {ward.name}
+                            </p>
+                            <p className="text-xs text-secondary-600 ">
+                              {ward.zone} zone
+                            </p>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-lg font-bold text-secondary-900 ">
+                              {ward.wpi}
+                            </p>
+                            <span className={`badge badge-${level.color}`}>
+                              {level.label}
+                            </span>
+                            <span className="ml-2 px-2 py-0.5 bg-green-600 text-white rounded text-[10px] animate-pulse align-middle font-bold">LIVE</span>
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="card space-y-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-semibold text-secondary-900 ">
+                      Signal Context
+                    </p>
+                    <p className="text-xs text-secondary-600 ">
+                      Alerts and events impacting zones
+                    </p>
+                  </div>
+                  <Sparkles className="w-4 h-4 text-primary-600" />
+                </div>
+                <div className="space-y-2">
+                  {signals.length === 0 && (
+                    <div className="text-sm text-secondary-600 ">
+                      No active signals.
+                    </div>
+                  )}
+                  {signals.map((signal) => (
                     <button
-                      key={ward.id}
-                      className="w-full text-left px-3 py-2 rounded-lg bg-white border border-red-200 hover:shadow-md transition-all"
-                      onClick={() => dispatch(selectWard(ward))}
+                      key={signal.id}
+                      onClick={() => handleSignalClick(signal)}
+                      className={`w-full text-left px-3 py-2 rounded-lg border transition-colors ${activeSignalId === signal.id
+                        ? 'border-primary-400 bg-primary-50/60'
+                        : 'border-secondary-200 hover:border-primary-300 hover:bg-primary-50/40'
+                        }`}
                     >
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-red-900">{ward.name}</span>
-                        <span className="text-xs font-bold text-red-600">{ward.complianceScore === 'Low' ? 'Low Compliance' : 'Critical WPI'}</span>
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <p className="text-sm font-medium text-secondary-900 ">
+                            {signal.title}
+                          </p>
+                          <p className="text-xs text-secondary-600 ">
+                            {signal.message}
+                          </p>
+                          <p className="text-xs text-secondary-500 mt-1">
+                            Affects {signal.affectedWards?.length || 0} zones
+                          </p>
+                        </div>
+                        <span
+                          className={`badge ${signal.severity === 'critical'
+                            ? 'badge-danger'
+                            : signal.severity === 'warning'
+                              ? 'badge-warning'
+                              : 'badge-info'
+                            }`}
+                        >
+                          {signal.type}
+                        </span>
                       </div>
                     </button>
                   ))}
                 </div>
               </div>
-            )}
-
-            <div className="card space-y-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold text-secondary-900 ">
-                    Top Priority Zones
-                  </p>
-                  <p className="text-xs text-secondary-600 ">
-                    Auto-ranked by urgency
-                  </p>
-                </div>
-                <AlertTriangle className="w-4 h-4 text-warning-600" />
-              </div>
-              <div className="space-y-2">
-                {topPriorities.map((ward) => {
-                  const level = getWPILevel(ward.wpi, currentMode);
-                  return (
-                    <button
-                      key={ward.id}
-                      className="w-full text-left px-3 py-2 rounded-lg border border-secondary-200 hover:border-primary-300 hover:bg-primary-50/40 transition-colors"
-                      onClick={() => dispatch(selectWard(ward))}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-sm font-medium text-secondary-900 ">
-                            {ward.name}
-                          </p>
-                          <p className="text-xs text-secondary-600 ">
-                            {ward.zone} zone
-                          </p>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-lg font-bold text-secondary-900 ">
-                            {ward.wpi}
-                          </p>
-                          <span className={`badge badge-${level.color}`}>
-                            {level.label}
-                          </span>
-                          <span className="ml-2 px-2 py-0.5 bg-green-600 text-white rounded text-[10px] animate-pulse align-middle font-bold">LIVE</span>
-                        </div>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="card space-y-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold text-secondary-900 ">
-                    Signal Context
-                  </p>
-                  <p className="text-xs text-secondary-600 ">
-                    Alerts and events impacting zones
-                  </p>
-                </div>
-                <Sparkles className="w-4 h-4 text-primary-600" />
-              </div>
-              <div className="space-y-2">
-                {signals.length === 0 && (
-                  <div className="text-sm text-secondary-600 ">
-                    No active signals.
-                  </div>
-                )}
-                {signals.map((signal) => (
-                  <button
-                    key={signal.id}
-                    onClick={() => handleSignalClick(signal)}
-                    className={`w-full text-left px-3 py-2 rounded-lg border transition-colors ${activeSignalId === signal.id
-                      ? 'border-primary-400 bg-primary-50/60'
-                      : 'border-secondary-200 hover:border-primary-300 hover:bg-primary-50/40'
-                      }`}
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className="text-sm font-medium text-secondary-900 ">
-                          {signal.title}
-                        </p>
-                        <p className="text-xs text-secondary-600 ">
-                          {signal.message}
-                        </p>
-                        <p className="text-xs text-secondary-500 mt-1">
-                          Affects {signal.affectedWards?.length || 0} zones
-                        </p>
-                      </div>
-                      <span
-                        className={`badge ${signal.severity === 'critical'
-                          ? 'badge-danger'
-                          : signal.severity === 'warning'
-                            ? 'badge-warning'
-                            : 'badge-info'
-                          }`}
-                      >
-                        {signal.type}
-                      </span>
-                    </div>
-                  </button>
-                ))}
-              </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {displayedWards.length > 0 ? (
-            displayedWards.map(ward => (
-              <WardCard key={ward.id} ward={ward} />
-            ))
-          ) : (
-            <div className="col-span-full">
-              <div className="card text-center py-12">
-                <p className="text-secondary-600  text-lg">
-                  No wards found matching your filters.
-                </p>
-                <button
-                  onClick={handleResetFilters}
-                  className="btn btn-primary mt-4"
-                >
-                  Reset Filters
-                </button>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {displayedWards.length > 0 ? (
+              displayedWards.map(ward => (
+                <WardCard key={ward.id} ward={ward} />
+              ))
+            ) : (
+              <div className="col-span-full">
+                <div className="card text-center py-12">
+                  <p className="text-secondary-600  text-lg">
+                    No wards found matching your filters.
+                  </p>
+                  <button
+                    onClick={handleResetFilters}
+                    className="btn btn-primary mt-4"
+                  >
+                    Reset Filters
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
-        </div>
-      )}
+            )}
+          </div>
+        )
+      }
 
       {/* Ward Detail Modal */}
       {viewMode === 'list' && selectedWard && <WardDetailModal />}
-    </div>
+    </div >
   );
 };
 

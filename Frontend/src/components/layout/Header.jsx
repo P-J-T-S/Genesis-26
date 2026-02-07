@@ -1,17 +1,22 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { LogOut, User, Bell } from 'lucide-react';
+import { LogOut, User, Bell, Menu } from 'lucide-react';
 import { mockUsers } from '../../data/demoData';
 
-const Header = () => {
+const Header = ({ onMenuClick }) => {
   const { logout, user, login } = useAuth();
 
   return (
-    <header className="bg-white border-b border-secondary-200 px-6 py-4">
+    <header className="bg-white border-b border-secondary-200 px-4 lg:px-6 py-4">
       <div className="flex items-center justify-between">
-        {/* Left side - can add breadcrumbs or page title here if needed */}
+        {/* Left side - mobile menu toggle */}
         <div className="flex items-center gap-4">
-          {/* Empty for now, can be used for breadcrumbs */}
+          <button
+            onClick={onMenuClick}
+            className="lg:hidden p-2 hover:bg-secondary-100 rounded-lg transition-colors"
+          >
+            <Menu className="w-6 h-6 text-secondary-600" />
+          </button>
         </div>
 
         {/* Right side - User actions */}
