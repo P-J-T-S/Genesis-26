@@ -82,14 +82,14 @@ const Forecast = () => {
     return (
         <div className="container-fluid py-6 space-y-6 animate-fade-in">
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-secondary-900">AI Waste Pressure Forecast</h1>
-                    <p className="text-secondary-600">Predict future waste pressure and auto-generate operational recommendations</p>
+                    <h1 className="text-xl sm:text-2xl font-bold text-secondary-900">AI Waste Pressure Forecast</h1>
+                    <p className="text-xs sm:text-sm text-secondary-600">Predict future waste pressure and auto-generate operational recommendations</p>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-primary-50 text-primary-700 rounded-lg border border-primary-100">
-                    <Brain className="w-5 h-5" />
-                    <span className="font-semibold text-sm">ML Model Active</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-50 text-primary-700 rounded-lg border border-primary-100 self-start sm:self-center">
+                    <Brain className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="font-semibold text-xs sm:text-sm">ML Model Active</span>
                 </div>
             </div>
 
@@ -231,33 +231,33 @@ const Forecast = () => {
                         <div className="space-y-6 animate-slide-up">
                             {/* Prediction Summary Widgets */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="card p-6 border-l-4 border-l-primary-500">
+                                <div className="card p-4 sm:p-6 border-l-4 border-l-primary-500">
                                     <div className="flex items-center justify-between mb-2">
-                                        <span className="text-sm font-medium text-secondary-600 capitalize">Predicted WPI</span>
-                                        <TrendingUp className="w-5 h-5 text-primary-600" />
+                                        <span className="text-xs sm:text-sm font-medium text-secondary-600 capitalize">Predicted WPI</span>
+                                        <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-primary-600" />
                                     </div>
-                                    <div className="flex items-end gap-3">
-                                        <span className="text-4xl font-bold text-secondary-900">{result.forecast.predicted_wpi}</span>
-                                        <span className={`badge badge-${getWPILevel(result.forecast.predicted_wpi).color} mb-1.5`}>
+                                    <div className="flex items-end flex-wrap gap-2 sm:gap-3">
+                                        <span className="text-3xl sm:text-4xl font-bold text-secondary-900">{result.forecast.predicted_wpi}</span>
+                                        <span className={`badge badge-${getWPILevel(result.forecast.predicted_wpi).color} mb-1 sm:mb-1.5 text-[10px] sm:text-xs`}>
                                             {getWPILevel(result.forecast.predicted_wpi).label} Urgency
                                         </span>
                                     </div>
-                                    <p className="text-xs text-secondary-500 mt-4 flex items-center gap-1">
+                                    <p className="text-[10px] sm:text-xs text-secondary-500 mt-3 sm:mt-4 flex items-center gap-1">
                                         <CheckCircle2 className="w-3 h-3 text-success-500" />
                                         Forecast for {formatTimestamp(formData.date, false)}
                                     </p>
                                 </div>
 
-                                <div className="card p-6">
-                                    <h4 className="text-sm font-medium text-secondary-600 mb-4">ML Signal Decomposition</h4>
+                                <div className="card p-4 sm:p-6">
+                                    <h4 className="text-xs sm:text-sm font-medium text-secondary-600 mb-3 sm:mb-4">ML Signal Decomposition</h4>
                                     <div className="space-y-3">
                                         {Object.entries(result.forecast.signals).map(([key, value]) => (
                                             <div key={key} className="space-y-1">
-                                                <div className="flex justify-between text-xs font-medium">
+                                                <div className="flex justify-between text-[10px] sm:text-xs font-medium">
                                                     <span className="text-secondary-700 capitalize">{key.replace('_', ' ')}</span>
                                                     <span className="text-secondary-900">{typeof value === 'boolean' ? (value ? 'YES' : 'NO') : `${value}%`}</span>
                                                 </div>
-                                                <div className="h-1.5 w-full bg-secondary-100 rounded-full overflow-hidden">
+                                                <div className="h-1 sm:h-1.5 w-full bg-secondary-100 rounded-full overflow-hidden">
                                                     <div
                                                         className={`h-full bg-primary-500 rounded-full ${typeof value === 'boolean' && value ? 'w-full' : ''}`}
                                                         style={{ width: typeof value === 'number' ? `${value}%` : '' }}
@@ -293,7 +293,7 @@ const Forecast = () => {
                                                         <div className="space-y-1">
                                                             <div className="flex items-center gap-2">
                                                                 <span className={`w-2 h-2 rounded-full ${priority === 'critical' ? 'bg-danger-500' :
-                                                                        priority === 'high' ? 'bg-warning-500' : 'bg-primary-500'
+                                                                    priority === 'high' ? 'bg-warning-500' : 'bg-primary-500'
                                                                     }`}></span>
                                                                 <h4 className="font-semibold text-secondary-900">{rec.recommended_action}</h4>
                                                             </div>

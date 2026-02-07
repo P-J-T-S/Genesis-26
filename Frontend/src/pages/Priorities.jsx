@@ -191,12 +191,12 @@ const Priorities = () => {
         )}
       </div>
       {/* Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-secondary-900 ">
+          <h1 className="text-2xl sm:text-3xl font-bold text-secondary-900">
             Priority Rankings
           </h1>
-          <p className="text-secondary-600  mt-1">
+          <p className="text-secondary-600 mt-1 text-sm sm:text-base">
             Wards ranked by Waste Pressure Index (WPI)
           </p>
         </div>
@@ -204,69 +204,69 @@ const Priorities = () => {
         <div className="flex items-center gap-3">
           <button
             onClick={handleExport}
-            className="btn btn-secondary btn-sm"
+            className="btn btn-secondary btn-sm whitespace-nowrap"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4 h-4 mr-2" />
             Export
           </button>
         </div>
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="card bg-danger-50  border-danger-200 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="card bg-danger-50 border-danger-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-danger-600  font-medium">
+              <p className="text-xs sm:text-sm text-danger-600 font-medium">
                 Critical Priority
               </p>
-              <p className="text-3xl font-bold text-danger-700  mt-1">
+              <p className="text-2xl sm:text-3xl font-bold text-danger-700 mt-1">
                 {priorities.filter(p => getWPILevel(p.wpi, currentMode).level === 'critical').length}
               </p>
             </div>
-            <AlertTriangle className="w-8 h-8 text-danger-500" />
+            <AlertTriangle className="w-6 h-6 sm:w-8 sm:h-8 text-danger-500" />
           </div>
         </div>
 
         <div className="card bg-orange-50 border-orange-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-orange-700 font-medium">
+              <p className="text-xs sm:text-sm text-orange-700 font-medium">
                 High Priority
               </p>
-              <p className="text-3xl font-bold text-orange-700 mt-1">
+              <p className="text-2xl sm:text-3xl font-bold text-orange-700 mt-1">
                 {priorities.filter(p => getWPILevel(p.wpi, currentMode).level === 'high').length}
               </p>
             </div>
-            <TrendingUp className="w-8 h-8 text-orange-500" />
+            <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500" />
           </div>
         </div>
 
         <div className="card bg-warning-50 border-warning-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-warning-700 font-medium">
+              <p className="text-xs sm:text-sm text-warning-700 font-medium">
                 Medium Priority
               </p>
-              <p className="text-3xl font-bold text-warning-700 mt-1">
+              <p className="text-2xl sm:text-3xl font-bold text-warning-700 mt-1">
                 {priorities.filter(p => getWPILevel(p.wpi, currentMode).level === 'medium').length}
               </p>
             </div>
-            <Filter className="w-8 h-8 text-warning-500" />
+            <Filter className="w-6 h-6 sm:w-8 sm:h-8 text-warning-500" />
           </div>
         </div>
 
         <div className="card bg-success-50 border-success-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-success-600 font-medium">
+              <p className="text-xs sm:text-sm text-success-600 font-medium">
                 Normal Priority
               </p>
-              <p className="text-3xl font-bold text-success-700 mt-1">
+              <p className="text-2xl sm:text-3xl font-bold text-success-700 mt-1">
                 {priorities.filter(p => getWPILevel(p.wpi, currentMode).level === 'low').length}
               </p>
             </div>
-            <div className="w-8 h-8 rounded-full bg-success-500 flex items-center justify-center text-white font-bold">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-success-500 flex items-center justify-center text-white font-bold text-xs sm:text-base">
               ✓
             </div>
           </div>
@@ -275,29 +275,31 @@ const Priorities = () => {
 
       {/* Filters */}
       <div className="card">
-        <div className="flex items-center gap-4">
-          <span className="text-sm font-medium text-secondary-700  ">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <span className="text-sm font-medium text-secondary-700">
             Filter by level:
           </span>
-          <select
-            value={filterLevel}
-            onChange={(e) => setFilterLevel(e.target.value)}
-            className="select max-w-xs"
-          >
-            <option value="all">All Levels</option>
-            <option value="critical">Critical</option>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Normal</option>
-          </select>
-          {filterLevel !== 'all' && (
-            <button
-              onClick={() => setFilterLevel('all')}
-              className="btn btn-sm btn-secondary"
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <select
+              value={filterLevel}
+              onChange={(e) => setFilterLevel(e.target.value)}
+              className="select flex-1 sm:w-48"
             >
-              Clear Filter
-            </button>
-          )}
+              <option value="all">All Levels</option>
+              <option value="critical">Critical</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Normal</option>
+            </select>
+            {filterLevel !== 'all' && (
+              <button
+                onClick={() => setFilterLevel('all')}
+                className="btn btn-sm btn-secondary"
+              >
+                Clear
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -348,21 +350,23 @@ const Priorities = () => {
                     key={priority.wardId + '-' + priority.rank}
                     className={`hover:bg-secondary-50 transition-colors ${selectedWard?.id === priority.wardId ? 'bg-primary-50/40' : ''}`}
                   >
-                    <td className="py-2 px-3 font-semibold text-secondary-900 ">{priority.rank}</td>
-                    <td className="py-2 px-3">
-                      <div className="flex items-center gap-2">
-                        <span>{priority.wardName}</span>
-                        {isLive ? (
-                          <span className="ml-2 px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse align-middle">LIVE</span>
-                        ) : (
-                          <span className="ml-2 px-2 py-0.5 bg-red-600 text-white rounded text-xs align-middle">DEMO</span>
-                        )}
-                        <button
-                          className="btn btn-xs btn-outline-primary"
-                          onClick={() => handleViewWard(priority.wardId)}
-                        >
-                          <Eye className="w-4 h-4" />
-                        </button>
+                    <td className="py-3 px-6 font-semibold text-secondary-900 ">{priority.rank}</td>
+                    <td className="py-3 px-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                        <span className="font-medium">{priority.wardName}</span>
+                        <div className="flex items-center gap-2">
+                          {isLive ? (
+                            <span className="px-2 py-0.5 bg-green-600 text-white rounded text-[10px] animate-pulse font-bold">LIVE</span>
+                          ) : (
+                            <span className="px-2 py-0.5 bg-red-600 text-white rounded text-[10px] font-bold">DEMO</span>
+                          )}
+                          <button
+                            className="btn btn-xs btn-outline-primary lg:hidden"
+                            onClick={() => handleViewWard(priority.wardId)}
+                          >
+                            <Eye className="w-3 h-3" />
+                          </button>
+                        </div>
                       </div>
                     </td>
                     <td className="py-2 px-3 text-center font-mono font-bold text-lg">
