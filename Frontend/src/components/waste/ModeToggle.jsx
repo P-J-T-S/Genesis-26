@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMode, selectCurrentMode } from '../../store/slices/waste/wasteSlice';
+import { zonesAPI } from '../../services/api';
 import { getModeConfig } from '../../utils/helpers';
 
 const ModeToggle = () => {
@@ -9,8 +10,14 @@ const ModeToggle = () => {
 
   const modes = ['normal', 'event', 'emergency'];
 
-  const handleModeChange = (mode) => {
-    dispatch(setMode(mode));
+  const handleModeChange = async (mode) => {
+    try {
+      await zonesAPI.setMode(mode);
+      dispatch(setMode(mode));
+      // Optionally, trigger a refetch of priorities/wards here if needed
+    } catch (err) {
+      alert('Failed to switch mode.');
+    }
   };
 
   return (

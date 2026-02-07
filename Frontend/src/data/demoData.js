@@ -20,222 +20,30 @@ export const MODES = {
 
 // Simulated ward data with WPI (Waste Pressure Index)
 export const wardsData = [
-  {
-    id: 'W001',
-    name: 'Colaba',
-    zone: ZONES.SOUTH,
-    coordinates: { lat: 18.9067, lng: 72.8147 },
-    population: 65000,
-    complaints: 12,
-    lastCollection: '2 hours ago',
-    nextScheduled: '4 hours',
-    signals: {
-      complaintIntensity: 62,
-      eventPresence: 'high',
-      hotspotHistory: 'recurring',
-      weatherAlert: 'low',
-      complaintSpike: true,
-    },
-    factors: {
-      complaints: 12,
-      eventImpact: 'High - Festival gathering',
-      weatherRisk: 'Low',
-      historicalTrend: 'Increasing',
-    },
-    resources: {
-      vehicles: 3,
-      personnel: 8,
-    },
-  },
-  {
-    id: 'W002',
-    name: 'Bandra West',
-    zone: ZONES.WEST,
-    coordinates: { lat: 19.0596, lng: 72.8295 },
-    population: 120000,
-    complaints: 18,
-    lastCollection: '1 hour ago',
-    nextScheduled: '2 hours',
-    signals: {
-      complaintIntensity: 70,
-      eventPresence: 'medium',
-      hotspotHistory: 'seasonal',
-      weatherAlert: 'medium',
-      complaintSpike: false,
-    },
-    factors: {
-      complaints: 18,
-      eventImpact: 'High - Commercial area weekend',
-      weatherRisk: 'Medium',
-      historicalTrend: 'Stable',
-    },
-    resources: {
-      vehicles: 5,
-      personnel: 12,
-    },
-  },
-  {
-    id: 'W003',
-    name: 'Andheri East',
-    zone: ZONES.WEST,
-    coordinates: { lat: 19.1136, lng: 72.8697 },
-    population: 180000,
-    complaints: 25,
-    lastCollection: '30 mins ago',
-    nextScheduled: '1 hour',
-    signals: {
-      complaintIntensity: 88,
-      eventPresence: 'critical',
-      hotspotHistory: 'chronic',
-      weatherAlert: 'high',
-      complaintSpike: true,
-    },
-    factors: {
-      complaints: 25,
-      eventImpact: 'Critical - Market day + Construction',
-      weatherRisk: 'High - Rain expected',
-      historicalTrend: 'Rapidly increasing',
-    },
-    resources: {
-      vehicles: 4,
-      personnel: 10,
-    },
-  },
-  {
-    id: 'W004',
-    name: 'Dadar',
-    zone: ZONES.CENTRAL,
-    coordinates: { lat: 19.0178, lng: 72.8478 },
-    population: 95000,
-    complaints: 5,
-    lastCollection: '3 hours ago',
-    nextScheduled: '5 hours',
-    signals: {
-      complaintIntensity: 34,
-      eventPresence: 'low',
-      hotspotHistory: 'none',
-      weatherAlert: 'low',
-      complaintSpike: false,
-    },
-    factors: {
-      complaints: 5,
-      eventImpact: 'None',
-      weatherRisk: 'Low',
-      historicalTrend: 'Stable',
-    },
-    resources: {
-      vehicles: 3,
-      personnel: 7,
-    },
-  },
-  {
-    id: 'W005',
-    name: 'Kurla',
-    zone: ZONES.EAST,
-    coordinates: { lat: 19.0728, lng: 72.8826 },
-    population: 145000,
-    complaints: 9,
-    lastCollection: '2 hours ago',
-    nextScheduled: '3 hours',
-    signals: {
-      complaintIntensity: 58,
-      eventPresence: 'medium',
-      hotspotHistory: 'recurring',
-      weatherAlert: 'medium',
-      complaintSpike: true,
-    },
-    factors: {
-      complaints: 9,
-      eventImpact: 'Medium - Local event',
-      weatherRisk: 'Low',
-      historicalTrend: 'Increasing',
-    },
-    resources: {
-      vehicles: 4,
-      personnel: 9,
-    },
-  },
-  {
-    id: 'W006',
-    name: 'Borivali',
-    zone: ZONES.NORTH,
-    coordinates: { lat: 19.2304, lng: 72.8571 },
-    population: 110000,
-    complaints: 3,
-    lastCollection: '4 hours ago',
-    nextScheduled: '6 hours',
-    signals: {
-      complaintIntensity: 22,
-      eventPresence: 'none',
-      hotspotHistory: 'none',
-      weatherAlert: 'low',
-      complaintSpike: false,
-    },
-    factors: {
-      complaints: 3,
-      eventImpact: 'None',
-      weatherRisk: 'Low',
-      historicalTrend: 'Stable',
-    },
-    resources: {
-      vehicles: 3,
-      personnel: 6,
-    },
-  },
-  {
-    id: 'W007',
-    name: 'Mulund',
-    zone: ZONES.NORTH,
-    coordinates: { lat: 19.1726, lng: 72.9565 },
-    population: 88000,
-    complaints: 7,
-    lastCollection: '2 hours ago',
-    nextScheduled: '4 hours',
-    signals: {
-      complaintIntensity: 46,
-      eventPresence: 'low',
-      hotspotHistory: 'seasonal',
-      weatherAlert: 'low',
-      complaintSpike: false,
-    },
-    factors: {
-      complaints: 7,
-      eventImpact: 'Low',
-      weatherRisk: 'Low',
-      historicalTrend: 'Stable',
-    },
-    resources: {
-      vehicles: 2,
-      personnel: 5,
-    },
-  },
-  {
-    id: 'W008',
-    name: 'Worli',
-    zone: ZONES.SOUTH,
-    coordinates: { lat: 19.0176, lng: 72.8157 },
-    population: 75000,
-    complaints: 11,
-    lastCollection: '1 hour ago',
-    nextScheduled: '2 hours',
-    signals: {
-      complaintIntensity: 60,
-      eventPresence: 'medium',
-      hotspotHistory: 'recurring',
-      weatherAlert: 'medium',
-      complaintSpike: false,
-    },
-    factors: {
-      complaints: 11,
-      eventImpact: 'High - Business district',
-      weatherRisk: 'Medium',
-      historicalTrend: 'Increasing',
-    },
-    resources: {
-      vehicles: 3,
-      personnel: 8,
-    },
-  },
+  { id: 'W001', name: 'A', zone: ZONES.SOUTH, kmlTarget: 'A', coordinates: { lat: 18.9129625, lng: 72.8294731 }, population: 185000, complaints: 15, wpi: 45, lastCollection: '2 hours ago', nextScheduled: '4 hours', complianceScore: 'High', operationalInsights: 'Historic district, highly regular collection.', resources: { vehicles: 5, personnel: 12 }, signals: { complaintIntensity: 30, eventPresence: 'low', hotspotHistory: 'none' } },
+  { id: 'W002', name: 'B', zone: ZONES.SOUTH, kmlTarget: 'B', coordinates: { lat: 18.9634234, lng: 72.8445646 }, population: 140000, complaints: 8, wpi: 35, lastCollection: '1 hour ago', nextScheduled: '3 hours', complianceScore: 'High', operationalInsights: 'Efficient routing in narrow lanes.', resources: { vehicles: 4, personnel: 10 }, signals: { complaintIntensity: 25, eventPresence: 'none', hotspotHistory: 'none' } },
+  { id: 'W003', name: 'C', zone: ZONES.SOUTH, kmlTarget: 'C', coordinates: { lat: 18.9617446, lng: 72.8319769 }, population: 160000, complaints: 22, wpi: 75, lastCollection: '30 mins ago', nextScheduled: '2 hours', complianceScore: 'Medium', operationalInsights: 'Market crowd impacting schedule.', resources: { vehicles: 6, personnel: 15 }, signals: { complaintIntensity: 65, eventPresence: 'high', hotspotHistory: 'recurring' } },
+  { id: 'W004', name: 'D', zone: ZONES.SOUTH, kmlTarget: 'D', coordinates: { lat: 18.9428744, lng: 72.795347 }, population: 195000, complaints: 12, wpi: 55, lastCollection: '2 hours ago', nextScheduled: '3 hours', complianceScore: 'Medium', operationalInsights: 'Coastal area clean-up required.', resources: { vehicles: 5, personnel: 14 }, signals: { complaintIntensity: 45, eventPresence: 'medium', hotspotHistory: 'seasonal' } },
+  { id: 'W005', name: 'E', zone: ZONES.SOUTH, kmlTarget: 'E', coordinates: { lat: 18.9818342, lng: 72.8467722 }, population: 210000, complaints: 35, wpi: 88, lastCollection: '4 hours ago', nextScheduled: 'ASAP', complianceScore: 'Low', operationalInsights: 'Critical delay in slum pockets.', resources: { vehicles: 7, personnel: 18 }, signals: { complaintIntensity: 85, eventPresence: 'critical', hotspotHistory: 'chronic' } },
+  { id: 'W006', name: 'F/N', zone: ZONES.CENTRAL, kmlTarget: 'F/N', coordinates: { lat: 19.0097686, lng: 72.8849784 }, population: 250000, complaints: 28, wpi: 72, lastCollection: '2 hours ago', nextScheduled: '3 hours', complianceScore: 'Low', operationalInsights: 'Mixed usage area, high waste variance.', resources: { vehicles: 8, personnel: 20 }, signals: { complaintIntensity: 70, eventPresence: 'medium', hotspotHistory: 'recurring' } },
+  { id: 'W007', name: 'F/S', zone: ZONES.SOUTH, kmlTarget: 'F/S', coordinates: { lat: 19.0105868, lng: 72.8562542 }, population: 225000, complaints: 18, wpi: 50, lastCollection: '1 hour ago', nextScheduled: '4 hours', complianceScore: 'Medium', operationalInsights: 'Hospital zone requires special handling.', resources: { vehicles: 6, personnel: 15 }, signals: { complaintIntensity: 40, eventPresence: 'low', hotspotHistory: 'none' } },
+  { id: 'W008', name: 'G/N', zone: ZONES.CENTRAL, kmlTarget: 'G/N', coordinates: { lat: 19.0217523, lng: 72.8300861 }, population: 300000, complaints: 42, wpi: 88, lastCollection: '3 hours ago', nextScheduled: 'ASAP', complianceScore: 'Low', operationalInsights: 'Dadar station area overflowing.', resources: { vehicles: 10, personnel: 25 }, signals: { complaintIntensity: 95, eventPresence: 'critical', hotspotHistory: 'chronic', complaintSpike: true, weatherAlert: 'medium' } },
+  { id: 'W009', name: 'G/S', zone: ZONES.CENTRAL, kmlTarget: 'G/S', coordinates: { lat: 19.0192703, lng: 72.8266139 }, population: 280000, complaints: 20, wpi: 60, lastCollection: '2 hours ago', nextScheduled: '3 hours', complianceScore: 'Medium', operationalInsights: 'Industrial estate clearance pending.', resources: { vehicles: 7, personnel: 18 }, signals: { complaintIntensity: 55, eventPresence: 'medium', hotspotHistory: 'recurring' } },
+  { id: 'W010', name: 'H/E', zone: ZONES.WEST, kmlTarget: 'H/E', coordinates: { lat: 19.054128, lng: 72.8657312 }, population: 310000, complaints: 30, wpi: 78, lastCollection: '30 mins ago', nextScheduled: '1 hour', complianceScore: 'Low', operationalInsights: 'Transit zone heavy load.', resources: { vehicles: 9, personnel: 22 }, signals: { complaintIntensity: 75, eventPresence: 'high', hotspotHistory: 'chronic' } },
+  { id: 'W011', name: 'H/W', zone: ZONES.WEST, kmlTarget: 'H/W', coordinates: { lat: 19.0904297, lng: 72.8427616 }, population: 320000, complaints: 15, wpi: 40, lastCollection: '1 hour ago', nextScheduled: '4 hours', complianceScore: 'High', operationalInsights: 'Bandra Bandstand area clear.', resources: { vehicles: 8, personnel: 20 }, signals: { complaintIntensity: 35, eventPresence: 'medium', hotspotHistory: 'none' } },
+  { id: 'W012', name: 'K/E', zone: ZONES.WEST, kmlTarget: 'K/E', coordinates: { lat: 19.1295379, lng: 72.8847716 }, population: 350000, complaints: 38, wpi: 72, lastCollection: '2 hours ago', nextScheduled: '2 hours', complianceScore: 'Medium', operationalInsights: 'Airport surroundings require sweep.', resources: { vehicles: 11, personnel: 28 }, signals: { complaintIntensity: 85, eventPresence: 'high', hotspotHistory: 'recurring', complaintSpike: true, weatherAlert: 'low' } },
+  { id: 'W013', name: 'K/W', zone: ZONES.WEST, kmlTarget: 'K/W', coordinates: { lat: 19.1510069, lng: 72.8228456 }, population: 360000, complaints: 25, wpi: 65, lastCollection: '1 hour ago', nextScheduled: '3 hours', complianceScore: 'Medium', operationalInsights: 'Juhu beach cleanup essential.', resources: { vehicles: 10, personnel: 25 }, signals: { complaintIntensity: 60, eventPresence: 'medium', hotspotHistory: 'seasonal' } },
+  { id: 'W014', name: 'L', zone: ZONES.EAST, kmlTarget: 'L', coordinates: { lat: 19.1279133, lng: 72.8881479 }, population: 400000, complaints: 45, wpi: 92, lastCollection: '4 hours ago', nextScheduled: 'ASAP', complianceScore: 'Low', operationalInsights: 'Kurla terminus severe congestion.', resources: { vehicles: 12, personnel: 30 }, signals: { complaintIntensity: 95, eventPresence: 'critical', hotspotHistory: 'chronic' } },
+  { id: 'W015', name: 'M/E', zone: ZONES.EAST, kmlTarget: 'M/E', coordinates: { lat: 19.0667363, lng: 72.9377378 }, population: 380000, complaints: 40, wpi: 89, lastCollection: '3 hours ago', nextScheduled: '1 hour', complianceScore: 'Low', operationalInsights: 'Deonar dumping ground vicinity.', resources: { vehicles: 11, personnel: 28 }, signals: { complaintIntensity: 88, eventPresence: 'high', hotspotHistory: 'chronic' } },
+  { id: 'W016', name: 'M/W', zone: ZONES.EAST, kmlTarget: 'M/W', coordinates: { lat: 19.0728472, lng: 72.9039132 }, population: 330000, complaints: 20, wpi: 55, lastCollection: '1 hour ago', nextScheduled: '4 hours', complianceScore: 'Medium', operationalInsights: 'Chembur residential zones stable.', resources: { vehicles: 9, personnel: 22 }, signals: { complaintIntensity: 50, eventPresence: 'low', hotspotHistory: 'none' } },
+  { id: 'W017', name: 'N', zone: ZONES.EAST, kmlTarget: 'N', coordinates: { lat: 19.1091103, lng: 72.916699 }, population: 290000, complaints: 12, wpi: 38, lastCollection: '2 hours ago', nextScheduled: '5 hours', complianceScore: 'High', operationalInsights: 'Ghatkopar east well managed.', resources: { vehicles: 8, personnel: 20 }, signals: { complaintIntensity: 30, eventPresence: 'none', hotspotHistory: 'none' } },
+  { id: 'W018', name: 'P/N', zone: ZONES.WEST, kmlTarget: 'P/N', coordinates: { lat: 19.1665875, lng: 72.8772313 }, population: 270000, complaints: 28, wpi: 70, lastCollection: '2 hours ago', nextScheduled: '2 hours', complianceScore: 'Medium', operationalInsights: 'Malad west market waste pileup.', resources: { vehicles: 8, personnel: 20 }, signals: { complaintIntensity: 68, eventPresence: 'medium', hotspotHistory: 'recurring' } },
+  { id: 'W019', name: 'P/S', zone: ZONES.WEST, kmlTarget: 'P/S', coordinates: { lat: 19.1324834, lng: 72.7821869 }, population: 260000, complaints: 18, wpi: 48, lastCollection: '1 hour ago', nextScheduled: '3 hours', complianceScore: 'High', operationalInsights: 'Goregaon film city area checking.', resources: { vehicles: 7, personnel: 18 }, signals: { complaintIntensity: 40, eventPresence: 'medium', hotspotHistory: 'none' } },
+  { id: 'W020', name: 'R/C', zone: ZONES.WEST, kmlTarget: 'R/C', coordinates: { lat: 19.2614731, lng: 72.7898601 }, population: 240000, complaints: 10, wpi: 30, lastCollection: '1 hour ago', nextScheduled: '5 hours', complianceScore: 'High', operationalInsights: 'Borivali national park boundary clear.', resources: { vehicles: 6, personnel: 15 }, signals: { complaintIntensity: 25, eventPresence: 'none', hotspotHistory: 'none' } },
+  { id: 'W021', name: 'R/N', zone: ZONES.WEST, kmlTarget: 'R/N', coordinates: { lat: 19.23748, lng: 72.8586339 }, population: 200000, complaints: 14, wpi: 42, lastCollection: '2 hours ago', nextScheduled: '4 hours', complianceScore: 'High', operationalInsights: 'Dahisar checkpoints monitoring.', resources: { vehicles: 5, personnel: 12 }, signals: { complaintIntensity: 35, eventPresence: 'none', hotspotHistory: 'none' } },
+  { id: 'W022', name: 'R/S', zone: ZONES.WEST, kmlTarget: 'R/S', coordinates: { lat: 19.2011444, lng: 72.9010517 }, population: 220000, complaints: 16, wpi: 46, lastCollection: '1 hour ago', nextScheduled: '4 hours', complianceScore: 'High', operationalInsights: 'Kandivali east reliable service.', resources: { vehicles: 6, personnel: 14 }, signals: { complaintIntensity: 38, eventPresence: 'low', hotspotHistory: 'none' } },
+  { id: 'W023', name: 'S', zone: ZONES.EAST, kmlTarget: 'S', coordinates: { lat: 19.1653619, lng: 72.9343792 }, population: 340000, complaints: 32, wpi: 76, lastCollection: '3 hours ago', nextScheduled: '1 hour', complianceScore: 'Low', operationalInsights: 'Bhandup industrial waste alerts.', resources: { vehicles: 9, personnel: 24 }, signals: { complaintIntensity: 72, eventPresence: 'high', hotspotHistory: 'chronic' } },
+  { id: 'W024', name: 'T', zone: ZONES.EAST, kmlTarget: 'T', coordinates: { lat: 19.199988, lng: 72.9354831 }, population: 330000, complaints: 22, wpi: 58, lastCollection: '2 hours ago', nextScheduled: '3 hours', complianceScore: 'Medium', operationalInsights: 'Mulund check naka monitoring.', resources: { vehicles: 8, personnel: 22 }, signals: { complaintIntensity: 50, eventPresence: 'medium', hotspotHistory: 'seasonal' } },
 ];
 
 // Priority-sorted wards
@@ -446,7 +254,7 @@ export const demoAPI = {
       timestamp: new Date().toISOString(),
     };
   },
-  
+
   // Get ward by ID
   getWardById: async (wardId) => {
     await simulateDelay(300);
@@ -457,7 +265,7 @@ export const demoAPI = {
       timestamp: new Date().toISOString(),
     };
   },
-  
+
   // Get priorities
   getPriorities: async (mode = MODES.NORMAL) => {
     await simulateDelay();
@@ -467,7 +275,7 @@ export const demoAPI = {
       timestamp: new Date().toISOString(),
     };
   },
-  
+
   // Get recommendations
   getRecommendations: async (mode = MODES.NORMAL) => {
     await simulateDelay();
@@ -477,7 +285,7 @@ export const demoAPI = {
       timestamp: new Date().toISOString(),
     };
   },
-  
+
   // Get alerts
   getAlerts: async () => {
     await simulateDelay(200);
@@ -487,7 +295,7 @@ export const demoAPI = {
       timestamp: new Date().toISOString(),
     };
   },
-  
+
   // Get statistics
   getStats: async () => {
     await simulateDelay(200);
@@ -497,7 +305,7 @@ export const demoAPI = {
       timestamp: new Date().toISOString(),
     };
   },
-  
+
   // Refresh all data
   refreshAll: async (mode = MODES.NORMAL) => {
     await simulateDelay(800);
@@ -514,5 +322,32 @@ export const demoAPI = {
     };
   },
 };
+
+// Mock Users for Demo
+export const mockUsers = [
+  {
+    id: 'U001',
+    name: 'City Commissioner',
+    email: 'head@bmc.gov.in',
+    role: 'CITY_HEAD',
+    avatar: 'https://i.pravatar.cc/150?u=head',
+  },
+  {
+    id: 'U002',
+    name: 'Rajesh Verma',
+    email: 'ward.officer@bmc.gov.in',
+    role: 'WARD_OFFICER',
+    assignedWard: 'W001', // Colaba
+    avatar: 'https://i.pravatar.cc/150?u=ward',
+  },
+  {
+    id: 'U003',
+    name: 'Amit Patel',
+    email: 'zone.sup@bmc.gov.in',
+    role: 'ZONAL_SUPERVISOR',
+    assignedZone: 'South',
+    avatar: 'https://i.pravatar.cc/150?u=zone',
+  },
+];
 
 export default demoAPI;

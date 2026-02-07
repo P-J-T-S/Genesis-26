@@ -1,7 +1,11 @@
+import { zonesAPI } from '../../services/api';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useAuth } from '../../contexts/AuthContext';
 import { Map, List, Search, Filter, Download, AlertTriangle, Sparkles } from 'lucide-react';
-import {
+import { recommendationsAPI } from '../../services/api';
+import socket from '../services/socket';
+import { intelligenceAPI } from '../services/api';
   setWards,
   setFilter,
   resetFilters,
@@ -27,6 +31,7 @@ import WardDecisionPanel from '../components/waste/WardDecisionPanel';
 import { exportToCSV, getWPILevel } from '../utils/helpers';
 
 const Wards = () => {
+  // Redux hooks and state hooks should be declared first
   const dispatch = useDispatch();
   const wards = useSelector(selectFilteredWards);
   const allWards = useSelector(selectWards);
@@ -40,27 +45,135 @@ const Wards = () => {
   const [signals, setSignals] = useState([]);
   const [activeSignalId, setActiveSignalId] = useState(null);
   const [highlightedWards, setHighlightedWards] = useState([]);
+  const [isLive, setIsLive] = useState(false);
 
+  // Real-time socket.io integration
+  useEffect(() => {
+    socket.on('zone:update', (zoneData) => {
+      dispatch(setWards((prevWards) => {
+        if (!Array.isArray(prevWards)) return prevWards;
+        return prevWards.map(w => w.id === zoneData.id ? { ...w, ...zoneData } : w);
+      }));
+    });
+    socket.on('signal:update', (signalData) => {
+      setSignals((prev) => {
+        const idx = prev.findIndex(s => s.id === signalData.id);
+        if (idx !== -1) {
+          const updated = [...prev];
+          updated[idx] = { ...updated[idx], ...signalData };
+          return updated;
+        }
+        return [signalData, ...prev];
+      });
+    });
+    socket.on('feed:update', (feedData) => {
+      // Could trigger a refresh or notification
+    });
+    return () => {
+      socket.off('zone:update');
+      socket.off('signal:update');
+      socket.off('feed:update');
+    };
+  }, [dispatch]);
+
+  // ML Hotspot/Spike detection: run on load and every 60s
+  useEffect(() => {
+    let intervalId;
+    const runMLDetection = async () => {
+      try {
+        await intelligenceAPI.runAll();
+        const wardsRes = await demoAPI.getWards(currentMode);
+        if (wardsRes.success) dispatch(setWards(wardsRes.data));
+      } catch (err) {
+        const wardsRes = await demoAPI.getWards(currentMode);
+        if (wardsRes.success) dispatch(setWards(wardsRes.data));
+      }
+    };
+    runMLDetection();
+    intervalId = setInterval(runMLDetection, 60000);
+    return () => clearInterval(intervalId);
+  }, [currentMode, dispatch]);
+
+  // Auth & RBAC
+  const { user, isWardOfficer, isZonalSupervisor, isCityHead } = useAuth();
+
+  // Apply Role-Based Restrictions to Wards List
+  const displayedWards = useMemo(() => {
+    let result = wards;
+    if (isWardOfficer && user?.assignedWard) {
+      result = result.filter(w => w.id === user.assignedWard);
+    } else if (isZonalSupervisor && user?.assignedZone) {
+      result = result.filter(w => w.zone === user.assignedZone);
+    }
+    return result;
+  }, [wards, isWardOfficer, isZonalSupervisor, user]);
   useEffect(() => {
     loadWards();
   }, [currentMode]);
 
+  useEffect(() => {
+    if (selectedWard) {
+      loadRecommendations(selectedWard.id);
+    }
+  }, [selectedWard, currentMode]);
+
+  const loadRecommendations = async (zoneId) => {
+    try {
+      const res = await recommendationsAPI.getRecommendations(zoneId, 5);
+      if (res.data && res.status === 200 && Array.isArray(res.data.recommendations)) {
+        dispatch(setRecommendations(res.data.recommendations));
+      } else {
+        // fallback to demo
+        const recsRes = await demoAPI.getRecommendations(currentMode);
+        if (recsRes.success) dispatch(setRecommendations(recsRes.data));
+      }
+    } catch (error) {
+      // fallback to demo
+      const recsRes = await demoAPI.getRecommendations(currentMode);
+      if (recsRes.success) dispatch(setRecommendations(recsRes.data));
+    }
+  };
+
+  // Signals/feed integration
   const loadWards = async () => {
     setLoading(true);
     try {
-      const [wardsRes, recsRes, alertsRes] = await Promise.all([
-        demoAPI.getWards(currentMode),
-        demoAPI.getRecommendations(currentMode),
-        demoAPI.getAlerts(),
-      ]);
-
-      if (wardsRes.success) dispatch(setWards(wardsRes.data));
-      if (recsRes.success) dispatch(setRecommendations(recsRes.data));
-      if (alertsRes.success) {
-        dispatch(setAlerts(alertsRes.data));
-        setSignals(alertsRes.data);
-        setActiveSignalId(null);
-        setHighlightedWards([]);
+      } from '../../store/slices/waste/wasteSlice';
+      let gotLive = false;
+      try {
+        const wardsRes = await zonesAPI.getWards(currentMode);
+        console.log('LIVE backend wardsRes:', wardsRes);
+        if (wardsRes.data && wardsRes.status === 200 && Array.isArray(wardsRes.data.data) && wardsRes.data.data.length > 0) {
+          dispatch(setWards(wardsRes.data.data));
+          setIsLive(true);
+          gotLive = true;
+        }
+      } catch (err) {
+        console.error('LIVE backend error:', err);
+      }
+      if (!gotLive) {
+        // fallback to demo
+        const wardsRes = await demoAPI.getWards(currentMode);
+        if (wardsRes.success) {
+          dispatch(setWards(wardsRes.data));
+          setIsLive(false);
+        }
+      }
+      // recommendations now handled separately
+        import { exportToCSV, getWPILevel } from '../../utils/helpers';
+      try {
+        const signalsRes = await signalAPI.getSignals(currentMode);
+        if (signalsRes.data && signalsRes.status === 200 && Array.isArray(signalsRes.data.data)) {
+          setSignals(signalsRes.data.data);
+        } else {
+          // fallback to demo
+          const alertsRes = await demoAPI.getAlerts();
+          if (alertsRes.success) setSignals(alertsRes.data);
+        }
+      } catch (err) {
+        // fallback to demo
+        const alertsRes = await demoAPI.getAlerts();
+        if (alertsRes.success) setSignals(alertsRes.data);
       }
     } catch (error) {
       console.error('Error loading wards:', error);
@@ -96,10 +209,29 @@ const Wards = () => {
     filters.pressureLevel !== 'all' ||
     filters.zone !== 'all';
 
+  // Base list of wards accessible to user (ignoring search filters for now)
+  const roleAccessibleWards = useMemo(() => {
+    let result = allWards;
+    if (isWardOfficer && user?.assignedWard) {
+      result = result.filter(w => w.id === user.assignedWard);
+    } else if (isZonalSupervisor && user?.assignedZone) {
+      result = result.filter(w => w.zone === user.assignedZone);
+    }
+    return result;
+  }, [allWards, isWardOfficer, isZonalSupervisor, user]);
+
   const topPriorities = useMemo(() => {
-    const sorted = [...allWards].sort((a, b) => b.wpi - a.wpi);
+    const sorted = [...roleAccessibleWards].sort((a, b) => b.wpi - a.wpi);
     return sorted.slice(0, 5);
-  }, [allWards]);
+  }, [roleAccessibleWards]);
+
+  // Zones needing review (City Head Only)
+  const reviewZones = useMemo(() => {
+    if (!isCityHead) return [];
+    return roleAccessibleWards
+      .filter(w => w.complianceScore === 'Low' || w.pressureLevel === 'critical')
+      .sort((a, b) => (a.complianceScore === 'Low' ? -1 : 1)); // Low compliance first
+  }, [roleAccessibleWards, isCityHead]);
 
   const handleSignalClick = (signal) => {
     if (activeSignalId === signal.id) {
@@ -125,7 +257,16 @@ const Wards = () => {
   }
 
   return (
-    <div className="container-fluid py-6 space-y-6 animate-fade-in">
+    <React.Fragment>
+      <div className="container-fluid py-6 space-y-6 animate-fade-in">
+      {/* LIVE/DEMO floating badge */}
+      <div style={{ position: 'fixed', top: 16, right: 24, zIndex: 1000 }}>
+        {isLive ? (
+          <span className="px-3 py-1 bg-green-600 text-white rounded font-semibold text-xs animate-pulse shadow-lg border border-green-700">LIVE</span>
+        ) : (
+          <span className="px-3 py-1 bg-red-600 text-white rounded font-semibold text-xs shadow-lg border border-red-700">DEMO</span>
+        )}
+      </div>
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
@@ -133,8 +274,8 @@ const Wards = () => {
             Ward Management
           </h1>
           <p className="text-secondary-600  mt-1">
-            {wards.length} wards monitored
-            {hasActiveFilters && ` (filtered from ${allWards.length} total)`}
+            {displayedWards.length} wards monitored
+            {hasActiveFilters && ` (filtered from ${roleAccessibleWards.length} total)`}
           </p>
         </div>
 
@@ -229,149 +370,195 @@ const Wards = () => {
           {/* Reset Button */}
           {hasActiveFilters && (
             <button
-              onClick={handleResetFilters}
-              className="btn btn-secondary"
-            >
-              Reset Filters
-            </button>
-          )}
-        </div>
-      </div>
+              {viewMode === 'map' ? (
+                <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+                  <div className="xl:col-span-8">
+                    <div className="lg:col-span-9 h-full relative rounded-xl overflow-hidden border border-secondary-200 shadow-md bg-white">
+                      <LiveWastePressureMap
+                        wardsData={displayedWards}
+                        currentMode={currentMode}
+                        selectedWardId={selectedWard?.id}
+                        onWardSelect={handleWardSelect}
+                      />
+                    </div>
+                  </div>
+                  <div className="xl:col-span-4 space-y-4">
+                    <WardDecisionPanel
+                      ward={selectedWard}
+                      recommendations={recommendations}
+                      currentMode={currentMode}
+                    />
+                    {/* Recommendations LIVE/DEMO badge */}
+                    <div className="flex items-center gap-2 mb-2">
+                      <h2 className="text-lg font-bold">Recommendations</h2>
+                      {isLive ? (
+                        <span className="px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse ml-2">LIVE</span>
+                      ) : (
+                        <span className="px-2 py-0.5 bg-red-600 text-white rounded text-xs ml-2">DEMO</span>
+                      )}
+                    </div>
 
-      {/* Content Area */}
-      {viewMode === 'map' ? (
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
-          <div className="xl:col-span-8">
-            <div className="lg:col-span-9 h-full relative rounded-xl overflow-hidden border border-secondary-200 shadow-md bg-white">
-              <LiveWastePressureMap
-                wardsData={wards}
-                currentMode={currentMode}
-                selectedWardId={selectedWard?.id}
-                onWardSelect={handleWardSelect}
-              />
-            </div>
-          </div>
-          <div className="xl:col-span-4 space-y-4">
-            <WardDecisionPanel
-              ward={selectedWard}
-              recommendations={recommendations}
-              currentMode={currentMode}
-            />
+                    {/* City Head Review List */}
+                    {isCityHead && reviewZones.length > 0 && (
+                      <div className="card space-y-3 bg-red-50 border-red-100">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-sm font-semibold text-red-900">Zones Needing Review</p>
+                            <p className="text-xs text-red-700">Process or awareness gaps detected</p>
+                          </div>
+                          <AlertTriangle className="w-4 h-4 text-red-600" />
+                        </div>
+                        <div className="space-y-2">
+                          {reviewZones.map(ward => (
+                            <button
+                              key={ward.id}
+                              className="w-full text-left px-3 py-2 rounded-lg bg-white border border-red-200 hover:shadow-md transition-all"
+                              onClick={() => dispatch(selectWard(ward))}
+                            >
+                              <div className="flex justify-between items-center">
+                                <span className="text-sm font-medium text-red-900">{ward.name}</span>
+                                <span className="text-xs font-bold text-red-600">{ward.complianceScore === 'Low' ? 'Low Compliance' : 'Critical WPI'}</span>
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-            <div className="card space-y-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold text-secondary-900 ">
-                    Top Priority Zones
-                  </p>
-                  <p className="text-xs text-secondary-600 ">
-                    Auto-ranked by urgency
-                  </p>
-                </div>
-                <AlertTriangle className="w-4 h-4 text-warning-600" />
-              </div>
-              <div className="space-y-2">
-                {topPriorities.map((ward) => {
-                  const level = getWPILevel(ward.wpi, currentMode);
-                  return (
-                    <button
-                      key={ward.id}
-                      className="w-full text-left px-3 py-2 rounded-lg border border-secondary-200 hover:border-primary-300 hover:bg-primary-50/40 transition-colors"
-                      onClick={() => dispatch(selectWard(ward))}
-                    >
+                    <div className="card space-y-3">
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-sm font-medium text-secondary-900 ">
-                            {ward.name}
+                          <p className="text-sm font-semibold text-secondary-900 ">
+                            Top Priority Zones
                           </p>
                           <p className="text-xs text-secondary-600 ">
-                            {ward.zone} zone
+                            Auto-ranked by urgency
                           </p>
                         </div>
-                        <div className="text-right">
-                          <p className="text-lg font-bold text-secondary-900 ">
-                            {ward.wpi}
-                          </p>
-                          <span className={`badge badge-${level.color}`}>
-                            {level.label}
-                          </span>
-                        </div>
+                        <AlertTriangle className="w-4 h-4 text-warning-600" />
                       </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="card space-y-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-semibold text-secondary-900 ">
-                    Signal Context
-                  </p>
-                  <p className="text-xs text-secondary-600 ">
-                    Alerts and events impacting zones
-                  </p>
-                </div>
-                <Sparkles className="w-4 h-4 text-primary-600" />
-              </div>
-              <div className="space-y-2">
-                {signals.length === 0 && (
-                  <div className="text-sm text-secondary-600 ">
-                    No active signals.
-                  </div>
-                )}
-                {signals.map((signal) => (
-                  <button
-                    key={signal.id}
-                    onClick={() => handleSignalClick(signal)}
-                    className={`w-full text-left px-3 py-2 rounded-lg border transition-colors ${activeSignalId === signal.id
-                      ? 'border-primary-400 bg-primary-50/60'
-                      : 'border-secondary-200 hover:border-primary-300 hover:bg-primary-50/40'
-                      }`}
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className="text-sm font-medium text-secondary-900 ">
-                          {signal.title}
-                        </p>
-                        <p className="text-xs text-secondary-600 ">
-                          {signal.message}
-                        </p>
-                        <p className="text-xs text-secondary-500 mt-1">
-                          Affects {signal.affectedWards?.length || 0} zones
-                        </p>
+                      <div className="space-y-2">
+                        {topPriorities.map((ward) => {
+                          const level = getWPILevel(ward.wpi, currentMode);
+                          return (
+                            <button
+                              key={ward.id}
+                              className="w-full text-left px-3 py-2 rounded-lg border border-secondary-200 hover:border-primary-300 hover:bg-primary-50/40 transition-colors"
+                              onClick={() => dispatch(selectWard(ward))}
+                            >
+                              <div className="flex items-center justify-between">
+                                <div>
+                                  <p className="text-sm font-medium text-secondary-900 ">
+                                    {ward.name}
+                                  </p>
+                                  <p className="text-xs text-secondary-600 ">
+                                    {ward.zone} zone
+                                  </p>
+                                </div>
+                                <div className="text-right">
+                                  <p className="text-lg font-bold text-secondary-900 ">
+                                    {ward.wpi}
+                                  </p>
+                                  <span className={`badge badge-${level.color}`}>
+                                    {level.label}
+                                  </span>
+                                </div>
+                              </div>
+                            </button>
+                          );
+                        })}
                       </div>
-                      <span
-                        className={`badge ${signal.severity === 'critical'
-                          ? 'badge-danger'
-                          : signal.severity === 'warning'
-                            ? 'badge-warning'
-                            : 'badge-info'
-                          }`}
-                      >
-                        {signal.type}
-                      </span>
                     </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {wards.length > 0 ? (
-            wards.map(ward => (
-              <WardCard key={ward.id} ward={ward} />
-            ))
-          ) : (
-            <div className="col-span-full">
-              <div className="card text-center py-12">
-                <p className="text-secondary-600  text-lg">
-                  No wards found matching your filters.
-                </p>
-                <button
+
+                    <div className="card space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-sm font-semibold text-secondary-900 ">
+                            Signal Context
+                          </p>
+                          <p className="text-xs text-secondary-600 ">
+                            Alerts and events impacting zones
+                          </p>
+                        </div>
+                        <Sparkles className="w-4 h-4 text-primary-600" />
+                      </div>
+                      <div className="space-y-2">
+                        {signals.length === 0 && (
+                          <div className="text-sm text-secondary-600 ">
+                            No active signals.
+                          </div>
+                        )}
+                        {signals.map((signal) => (
+                          <button
+                            key={signal.id}
+                            onClick={() => handleSignalClick(signal)}
+                            className={`w-full text-left px-3 py-2 rounded-lg border transition-colors ${activeSignalId === signal.id
+                              ? 'border-primary-400 bg-primary-50/60'
+                              : 'border-secondary-200 hover:border-primary-300 hover:bg-primary-50/40'
+                              }`}
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <div>
+                                <p className="text-sm font-medium text-secondary-900 ">
+                                  {signal.title}
+                                  {isLive ? (
+                                    <span className="ml-2 px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse align-middle">LIVE</span>
+                                  ) : (
+                                    <span className="ml-2 px-2 py-0.5 bg-red-600 text-white rounded text-xs align-middle">DEMO</span>
+                                  )}
+                                </p>
+                                <p className="text-xs text-secondary-600 ">
+                                  {signal.message}
+                                </p>
+                                <p className="text-xs text-secondary-500 mt-1">
+                                  Affects {signal.affectedWards?.length || 0} zones
+                                </p>
+                              </div>
+                              <span
+                                className={`badge ${signal.severity === 'critical'
+                                  ? 'badge-danger'
+                                  : signal.severity === 'warning'
+                                    ? 'badge-warning'
+                                    : 'badge-info'
+                                  }`}
+                              >
+                                {signal.type}
+                              </span>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {displayedWards.length > 0 ? (
+                    displayedWards.map(ward => (
+                      <WardCard key={ward.id} ward={ward} />
+                    ))
+                  ) : (
+                    <div className="col-span-full">
+                      <div className="card text-center py-12">
+                        <p className="text-secondary-600  text-lg">
+                          No wards found matching your filters.
+                        </p>
+                        <button
+                          onClick={handleResetFilters}
+                          className="btn btn-primary mt-4"
+                        >
+                          Reset Filters
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Ward Detail Modal */}
+              {viewMode === 'list' && selectedWard && <WardDetailModal />}
+            </React.Fragment>
+          );
                   onClick={handleResetFilters}
                   className="btn btn-primary mt-4"
                 >

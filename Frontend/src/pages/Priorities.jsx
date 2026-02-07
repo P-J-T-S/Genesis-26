@@ -18,7 +18,7 @@ import {
   selectWards,
   selectSelectedWard
 } from '../store/slices/waste/wasteSlice';
-import { demoAPI } from '../data/demoData';
+import { priorityAPI, zonesAPI } from '../services/api';
 import { getWPILevel, formatNumber, exportToCSV } from '../utils/helpers';
 import WardDetailModal from '../components/waste/WardDetailModal';
 
@@ -32,6 +32,7 @@ const Priorities = () => {
   const [sortBy, setSortBy] = useState('wpi'); // wpi, complaints, name
   const [sortOrder, setSortOrder] = useState('desc');
   const [filterLevel, setFilterLevel] = useState('all');
+  const [isLive, setIsLive] = useState(false);
 
   useEffect(() => {
     loadPriorities();
@@ -41,13 +42,21 @@ const Priorities = () => {
     setLoading(true);
     try {
       const [prioritiesRes, wardsRes] = await Promise.all([
-        demoAPI.getPriorities(currentMode),
-        demoAPI.getWards(currentMode)
+        priorityAPI.getPriorities(currentMode),
+        zonesAPI.getWards(currentMode)
       ]);
 
-      if (prioritiesRes.success) dispatch(setPriorities(prioritiesRes.data));
-      if (wardsRes.success) dispatch(setWards(wardsRes.data));
+      if (prioritiesRes.data && prioritiesRes.status === 200 && Array.isArray(prioritiesRes.data.data)) {
+        dispatch(setPriorities(prioritiesRes.data.data));
+        setIsLive(true);
+      } else {
+        setIsLive(false);
+      }
+      if (wardsRes.data && wardsRes.status === 200 && Array.isArray(wardsRes.data.data)) {
+        dispatch(setWards(wardsRes.data.data));
+      }
     } catch (error) {
+      setIsLive(false);
       console.error('Error loading priorities:', error);
     } finally {
       setLoading(false);
@@ -55,7 +64,8 @@ const Priorities = () => {
   };
 
   const getWardDetails = (wardId) => {
-    return wards.find(w => w.id === wardId);
+    // Try to find by id or wardId, fallback to priority object itself
+    return wards.find(w => w.id === wardId || w.wardId === wardId) || priorities.find(p => p.wardId === wardId);
   };
 
   const handleViewWard = (wardId) => {
@@ -146,6 +156,13 @@ const Priorities = () => {
 
   return (
     <div className="container-fluid py-6 space-y-6 animate-fade-in">
+      <div className="absolute top-2 right-2 z-20">
+        {isLive ? (
+          <span className="px-3 py-1 bg-green-600 text-white rounded font-semibold text-xs animate-pulse shadow-lg border border-green-700">LIVE</span>
+        ) : (
+          <span className="px-3 py-1 bg-red-600 text-white rounded font-semibold text-xs shadow-lg border border-red-700">DEMO</span>
+        )}
+      </div>
       {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div>
@@ -299,67 +316,37 @@ const Priorities = () => {
               {sortedPriorities.map((priority, index) => {
                 const ward = getWardDetails(priority.wardId);
                 const wpiLevel = getWPILevel(priority.wpi, currentMode);
-
                 return (
                   <tr
-                    key={priority.wardId}
-                    className="hover:bg-secondary-50 transition-colors"
+                    key={priority.wardId + '-' + priority.rank}
+                    className={`hover:bg-secondary-50 transition-colors ${selectedWard?.id === priority.wardId ? 'bg-primary-50/40' : ''}`}
                   >
-                    <td className="px-6 py-4">
+                    <td className="py-2 px-3 font-semibold text-secondary-900 ">{priority.rank}</td>
+                    <td className="py-2 px-3">
                       <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-secondary-900 ">
-                          {index + 1}
-                        </span>
-                        {index === 0 && <span className="text-xl">🏆</span>}
-                        {index === 1 && <span className="text-xl">🥈</span>}
-                        {index === 2 && <span className="text-xl">🥉</span>}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div>
-                        <p className="font-medium text-secondary-900 ">
-                          {priority.wardName}
-                        </p>
-                        <p className="text-sm text-secondary-600 ">
-                          {priority.wardId} • {ward?.zone}
-                        </p>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl font-bold text-secondary-900 ">
-                          {priority.wpi}
-                        </span>
-                        <div
-                          className="h-2 w-24 bg-secondary-200  rounded-full overflow-hidden"
+                        <span>{priority.wardName}</span>
+                        {isLive ? (
+                          <span className="ml-2 px-2 py-0.5 bg-green-600 text-white rounded text-xs animate-pulse align-middle">LIVE</span>
+                        ) : (
+                          <span className="ml-2 px-2 py-0.5 bg-red-600 text-white rounded text-xs align-middle">DEMO</span>
+                        )}
+                        <button
+                          className="btn btn-xs btn-outline-primary"
+                          onClick={() => handleViewWard(priority.wardId)}
                         >
-                          <div
-                            className={`h-full transition-all duration-300 ${wpiLevel.level === 'critical' ? 'bg-danger-500' :
-                              wpiLevel.level === 'high' ? 'bg-orange-500' :
-                                  wpiLevel.level === 'medium' ? 'bg-warning-500' :
-                                    'bg-success-500'
-                              }`}
-                            style={{ width: `${priority.wpi}%` }}
-                          />
-                        </div>
+                          <Eye className="w-4 h-4" />
+                        </button>
                       </div>
                     </td>
-                    <td className="px-6 py-4">
-                      <span className={`badge badge-${wpiLevel.color}`}>
-                        {wpiLevel.label}
-                      </span>
+                    <td className="py-2 px-3 text-center font-mono font-bold text-lg">
+                      {priority.wpi}
                     </td>
-                    <td className="px-6 py-4">
-                      <span className="text-secondary-900  font-medium">
-                        {ward?.complaints || 0}
-                      </span>
+                    <td className="py-2 px-3 text-center">
+                      <span className={`badge badge-${wpiLevel.color}`}>{wpiLevel.label}</span>
                     </td>
-                    <td className="px-6 py-4">
-                      <span className="text-secondary-600 ">
-                        {ward ? formatNumber(ward.population) : 'N/A'}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-center">
+                    <td className="py-2 px-3 text-center">{ward?.complaints || 0}</td>
+                    <td className="py-2 px-3 text-center">{ward ? formatNumber(ward.population) : 'N/A'}</td>
+                    <td className="py-2 px-3 text-center">
                       <button
                         onClick={() => handleViewWard(priority.wardId)}
                         className="btn btn-sm btn-secondary"

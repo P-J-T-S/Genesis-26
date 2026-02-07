@@ -7,7 +7,7 @@ import ThemeProvider from './components/theme/ThemeProvider.jsx'
 import Layout from './components/layout/Layout';
 
 // Pages
-import { Landing, Login, Signup, Dashboard, Wards, Priorities, Recommendations } from './pages/index'
+import { Landing, Login, Signup, Wards, Priorities, Recommendations } from './pages/index'
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -36,7 +36,7 @@ const PublicRoute = ({ children }) => {
     );
   }
 
-  return !isAuthenticated ? children : <Navigate to="/home" />;
+  return !isAuthenticated ? children : <Navigate to="/wards" />;
 };
 
 function AppRoutes() {
@@ -65,17 +65,15 @@ function AppRoutes() {
       <Route
         path="/*"
         element={
-            <Layout />
+          <Layout />
         }
       >
-        <Route path="dashboard" element={<Dashboard />} />
         <Route path="wards" element={<Wards />} />
         <Route path="priorities" element={<Priorities />} />
         <Route path="recommendations" element={<Recommendations />} />
+        {/* Redirect unknown protected routes to wards */}
+        <Route path="*" element={<Navigate to="/wards" replace />} />
       </Route>
-
-      {/* Catch all */}
-      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }

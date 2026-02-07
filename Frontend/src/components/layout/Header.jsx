@@ -1,9 +1,10 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { LogOut, User, Bell } from 'lucide-react';
+import { mockUsers } from '../../data/demoData';
 
 const Header = () => {
-  const { logout, user } = useAuth();
+  const { logout, user, login } = useAuth();
 
   return (
     <header className="bg-white border-b border-secondary-200 px-6 py-4">
@@ -15,6 +16,23 @@ const Header = () => {
 
         {/* Right side - User actions */}
         <div className="flex items-center gap-4">
+          {/* Role Switcher (Demo Only) */}
+          <div className="hidden lg:flex items-center gap-2 mr-4 bg-primary-50 px-3 py-1.5 rounded-lg border border-primary-200">
+            <span className="text-xs font-semibold text-primary-700 uppercase">Demo Role:</span>
+            <select
+              className="text-sm bg-transparent border-none focus:ring-0 text-primary-900 font-medium cursor-pointer"
+              value={user?.email || ''}
+              onChange={(e) => {
+                const email = e.target.value;
+                if (email) login(email, 'password'); // Password ignored for mock
+              }}
+            >
+              {mockUsers.map(u => (
+                <option key={u.id} value={u.email}>{u.name} ({u.role.replace('_', ' ')})</option>
+              ))}
+            </select>
+          </div>
+
           {/* Notifications - placeholder */}
           <button className="p-2 hover:bg-secondary-100 rounded-lg transition-colors relative">
             <Bell className="w-5 h-5 text-secondary-600" />
@@ -30,7 +48,7 @@ const Header = () => {
               <div className="text-sm font-medium text-secondary-900">
                 {user?.email || 'Officer'}
               </div>
-              <div className="text-xs text-secondary-600">SWM Supervisor</div>
+              <div className="text-xs text-secondary-600">{(user?.role || 'SWM Supervisor').replace('_', ' ')}</div>
             </div>
           </div>
 

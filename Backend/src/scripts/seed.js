@@ -10,116 +10,23 @@ import { Event } from '../models/event.model.js';
 import { Alert } from '../models/alert.model.js';
 import { Recommendation } from '../models/recommendation.model.js';
 
-const mumbaiZones = [
-  {
-    zone_id: 'zone_andheri_w',
-    zone_name: 'Andheri West',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8362, 19.1362],
-    },
-    is_hotspot: true,
-  },
-  {
-    zone_id: 'zone_andheri_e',
-    zone_name: 'Andheri East',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8697, 19.1197],
-    },
+// --- PATCHED: Use frontend mockData and polygons for real BMC wards ---
+import { wardsData, wardPolygons } from './wardsData.backend.js';
+// NOTE: Do not use any frontend utility functions from demoData.js in backend seeding
+
+const mumbaiZones = wardsData.map(ward => {
+  const polygon = wardPolygons[ward.id];
+  return {
+    zone_id: ward.id,
+    zone_name: ward.fullName || ward.name,
+    geojson: polygon
+      ? { type: 'Polygon', coordinates: polygon.coordinates }
+      : { type: 'Point', coordinates: [ward.coordinates.lng, ward.coordinates.lat] },
     is_hotspot: false,
-  },
-  {
-    zone_id: 'zone_bandra_w',
-    zone_name: 'Bandra West',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8296, 19.0596],
-    },
-    is_hotspot: true,
-  },
-  {
-    zone_id: 'zone_bandra_e',
-    zone_name: 'Bandra East',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8516, 19.0516],
-    },
-    is_hotspot: false,
-  },
-  {
-    zone_id: 'zone_dadar',
-    zone_name: 'Dadar',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8426, 19.0176],
-    },
-    is_hotspot: true,
-  },
-  {
-    zone_id: 'zone_kurla',
-    zone_name: 'Kurla',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8796, 19.0726],
-    },
-    is_hotspot: false,
-  },
-  {
-    zone_id: 'zone_dharavi',
-    zone_name: 'Dharavi',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8553, 19.043],
-    },
-    is_hotspot: true,
-  },
-  {
-    zone_id: 'zone_worli',
-    zone_name: 'Worli',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8183, 19.0096],
-    },
-    is_hotspot: false,
-  },
-  {
-    zone_id: 'zone_colaba',
-    zone_name: 'Colaba',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8318, 18.9067],
-    },
-    is_hotspot: false,
-  },
-  {
-    zone_id: 'zone_juhu',
-    zone_name: 'Juhu',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8296, 19.0996],
-    },
-    is_hotspot: true,
-  },
-  {
-    zone_id: 'zone_malad',
-    zone_name: 'Malad West',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8416, 19.1816],
-    },
-    is_hotspot: false,
-  },
-  {
-    zone_id: 'zone_goregaon',
-    zone_name: 'Goregaon',
-    geojson: {
-      type: 'Point',
-      coordinates: [72.8556, 19.1556],
-    },
-    is_hotspot: false,
-  },
-];
+    signals: ward.signals || {},
+    wpi: ward.wpi || 50
+  };
+});
 
 async function seedZones() {
   await Zone.deleteMany({});
@@ -132,9 +39,9 @@ async function seedZoneStatus(zones) {
   await ZoneStatus.deleteMany({});
 
   const statuses = zones.map((zone, i) => {
-    // Vary WPI scores for demo
-    const wpiScores = [15, 25, 35, 45, 55, 65, 72, 78, 85, 42, 28, 60];
-    const wpi = wpiScores[i] || 50;
+    // Use seeded WPI and signals from zone
+    const wpi = zone.wpi || 50;
+    const signals = zone.signals || {};
 
     let color = 'green';
     if (wpi > 75) color = 'red';
@@ -149,6 +56,7 @@ async function seedZoneStatus(zones) {
       priority_rank: i + 1,
       mode: 'normal',
       last_updated: new Date(),
+      signals
     };
   });
 
