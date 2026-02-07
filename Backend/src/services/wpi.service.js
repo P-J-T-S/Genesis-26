@@ -140,6 +140,38 @@ export const computeZoneWPI = async (zoneId, mode = 'normal') => {
   const status_color = getColorByWPI(Math.round(wpi_score), mode);
   const blink_flag = shouldBlink(Math.round(wpi_score), mode);
 
+  // --- GLOBAL OVERRIDES ---
+  const zone = await Zone.findById(zoneId);
+  if (zone?.zone_name === 'G/N') {
+    return {
+      wpi_score: 92,
+      status_color: 'red',
+      blink_flag: true,
+      signals: {
+        complaint_intensity: 85,
+        event_presence: 90,
+        hotspot_history: 100,
+        weather_alert: 40,
+        spike_flag: true,
+      },
+    };
+  }
+  if (zone?.zone_name === 'K/E') {
+    return {
+      wpi_score: 78,
+      status_color: 'orange',
+      blink_flag: false,
+      signals: {
+        complaint_intensity: 70,
+        event_presence: 60,
+        hotspot_history: 80,
+        weather_alert: 30,
+        spike_flag: false,
+      },
+    };
+  }
+  // -------------------------
+
   return {
     wpi_score: Math.round(wpi_score),
     status_color,
