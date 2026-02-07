@@ -46,8 +46,31 @@ const Priorities = () => {
         zonesAPI.getWards(currentMode)
       ]);
 
-      if (prioritiesRes.data && prioritiesRes.status === 200 && Array.isArray(prioritiesRes.data.data)) {
-        dispatch(setPriorities(prioritiesRes.data.data));
+      // Backend returns { data: { priority_zones: [...] } }
+      let prioritiesArr = [];
+      if (
+        prioritiesRes.data &&
+        prioritiesRes.status === 200 &&
+        prioritiesRes.data.data &&
+        Array.isArray(prioritiesRes.data.data.priority_zones)
+      ) {
+        // Map backend format to frontend expected format
+        prioritiesArr = prioritiesRes.data.data.priority_zones.map((item, idx) => {
+          const zone = item.zone_id || {};
+          return {
+            rank: item.priority_rank || idx + 1,
+            wardId: zone.zone_id || zone._id || '',
+            wardName: zone.zone_name || '',
+            wpi: item.wpi_score || item.wpi || 0,
+            urgency: item.critical ? 'critical' : 'normal',
+            zone: zone.zone_name || '',
+            population: zone.population || '',
+            complaints: zone.complaints || '',
+            lastCollection: zone.lastCollection || '',
+            ...item
+          };
+        });
+        dispatch(setPriorities(prioritiesArr));
         setIsLive(true);
       } else {
         setIsLive(false);

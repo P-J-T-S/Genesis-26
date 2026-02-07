@@ -1,17 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authAPI, userAPI } from '../services/api';
-import { mockUsers } from '../data/demoData';
 
 const AuthContext = createContext(null);
-
-export const ROLES = {
-  CITY_HEAD: 'CITY_HEAD',
-  WARD_OFFICER: 'WARD_OFFICER',
-  ZONAL_SUPERVISOR: 'ZONAL_SUPERVISOR',
-  MANAGER: 'MANAGER',
-  TECHNICIAN: 'TECHNICIAN',
-  USER: 'USER',
-};
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -55,25 +45,9 @@ export const AuthProvider = ({ children }) => {
   // Accept login_id for officer login
   const login = async (login_id, password) => {
     try {
-<<<<<<< HEAD
       const response = await authAPI.login(login_id, password);
       // Backend returns officer, not user
       const { accessToken, officer: userData } = response.data.data;
-=======
-      // Check for mock user login (Demo Mode)
-      const mockUser = mockUsers.find(u => u.email === email);
-      if (mockUser) {
-        // Simulate API response structure
-        const userData = mockUser;
-        localStorage.setItem('accessToken', 'mock-token-' + userData.id);
-        localStorage.setItem('user', JSON.stringify(userData));
-        setUser(userData);
-        return { success: true, user: userData };
-      }
-
-      const response = await authAPI.login(email, password);
-      const { accessToken, user: userData } = response.data.data;
->>>>>>> initial-frontend
 
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('user', JSON.stringify(userData));
@@ -123,10 +97,7 @@ export const AuthProvider = ({ children }) => {
     logout,
     loading,
     isAuthenticated: !!user,
-    isCityHead: user?.role === 'CITY_HEAD',
-    isWardOfficer: user?.role === 'WARD_OFFICER',
-    isZonalSupervisor: user?.role === 'ZONAL_SUPERVISOR',
-    isAdmin: user?.role === 'CITY_HEAD', // Mapping City Head to Admin for backward compatibility if needed
+    isAdmin: user?.role === 'MANAGER',
     isManager: user?.role === 'MANAGER',
     isTechnician: user?.role === 'TECHNICIAN',
     isUser: user?.role === 'USER',

@@ -10,8 +10,14 @@ const WardMap = ({ wards, currentMode, highlightedWardIds = [], selectedWardId }
   const normalizedWards = useMemo(() => {
     if (!wards || wards.length === 0) return [];
 
-    const lats = wards.map((w) => w.coordinates.lat);
-    const lngs = wards.map((w) => w.coordinates.lng);
+    // Defensive: Only use wards with valid coordinates
+    const validWards = wards.filter(
+      w => w.coordinates && typeof w.coordinates.lat === 'number' && typeof w.coordinates.lng === 'number'
+    );
+    if (validWards.length === 0) return [];
+
+    const lats = validWards.map((w) => w.coordinates.lat);
+    const lngs = validWards.map((w) => w.coordinates.lng);
     const minLat = Math.min(...lats);
     const maxLat = Math.max(...lats);
     const minLng = Math.min(...lngs);
@@ -20,7 +26,7 @@ const WardMap = ({ wards, currentMode, highlightedWardIds = [], selectedWardId }
     const latRange = maxLat - minLat || 1;
     const lngRange = maxLng - minLng || 1;
 
-    return wards.map((ward) => {
+    return validWards.map((ward) => {
       const x = ((ward.coordinates.lng - minLng) / lngRange) * 100;
       const y = 100 - ((ward.coordinates.lat - minLat) / latRange) * 100;
       return { ...ward, mapX: x, mapY: y };
