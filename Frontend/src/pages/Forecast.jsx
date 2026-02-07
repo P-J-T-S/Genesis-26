@@ -281,35 +281,42 @@ const Forecast = () => {
 
                                 <div className="divide-y divide-secondary-100">
                                     {result.recommendations && result.recommendations.length > 0 ? (
-                                        result.recommendations.map((rec, index) => (
-                                            <div key={index} className="p-6 hover:bg-secondary-50 transition-colors">
-                                                <div className="flex items-start justify-between gap-4">
-                                                    <div className="space-y-1">
-                                                        <div className="flex items-center gap-2">
-                                                            <span className={`w-2 h-2 rounded-full ${rec.priority === 'critical' ? 'bg-danger-500' :
-                                                                    rec.priority === 'high' ? 'bg-warning-500' : 'bg-primary-500'
-                                                                }`}></span>
-                                                            <h4 className="font-semibold text-secondary-900">{rec.title}</h4>
-                                                        </div>
-                                                        <p className="text-sm text-secondary-600 leading-relaxed">{rec.description}</p>
-                                                    </div>
-                                                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-secondary-100 text-secondary-600 rounded">
-                                                        {rec.type}
-                                                    </span>
-                                                </div>
+                                        result.recommendations.map((rec, index) => {
+                                            const priority = rec.priority ||
+                                                (rec.actionability_score >= 90 ? 'critical' :
+                                                    rec.actionability_score >= 80 ? 'high' :
+                                                        rec.actionability_score >= 50 ? 'medium' : 'low');
 
-                                                {rec.actions && rec.actions.length > 0 && (
-                                                    <div className="mt-4 pl-4 border-l-2 border-secondary-200 space-y-2">
-                                                        {rec.actions.map((action, ai) => (
-                                                            <div key={ai} className="flex items-center gap-2 text-xs text-secondary-700">
-                                                                <ChevronRight className="w-3 h-3 text-secondary-400" />
-                                                                {action}
+                                            return (
+                                                <div key={index} className="p-6 hover:bg-secondary-50 transition-colors">
+                                                    <div className="flex items-start justify-between gap-4">
+                                                        <div className="space-y-1">
+                                                            <div className="flex items-center gap-2">
+                                                                <span className={`w-2 h-2 rounded-full ${priority === 'critical' ? 'bg-danger-500' :
+                                                                        priority === 'high' ? 'bg-warning-500' : 'bg-primary-500'
+                                                                    }`}></span>
+                                                                <h4 className="font-semibold text-secondary-900">{rec.recommended_action}</h4>
                                                             </div>
-                                                        ))}
+                                                            <p className="text-sm text-secondary-600 leading-relaxed">{rec.reason_text}</p>
+                                                        </div>
+                                                        <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-secondary-100 text-secondary-600 rounded">
+                                                            {rec.type || 'AI Suggested'}
+                                                        </span>
                                                     </div>
-                                                )}
-                                            </div>
-                                        ))
+
+                                                    {rec.actions && rec.actions.length > 0 && (
+                                                        <div className="mt-4 pl-4 border-l-2 border-secondary-200 space-y-2">
+                                                            {rec.actions.map((action, ai) => (
+                                                                <div key={ai} className="flex items-center gap-2 text-xs text-secondary-700">
+                                                                    <ChevronRight className="w-3 h-3 text-secondary-400" />
+                                                                    {action}
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            );
+                                        })
                                     ) : (
                                         <div className="p-12 text-center text-secondary-500 italic">
                                             No specific recommendations required based on forecasted pressure levels.
