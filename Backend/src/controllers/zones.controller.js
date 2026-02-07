@@ -57,8 +57,8 @@ export const getZonesStatus = asyncHandler(async (req, res) => {
 
   return res.status(200).json(
     new ApiResponse(200, {
+      data: rankedZones,
       mode: globalMode,
-      zones: rankedZones,
       timestamp: new Date(),
     }, 'Zone status retrieved successfully')
   );
@@ -79,19 +79,19 @@ export const getZoneDetail = asyncHandler(async (req, res) => {
   const wpiData = await computeZoneWPI(id, globalMode);
 
   // **Task 4a: Save/update ZoneStatus to DB for persistence & fallback**
-const zoneStatus = await ZoneStatus.findOneAndUpdate(
-  { zone_id: id },
-  {
-    zone_id: id,
-    wpi_score: wpiData.wpi_score,
-    status_color: wpiData.status_color,
-    blink_flag: wpiData.blink_flag,
-    mode: globalMode,
-    signals: wpiData.signals,
-    last_updated: new Date(),
-  },
-  { upsert: true, new: true }
-);
+  const zoneStatus = await ZoneStatus.findOneAndUpdate(
+    { zone_id: id },
+    {
+      zone_id: id,
+      wpi_score: wpiData.wpi_score,
+      status_color: wpiData.status_color,
+      blink_flag: wpiData.blink_flag,
+      mode: globalMode,
+      signals: wpiData.signals,
+      last_updated: new Date(),
+    },
+    { upsert: true, new: true }
+  );
 
   // Fetch recent complaints
   const recentComplaints = await ComplaintAgg.findOne({
@@ -160,7 +160,7 @@ const zoneStatus = await ZoneStatus.findOneAndUpdate(
         active_alerts: alerts,
       },
       recommendations,
-          last_updated: zoneStatus.last_updated,
+      last_updated: zoneStatus.last_updated,
     }, 'Zone detail retrieved successfully')
   );
 });

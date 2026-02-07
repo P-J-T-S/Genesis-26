@@ -217,6 +217,20 @@ export const saveRecommendations = async (recommendations) => {
   }
 };
 
+export const getAllRecentRecommendations = async (limit = 20) => {
+  try {
+    const recommendations = await Recommendation.find({})
+      .populate('zone_id')
+      .sort({ generated_at: -1 })
+      .limit(limit);
+
+    return recommendations;
+  } catch (error) {
+    console.error('Error fetching all recommendations:', error);
+    return [];
+  }
+};
+
 export const getRecentRecommendations = async (zoneId, limit = 5) => {
   try {
     const recommendations = await Recommendation.find({ zone_id: zoneId })

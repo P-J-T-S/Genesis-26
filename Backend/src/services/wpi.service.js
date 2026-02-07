@@ -161,10 +161,45 @@ export const computeAllZonesWPI = async (mode = 'normal') => {
 
     for (const zone of zones) {
       const wpiData = await computeZoneWPI(zone._id, mode);
+
+      // Persist to database
+      await updateZoneStatus(zone._id, wpiData, mode);
+
+      // Get complaint count for this zone
+      const recentComplaints = await ComplaintAgg.findOne({
+        zone_id: zone._id,
+        time_window: 'last_12hrs',
+      }).sort({ timestamp: -1 });
+
+      // Format data to match frontend expectations
       results.push({
         _id: zone._id,
-        zone_id: zone.zone_id,
-        zone_name: zone.zone_name,
+        id: zone.zone_id,
+        name: zone.zone_name,
+        zone: zone.zone_type || 'Unknown',
+        kmlTarget: zone.zone_name,
+        coordinates: {
+          lat: zone.geojson?.coordinates?.[0]?.[0]?.[1] || 0,
+          lng: zone.geojson?.coordinates?.[0]?.[0]?.[0] || 0,
+        },
+        population: zone.population || 0,
+        complaints: recentComplaints?.complaint_count || 0,
+        wpi: wpiData.wpi_score,
+        wpiBreakdown: [
+          { key: 'complaint_intensity', label: 'Complaint Intensity', contribution: Math.round((modeConfig[mode]?.weights?.complaint_intensity || 0.4) * (wpiData.signals.complaint_intensity || 0)) },
+          { key: 'event_presence', label: 'Event Presence', contribution: Math.round((modeConfig[mode]?.weights?.event_presence || 0.2) * (wpiData.signals.event_presence || 0)) },
+          { key: 'hotspot_history', label: 'Hotspot History', contribution: Math.round((modeConfig[mode]?.weights?.hotspot_history || 0.2) * (wpiData.signals.hotspot_history || 0)) },
+          { key: 'weather_alert', label: 'Weather Alert', contribution: Math.round((modeConfig[mode]?.weights?.weather_alert || 0.1) * (wpiData.signals.weather_alert || 0)) },
+          { key: 'spike_flag', label: 'Complaint Spike', contribution: Math.round((modeConfig[mode]?.weights?.spike_flag || 0.1) * (wpiData.signals.spike_flag ? 100 : 0)) }
+        ],
+        pressureLevel: wpiData.status_color === '#10b981' ? 'low' :
+          wpiData.status_color === '#eab308' ? 'medium' :
+            wpiData.status_color === '#f97316' ? 'high' : 'critical',
+        complianceScore: zone.compliance_score || 'Medium',
+        operationalInsights: zone.operational_insights || '',
+        resources: zone.resources || { vehicles: 0, personnel: 0 },
+        lastCollection: '1 hour ago', // TODO: Add to model
+        nextScheduled: '3 hours', // TODO: Add to model
         geojson: zone.geojson,
         ...wpiData,
       });

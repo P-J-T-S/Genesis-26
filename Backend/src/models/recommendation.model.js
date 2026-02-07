@@ -2,6 +2,13 @@ import mongoose from "mongoose";
 
 const recommendationSchema = new mongoose.Schema(
 	{
+		rec_id: {
+			type: String,
+			required: true,
+			unique: true,
+			index: true,
+			default: () => new mongoose.Types.ObjectId().toHexString(),
+		},
 		zone_id: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Zone",

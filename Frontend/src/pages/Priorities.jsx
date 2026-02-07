@@ -59,14 +59,14 @@ const Priorities = () => {
           const zone = item.zone_id || {};
           return {
             rank: item.priority_rank || idx + 1,
-            wardId: zone.zone_id || zone._id || '',
-            wardName: zone.zone_name || '',
+            wardId: zone.id || zone.zone_id || zone._id || '',
+            wardName: zone.name || zone.zone_name || '',
             wpi: item.wpi_score || item.wpi || 0,
             urgency: item.critical ? 'critical' : 'normal',
-            zone: zone.zone_name || '',
-            population: zone.population || '',
-            complaints: zone.complaints || '',
-            lastCollection: zone.lastCollection || '',
+            zone: zone.zone || zone.zone_type || '',
+            population: zone.population || 0,
+            complaints: zone.complaints || 0,
+            lastCollection: zone.lastCollection || 'N/A',
             ...item
           };
         });
@@ -88,7 +88,11 @@ const Priorities = () => {
 
   const getWardDetails = (wardId) => {
     // Try to find by id or wardId, fallback to priority object itself
-    return wards.find(w => w.id === wardId || w.wardId === wardId) || priorities.find(p => p.wardId === wardId);
+    const foundWard = wards.find(w => w.id === wardId || w.wardId === wardId || w.zone_id === wardId);
+    if (foundWard) return foundWard;
+
+    // Fallback to priority data
+    return priorities.find(p => p.wardId === wardId);
   };
 
   const handleViewWard = (wardId) => {

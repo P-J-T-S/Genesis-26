@@ -72,6 +72,6 @@ const eventSchema = new mongoose.Schema(
 eventSchema.index({ zone_id: 1, start_time: 1 });
 
 // For faster lookups by event id
-eventSchema.index({ event_id: 1 });
+// event_id already has index: true in the schema definition
 
 export const Event = mongoose.model("Event", eventSchema);

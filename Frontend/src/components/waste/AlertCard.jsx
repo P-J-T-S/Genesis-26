@@ -15,10 +15,10 @@ const AlertCard = ({ alert, onDismiss }) => {
           <div className="flex items-start justify-between gap-2">
             <div className="flex-1">
               <h4 className={`font-semibold ${severity.textClass}`}>
-                {alert.title}
+                {alert.title || 'System Alert'}
               </h4>
               <p className="text-sm text-secondary-900 mt-1">
-                {alert.message}
+                {alert.message || alert.description}
               </p>
             </div>
             {onDismiss && (

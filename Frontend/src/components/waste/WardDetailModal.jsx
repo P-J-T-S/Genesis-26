@@ -28,11 +28,15 @@ const WardDetailModal = () => {
 
   if (!ward) return null;
 
+  const wardId = ward.id || ward.zone_id || ward._id;
   const wpiLevel = getWPILevel(ward.wpi, currentMode);
 
   const wardRecommendations = useMemo(() => {
-    return recommendations.filter((rec) => rec.wardId === ward.id).slice(0, 2);
-  }, [recommendations, ward.id]);
+    return recommendations.filter((rec) => {
+      const recWardId = rec.wardId || rec.zone_id?.zone_id || rec.zone_id?._id || rec.zone_id;
+      return recWardId === wardId;
+    }).slice(0, 2);
+  }, [recommendations, wardId]);
 
   const handleClose = () => {
     dispatch(clearSelectedWard());
@@ -253,7 +257,7 @@ const WardDetailModal = () => {
                   WPI signal breakdown
                 </p>
                 <div className="space-y-2">
-                  {(ward.wpiBreakdown || []).map((signal) => (
+                  {Array.isArray(ward.wpiBreakdown) && ward.wpiBreakdown.map((signal) => (
                     <div key={signal.key} className="flex items-center justify-between text-xs">
                       <span className="text-secondary-600">
                         {signal.label}

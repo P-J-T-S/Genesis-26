@@ -1,6 +1,7 @@
 // Recommendations API
 export const recommendationsAPI = {
-    getRecommendations: (zoneId, limit = 5) => api.get(`/api/v1/recommendations/${zoneId}`, { params: { limit } }),
+    getRecommendations: (zoneId) => api.get(`/api/v1/recommendations/${zoneId}`),
+    getAllRecommendations: () => api.get('/api/v1/recommendations'),
     runRecommendations: (mode = 'normal') => api.post('/api/v1/recommendations/run', { mode }),
 };
 
@@ -30,12 +31,12 @@ export const zonesAPI = {
     getWards: async (mode) => {
         // Use /status endpoint for live data
         const res = await api.get('/api/v1/zones/status', { params: { mode } });
-        // Return the zones array in the same shape as before
+        // Return the data array in the same shape as before
         return {
             ...res,
             data: {
                 ...res.data,
-                data: Array.isArray(res.data?.data?.zones) ? res.data.data.zones : [],
+                data: Array.isArray(res.data?.data?.data) ? res.data.data.data : [],
             },
         };
     },

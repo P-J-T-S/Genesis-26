@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { 
-  Lightbulb, 
-  AlertCircle, 
+import {
+  Lightbulb,
+  AlertCircle,
   CheckCircle,
   Clock,
   Users,
@@ -16,12 +16,18 @@ import {
   selectRecommendations,
   selectCurrentMode
 } from '../store/slices/waste/wasteSlice';
-import { demoAPI } from '../data/demoData';
-import { getRecommendationPriorityClass } from '../utils/helpers';
+import { recommendationsAPI } from '../services/api';
+import { getRecommendationPriorityClass, formatRelativeTime } from '../utils/helpers';
 
 const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
-  const priorityClass = getRecommendationPriorityClass(recommendation.priority);
-  
+  // Map priority from backend actionability score or context
+  const priority = recommendation.priority ||
+    (recommendation.actionability_score >= 90 ? 'critical' :
+      recommendation.actionability_score >= 80 ? 'high' :
+        recommendation.actionability_score >= 50 ? 'medium' : 'low');
+
+  const priorityClass = getRecommendationPriorityClass(priority);
+
   const priorityConfig = {
     critical: { icon: <AlertCircle className="w-5 h-5" />, label: 'Critical', color: 'text-danger-700' },
     high: { icon: <AlertCircle className="w-5 h-5" />, label: 'High Priority', color: 'text-warning-700' },
@@ -29,7 +35,7 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
     low: { icon: <CheckCircle className="w-5 h-5" />, label: 'Routine', color: 'text-success-700' }
   };
 
-  const config = priorityConfig[recommendation.priority] || priorityConfig.medium;
+  const config = priorityConfig[priority] || priorityConfig.medium;
 
   return (
     <div className={`card ${priorityClass} transition-all duration-200`}>
@@ -46,10 +52,10 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
               </span>
             </div>
             <h3 className="text-lg font-semibold text-secondary-900 ">
-              {recommendation.title}
+              {recommendation.title || recommendation.recommended_action}
             </h3>
             <p className="text-sm text-secondary-700   mt-1">
-              Ward: <span className="font-medium">{recommendation.wardName}</span> ({recommendation.wardId})
+              Ward: <span className="font-medium">{recommendation.wardName || recommendation.zone_id?.zone_name}</span> ({recommendation.wardId || recommendation.zone_id?.zone_id})
             </p>
           </div>
           <button
@@ -62,22 +68,22 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
 
         {/* Description */}
         <p className="text-secondary-700  ">
-          {recommendation.description}
+          {recommendation.description || recommendation.reason_text}
         </p>
 
         {/* Quick Info */}
         <div className="flex flex-wrap items-center gap-4 text-sm">
           <div className="flex items-center gap-2 text-secondary-600 ">
             <Clock className="w-4 h-4" />
-            <span>{recommendation.timeframe}</span>
+            <span>{recommendation.timeframe || formatRelativeTime(recommendation.generated_at)}</span>
           </div>
-          {recommendation.resources.vehicles > 0 && (
+          {recommendation.resources?.vehicles > 0 && (
             <div className="flex items-center gap-2 text-secondary-600 ">
               <Truck className="w-4 h-4" />
               <span>{recommendation.resources.vehicles} vehicles</span>
             </div>
           )}
-          {recommendation.resources.personnel > 0 && (
+          {recommendation.resources?.personnel > 0 && (
             <div className="flex items-center gap-2 text-secondary-600 ">
               <Users className="w-4 h-4" />
               <span>{recommendation.resources.personnel} personnel</span>
@@ -94,7 +100,7 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
                 Action Items
               </h4>
               <ul className="space-y-2">
-                {recommendation.actions.map((action, index) => (
+                {(recommendation.actions || [recommendation.recommended_action]).map((action, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-success-600 mt-0.5 flex-shrink-0" />
                     <span className="text-sm text-secondary-700  ">
@@ -106,65 +112,67 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
             </div>
 
             {/* Resources Required */}
-            {(recommendation.resources.vehicles > 0 || 
-              recommendation.resources.personnel > 0 || 
-              recommendation.resources.equipment?.length > 0) && (
-              <div>
-                <h4 className="font-semibold text-secondary-900  mb-2">
-                  Resources Required
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {recommendation.resources.vehicles > 0 && (
-                    <div className="bg-secondary-50  rounded-lg p-3">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Truck className="w-4 h-4 text-primary-600" />
-                        <span className="text-sm font-medium text-secondary-900 ">
-                          Vehicles
-                        </span>
+            {(recommendation.resources?.vehicles > 0 ||
+              recommendation.resources?.personnel > 0 ||
+              recommendation.resources?.equipment?.length > 0) && (
+                <div>
+                  <h4 className="font-semibold text-secondary-900  mb-2">
+                    Resources Required
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {recommendation.resources?.vehicles > 0 && (
+                      <div className="bg-secondary-50  rounded-lg p-3">
+                        <div className="flex items-center gap-2 mb-1">
+                          <Truck className="w-4 h-4 text-primary-600" />
+                          <span className="text-sm font-medium text-secondary-900 ">
+                            Vehicles
+                          </span>
+                        </div>
+                        <p className="text-2xl font-bold text-primary-600">
+                          {recommendation.resources.vehicles}
+                        </p>
                       </div>
-                      <p className="text-2xl font-bold text-primary-600">
-                        {recommendation.resources.vehicles}
-                      </p>
-                    </div>
-                  )}
-                  {recommendation.resources.personnel > 0 && (
-                    <div className="bg-secondary-50  rounded-lg p-3">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Users className="w-4 h-4 text-primary-600" />
-                        <span className="text-sm font-medium text-secondary-900 ">
-                          Personnel
-                        </span>
+                    )}
+                    {recommendation.resources?.personnel > 0 && (
+                      <div className="bg-secondary-50  rounded-lg p-3">
+                        <div className="flex items-center gap-2 mb-1">
+                          <Users className="w-4 h-4 text-primary-600" />
+                          <span className="text-sm font-medium text-secondary-900 ">
+                            Personnel
+                          </span>
+                        </div>
+                        <p className="text-2xl font-bold text-primary-600">
+                          {recommendation.resources.personnel}
+                        </p>
                       </div>
-                      <p className="text-2xl font-bold text-primary-600">
-                        {recommendation.resources.personnel}
-                      </p>
-                    </div>
-                  )}
-                  {recommendation.resources.equipment?.length > 0 && (
-                    <div className="bg-secondary-50  rounded-lg p-3">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-medium text-secondary-900 ">
-                          Equipment
-                        </span>
+                    )}
+                    {recommendation.resources?.equipment?.length > 0 && (
+                      <div className="bg-secondary-50  rounded-lg p-3">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-sm font-medium text-secondary-900 ">
+                            Equipment
+                          </span>
+                        </div>
+                        <p className="text-sm text-secondary-600 ">
+                          {recommendation.resources.equipment.join(', ')}
+                        </p>
                       </div>
-                      <p className="text-sm text-secondary-600 ">
-                        {recommendation.resources.equipment.join(', ')}
-                      </p>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
             {/* Expected Impact */}
-            <div className="bg-success-50 border border-success-200 rounded-lg p-4">
-              <h4 className="font-semibold text-success-900 mb-1">
-                Expected Impact
-              </h4>
-              <p className="text-sm text-success-700">
-                {recommendation.estimatedImpact}
-              </p>
-            </div>
+            {recommendation.estimatedImpact && (
+              <div className="bg-success-50 border border-success-200 rounded-lg p-4">
+                <h4 className="font-semibold text-success-900 mb-1">
+                  Expected Impact
+                </h4>
+                <p className="text-sm text-success-700">
+                  {recommendation.estimatedImpact}
+                </p>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -188,11 +196,33 @@ const Recommendations = () => {
   const loadRecommendations = async () => {
     setLoading(true);
     try {
-      const res = await demoAPI.getRecommendations(currentMode);
-      if (res.success) {
-        dispatch(setRecommendations(res.data));
+      const res = await recommendationsAPI.getAllRecommendations();
+      if (res.data && res.data.status === 'ok') {
+        const rawRecs = res.data.recommendations || [];
+
+        // Map raw backend data to frontend structure
+        const mappedRecs = rawRecs.map(r => ({
+          ...r,
+          id: r._id,
+          title: r.recommended_action,
+          description: r.reason_text,
+          wardName: r.zone_id?.zone_name || 'Unknown',
+          wardId: r.zone_id?.zone_id || '',
+          priority: r.actionability_score >= 90 ? 'critical' :
+            r.actionability_score >= 80 ? 'high' :
+              r.actionability_score >= 50 ? 'medium' : 'low',
+          timeframe: formatRelativeTime(r.generated_at),
+          actions: [r.recommended_action],
+          resources: {
+            vehicles: Math.floor(r.actionability_score / 20), // Synthetic resource mapping
+            personnel: Math.floor(r.actionability_score / 10),
+          }
+        }));
+
+        dispatch(setRecommendations(mappedRecs));
+
         // Auto-expand critical recommendations
-        const criticalIds = res.data
+        const criticalIds = mappedRecs
           .filter(r => r.priority === 'critical')
           .map(r => r.id);
         setExpandedIds(new Set(criticalIds));
@@ -323,7 +353,7 @@ const Recommendations = () => {
               Filters:
             </span>
           </div>
-          
+
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}

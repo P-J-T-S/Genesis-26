@@ -8,7 +8,12 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
 
   const wardRecommendations = useMemo(() => {
     if (!ward) return [];
-    return recommendations.filter((rec) => rec.wardId === ward.id).slice(0, 2);
+    // Map backend zone_id to ward.id for consistency
+    const wardId = ward.id || ward.zone_id || ward._id;
+    return recommendations.filter((rec) => {
+      const recWardId = rec.wardId || rec.zone_id?.zone_id || rec.zone_id?._id || rec.zone_id;
+      return recWardId === wardId;
+    }).slice(0, 2);
   }, [ward, recommendations]);
 
   if (!ward) {
@@ -37,10 +42,12 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
     critical: 'bg-danger-500'
   }[wpiLevel.level];
 
-  const topSignals = (ward.wpiBreakdown || [])
-    .slice()
-    .sort((a, b) => b.contribution - a.contribution)
-    .slice(0, 3);
+  const topSignals = useMemo(() => {
+    if (!ward || !Array.isArray(ward.wpiBreakdown)) return [];
+    return [...ward.wpiBreakdown]
+      .sort((a, b) => (b.contribution || 0) - (a.contribution || 0))
+      .slice(0, 3);
+  }, [ward]);
 
   const actionFallback = {
     critical: [
@@ -122,8 +129,8 @@ const WardDecisionPanel = ({ ward, recommendations = [], currentMode }) => {
             <div className="flex items-center justify-between text-xs">
               <span className="text-secondary-600">Compliance Score:</span>
               <span className={`font-bold px-2 py-0.5 rounded ${ward.complianceScore === 'High' ? 'bg-success-100 text-success-700' :
-                  ward.complianceScore === 'Medium' ? 'bg-warning-100 text-warning-700' :
-                    'bg-danger-100 text-danger-700'
+                ward.complianceScore === 'Medium' ? 'bg-warning-100 text-warning-700' :
+                  'bg-danger-100 text-danger-700'
                 }`}>
                 {ward.complianceScore}
               </span>

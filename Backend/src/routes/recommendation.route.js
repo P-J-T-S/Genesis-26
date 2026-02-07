@@ -4,6 +4,7 @@ import { ZoneStatus } from '../models/zone_status.model.js';
 import {
   generateAndSaveRecommendations,
   getRecentRecommendations,
+  getAllRecentRecommendations,
 } from '../services/recommendation.service.js';
 
 const router = express.Router();
@@ -28,6 +29,20 @@ router.post('/run', async (req, res, next) => {
       status: 'ok',
       message: 'Recommendations generated',
       total_recommendations: totalGenerated,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/', async (req, res, next) => {
+  try {
+    const limit = Number(req.query.limit) || 20;
+    const recommendations = await getAllRecentRecommendations(limit);
+    res.json({
+      status: 'ok',
+      count: recommendations.length,
+      recommendations,
     });
   } catch (err) {
     next(err);

@@ -7,15 +7,18 @@ const zoneSchema = new mongoose.Schema(
       required: true,
       unique: true,
       index: true,
-      default: () => new mongoose.Types.ObjectId().toHexString(),
     },
 
     zone_name: {
       type: String,
       required: [true, "Zone name is required"],
       trim: true,
-      minlength: [2, "Zone name must be at least 2 characters"],
       index: true,
+    },
+
+    zone_type: {
+      type: String,
+      trim: true,
     },
 
     geojson: {
@@ -34,6 +37,38 @@ const zoneSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
       index: true,
+    },
+
+    population: {
+      type: Number,
+      default: 0,
+    },
+
+    wpi: {
+      type: Number,
+      default: 0,
+    },
+
+    compliance_score: {
+      type: String,
+      enum: ['High', 'Medium', 'Low'],
+      default: 'Medium',
+    },
+
+    operational_insights: {
+      type: String,
+      default: '',
+    },
+
+    resources: {
+      vehicles: {
+        type: Number,
+        default: 0,
+      },
+      personnel: {
+        type: Number,
+        default: 0,
+      },
     },
   },
   { timestamps: true }

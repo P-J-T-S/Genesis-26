@@ -8,6 +8,8 @@ import { Zone } from '../models/zone.model.js';
 import { ComplaintAgg } from '../models/complaints_agg.model.js';
 import { Event } from '../models/event.model.js';
 import { Alert } from '../models/alert.model.js';
+import { ZoneStatus } from '../models/zone_status.model.js';
+import { Recommendation } from '../models/recommendation.model.js';
 
 dotenv.config();
 
@@ -61,6 +63,8 @@ const seedDatabase = async () => {
     await ComplaintAgg.deleteMany({});
     await Event.deleteMany({});
     await Alert.deleteMany({});
+    await ZoneStatus.deleteMany({});
+    await Recommendation.deleteMany({});
     console.log('✅ Cleared existing data');
 
     // Create zones from Mumbai wards data
@@ -178,7 +182,7 @@ const seedDatabase = async () => {
 
       alerts.push({
         zone_id: zone._id,
-        alert_type: 'weather',
+        alert_type: 'rain', // Using 'rain' as a valid weather-related alert type
         severity: severityMap[ward.signals.weatherAlert] || 'medium',
         active_flag: true,
         timestamp: now,
@@ -189,6 +193,24 @@ const seedDatabase = async () => {
       await Alert.insertMany(alerts);
       console.log(`✅ Created ${alerts.length} alerts`);
     }
+
+    // Initialize ZoneStatus and Recommendations
+    console.log('🔄 Initializing WPI status and recommendations...');
+    const wpiService = await import('../services/wpi.service.js');
+    const recommendationService = await import('../services/recommendation.service.js');
+
+    const wpiResults = await wpiService.computeAllZonesWPI('normal');
+    console.log(`✅ Computed WPI for ${wpiResults.length} zones`);
+
+    for (const res of wpiResults) {
+      await recommendationService.generateAndSaveRecommendations(
+        res._id,
+        res.wpi,
+        res.signals,
+        'normal'
+      );
+    }
+    console.log('✅ Initialized WPI status and recommendations');
 
     console.log('🎉 Mumbai wards seed data created successfully!');
     console.log(`\n📊 Summary:

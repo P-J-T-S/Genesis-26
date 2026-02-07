@@ -37,10 +37,10 @@ const WardCard = ({ ward }) => {
         <div className="flex items-start justify-between">
           <div>
             <h3 className="text-lg font-semibold text-secondary-900 ">
-              {ward.name}
+              {ward.name || ward.zone_name}
             </h3>
             <p className="text-sm text-secondary-600 ">
-              {ward.id} • {ward.zone}
+              {ward.id || ward.zone_id} • {ward.zone || ward.zone_type}
             </p>
           </div>
           <div className="flex flex-col items-end gap-1">
