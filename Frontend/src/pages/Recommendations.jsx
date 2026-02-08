@@ -42,25 +42,25 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
       <div className="space-y-4">
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-2 mb-2">
               <span className={config.color}>
                 {config.icon}
               </span>
-              <span className={`text-xs font-semibold uppercase tracking-wide ${config.color}`}>
+              <span className={`text-[10px] sm:text-xs font-semibold uppercase tracking-wide ${config.color}`}>
                 {config.label}
               </span>
             </div>
-            <h3 className="text-lg font-semibold text-secondary-900 ">
+            <h3 className="text-base sm:text-lg font-semibold text-secondary-900 truncate">
               {recommendation.title || recommendation.recommended_action}
             </h3>
-            <p className="text-sm text-secondary-700   mt-1">
-              Ward: <span className="font-medium">{recommendation.wardName || recommendation.zone_id?.zone_name}</span> ({recommendation.wardId || recommendation.zone_id?.zone_id})
+            <p className="text-xs sm:text-sm text-secondary-700 mt-1">
+              Ward: <span className="font-medium">{recommendation.wardName || recommendation.zone_id?.zone_name}</span> <span className="hidden sm:inline">({recommendation.wardId || recommendation.zone_id?.zone_id})</span>
             </p>
           </div>
           <button
             onClick={onToggle}
-            className="btn btn-sm btn-secondary"
+            className="btn btn-sm btn-secondary flex-shrink-0"
           >
             {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
           </button>
@@ -72,21 +72,21 @@ const RecommendationCard = ({ recommendation, expanded, onToggle }) => {
         </p>
 
         {/* Quick Info */}
-        <div className="flex flex-wrap items-center gap-4 text-sm">
-          <div className="flex items-center gap-2 text-secondary-600 ">
-            <Clock className="w-4 h-4" />
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm">
+          <div className="flex items-center gap-2 text-secondary-600">
+            <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span>{recommendation.timeframe || formatRelativeTime(recommendation.generated_at)}</span>
           </div>
           {recommendation.resources?.vehicles > 0 && (
-            <div className="flex items-center gap-2 text-secondary-600 ">
-              <Truck className="w-4 h-4" />
-              <span>{recommendation.resources.vehicles} vehicles</span>
+            <div className="flex items-center gap-2 text-secondary-600">
+              <Truck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span>{recommendation.resources.vehicles} <span className="hidden xs:inline">vehicles</span><span className="xs:hidden">v.</span></span>
             </div>
           )}
           {recommendation.resources?.personnel > 0 && (
-            <div className="flex items-center gap-2 text-secondary-600 ">
-              <Users className="w-4 h-4" />
-              <span>{recommendation.resources.personnel} personnel</span>
+            <div className="flex items-center gap-2 text-secondary-600">
+              <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span>{recommendation.resources.personnel} <span className="hidden xs:inline">personnel</span><span className="xs:hidden">p.</span></span>
             </div>
           )}
         </div>
@@ -279,26 +279,26 @@ const Recommendations = () => {
   return (
     <div className="container-fluid py-6 space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-secondary-900 ">
+          <h1 className="text-2xl sm:text-3xl font-bold text-secondary-900">
             Action Recommendations
           </h1>
-          <p className="text-secondary-600  mt-1">
+          <p className="text-secondary-600 mt-1 text-sm sm:text-base">
             {filteredRecommendations.length} recommendations generated based on current conditions
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={expandAll}
-            className="btn btn-sm btn-secondary"
+            className="btn btn-xs sm:btn-sm btn-secondary"
           >
             Expand All
           </button>
           <button
             onClick={collapseAll}
-            className="btn btn-sm btn-secondary"
+            className="btn btn-xs sm:btn-sm btn-secondary"
           >
             Collapse All
           </button>
@@ -354,41 +354,43 @@ const Recommendations = () => {
             </span>
           </div>
 
-          <select
-            value={filterType}
-            onChange={(e) => setFilterType(e.target.value)}
-            className="select max-w-xs"
-          >
-            <option value="all">All Types</option>
-            <option value="urgent">Urgent</option>
-            <option value="preventive">Preventive</option>
-            <option value="event">Event</option>
-            <option value="routine">Routine</option>
-          </select>
-
-          <select
-            value={filterPriority}
-            onChange={(e) => setFilterPriority(e.target.value)}
-            className="select max-w-xs"
-          >
-            <option value="all">All Priorities</option>
-            <option value="critical">Critical</option>
-            <option value="high">High</option>
-            <option value="medium">Medium</option>
-            <option value="low">Low</option>
-          </select>
-
-          {hasActiveFilters && (
-            <button
-              onClick={() => {
-                setFilterType('all');
-                setFilterPriority('all');
-              }}
-              className="btn btn-sm btn-secondary"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-center gap-3 w-full">
+            <select
+              value={filterType}
+              onChange={(e) => setFilterType(e.target.value)}
+              className="select w-full lg:w-48"
             >
-              Clear Filters
-            </button>
-          )}
+              <option value="all">All Types</option>
+              <option value="urgent">Urgent</option>
+              <option value="preventive">Preventive</option>
+              <option value="event">Event</option>
+              <option value="routine">Routine</option>
+            </select>
+
+            <select
+              value={filterPriority}
+              onChange={(e) => setFilterPriority(e.target.value)}
+              className="select w-full lg:w-48"
+            >
+              <option value="all">All Priorities</option>
+              <option value="critical">Critical</option>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select>
+
+            {hasActiveFilters && (
+              <button
+                onClick={() => {
+                  setFilterType('all');
+                  setFilterPriority('all');
+                }}
+                className="btn btn-sm btn-secondary w-full lg:w-auto"
+              >
+                Clear Filters
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
