@@ -42,7 +42,7 @@ const PublicRoute = ({ children }) => {
 function AppRoutes() {
   return (
     <Routes>
-      {/* Public Routes */}
+      {/* Root redirects to Landing page */}
       <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
@@ -53,8 +53,8 @@ function AppRoutes() {
         <Route path="priorities" element={<Priorities />} />
         <Route path="recommendations" element={<Recommendations />} />
         <Route path="forecast" element={<Forecast />} />
-        {/* Redirect unknown routes to wards */}
-        <Route path="*" element={<Navigate to="/wards" replace />} />
+        {/* Redirect unknown routes to landing */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );

@@ -29,34 +29,34 @@ const Landing = () => {
 
   const features = [
     {
-      icon: <Wrench size={24} />,
-      title: 'One-Click Asset Intelligence',
-      description: "Never hunt for data again. Our 'Smart Button' technology provides an instant, filtered history of every repair.",
+      icon: <Zap size={24} />,
+      title: 'Live Waste Forecasts',
+      description: 'Get real-time predictions for waste generation and trends across Mumbai zones.',
+    },
+    {
+      icon: <BarChart3 size={24} />,
+      title: 'Zone Prioritization',
+      description: 'Identify and manage high-priority zones for efficient waste handling.',
     },
     {
       icon: <Users size={24} />,
-      title: 'Team Management',
-      description: 'Organize specialized teams and assign maintenance tasks efficiently.',
+      title: 'Community Engagement',
+      description: 'Empower citizens and officers to report, track, and resolve waste issues.',
     },
     {
       icon: <Calendar size={24} />,
       title: 'Smart Scheduling',
-      description: 'Schedule preventive maintenance and never miss critical service dates.',
-    },
-    {
-      icon: <BarChart3 size={24} />,
-      title: 'Insights & Reports',
-      description: 'Get actionable insights with comprehensive maintenance analytics.',
+      description: 'Optimize collection schedules and resource allocation for maximum impact.',
     },
     {
       icon: <Shield size={24} />,
-      title: 'Warranty Management',
-      description: 'Track warranty information and ensure timely claims.',
+      title: 'Alert & Signal System',
+      description: 'Receive instant alerts and signals for spikes, complaints, and zone status.',
     },
     {
-      icon: <Zap size={24} />,
-      title: 'Real-time Updates',
-      description: 'Stay informed with instant notifications and status updates.',
+      icon: <TrendingUp size={24} />,
+      title: 'Data-Driven Recommendations',
+      description: 'Leverage ML-powered insights to improve waste management strategies.',
     },
   ];
 
@@ -75,13 +75,15 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Logo />
-
             <div className="flex items-center gap-4">
-              <Link to="/login">
-                <Button variant="text" color="secondary">Login</Button>
+              <Link to="/wards">
+                <Button variant="contained" color="primary">Manage Wards</Button>
               </Link>
-              <Link to="/signup">
-                <Button variant='contained' color="primary">Get Started</Button>
+              <Link to="/forecast">
+                <Button variant="outlined" color="secondary">Forecast Waste</Button>
+              </Link>
+              <Link to="/priorities">
+                <Button variant="text" color="secondary">Zone Priorities</Button>
               </Link>
             </div>
           </div>
@@ -99,34 +101,39 @@ const Landing = () => {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-sm bg-primary-50 text-primary-700 border border-primary-100">
               <Zap size={16} />
-              <span>Trusted by 500+ companies worldwide</span>
+              <span>Genesis Mumbai Waste Management</span>
             </div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight text-secondary-900">
-              Fix Breakdowns
+              Smarter Waste. Cleaner Mumbai.
               <span className="block mt-2 bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
-                Before They Break You
+                Forecast. Prioritize. Act.
               </span>
             </h1>
 
             <p className="text-xl sm:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed text-secondary-600">
-              Centralize assets, automate maintenance requests, and keep teams moving with real-time visibility
+              ML-powered platform for real-time waste forecasting, zone prioritization, and actionable recommendations. Empowering BMC, officers, and citizens for a cleaner city.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link to="/signup">
+              <Link to="/wards">
                 <Button
                   size="large"
                   variant="contained"
                   className="w-full sm:w-auto shadow-lg hover:shadow-xl"
                   endIcon={<ArrowRight size={20} />}
                 >
-                  Start Managing Assets
+                  Explore Mumbai Wards
                 </Button>
               </Link>
-              <Link to="/login">
+              <Link to="/forecast">
                 <Button size="large" variant="outlined" className="w-full sm:w-auto">
-                  Explore Workflow
+                  View Waste Forecast
+                </Button>
+              </Link>
+              <Link to="/priorities">
+                <Button size="large" variant="text" className="w-full sm:w-auto">
+                  Zone Priorities
                 </Button>
               </Link>
             </div>
