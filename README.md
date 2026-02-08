@@ -6,19 +6,14 @@
 
 ---
 
-## 🔗 Quick Links (For Real experience)
-
-| 📍 Live Demo | 📋 Documentation | 🎯 Deployment |
-|:------------:|:----------------:|:-------------:|
-| [**Launch App**](#quick-start) | [View Docs](#-tech-stack) | [Deploy Now](#deployment) |
-
----
-
 ## 🎯 Problem Statement
 BMC's Solid Waste Management operates on fixed daily collection schedules that work on regular days but struggle during festivals, events, hotspots, and emergencies. While BMC receives digital signals (complaints, alerts, ward data), there is no unified system that anticipates waste pressure, prioritizes locations, and supports rapid operational decisions for waste collection and handling.
 
 ## 💡 Solution
 A decision-support layer that interprets waste signals, identifies high-risk areas, calculates dynamic priorities, and recommends adaptive collection strategies. It assists SWM supervisors in planning, prioritization, and rapid response without replacing existing citizen-facing platforms.
+
+# 📍 [Live HERE](https://github.com/P-J-T-S/Genesis-26/edit/main/README.md)
+
 
 ---
 
