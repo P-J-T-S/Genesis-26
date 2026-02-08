@@ -44,35 +44,16 @@ function AppRoutes() {
     <Routes>
       {/* Public Routes */}
       <Route path="/" element={<Landing />} />
-      <Route
-        path="/login"
-        element={
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/signup"
-        element={
-          <PublicRoute>
-            <Signup />
-          </PublicRoute>
-        }
-      />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
-      {/* Protected Routes */}
-      <Route
-        path="/*"
-        element={
-          <Layout />
-        }
-      >
+      {/* All pages are public */}
+      <Route path="/*" element={<Layout />} >
         <Route path="wards" element={<Wards />} />
         <Route path="priorities" element={<Priorities />} />
         <Route path="recommendations" element={<Recommendations />} />
         <Route path="forecast" element={<Forecast />} />
-        {/* Redirect unknown protected routes to wards */}
+        {/* Redirect unknown routes to wards */}
         <Route path="*" element={<Navigate to="/wards" replace />} />
       </Route>
     </Routes>
