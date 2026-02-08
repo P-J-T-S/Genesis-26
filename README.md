@@ -12,10 +12,8 @@ BMC's Solid Waste Management operates on fixed daily collection schedules that w
 ## 💡 Solution
 A decision-support layer that interprets waste signals, identifies high-risk areas, calculates dynamic priorities, and recommends adaptive collection strategies. It assists SWM supervisors in planning, prioritization, and rapid response without replacing existing citizen-facing platforms.
 
-# 📍 [Live HERE](https://github.com/P-J-T-S/Genesis-26/edit/main/README.md)
+# 📍 [Click Here for to see live](https://genesis-26.vercel.app/)
 
-
----
 
 ## 🚀 Key Features
 
