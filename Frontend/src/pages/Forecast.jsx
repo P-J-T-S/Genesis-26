@@ -14,11 +14,12 @@ import {
 } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { zonesAPI, forecastAPI } from '../services/api';
+import { wardsData } from '../data/demoData';
 import { ZONES, getWPILevel, formatTimestamp } from '../utils/helpers';
 
 const Forecast = () => {
     const [loading, setLoading] = useState(false);
-    const [wards, setWards] = useState([]);
+    const [wards, setWards] = useState(wardsData);
     const [formData, setFormData] = useState({
         date: new Date().toISOString().split('T')[0],
         zone: 'all',
@@ -28,17 +29,7 @@ const Forecast = () => {
     const [error, setError] = useState(null);
 
     // Fetch all wards on mount to populate the ward dropdown
-    useEffect(() => {
-        const fetchWards = async () => {
-            try {
-                const res = await zonesAPI.getWards('normal');
-                setWards(res.data.data);
-            } catch (err) {
-                console.error('Failed to fetch wards', err);
-            }
-        };
-        fetchWards();
-    }, []);
+    // No API call needed, using static wardsData
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
